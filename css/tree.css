@@ -1,0 +1,65 @@
+/* Status panel tree */
+ol.tree
+{
+	padding: 0;
+	width: 100%;
+    margin-top: 4px;
+}
+	li 
+	{ 
+		position: relative;
+		list-style: none;
+        margin-bottom: 2px;
+        padding: 3px;
+	}
+    li.group
+        {
+        border: 1px dashed;
+    }
+	li.file
+	{
+		margin-left: -1px !important;
+        cursor: pointer;
+	}
+		li.file a
+		{
+			background: url(../img/document.png) 0 0 no-repeat;
+			color: #000000;
+			padding-left: 21px;
+			text-decoration: none;
+			display: block;
+		}
+	li input
+	{
+		position: absolute;
+		left: 0;
+		margin-left: 0;
+		opacity: 0;
+		z-index: 2;
+		cursor: pointer;
+		height: 1em;
+		width: 1em;
+		top: 0;
+	}
+		li input + ol
+		{
+			background: url(../img/toggle-small-expand.png) 40px 0 no-repeat;
+			margin: -18px 0 0 -23px; /* 15px */
+			height: 1em;
+		}
+		li input + ol > li { display: none; margin-left: -14px !important; padding-left: 1px; }
+	li label
+	{
+		cursor: pointer;
+		padding-left: 37px;
+	}
+
+	li input:checked + ol
+	{
+		background: url(../img/toggle-small.png) 40px 5px no-repeat;
+		margin: -23px 0 0 -23px; /* 20px */
+		padding: 1.563em 0 0 80px;
+		height: auto;
+	}
+		li input:checked + ol > li { display: block; margin: 0 0 0.125em;  /* 2px */}
+		li input:checked + ol > li:last-child { margin: 0 0 0.063em; /* 1px */ }
