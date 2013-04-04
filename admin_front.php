@@ -48,6 +48,8 @@
                                 $tree[$product[0]][$product[1]] = $state; //put each service and its state under the corresponding product entry
                             }
                             
+                            print "<ol class='tree'>\r\n";
+                            
                             foreach($tree as $product => $array) {
                                 foreach($array as $service => $state) { //check status of services
                                     switch($state) {
