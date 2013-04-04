@@ -46,8 +46,8 @@
                     <ul>
                         <?php
                             foreach($incidents as $incident => $reports) {
-                                    $date = $incident["incidentTimestamp"];
-                                    $title = $incident["incidentTitle"];
+                                    $date = $reports["incidentTimestamp"];
+                                    $title = $reports["incidentTitle"];
                                     print "<li>Incident $incident - $date - $title</li>\r\n";
                                 
                             }
