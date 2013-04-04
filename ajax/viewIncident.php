@@ -21,14 +21,18 @@
     //getting results
     $result_json = curl_exec($ch);
     $result = json_decode($result_json, true);
+    $incident = $result["incident"];
     
-    var_dump($result);
-    // print "Incident ID: " . $result["incident"]["idIncident"] . "<br />";
-    // print "Timestamp: " . $result["report"]["timestamp"] . "<br />";
-    // print "Last update: " . $result["report"]["lastUpdate"] . "<br />";
-    // print "Check type: " . $result["report"]["checkType"] . "<br />";
-    // print "Source name: " . $result["report"]["sourceName"] . "<br />";
-    // print "Service name: " . $result["report"]["hostName"] . "<br />";
-    // print "Flag: " . $result["report"]["status"] . "<br /><br />";
-    // print "Error message:<br />" . $result["report"]["errorMessage"];
+    foreach($incident as $reports => $report) {
+        var_dump($reports);
+        }
+    
+    print "Incident ID: " . $result["incident"]["idIncident"] . "<br />";
+    print "Timestamp: " . $result["incident"]["timestamp"] . "<br />";
+    print "Last Flag: " . $result["incident"]["lastFlag"] . "<br />";
+    print "Connected Reports: " . $result["incident"]["connectedReport"] . "<br /><br />";
+    print "Last Message Date: " . $result["incident"]["lastMessageDate"] . "<br />";
+    print "Last Message: " . $result["incident"]["lastMessage"] . "<br />";
+    print "Connected Messages " . $result["incident"]["connectedMessages"] . "<br />";
+    
 ?>
