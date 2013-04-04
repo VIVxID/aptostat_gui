@@ -24,7 +24,7 @@
     $incident = $result["incident"];
     
     foreach($incident as $reports => $report) {
-        $idreport = $reports["idReport"]
+        $idreport = $report["idReport"]
         }
    
     
