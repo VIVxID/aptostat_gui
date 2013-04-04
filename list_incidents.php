@@ -48,7 +48,7 @@
                             foreach($incidents as $incident => $details) {
                                     $date = $details["incidentTimestamp"];
                                     $title = $details["incidentTitle"];
-                                    print "<li>Incident $incident - $date - $title</li>\r\n";
+                                    print "<li class='file' id='incident_$incident'>Incident $incident - $date - $title</li>\r\n";
                                 
                             }
                         ?>
@@ -69,7 +69,7 @@
                 <div class="groupbox_heading">
                     Details
                 </div>
-                <div class="groupbox_wrapper">
+                <div class="groupbox_wrapper" id="reportPane">
                     
                 </div>
                 <div class="list_content_menu_fat">
@@ -78,6 +78,20 @@
             </div>
         </div>
        
+       <script type="text/javascript">
+            $(document).ready(function() {
+                $('.file').click(function() {
+                    var incidentId = $(this).attr('id');
+                    var incident = incidentId.replace("incident_", "");
+                    $('#reportPane').load('ajax/viewIncident.php', {"incident": incident}, function(response, status, xhr) {
+                        if (status == "error") {
+                            var msg = "Error: ";
+                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                        }
+                    }).selectable();
+                });
+            });
+        </script>
         
         <?php include 'admin_footer.inc'; ?>
         
