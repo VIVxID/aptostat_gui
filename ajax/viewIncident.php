@@ -23,7 +23,7 @@
     $result = json_decode($result_json, true);
     $incident = $result["incident"];
     
-    foreach($incident as $reports => $report) {
+    foreach($incident as $reports) {
         $idreport = $reports["idReport"];
         }
    
