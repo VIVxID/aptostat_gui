@@ -1,24 +1,58 @@
-﻿<?php 
-    session_start();
-    $structuredReports = array();
-    if(isset($_POST)) {
-        $incidentID = $_POST["incidentId"];
-    }
-    
-    $url = "http://aptoapi.vlab.iu.hio.no/api/incident/$incidentID";
-    $curl = curl_init($url);
-    
+﻿<?php
+session_start();
+$incidentID = "1";
+        
+if(isset($_SESSION["incidentId"])) {
+        
+    $incidentID = $_SESSION["incidentID"];
+       
+}
+
+$url = "http://aptoapi.vlab.iu.hio.no/api/incident/$incidentID";
+$curl = curl_init($url);
+
+if(isset($_POST["flag"])) {
+
+    $arrayData = array(
+                    "message" => $_POST["text"],
+                    "author" => $_POST["author"],
+                    "flag" => $_POST["flag"],
+                    "visibility" => 1);
+                    
+    $jsonData = json_encode($arrayData);
+
     $options = array(
                     CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_CUSTOMREQUEST => "GET");
+                    CURLOPT_CUSTOMREQUEST => "PUT",
+                    CURLOPT_POSTFIELDS => $jsonData);
     
     curl_setopt_array($curl,$options);
     
-    $result = json_decode(curl_exec($curl),true);
-    $incident = $result["incident"];
+    if (curl_exec($curl)) {
+    
+        echo "SUCCESS!";
+        exit();
+        
+    } else {
+    
+        echo "FAIL!";
+        exit();
+        
+    }
+    
+}
+    
+$options = array(
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => "GET");
+    
+curl_setopt_array($curl,$options);
+    
+$result = json_decode(curl_exec($curl),true);
+$incident = $result["incident"];
     
 ?>
-    <form action="" method="post">;
+    <form action="edit_incident.php" method="post">;
     <br />;
     <?php
         echo "Selected incident: ".$incidentID."<br /><br />";
@@ -36,7 +70,7 @@
                         
                             foreach ($group as $report) {
                             
-                                echo "<li>".$report["checkType"]."</li>";
+                                echo "<li>".$report["checkType"]." - ".$report["errorMessage"]."</li>";
                             
                             }
                         echo "</ul>";
@@ -46,7 +80,7 @@
 ?>
                 </tr>
             </table>
-            Flag: <select name="flags">
+            Flag: <select name="flag">
                 <option value="2">Critical</option>
                 <option value="1">Warning</option>
                 <option value="5">Responding</option>
@@ -58,8 +92,9 @@
             <br />
         <fieldset>
             <legend>Message</legend>
-            Author: <input type="text" length="20" /><br />
-            <textarea rows="10" cols="50">Update message goes here...</textarea>
+            Author: <input name="author" type="text" length="20" /><br />
+            <textarea name="text" rows="10" cols="50">Update message goes here...</textarea>
+            <input type="submit" value="Submit" />
         </fieldset><br />                
     </form>
 ?>
