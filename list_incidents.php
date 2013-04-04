@@ -45,9 +45,9 @@
                 <div class="groupbox_wrapper">
                     <ul>
                         <?php
-                            foreach($incidents as $incident => $reports) {
-                                    $date = $reports["incidentTimestamp"];
-                                    $title = $reports["incidentTitle"];
+                            foreach($incidents as $incident => $details) {
+                                    $date = $details["incidentTimestamp"];
+                                    $title = $details["incidentTitle"];
                                     print "<li>Incident $incident - $date - $title</li>\r\n";
                                 
                             }
