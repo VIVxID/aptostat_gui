@@ -31,11 +31,11 @@ if(isset($_POST["flag"])) {
     if (curl_exec($curl) === false) {
     
         echo "Curl error: " . curl_error($curl);
-    
+        exit();
     } else {
     
-        echo "Message recieved.";
-    
+        echo curl_error($curl);
+        exit();
     }
 }
     
