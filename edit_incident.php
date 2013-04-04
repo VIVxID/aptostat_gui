@@ -1,6 +1,5 @@
 ﻿<?php
 session_start();
-$incidentID = "1";
         
 if(isset($_SESSION["incidentId"])) {
         
@@ -39,7 +38,7 @@ if(isset($_POST["flag"])) {
         exit();
     } else {
     
-        echo curl_error($curl);
+        echo "Message recieved.";
         exit();
     }
 }
