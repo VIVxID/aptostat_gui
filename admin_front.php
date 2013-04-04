@@ -69,7 +69,6 @@
                                 //$Atika = "down";
                                 //$DrPublish = "warning";
                                 
-                                print "<ol class='tree'>\r\n";
                                 print "<li>\r\n";
                                 if($$product == "down") {
                                     print "<label for='$product'><b>$product <img src='../img/cross.png' /> Down</b></label>\r\n".
