@@ -34,7 +34,7 @@ if(isset($_POST["flag"])) {
     
     } else {
     
-        echo "Message recieved."
+        echo "Message recieved.";
     
     }
 }
