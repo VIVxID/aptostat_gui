@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     //Uthenting av report
     
     $report = $_POST["report"];

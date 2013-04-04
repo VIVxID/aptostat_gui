@@ -1,4 +1,4 @@
-<?php 
+<?php
     // Include the main Propel script
     require_once '/var/www/vendor/propel/propel1/runtime/lib/Propel.php';
 
