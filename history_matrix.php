@@ -79,7 +79,7 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
             }
         }
     
-        for ($i=6;$i<=0;$i-1) {
+        for ($i = 6;$i <= 0;$i-1) {
         
             $print = 0;
             echo "<td>";
