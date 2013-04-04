@@ -24,16 +24,16 @@
     $incident = $result["incident"];
     
     foreach($incident as $reports => $report) {
-        $idreport = $reports["idReport"];
+        $idreport = $report["idReport"];
         }
    
     
-    print "Incident ID: " . $result["incident"]["idIncident"] . "<br />";
-    print "Timestamp: " . $result["incident"]["timestamp"] . "<br />";
-    print "Last Flag: " . $result["incident"]["lastFlag"] . "<br />";
+    print "Incident ID: " . $incident["idIncident"] . "<br />";
+    print "Timestamp: " . $incident["timestamp"] . "<br />";
+    print "Last Flag: " . $incident["lastFlag"] . "<br />";
     print "Connected Reports: " . $idreport . "<br /><br />";
-    print "Last Message Date: " . $result["incident"]["lastMessageDate"] . "<br />";
-    print "Last Message: " . $result["incident"]["lastMessage"] . "<br />";
-    print "Connected Messages " . $result["incident"]["connectedMessages"] . "<br />";
+    print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
+    print "Last Message: " . $incident["lastMessage"] . "<br />";
+    print "Connected Messages " . $incident["connectedMessages"] . "<br />";
     
 ?>
