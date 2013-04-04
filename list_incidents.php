@@ -35,8 +35,6 @@
             $result = json_decode($result_json, true);
             $incidents = $result["report"]["incidents"];
             ksort($incidents);
-            
-            var_dump($incidents);
         ?>
         
         <div class="container_12 content_box">
@@ -47,10 +45,11 @@
                 <div class="groupbox_wrapper">
                     <ul>
                         <?php
-                            foreach($incidents as $incident => $array) {
-                                $date = $incident["timestamp"];
-                                $title = $incident["title"];
-                                print "<li>Incident $incident - $date - $title</li>\r\n";
+                            foreach($incidents as $incident => $reports) {
+                                    $date = $incident["incidentTimestamp"];
+                                    $title = $incident["incidentTitle"];
+                                    print "<li>Incident $incident - $date - $title</li>\r\n";
+                                
                             }
                         ?>
                     </ul>
