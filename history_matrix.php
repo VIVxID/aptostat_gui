@@ -79,7 +79,7 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
             
             foreach ($timeFrame as $date => $status) {
 
-                if (date("D d", time()-(86400*$i) == $date) {
+                if (date("D d", time()-(86400*$i)) == $date) {
                 
                     if ($status == "down") {
                     
