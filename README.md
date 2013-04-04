@@ -1,4 +1,4 @@
 aptostat_gui
 ============
 
-aptostat_gui
+Front-end part of Aptostat
