@@ -28,18 +28,15 @@ if(isset($_POST["flag"])) {
     
     curl_setopt_array($curl,$options);
     
-    if (curl_exec($curl)) {
+    if (curl_exec($curl) === false) {
     
-        echo "SUCCESS!";
-        exit();
-        
+        echo "Curl error: " . curl_error($curl);
+    
     } else {
     
-        echo "FAIL!";
-        exit();
-        
-    }
+        echo "Message recieved."
     
+    }
 }
     
 $options = array(
@@ -52,8 +49,8 @@ $result = json_decode(curl_exec($curl),true);
 $incident = $result["incident"];
     
 ?>
-    <form action="edit_incident.php" method="post">;
-    <br />;
+    <form action="edit_incident.php" method="post">
+    <br />
     <?php
         echo "Selected incident: ".$incidentID."<br /><br />";
         echo "<fieldset>";
@@ -97,4 +94,3 @@ $incident = $result["incident"];
             <input type="submit" value="Submit" />
         </fieldset><br />                
     </form>
-?>
