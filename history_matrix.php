@@ -19,25 +19,25 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
         </td>
 <?php
         echo "<td>";
-            echo date("D d",time());
-        echo "</td>";
-        echo "<td>";
-            echo date("D d",time()-86400);
-        echo "</td>";
-        echo "<td>";
-            echo date("D d",time()-172800);
-        echo "</td>";
-        echo "<td>";
-            echo date("D d",time()-259200);
-        echo "</td>";
-        echo "<td>";
-            echo date("D d",time()-345600);
+            echo date("D d",time()-518400);
         echo "</td>";
         echo "<td>";
             echo date("D d",time()-432000);
         echo "</td>";
         echo "<td>";
-            echo date("D d",time()-518400);
+            echo date("D d",time()-345600);
+        echo "</td>";
+        echo "<td>";
+            echo date("D d",time()-259200);
+        echo "</td>";
+        echo "<td>";
+            echo date("D d",time()-172800);
+        echo "</td>";
+        echo "<td>";
+            echo date("D d",time()-86400);
+        echo "</td>";
+        echo "<td>";
+            echo date("D d",time());
         echo "</td>";
     echo "</tr>";
 
@@ -59,11 +59,17 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
             CURLOPT_HTTPHEADER => array("App-Key: ".$login[2]),
             CURLOPT_RETURNTRANSFER => true
         );
-
+        
         curl_setopt_array($curl,$options);
         $response = json_decode(curl_exec($curl),true);
-        $checkList = $response["summary"]["states"];
         
+        if (isset($response["error"])) {
+            echo $response["error"]["errormessage"];
+            exit();
+        }
+        
+        $checkList = $response["summary"]["states"];
+        var_dump($checkList);
         foreach ($checkList as $check) {
         
             if ($check["status"] != "up") {
@@ -73,8 +79,9 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
             }
         }
     
-        for ($i = 6; $i = 0; $i--) {
+        for ($i = 6; $i <= 0; $i-1) {
         
+            $print = 0;
             echo "<td>";
             
             foreach ($timeFrame as $date => $status) {
@@ -94,13 +101,12 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
                 }
             }
 
-            if ($print != 1) {
+            if ($print == 0) {
             
                 echo "<img src='../img/check.png' />";
             
             }
             
-            $print = 0;
             echo "</td>";
         }
     
