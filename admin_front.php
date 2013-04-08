@@ -91,7 +91,7 @@
                                     if ($state == "up") {
                                         print "<img src='../img/check.png' /> OK\r\n";
                                         }
-                                    elseif ($state =="down") {
+                                    elseif ($state == "down") {
                                         print "<img src='../img/cross.png' /> Down\r\n";
                                     }
                                     else {
