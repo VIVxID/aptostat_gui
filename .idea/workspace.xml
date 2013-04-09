@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_front.php" afterPath="$PROJECT_DIR$/admin_front.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/history_matrix.php" afterPath="$PROJECT_DIR$/history_matrix.php" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498525425" ignored="false" />
-    <file path="/history_matrix.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365500907695" ignored="false" />
+    <file path="/history_matrix.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365501219879" ignored="false" />
     <file path="$PROJECT_DIR$/../aptostat_api/src/aptostatApi/model/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498579473" ignored="false" />
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
+    <file path="/admin_front.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365501169528" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +34,24 @@
       <file leaf-file-name="history_matrix.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/history_matrix.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="8" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.16078985">
+            <state line="88" column="4" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.8081805">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_front.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_front.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="152" column="0" selection-start="7125" selection-end="7125" vertical-scroll-proportion="-2.6153846">
+              <folding>
+                <marker date="1365501185762" expanded="true" signature="7404:7443" placeholder="..." />
+                <marker date="1365501185762" expanded="true" signature="7604:7643" placeholder="..." />
+                <marker date="1365501185762" expanded="true" signature="7920:7959" placeholder="..." />
+                <marker date="1365501185762" expanded="true" signature="8109:8148" placeholder="..." />
+                <marker date="1365501185762" expanded="true" signature="8304:8345" placeholder="..." />
+                <marker date="1365501185762" expanded="true" signature="8480:8521" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,10 +74,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/group_reports.php" />
         <option value="$PROJECT_DIR$/list_incidents.php" />
         <option value="$PROJECT_DIR$/customer_front.php" />
+        <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/history_matrix.php" />
       </list>
     </option>
@@ -241,13 +259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_front.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="407" column="29" selection-start="15509" selection-end="15509" vertical-scroll-proportion="-0.44109195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin_footer.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -269,9 +280,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin_front.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="0" selection-start="7125" selection-end="7125" vertical-scroll-proportion="-2.6153846">
+          <folding>
+            <marker date="1365501185762" expanded="true" signature="7404:7443" placeholder="..." />
+            <marker date="1365501185762" expanded="true" signature="7604:7643" placeholder="..." />
+            <marker date="1365501185762" expanded="true" signature="7920:7959" placeholder="..." />
+            <marker date="1365501185762" expanded="true" signature="8109:8148" placeholder="..." />
+            <marker date="1365501185762" expanded="true" signature="8304:8345" placeholder="..." />
+            <marker date="1365501185762" expanded="true" signature="8480:8521" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/history_matrix.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="8" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.16078985">
+        <state line="88" column="4" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.8081805">
           <folding />
         </state>
       </provider>

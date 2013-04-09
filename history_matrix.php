@@ -86,3 +86,6 @@ $response = json_decode(curl_exec($curl),true);
     }
     
 ?>
+    
+    </tr>
+</table>
