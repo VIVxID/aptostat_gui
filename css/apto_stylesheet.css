@@ -308,8 +308,12 @@ a {
     padding: 6px 8px;
 }
 
-.history {
-    width: 90%;
+#history {
+    width: 100%;
+}
+
+#history.tr {
+    padding-bottom: 5px;
 }
 
 /** tabell boks **/

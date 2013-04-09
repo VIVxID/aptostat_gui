@@ -1,4 +1,4 @@
-<table class="history">
+<table id="history">
     <tr>
         <td>
             Service:
