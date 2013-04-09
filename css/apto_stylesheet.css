@@ -85,10 +85,14 @@ a {
 /** current status **/
 
 #current_box {
-    margin: 50px auto;
+    margin: 50px auto 0;
     width: 80%;
-    border: 2px solid #939393;
+    /*border: 2px solid #939393;*/
     min-height: 200px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 10px;
 }
 
 #current_box.no_issues {
@@ -254,8 +258,12 @@ a {
 
 .front_messagebox {
     padding: 10px;
-    border: 2px solid #939393;
-    margin: 50px auto 20px;
+    /*border: 2px solid #939393;*/
+    margin: 50px auto 0;
+    background-color: #eeeeee;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 .front_messagebox hr {
@@ -268,10 +276,6 @@ a {
 }
 
 /** statuspanel style **/
-
-#realtimestatus {
-    
-}
 
 .hor-minimalist-b
 {
