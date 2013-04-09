@@ -3,7 +3,7 @@ session_start();
         
 if(isset($_POST["incident"])) {
         
-    $incidentID = $_POST["incident"];
+    $incident = $_POST["incident"];
        
 }
 

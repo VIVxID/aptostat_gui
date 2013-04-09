@@ -93,7 +93,7 @@
                             }
                         }).selectable();
                         
-                        $('#newMessage').style.display = 'block';
+                        $('#newMessage').style.display = 'inline';
                     });
                     
                     $('#newMessage').click(function() {
