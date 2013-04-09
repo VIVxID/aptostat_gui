@@ -312,7 +312,7 @@ a {
     width: 100%;
 }
 
-#history.tr {
+#history tr td {
     padding-bottom: 5px;
 }
 
