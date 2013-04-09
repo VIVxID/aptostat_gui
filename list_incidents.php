@@ -91,8 +91,7 @@
                     }).selectable();
                 });
             });
-        </script>
-        <script type="text/javascript">
+            
             $(document).ready(function() {
                 $('#newMessage').click(function() {
                     $('#reportPane').load('ajax/edit_incident.php', {"incident": incident}, function(response, status, xhr) {
