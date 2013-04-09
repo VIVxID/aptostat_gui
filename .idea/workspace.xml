@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_front.php" afterPath="$PROJECT_DIR$/admin_front.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer_front.php" afterPath="$PROJECT_DIR$/customer_front.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/group_reports.php" afterPath="$PROJECT_DIR$/group_reports.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/history_matrix.php" afterPath="$PROJECT_DIR$/history_matrix.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/list_incidents.php" afterPath="$PROJECT_DIR$/list_incidents.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +33,7 @@
       <file leaf-file-name="history_matrix.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/history_matrix.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="94" selection-end="94" vertical-scroll-proportion="0.16784203">
+            <state line="51" column="28" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.25669956">
               <folding />
             </state>
           </provider>
@@ -60,11 +57,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/history_matrix.php" />
         <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/group_reports.php" />
         <option value="$PROJECT_DIR$/list_incidents.php" />
         <option value="$PROJECT_DIR$/customer_front.php" />
+        <option value="$PROJECT_DIR$/history_matrix.php" />
       </list>
     </option>
   </component>
@@ -275,7 +272,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/history_matrix.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="94" selection-end="94" vertical-scroll-proportion="0.16784203">
+        <state line="51" column="28" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.25669956">
           <folding />
         </state>
       </provider>

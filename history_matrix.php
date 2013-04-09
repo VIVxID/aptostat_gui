@@ -49,7 +49,7 @@ $response = json_decode(curl_exec($curl),true);
                 echo $host;
             echo "</td>";
     
-        for ($i = 6;$i <= 0;$i--) {
+        for ($i=0;$i>=6;$i++) {
         
             $print = 0;
             echo "<td>";
