@@ -13,8 +13,8 @@ $options = array(
     CURLOPT_CUSTOMREQUEST => "GET"
 );
 
-curl_setopt_array($ch, $options);
-$response = json_decode(curl_exec($ch),true);
+curl_setopt_array($curl, $options);
+$response = json_decode(curl_exec($curl),true);
 
 
         echo "<td>";
