@@ -48,8 +48,9 @@ $response = json_decode(curl_exec($curl),true);
             echo "<td>";
                 echo $host;
             echo "</td>";
-    
-        for ($i=0;$i>=6;$i++) {
+
+        $i = 6;
+        while ($i >= 0) {
         
             $print = 0;
             echo "<td>";
@@ -78,6 +79,7 @@ $response = json_decode(curl_exec($curl),true);
             }
             
             echo "</td>";
+            $i-=1;
         }
     
         echo "</tr>";

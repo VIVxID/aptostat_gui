@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/history_matrix.php" afterPath="$PROJECT_DIR$/history_matrix.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498525425" ignored="false" />
-    <file path="/history_matrix.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365499155328" ignored="false" />
+    <file path="/history_matrix.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365500907695" ignored="false" />
     <file path="$PROJECT_DIR$/../aptostat_api/src/aptostatApi/model/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498579473" ignored="false" />
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +32,7 @@
       <file leaf-file-name="history_matrix.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/history_matrix.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="28" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.25669956">
+            <state line="53" column="8" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.16078985">
               <folding />
             </state>
           </provider>
@@ -272,7 +271,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/history_matrix.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="28" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.25669956">
+        <state line="53" column="8" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.16078985">
           <folding />
         </state>
       </provider>
