@@ -23,6 +23,7 @@
     $result = json_decode($result_json, true);
     $incident = $result["incident"];
     $reports = $incident["connectedReports"];
+    $lastMessages = $incident["connectedMessages"];
     
     print "Incident ID: " . $incident["idIncident"] . "<br />";
     print "Timestamp: " . $incident["timestamp"] . "<br />";
@@ -35,6 +36,16 @@
     print "<br /><br />";
     print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
     print "Last Message: " . $incident["lastMessage"] . "<br />";
-    print "Connected Messages " . $incident["connectedMessages"] . "<br />";
+    print "Connected Messages " . foreach($lastMessages as $messages) {
+        $date = $messages["messageDate"];
+        $status = $messages["status"];
+        $author = $messages["author"];
+        $messageText = $messages["messageText"];
+        print $date . ", ""<br />";
+        print $status . ", ""<br />";
+        print $author . ", ""<br />";
+        print $messageText . ", ""<br />";
+        
+    }  . "<br />";
     
 ?>
