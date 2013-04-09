@@ -148,18 +148,14 @@
             <hr />
             
             <div class="row">
-                <div class="span12 centered">
+                <div class="span5">
                     
                     <h3> Status History - last 7 days</h3>
 
                     <?php include "history_matrix.php"; ?>
                 </div>
-            </div>
             
-            <hr />
-            
-            <div class="row">
-                <div class="span12 centered">
+                <div class="span7">
                     <div id="current_box" class="error">
                     
                         <h3>Issue history - Last 3 days</h3>
