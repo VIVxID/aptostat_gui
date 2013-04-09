@@ -75,7 +75,7 @@ a {
     font-weight: bold;
     font-size: 18px;
     color: #414141/*#372E2B*/;
-    text-decoration: none;
+    text-decoration: none !important;
 }
     
 .footer_middle a:hover {
