@@ -23,29 +23,34 @@
     $result = json_decode($result_json, true);
     $incident = $result["incident"];
     $reports = $incident["connectedReports"];
-    $lastMessages = $incident["connectedMessages"];
+    $lastMessages = $incident["connectedMessages"]["public"];
     
     print "Incident ID: " . $incident["idIncident"] . "<br />";
     print "Timestamp: " . $incident["timestamp"] . "<br />";
     print "Last Flag: " . $incident["lastFlag"] . "<br />";
+    print "Author: " . $incident["author"] . "<br />";
     print "Connected Reports: ";
     foreach($reports as $report) {
         $idReport = $report["idReport"];
         print $idReport . ", ";
     }
-    print "<br /><br />";
+    print "<br />";
     print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
     print "Last Message: " . $incident["lastMessage"] . "<br />";
-    print "Connected Messages " . foreach($lastMessages as $messages) {
+    
+    print "<br /> Connected Messages : <br />";
+    foreach($lastMessages as $messages) {
+        
         $date = $messages["messageDate"];
         $status = $messages["status"];
         $author = $messages["author"];
         $messageText = $messages["messageText"];
-        print $date . ", ""<br />";
-        print $status . ", ""<br />";
-        print $author . ", ""<br />";
-        print $messageText . ", ""<br />";
         
-    }  . "<br />";
+        print "Date: " . $date . "<br />";
+        print "Flag: " . $status . "<br />";
+        print "Author: " . $author . "<br />";
+        print "Message: " . $messageText . "<br />";
+        
+   }   
     
 ?>
