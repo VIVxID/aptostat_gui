@@ -16,7 +16,7 @@
         
         <?php
             //API URL
-            $json_url = "http://apto.vlab.iu.hio.no/api/report";
+            $json_url = "http://aptoapi.vlab.iu.hio.no/api/report";
             
             //initializing curl
             $ch = curl_init($json_url);

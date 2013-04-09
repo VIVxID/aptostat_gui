@@ -25,7 +25,7 @@
                     <?php
                 
                         //JSON
-                        $json_url = "http://apto.vlab.iu.hio.no/api/live";
+                        $json_url = "http://aptoapi.vlab.iu.hio.no/api/live";
                         
                         //initializing curl
                         $ch = curl_init($json_url);

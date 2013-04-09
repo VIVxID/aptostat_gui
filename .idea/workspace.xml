@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_front.php" afterPath="$PROJECT_DIR$/admin_front.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer_front.php" afterPath="$PROJECT_DIR$/customer_front.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/group_reports.php" afterPath="$PROJECT_DIR$/group_reports.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/history_matrix.php" afterPath="$PROJECT_DIR$/history_matrix.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/list_incidents.php" afterPath="$PROJECT_DIR$/list_incidents.php" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +36,7 @@
       <file leaf-file-name="history_matrix.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/history_matrix.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="0" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.95204514">
+            <state line="7" column="22" selection-start="94" selection-end="94" vertical-scroll-proportion="0.16784203">
               <folding />
             </state>
           </provider>
@@ -57,6 +61,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/history_matrix.php" />
+        <option value="$PROJECT_DIR$/admin_front.php" />
+        <option value="$PROJECT_DIR$/group_reports.php" />
+        <option value="$PROJECT_DIR$/list_incidents.php" />
+        <option value="$PROJECT_DIR$/customer_front.php" />
       </list>
     </option>
   </component>
@@ -216,16 +224,58 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/list_incidents.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="9" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html_head.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="28" selection-start="177" selection-end="177" vertical-scroll-proportion="0.14655173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin_front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="19" selection-start="930" selection-end="930" vertical-scroll-proportion="0.29310346">
+        <state line="407" column="29" selection-start="15509" selection-end="15509" vertical-scroll-proportion="-0.44109195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_footer.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer_front.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="51" selection-start="676" selection-end="676" vertical-scroll-proportion="-9.698276">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_incident.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5176305">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/history_matrix.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.95204514">
+        <state line="7" column="22" selection-start="94" selection-end="94" vertical-scroll-proportion="0.16784203">
           <folding />
         </state>
       </provider>

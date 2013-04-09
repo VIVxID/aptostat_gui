@@ -5,7 +5,7 @@
         </td>
 <?php
 
-$url = "http://apto.vlab.iu.hio.no/api/uptime";
+$url = "http://aptoapi.vlab.iu.hio.no/api/uptime";
 $curl = curl_init($url);
 
 $options = array(
