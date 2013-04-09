@@ -27,10 +27,12 @@
     print "Incident ID: " . $incident["idIncident"] . "<br />";
     print "Timestamp: " . $incident["timestamp"] . "<br />";
     print "Last Flag: " . $incident["lastFlag"] . "<br />";
-    print "Connected Reports: " . foreach($reports as $report) {
+    print "Connected Reports: ";
+    foreach($reports as $report) {
         $idReport = $report["idReport"];
         print $idReport . ", ";
-    } . "<br /><br />";
+    }
+    print "<br /><br />";
     print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
     print "Last Message: " . $incident["lastMessage"] . "<br />";
     print "Connected Messages " . $incident["connectedMessages"] . "<br />";
