@@ -1,9 +1,9 @@
 ﻿<?php
 session_start();
         
-if(isset($_SESSION["incidentId"])) {
+if(isset($_POST["incidentId"])) {
         
-    $incidentID = $_SESSION["incidentID"];
+    $incidentID = $_POST["incidentID"];
        
 }
 

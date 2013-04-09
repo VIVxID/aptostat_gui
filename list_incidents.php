@@ -70,10 +70,10 @@
                     Details
                 </div>
                 <div class="groupbox_wrapper" id="reportPane">
-                    
+                        Click on an incident to view it and to make or edit messages for the incident.
                 </div>
                 <div class="list_content_menu_fat">
-                    <a href="http://apto.vlab.iu.hio.no/edit_incident.php" style="float: right; margin-right: 5px; margin-top: 10px;">Make new message</a>
+                    <a href="http://apto.vlab.iu.hio.no/edit_incident.php" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px;">Make new message</a>
                 </div>
             </div>
         </div>
@@ -84,6 +84,18 @@
                     var incidentId = $(this).attr('id');
                     var incident = incidentId.replace("incident_", "");
                     $('#reportPane').load('ajax/viewIncident.php', {"incident": incident}, function(response, status, xhr) {
+                        if (status == "error") {
+                            var msg = "Error: ";
+                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                        }
+                    }).selectable();
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#newMessage').click(function() {
+                    $('#reportPane').load('ajax/edit_incident.php', {"incident": incident}, function(response, status, xhr) {
                         if (status == "error") {
                             var msg = "Error: ";
                             $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
