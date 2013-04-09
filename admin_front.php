@@ -144,21 +144,25 @@
                     </div>
                 </div>
             </div>
-        
-        </div>
-        <div class="container">
-            <hr/>
             
-            <h3> Status History - last 7 days</h3>
+            <hr />
+            
+            <div class="row">
+                <div class="span6 offset3">
+                    
+                    <h3> Status History - last 7 days</h3>
 
-            <?php include "history_matrix.php"; ?>
-
-            <hr/>
+                    <?php include "history_matrix.php"; ?>
+                </div>
+            </div>
             
-            <div id="current_box" class="error">
+            <hr />
             
-            <h3>Issue history - Last 3 days</h3>
-            <table border="0" class="current_box_table">
+            <div class="row">
+                <div id="current_box" class="error">
+                
+                    <h3>Issue history - Last 3 days</h3>
+                    <table border="0" class="current_box_table">
                         <tr>
                             <td class="table-left">Ongoing issues</td>
                             <td class="table-right">[Unresolved]</td>
@@ -190,9 +194,10 @@
                             </td>
                         </tr>
                     </table>
+                </div>
             </div>
-            </div>
-      
+        
+        </div>
         
         <?php include 'admin_footer.inc'; ?>
        
