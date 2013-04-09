@@ -1,23 +1,22 @@
-<?php
-$hosts = array(
-                "Atika Backoffice" => 615766,
-                "DrVideo Encoding" => 615772,
-                "DrFront Backoffice" => 615760,
-                "DrVideo Backoffice" => 615764,
-                "DrVideo CDN" => 615768,
-                "DrVideo API" => 615770,
-                "DrPublish Backoffice" => 615767,
-                "DrPublish API" => 615771);
-
-$login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
-?>
-
 <table>
     <tr>
         <td>
             Service:
         </td>
 <?php
+
+$url = "http://apto.vlab.iu.hio.no/api/uptime";
+$curl = curl_init($url);
+
+$options = array(
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_CUSTOMREQUEST => "GET"
+);
+
+curl_setopt_array($curl, $options);
+$response = json_decode(curl_exec($curl),true);
+
+
         echo "<td>";
             echo date("D d",time()-518400);
         echo "</td>";
@@ -41,52 +40,23 @@ $login = file("/var/apto/ping", FILE_IGNORE_NEW_LINES);
         echo "</td>";
     echo "</tr>";
 
-    foreach ($hosts as $hostName => $hostID) {
+    foreach ($response as $host => $errors) {
     
         $timeFrame = array();
     
         echo "<tr>";
             echo "<td>";
-                echo $hostName;
+                echo $host;
             echo "</td>";
     
-        $curl = curl_init();
-    
-        $options = array(
-            CURLOPT_URL => "https://api.pingdom.com/api/2.0/summary.outage/$hostID",
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_USERPWD => $login[0].":".$login[1],
-            CURLOPT_HTTPHEADER => array("App-Key: ".$login[2]),
-            CURLOPT_RETURNTRANSFER => true
-        );
-        
-        curl_setopt_array($curl,$options);
-        $response = json_decode(curl_exec($curl),true);
-        
-        if (isset($response["error"])) {
-            echo $response["error"]["errormessage"];
-            exit();
-        }
-        
-        $checkList = $response["summary"]["states"];
-        var_dump($checkList);
-        foreach ($checkList as $check) {
-        
-            if ($check["status"] != "up") {
-            
-                $timeFrame[date("D d",$check["timefrom"])] = $check["status"];
-            
-            }
-        }
-    
-        for ($i = 6;$i <= 0;$i-1) {
+        for ($i = 6;$i <= 0;$i--) {
         
             $print = 0;
             echo "<td>";
             
-            foreach ($timeFrame as $errorDate => $status) {
+            foreach ($errors as $errorDate => $status) {
 
-                if (date("D d", time()-(86400*$i)) == $errorDate) {
+                if (date("D d", time()-(86400*$i)) == date("D d", $errorDate)) {
                 
                     if ($status == "down") {
                     
