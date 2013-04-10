@@ -103,8 +103,7 @@
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
                         }).selectable();
-                    }
-                    return false;);
+                    });
                     
                 });
         </script>
