@@ -93,7 +93,7 @@
                             }
                         }).selectable();
                         
-                        $('#newMessage').show(0);
+                        $('#newMessage').show();
                     });
                     
                     $('#newMessage').click(function() {
