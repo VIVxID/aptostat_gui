@@ -96,13 +96,14 @@
                         $('#newMessage').show();
                     });
                     
-                    $('#newMessage').click(function() {
+                    $('#newMessage').click(function(event) {
                         $('#reportPane').load('ajax/editIncident.php', {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
-                        }).selectable();
+                        });
+                        event.preventDefault();
                     });
                     
                 });
