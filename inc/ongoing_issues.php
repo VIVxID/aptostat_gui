@@ -15,40 +15,30 @@ $response = json_decode(curl_exec($curl), true);
 
 $checkList = $response["report"]["incidents"];
 
-echo "<ul class='nav nav-pills'>";
+if (!empty($checkList)) {
 
-foreach ($checkList as $id => $incident) {
+    echo '<div id="current_box" class="tabbable">';
 
-    if ($tabs == 1) {
+} else {
 
-        echo "<li class='active'><a href='#tab1' data-toggle='tab'>Incident #".$id."</a></li>";
-        $tabs++;
+    echo '<div id="current_box" class="tabbable">';
 
-    } else {
-
-        echo "<li><a href='#tab".$tabs."' data-toggle='tab'>Incident #".$id."</a></li>";
-        $tabs++;
-
-    }
 }
 
-$tabs = 1;
-echo "</ul>";
-echo "<div class='tab-content'>";
+echo "<div class='accordion' id='accordion2'>";
 
 foreach ($checkList as $id => $incident) {
 
-    if ($tabs == 1) {
+    echo "<div class='accordion-group'>";
 
-        echo "<div class='tab-pane active' id='tab1'>";
-        $tabs++;
+    echo "<div class='accordion-heading'>";
+    echo "<a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse".$id."'>";
+    echo "Incident #".$id;
+    echo "</a>";
+    echo "</div>";
 
-    } else {
-
-        echo "<div class='tab-pane' id='tab".$tabs."'>";
-        $tabs++;
-
-    }
+    echo "<div id='#collapse".$id."' class='accordion-body collapse'>";
+    echo "<div class='accordion-inner'>";
 
     echo "<table border='0' class='current_box_table'>";
 
@@ -91,6 +81,10 @@ foreach ($checkList as $id => $incident) {
 
     echo "</table>";
     echo "</div>";
+    echo "</div>";
+    echo "</div>";
 }
+
+echo "</div>";
 
 echo "</div>";
