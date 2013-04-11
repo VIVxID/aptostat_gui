@@ -89,12 +89,13 @@
                         var incidentId = $(this).attr("id");
                         var incident = incidentId.replace("incident_", "");
                         $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
-                            $(this).fadeIn("normal");
                             if (status == "error") {
                                 var msg = "Error: ";
-                                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText), {}, function() {
+                                    $(this).fadeIn("normal");
+                                }
                             }
-                        });
+                        }
                         
                         $('#newMessage').show();
                     });
