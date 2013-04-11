@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.css" afterPath="$PROJECT_DIR$/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/message_history.php" afterPath="$PROJECT_DIR$/inc/message_history.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/ongoing_issues.php" afterPath="$PROJECT_DIR$/inc/ongoing_issues.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/editIncident.php" afterPath="$PROJECT_DIR$/ajax/editIncident.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
@@ -20,6 +18,7 @@
     <file path="/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678285522" ignored="false" />
     <file path="/uptime_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365679497255" ignored="false" />
     <file path="/message_history.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365682536416" ignored="false" />
+    <file path="/editIncident.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365684144121" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,46 +38,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="message_history.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/message_history.php">
+      <file leaf-file-name="list_incidents.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/list_incidents.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="58" selection-start="1485" selection-end="1485" vertical-scroll-proportion="-12.076923">
+            <state line="87" column="49" selection-start="3371" selection-end="3371" vertical-scroll-proportion="-4.8846154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apto_stylesheet.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
+      <file leaf-file-name="editIncident.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ajax/editIncident.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="13" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1998" column="2" selection-start="34890" selection-end="34890" vertical-scroll-proportion="0.6406685">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ongoing_issues.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="-35.96154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_front.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin_front.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="67" selection-start="1395" selection-end="1395" vertical-scroll-proportion="-18.0">
+            <state line="8" column="4" selection-start="140" selection-end="140" vertical-scroll-proportion="0.1929078">
               <folding />
             </state>
           </provider>
@@ -114,8 +86,9 @@
         <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/css/apto_stylesheet.css" />
         <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
-        <option value="$PROJECT_DIR$/inc/message_history.php" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/inc/message_history.php" />
+        <option value="$PROJECT_DIR$/ajax/editIncident.php" />
       </list>
     </option>
   </component>
@@ -196,6 +169,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aptostat_gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aptostat_gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ajax" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,27 +302,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/list_incidents.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="9" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group_reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="28" selection-start="177" selection-end="177" vertical-scroll-proportion="0.14655173">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/customer_front.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="51" selection-start="676" selection-end="676" vertical-scroll-proportion="-9.698276">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -388,37 +354,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_front.php">
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="67" selection-start="1395" selection-end="1395" vertical-scroll-proportion="-18.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="-35.96154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/message_history.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="58" selection-start="1485" selection-end="1485" vertical-scroll-proportion="-12.076923">
+        <state line="1998" column="2" selection-start="34890" selection-end="34890" vertical-scroll-proportion="0.6406685">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="13" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0">
+        <state line="115" column="13" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.16963065">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/inc/message_history.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1998" column="2" selection-start="34890" selection-end="34890" vertical-scroll-proportion="0.6406685">
+        <state line="54" column="86" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.44539008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="1.3262411">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_front.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="67" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.6638298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group_reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="21" selection-start="420" selection-end="420" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list_incidents.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="49" selection-start="3371" selection-end="3371" vertical-scroll-proportion="-4.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/editIncident.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="4" selection-start="140" selection-end="140" vertical-scroll-proportion="0.1929078">
           <folding />
         </state>
       </provider>

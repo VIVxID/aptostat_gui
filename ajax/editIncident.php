@@ -6,7 +6,7 @@ include '../inc/apiurl.php';
 if (isset($_POST["incident"])) {
 
     $_SESSION["incident"] = $_POST["incident"];
-
+    
 }
 
 $incidentID = $_SESSION["incident"];
