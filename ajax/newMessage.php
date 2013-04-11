@@ -135,7 +135,6 @@ $incident = $result["incident"];
                     $("#reportPane").html("Message posted.");
                     $("#reportPane").fadeTo("normal",1);
                 },
-                dataType: dataType
             });
         })
     </script>
