@@ -30,11 +30,9 @@
                     </div>
                     
                     <div class="span6 offset1">
-                        <div id="current_box" class="tabbable">
 
                             <?php include "inc/ongoing_issues.php"; ?>
 
-                        </div>
                     </div>
                 </div>
 
