@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/apto_stylesheet.css" afterPath="$PROJECT_DIR$/css/apto_stylesheet.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/ongoing_issues.php" afterPath="$PROJECT_DIR$/inc/ongoing_issues.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -13,7 +13,7 @@
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
     <file path="/admin_front.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668644912" ignored="false" />
     <file path="/live_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668767894" ignored="false" />
-    <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678341886" ignored="false" />
+    <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678616308" ignored="false" />
     <file path="/html_head.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365670183373" ignored="false" />
     <file path="/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678285522" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,11 +38,11 @@
       <file leaf-file-name="ongoing_issues.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="40" selection-start="510" selection-end="510" vertical-scroll-proportion="-15.692307">
+            <state line="21" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="-13.730769">
               <folding>
-                <marker date="1365678403071" expanded="true" signature="563:575" placeholder="..." />
-                <marker date="1365678403071" expanded="true" signature="1103:2294" placeholder="..." />
-                <marker date="1365678403071" expanded="true" signature="1293:1453" placeholder="..." />
+                <marker date="1365678619898" expanded="true" signature="570:582" placeholder="..." />
+                <marker date="1365678619898" expanded="true" signature="1110:2301" placeholder="..." />
+                <marker date="1365678619898" expanded="true" signature="1300:1460" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -51,7 +51,7 @@
       <file leaf-file-name="apto_stylesheet.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="0" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.44186047">
+            <state line="89" column="14" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.046511628">
               <folding />
             </state>
           </provider>
@@ -284,9 +284,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="70" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365678403071" expanded="true" signature="563:575" placeholder="..." />
-            <marker date="1365678403071" expanded="true" signature="1103:2294" placeholder="..." />
-            <marker date="1365678403071" expanded="true" signature="1293:1453" placeholder="..." />
+            <marker date="1365678619898" expanded="true" signature="570:582" placeholder="..." />
+            <marker date="1365678619898" expanded="true" signature="1110:2301" placeholder="..." />
+            <marker date="1365678619898" expanded="true" signature="1300:1460" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -380,18 +380,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="40" selection-start="510" selection-end="510" vertical-scroll-proportion="-15.692307">
+        <state line="21" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="-13.730769">
           <folding>
-            <marker date="1365678403071" expanded="true" signature="563:575" placeholder="..." />
-            <marker date="1365678403071" expanded="true" signature="1103:2294" placeholder="..." />
-            <marker date="1365678403071" expanded="true" signature="1293:1453" placeholder="..." />
+            <marker date="1365678619898" expanded="true" signature="570:582" placeholder="..." />
+            <marker date="1365678619898" expanded="true" signature="1110:2301" placeholder="..." />
+            <marker date="1365678619898" expanded="true" signature="1300:1460" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.44186047">
+        <state line="89" column="14" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.046511628">
           <folding />
         </state>
       </provider>

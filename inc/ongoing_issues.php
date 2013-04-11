@@ -15,9 +15,9 @@ $response = json_decode(curl_exec($curl), true);
 
 $checkList = $response["report"]["incidents"];
 
-if (!empty($checkList)) {
+if (empty($checkList)) {
 
-    echo '<div id="current_box no_issues">';
+    echo '<div id="current_box" class="no_issues">';
     echo "<p class='all-clear'>No current issues.</p>";
 
 } else {
