@@ -83,7 +83,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
             
-                /*$('.sortable')/.disableSelection(); /* turns the text into a "button" that can't be selected */
+                $('.sortable').disableSelection(); /* turns the text into a "button" that can't be selected */
 
                 $(".file").click(function() {
                     var reportId = $(this).attr('id');

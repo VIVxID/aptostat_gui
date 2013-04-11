@@ -52,6 +52,9 @@ if (empty($checkList)) {
 
         echo "<tr>";
         echo "<td class='table-left'>Errors:</td>";
+        echo "</tr>";
+
+        echo "<tr>";
 
         foreach ($incident["reports"] as $report) {
 

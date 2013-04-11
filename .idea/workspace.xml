@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.css" afterPath="$PROJECT_DIR$/css/bootstrap.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/message_history.php" afterPath="$PROJECT_DIR$/inc/message_history.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/ongoing_issues.php" afterPath="$PROJECT_DIR$/inc/ongoing_issues.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
@@ -13,11 +15,11 @@
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
     <file path="/admin_front.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365680511818" ignored="false" />
     <file path="/live_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668767894" ignored="false" />
-    <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678693391" ignored="false" />
+    <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365682279993" ignored="false" />
     <file path="/html_head.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365670183373" ignored="false" />
     <file path="/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678285522" ignored="false" />
     <file path="/uptime_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365679497255" ignored="false" />
-    <file path="/message_history.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365681594573" ignored="false" />
+    <file path="/message_history.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365682536416" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +39,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="message_history.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="message_history.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/message_history.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="54" column="58" selection-start="1485" selection-end="1485" vertical-scroll-proportion="-12.076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apto_stylesheet.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="13" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1998" column="2" selection-start="34890" selection-end="34890" vertical-scroll-proportion="0.6406685">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ongoing_issues.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="-35.96154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_front.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_front.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="67" selection-start="1395" selection-end="1395" vertical-scroll-proportion="-18.0">
               <folding />
             </state>
           </provider>
@@ -72,11 +110,12 @@
         <option value="$PROJECT_DIR$/inc/live_table.php" />
         <option value="$PROJECT_DIR$/inc/html_head.php" />
         <option value="$PROJECT_DIR$/inc/issue_history.php" />
-        <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/inc/uptime_table.php" />
         <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/css/apto_stylesheet.css" />
+        <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/inc/message_history.php" />
+        <option value="$PROJECT_DIR$/css/bootstrap.css" />
       </list>
     </option>
   </component>
@@ -314,13 +353,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4236" column="1" selection-start="80797" selection-end="80797" vertical-scroll-proportion="4.12117">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/html_head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="73" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.40992907">
@@ -356,30 +388,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="8" selection-start="294" selection-end="438" vertical-scroll-proportion="-13.076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="23" selection-start="1759" selection-end="1759" vertical-scroll-proportion="0.5882353">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin_front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.66241133">
+        <state line="52" column="67" selection-start="1395" selection-end="1395" vertical-scroll-proportion="-18.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="-35.96154">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/message_history.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="54" column="58" selection-start="1485" selection-end="1485" vertical-scroll-proportion="-12.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="13" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1998" column="2" selection-start="34890" selection-end="34890" vertical-scroll-proportion="0.6406685">
           <folding />
         </state>
       </provider>
