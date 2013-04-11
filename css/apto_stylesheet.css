@@ -7,8 +7,7 @@ html, body {
 }
 
 body {
-    padding-bottom: 70px;
-    margin: 0 auto 70px;
+    margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -56,7 +55,7 @@ a {
     width: 100%;
     height: 40px;
     background-color: #d5d5d5;
-    margin: 0 auto;
+    margin: 60px auto 0;
     box-shadow: inset 0 3px 5px -3px #8b8b8b;
     border-top: 1px solid #c4c4c4;
 }
