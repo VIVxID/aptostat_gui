@@ -58,7 +58,7 @@ foreach ($checkList as $id => $incident) {
     echo "</tr>";
 
     echo "<tr>";
-    echo "<td class='table-left'>".$incident["incidentTitle"]."</td>";
+    echo "<td class='table-right'>".$incident["incidentTitle"]."</td>";
     echo "</tr>";
 
     echo "<td colspan='2'><hr /></td>";
