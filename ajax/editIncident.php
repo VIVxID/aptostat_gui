@@ -5,7 +5,9 @@ include '../inc/apiurl.php';
 
 $incidentID = $_POST["incident"];
 
-$url = APIURL . "incident/$incidentID";
+$_SESSION["incidentID"] = $incidentID;
+
+$url = APIURL . "incident/" . $_SESSION["incidentID"];
 $curl = curl_init($url);
 
 if(isset($_POST["flag"])) {
