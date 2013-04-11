@@ -36,6 +36,8 @@
                 $groups = $result["report"]["groups"];
                 ksort($groups);
                 
+                
+                
                 //API URL Incident
                  $json_url = APIURL . "incident";
                 
@@ -57,3 +59,4 @@
                 $incidents = $result["incident"]["incidents"];
                 ksort($incidents);
             ?>
+            

@@ -98,6 +98,21 @@
                     });
                 });
                 
+                $(".file").click(function() {
+                    var reportId = $(this).attr('id');
+                    var report = reportId.replace("report_", "");
+                    $("#reportPane").css("opacity", "0");
+                    $("#reportPane").load("ajax/makeIncident.php", {"report": report}, function(response, status, xhr) {
+                        if (status == "error") {
+                            var msg = "Error: ";
+                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                        }
+                        else {
+                            $("#reportPane").fadeTo("normal",1);
+                        }
+                    });
+                });
+                
             });
         </script>
         
