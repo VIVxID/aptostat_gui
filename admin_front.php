@@ -151,7 +151,7 @@
             
             <h3> Status History - last 7 days</h3>
 
-            <?php include "history_matrix.php"; ?>
+            <?php include "uptime_table.php"; ?>
 
             <hr/>
             
