@@ -91,7 +91,7 @@ $response = json_decode(curl_exec($curl),true);
 
         <script>
             $(function ()
-            { $(".downtime").tooltip();
+            { $(".downtime").tooltip({'placement': 'left'});
             });
         </script>
 
