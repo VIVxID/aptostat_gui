@@ -5,10 +5,10 @@
         </td>
 <?php
 
-$url = "http://aptoapi.vlab.iu.hio.no/api/uptime";
-$curl = curl_init($url);
+$curl = curl_init();
 
 $options = array(
+    CURLOPT_URL => APIURL . "uptime",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
 );
