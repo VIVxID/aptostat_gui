@@ -66,20 +66,20 @@ $response = json_decode(curl_exec($curl),true);
 
                     if ($outage > 1740) {
                     
-                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/cross.png' />";
-                        
+                        echo "<a href='#' class='downtime' title='" . (86400-$outage)/864 . "% uptime.'><img src='../img/cross.png' /></a>";
+                        $print = 1;
+
                     } elseif ($outage > 120) {
-                    
-                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/warning.png' />";
 
-                    } else {
-
-                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/check.png' />";
+                        echo "<a href='#' class='downtime' title='" . (86400-$outage)/864 . "% uptime.'><img src='../img/warning.png' /></a>";
+                        $print = 1;
 
                     }
                 }
             }
-            
+
+            echo "<img src='../img/check.png' />";
+
             echo "</td>";
             $i-=1;
         }
@@ -88,6 +88,12 @@ $response = json_decode(curl_exec($curl),true);
     }
     
 ?>
+
+        <script>
+            $(function ()
+            { $(".downtime").tooltip({'placement': 'left'});
+            });
+        </script>
 
     </tr>
 </table>
