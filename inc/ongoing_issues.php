@@ -15,7 +15,7 @@ $response = json_decode(curl_exec($curl), true);
 
 $checkList = $response["report"]["incidents"];
 
-echo "<ul class='nav nav-tabs>'";
+echo "<ul class='nav nav-tabs'>";
 
 foreach ($checkList as $id => $incident) {
 
@@ -86,7 +86,7 @@ foreach ($checkList as $id => $incident) {
     echo "<tr>";
     echo "<td class='table-left'>Last update:</td>";
     echo "<td class='table-right'>".$incident["lastMessage"]["messageDate"]."</td>";
-    echo "<td colspan='2'>".$incident["lastMessage"]["messageText"]."</td>";
+    echo "<td class='table-right    '>".$incident["lastMessage"]["messageText"]."</td>";
     echo "</tr>";
 
     echo "</table>";

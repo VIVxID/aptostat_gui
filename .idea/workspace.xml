@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/html_head.php" afterPath="$PROJECT_DIR$/inc/html_head.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/apto_stylesheet.css" afterPath="$PROJECT_DIR$/css/apto_stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/ongoing_issues.php" afterPath="$PROJECT_DIR$/inc/ongoing_issues.php" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,31 +34,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ongoing_issues.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ongoing_issues.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="70" selection-start="631" selection-end="631" vertical-scroll-proportion="-18.307692">
+            <state line="17" column="30" selection-start="361" selection-end="361" vertical-scroll-proportion="0.1929078">
               <folding>
-                <marker date="1365668993687" expanded="true" signature="1045:2094" placeholder="..." />
-                <marker date="1365668993687" expanded="true" signature="1219:1341" placeholder="..." />
+                <marker date="1365671450930" expanded="true" signature="1045:2106" placeholder="..." />
+                <marker date="1365671450930" expanded="true" signature="1219:1341" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="html_head.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="html_head.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/html_head.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="73" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.3858156">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="live_table.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/live_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="20" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
+            <state line="16" column="73" selection-start="1225" selection-end="1225" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -66,7 +58,7 @@
       <file leaf-file-name="admin_front.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin_front.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="814" selection-end="814" vertical-scroll-proportion="0.0">
+            <state line="33" column="0" selection-start="814" selection-end="814" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -97,8 +89,9 @@
         <option value="$PROJECT_DIR$/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/inc/live_table.php" />
-        <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/inc/html_head.php" />
+        <option value="$PROJECT_DIR$/css/apto_stylesheet.css" />
+        <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
       </list>
     </option>
   </component>
@@ -164,39 +157,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aptostat_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aptostat_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aptostat_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aptostat_gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aptostat_gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aptostat_gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,8 +291,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="70" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365668993687" expanded="true" signature="1045:2094" placeholder="..." />
-            <marker date="1365668993687" expanded="true" signature="1219:1341" placeholder="..." />
+            <marker date="1365671450930" expanded="true" signature="1045:2106" placeholder="..." />
+            <marker date="1365671450930" expanded="true" signature="1219:1341" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -371,27 +346,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_front.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="814" selection-end="814" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/live_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="20" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="70" selection-start="631" selection-end="631" vertical-scroll-proportion="-18.307692">
-          <folding>
-            <marker date="1365668993687" expanded="true" signature="1045:2094" placeholder="..." />
-            <marker date="1365668993687" expanded="true" signature="1219:1341" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -402,10 +360,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/glyphicons-halflings-white.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/glyphicons-halflings.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inc/html_head.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="73" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.3858156">
+        <state line="16" column="73" selection-start="1225" selection-end="1225" vertical-scroll-proportion="-10.461538">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="235" column="4" selection-start="3701" selection-end="3701" vertical-scroll-proportion="0.33242133">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_front.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="814" selection-end="814" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="30" selection-start="361" selection-end="361" vertical-scroll-proportion="0.1929078">
+          <folding>
+            <marker date="1365671450930" expanded="true" signature="1045:2106" placeholder="..." />
+            <marker date="1365671450930" expanded="true" signature="1219:1341" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
