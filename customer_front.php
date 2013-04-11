@@ -5,8 +5,7 @@
 <html>
 
     <?php
-        include 'html_head.inc';
-        include 'propel_bootstrap.inc';
+        include 'inc/html_head.php';
     ?>
     
     <body>
@@ -25,7 +24,7 @@
                     <?php
                 
                         //JSON
-                        $json_url = "http://aptoapi.vlab.iu.hio.no/api/live";
+                        $json_url = APIURL . "live";
                         
                         //initializing curl
                         $ch = curl_init($json_url);
@@ -454,7 +453,7 @@
             
             
              
-        <?php include 'cust_footer.inc'; ?>
+        <?php include 'inc/cust_footer.php'; ?>
         
     </body>
 </html>

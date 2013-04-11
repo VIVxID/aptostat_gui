@@ -5,7 +5,7 @@
 <html>
 
     <?php
-        include 'html_head.inc';
+        include 'inc/html_head.php';
     ?>
     
     <body>
@@ -91,7 +91,7 @@
         
         </div>
         
-        <?php include 'admin_footer.inc'; ?>
+        <?php include 'inc/admin_footer.php'; ?>
        
     </body>
 </html>

@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 $options = array(
-    CURLOPT_URL => "http://aptoapi.vlab.iu.hio.no/api/live",
+    CURLOPT_URL => APIURL . "live",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
 );

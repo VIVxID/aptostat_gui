@@ -1,13 +1,9 @@
 ﻿<?php
 session_start();
         
-if(isset($_POST["incident"])) {
-        
-    $incident = $_POST["incident"];
-       
-}
+$incident = $_POST["incident"];
 
-$url = "http://aptoapi.vlab.iu.hio.no/api/incident/$incident";
+$url = APIURL . "incident/$incident";
 $curl = curl_init($url);
 
 if(isset($_POST["flag"])) {

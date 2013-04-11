@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Ketil\Hovedprosjekt\aptostat_gui\ongoing_issues.php" afterPath="$PROJECT_DIR$/inc/ongoing_issues.php" />
+      <change type="DELETED" beforePath="C:\Users\Ketil\Hovedprosjekt\aptostat_gui\list_incidents_2.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ketil\Hovedprosjekt\aptostat_gui\propel_bootstrap.inc" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Ketil\Hovedprosjekt\aptostat_gui\admin_footer.inc" afterPath="$PROJECT_DIR$/inc/admin_footer.php" />
+      <change type="MOVED" beforePath="C:\Users\Ketil\Hovedprosjekt\aptostat_gui\cust_footer.inc" afterPath="$PROJECT_DIR$/inc/cust_footer.php" />
+      <change type="MOVED" beforePath="C:\Users\Ketil\Hovedprosjekt\aptostat_gui\html_head.inc" afterPath="$PROJECT_DIR$/inc/html_head.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_front.php" afterPath="$PROJECT_DIR$/admin_front.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer_front.php" afterPath="$PROJECT_DIR$/customer_front.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/editIncident.php" afterPath="$PROJECT_DIR$/ajax/editIncident.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/group_reports.php" afterPath="$PROJECT_DIR$/group_reports.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/list_incidents.php" afterPath="$PROJECT_DIR$/list_incidents.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/live_table.php" afterPath="$PROJECT_DIR$/inc/live_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/viewIncident.php" afterPath="$PROJECT_DIR$/ajax/viewIncident.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/viewReport.php" afterPath="$PROJECT_DIR$/ajax/viewReport.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
@@ -14,7 +24,7 @@
     <file path="$PROJECT_DIR$/../aptostat_api/src/aptostatApi/model/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498579473" ignored="false" />
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
     <file path="/admin_front.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668644912" ignored="false" />
-    <file path="/live_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365665935987" ignored="false" />
+    <file path="/live_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668767894" ignored="false" />
     <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668599550" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,10 +45,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ongoing_issues.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ongoing_issues.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="1" selection-start="2087" selection-end="2087" vertical-scroll-proportion="2.2299013">
+            <state line="93" column="1" selection-start="2087" selection-end="2087" vertical-scroll-proportion="-60.807693">
               <folding>
                 <marker date="1365668612930" expanded="true" signature="1026:2075" placeholder="..." />
                 <marker date="1365668612930" expanded="true" signature="1200:1322" placeholder="..." />
@@ -47,10 +57,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="live_table.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inc/live_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="20" selection-start="27" selection-end="27" vertical-scroll-proportion="0.047954865">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="admin_front.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin_front.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="63" selection-start="840" selection-end="840" vertical-scroll-proportion="-4.5384617">
+            <state line="33" column="63" selection-start="844" selection-end="844" vertical-scroll-proportion="-4.5384617">
               <folding />
             </state>
           </provider>
@@ -79,9 +98,9 @@
         <option value="$PROJECT_DIR$/customer_front.php" />
         <option value="$PROJECT_DIR$/history_matrix.php" />
         <option value="$PROJECT_DIR$/ongoing_issues.php" />
-        <option value="$PROJECT_DIR$/inc/live_table.php" />
         <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/admin_front.php" />
+        <option value="$PROJECT_DIR$/inc/live_table.php" />
       </list>
     </option>
   </component>
@@ -277,21 +296,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html_head.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/group_reports.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="28" selection-start="177" selection-end="177" vertical-scroll-proportion="0.14655173">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_footer.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/customer_front.php">
@@ -308,27 +317,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/live_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="20" selection-start="27" selection-end="27" vertical-scroll-proportion="-1.3076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin_front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="63" selection-start="840" selection-end="840" vertical-scroll-proportion="-4.5384617">
+        <state line="33" column="63" selection-start="844" selection-end="844" vertical-scroll-proportion="-4.5384617">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="1" selection-start="2087" selection-end="2087" vertical-scroll-proportion="2.2299013">
+        <state line="93" column="1" selection-start="2087" selection-end="2087" vertical-scroll-proportion="-60.807693">
           <folding>
             <marker date="1365668612930" expanded="true" signature="1026:2075" placeholder="..." />
             <marker date="1365668612930" expanded="true" signature="1200:1322" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/live_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="20" selection-start="27" selection-end="27" vertical-scroll-proportion="0.047954865">
+          <folding />
         </state>
       </provider>
     </entry>
