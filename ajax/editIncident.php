@@ -54,7 +54,7 @@ $incident = $result["incident"];
     <form action="edit_incident.php" method="post">
     <br />
     <?php
-        echo "Selected incident: ".$incidentID."<br /><br />";
+        echo "Selected incident: ".$incident."<br /><br />";
         echo "<fieldset>";
             echo "<legend>Data</legend>";
             echo '<table border="0">';
