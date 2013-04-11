@@ -78,7 +78,7 @@ $response = json_decode(curl_exec($curl),true);
                 }
             }
 
-            echo "<a href='#' class='downtime' title='100%'><img src='../img/check.png' /></a>";
+            echo "<img src='../img/check.png' />";
 
             echo "</td>";
             $i-=1;
