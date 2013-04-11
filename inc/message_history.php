@@ -52,7 +52,7 @@ if (empty($messages)) {
         echo "</tr>";
 
         echo "<tr>";
-        echo "<td class='table-left'><h5>Last update:</h5> ".$message["messageDate"]."</td>";
+        echo "<td class='table-left'><h5>Last update: ".$message["messageDate"]."</h5></td>";
         echo "</tr>";
 
         echo "<tr>";
