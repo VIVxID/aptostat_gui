@@ -83,21 +83,21 @@
                     
                     var incident;
                     
-                    $('.file').click(function() {
-                        var incidentId = $(this).attr('id');
+                    $(".file").click(function() {
+                        var incidentId = $(this).attr("id");
                         var incident = incidentId.replace("incident_", "");
-                        $('#reportPane').load('ajax/viewIncident.php', {"incident": incident}, function(response, status, xhr) {
+                        $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
-                        });
+                        }).("#reportPane").toggle("fade");
                         
                         $('#newMessage').show();
                     });
                     
-                    $('#newMessage').click(function(event) {
-                        $('#reportPane').load('ajax/editIncident.php', {"incident": incident}, function(response, status, xhr) {
+                    $("#newMessage").click(function(event) {
+                        $("#reportPane").load("ajax/editIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
