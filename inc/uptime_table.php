@@ -66,21 +66,18 @@ $response = json_decode(curl_exec($curl),true);
 
                     if ($outage > 1740) {
                     
-                        echo "<img src='../img/cross.png' />";   
-                        $print = 1;
+                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/cross.png' />";
                         
                     } elseif ($outage > 120) {
                     
-                        echo "<img src='../img/warning.png' />";
-                        $print = 1;
+                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/warning.png' />";
+
+                    } else {
+
+                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/check.png' />";
+
                     }
                 }
-            }
-
-            if ($print == 0) {
-            
-                echo "<img src='../img/check.png' />";
-            
             }
             
             echo "</td>";

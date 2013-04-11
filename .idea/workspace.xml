@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-<<<<<<< HEAD
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/editIncident.php" afterPath="$PROJECT_DIR$/ajax/editIncident.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/html_head.php" afterPath="$PROJECT_DIR$/inc/html_head.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/uptime_table.php" afterPath="$PROJECT_DIR$/inc/uptime_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365685673931" ignored="false" />
-=======
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-    </list>
-    <ignored path="aptostat_gui.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365685029958" ignored="false" />
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
     <file path="/history_matrix.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365501219879" ignored="false" />
     <file path="$PROJECT_DIR$/../aptostat_api/src/aptostatApi/model/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498579473" ignored="false" />
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
@@ -25,7 +16,7 @@
     <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365682279993" ignored="false" />
     <file path="/html_head.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365670183373" ignored="false" />
     <file path="/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678285522" ignored="false" />
-    <file path="/uptime_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365685783638" ignored="false" />
+    <file path="/uptime_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365686989324" ignored="false" />
     <file path="/message_history.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365682536416" ignored="false" />
     <file path="/editIncident.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365684144121" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,11 +50,16 @@
       <file leaf-file-name="uptime_table.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/uptime_table.php">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state line="64" column="51" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.6163611">
-=======
-            <state line="8" column="4" selection-start="140" selection-end="140" vertical-scroll-proportion="0.02503682">
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
+            <state line="76" column="109" selection-start="2194" selection-end="2194" vertical-scroll-proportion="0.66431594">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="html_head.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/html_head.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="46" selection-start="1344" selection-end="1344" vertical-scroll-proportion="-11.769231">
               <folding />
             </state>
           </provider>
@@ -93,7 +89,6 @@
         <option value="$PROJECT_DIR$/history_matrix.php" />
         <option value="$PROJECT_DIR$/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/inc/live_table.php" />
-        <option value="$PROJECT_DIR$/inc/html_head.php" />
         <option value="$PROJECT_DIR$/inc/issue_history.php" />
         <option value="$PROJECT_DIR$/admin_front.php" />
         <option value="$PROJECT_DIR$/css/apto_stylesheet.css" />
@@ -101,21 +96,17 @@
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/inc/message_history.php" />
         <option value="$PROJECT_DIR$/ajax/editIncident.php" />
+        <option value="$PROJECT_DIR$/inc/html_head.php" />
         <option value="$PROJECT_DIR$/inc/uptime_table.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="54" />
     <option name="y" value="-8" />
-<<<<<<< HEAD
     <option name="width" value="1554" />
     <option name="height" value="916" />
-=======
-    <option name="width" value="1616" />
-    <option name="height" value="886" />
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,23 +228,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
     <frame x="54" y="-8" width="1554" height="916" extended-state="6" />
     <editor active="true" />
-=======
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="false" />
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27144772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-=======
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25289574" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -344,11 +326,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/html_head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="73" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.40992907" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/admin_footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -363,17 +340,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/live_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.07234043" />
+        <state line="3" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.07234043">
+          <folding />
+        </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/inc/uptime_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="37" selection-start="162" selection-end="162" vertical-scroll-proportion="0.24113475" />
-      </provider>
-    </entry>
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1998" column="2" selection-start="34890" selection-end="34890" vertical-scroll-proportion="0.6406685">
@@ -411,7 +382,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/group_reports.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="21" selection-start="420" selection-end="420" vertical-scroll-proportion="-5.8846154" />
+        <state line="18" column="21" selection-start="420" selection-end="420" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax/editIncident.php">
@@ -428,13 +401,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inc/html_head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="46" selection-start="1344" selection-end="1344" vertical-scroll-proportion="-11.769231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inc/uptime_table.php">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state line="64" column="51" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.6163611">
-=======
-        <state line="8" column="4" selection-start="140" selection-end="140" vertical-scroll-proportion="0.02503682">
->>>>>>> 08193a174a41e0c3051d3eb4eaa75f0681666d58
+        <state line="76" column="109" selection-start="2194" selection-end="2194" vertical-scroll-proportion="0.66431594">
           <folding />
         </state>
       </provider>
