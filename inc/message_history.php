@@ -45,6 +45,9 @@ if (empty($messages)) {
 
         echo "<tr>";
         echo "<td><hr /></td>";
+        echo "</tr>";
+
+        echo "<tr>";
         echo "<td class='table-left'>".$message["title"]."</td>";
         echo "</tr>";
 
