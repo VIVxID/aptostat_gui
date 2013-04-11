@@ -3,9 +3,9 @@ session_start();
 
 include '../inc/apiurl.php';
 
-$incident = $_POST["incident"];
+$incidentID = $_POST["incident"];
 
-$url = APIURL . "incident/$incident";
+$url = APIURL . "incident/$incidentID";
 $curl = curl_init($url);
 
 if(isset($_POST["flag"])) {
@@ -51,10 +51,10 @@ $result = json_decode(curl_exec($curl),true);
 $incident = $result["incident"];
     
 ?>
-    <form action="edit_incident.php" method="post">
+    <form action="editIncident.php" method="post">
     <br />
     <?php
-        echo "Selected incident: ".$incident["idReport"]."<br /><br />";
+        echo "Selected incident: ".$incidentID."<br /><br />";
         echo "<fieldset>";
             echo "<legend>Data</legend>";
             echo '<table border="0">';
