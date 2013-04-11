@@ -1,5 +1,5 @@
 <footer id="footer">
-    <div class="container" id="footer_content">
+    <div class="container clearfix" id="footer_content">
         <div class="span3 centered footer_middle">
             <a href="admin_front.php">Admin home</a>
         </div>
@@ -9,7 +9,7 @@
         <div class="span3 centered footer_middle">
             <a href="list_incidents.php">View incidents</a>
         </div>
-        <div class="span3 centered footer_middle clearfix">
+        <div class="span3 centered footer_middle">
             <a href="http://twitter.com/aptomaops">Twitter</a>
         </div>
     </div>
