@@ -307,6 +307,15 @@ a {
     color: #669;
     padding: 6px 8px;
 }
+
+#history {
+    width: 100%;
+}
+
+#history tr td {
+    padding-bottom: 5px;
+}
+
 /** tabell boks **/
 
 .author {

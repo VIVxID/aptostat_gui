@@ -4,7 +4,7 @@
     $incident = $_POST["incident"];
     
     //JSON
-    $json_url = "http://apto.vlab.iu.hio.no/api/incident/1";
+    $json_url = "http://aptoapi.vlab.iu.hio.no/api/incident/$incident";
     
     //initializing curl
     $ch = curl_init($json_url);
@@ -23,7 +23,7 @@
     $result = json_decode($result_json, true);
     $incident = $result["incident"];
     $reports = $incident["connectedReports"];
-    $lastMessages = $incident["connectedMessages"]["public"];
+    $messages = $incident["connectedMessages"]["public"];
     
     print "Incident ID: " . $incident["idIncident"] . "<br />";
     print "Timestamp: " . $incident["timestamp"] . "<br />";
@@ -39,7 +39,7 @@
     print "Last Message: " . $incident["lastMessage"] . "<br />";
     
     print "<br /> Connected Messages : <br />";
-    foreach($lastMessages as $messages) {
+    foreach($messages as $messages) {
         
         $date = $messages["messageDate"];
         $status = $messages["status"];
