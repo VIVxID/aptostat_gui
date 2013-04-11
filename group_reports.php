@@ -38,80 +38,44 @@
             ksort($groups);
         ?>
         
-        <div class="container_12 content_box">
-            <div class="list_content" id="groupbox_reports">
-                <div class="groupbox_heading">
-                    Open reports
+        <div class="container content_box">
+            <div class="row">
+                <div class="list_content" id="groupbox_reports">
+                    <div class="groupbox_heading">
+                        Open reports
+                    </div>
+                    <div class="groupbox_wrapper">
+                        <ol class="tree" id="group_menu">
+                            <?php
+                                foreach($groups as $group => $reports) { //gets service and its reports
+                                    print "<li class='group'>\r\n";
+                                        print "<label for='$group'>$group</label>\r\n";
+                                        print "<input type='checkbox' id='$group' />\r\n";
+                                        print "<ol class='sortable'>\r\n";
+                                            foreach($reports as $report) { //goes through all reports for the service
+                                                print "<li class='file' id='report_".$report["idReport"]."'>Report ".$report["idReport"]."</li>\r\n"; //the .file class makes it clickable for ajax loading of the report
+                                            }
+                                        print "</ol>";
+                                    print "</li>";
+                                }
+                            ?>
+                        </ol>
+                    </div>
+                    <div class="list_content_menu">
+                        
+                    </div>
                 </div>
-                <div class="groupbox_wrapper">
-                    <ol class="tree" id="group_menu">
-                        <?php
-                            foreach($groups as $group => $reports) { //gets service and its reports
-                                print "<li class='group'>\r\n";
-                                    print "<label for='$group'>$group</label>\r\n";
-                                    print "<input type='checkbox' id='$group' />\r\n";
-                                    print "<ol class='sortable'>\r\n";
-                                        foreach($reports as $report) { //goes through all reports for the service
-                                            print "<li class='file' id='report_".$report["idReport"]."'>Report ".$report["idReport"]."</li>\r\n"; //the .file class makes it clickable for ajax loading of the report
-                                        }
-                                    print "</ol>";
-                                print "</li>";
-                            }
-                        ?>
-                    </ol>
-                </div>
-                <div class="list_content_menu">
-                    
-                </div>
-            </div>
-            <!--<div class="list_content" id="groupbox_incidents">
-                <div class="groupbox_heading">
-                    Active incidents
-                </div>
-                <div class="groupbox_wrapper">
-                    <ol class="tree" id="incident_menu">
-                        <li class="group">
-                            <label for="incident1">Incident 1: 2013-03-12</label>
-                            <input type="checkbox" id="incident1" />
-                            <ol class="sortable">
-                                <li class="file" id="report_41">Report 41</li>
-                                <li class="file" id="report_81">Report 81</li>
-                                <li class="file" id="report_64">Report 64</li>
-                            </ol>
-                        </li>
-                        <li class="group">
-                            <label for="incident2">Incident 2: 2013-03-13</label>
-                            <input type="checkbox" id="incident2" />
-                            <ol class="sortable">
-                                <li class="file" id="report_14">Report 14</li>
-                                <li class="file" id="report_15">Report 15</li>
-                                <li class="file" id="report_16">Report 16</li>
-                            </ol>
-                        </li>
-                        <li class="group">
-                            <label for="incident3">Incident 3: 2013-03-14</label>
-                            <input type="checkbox" id="incident3" />
-                            <ol class="sortable">
-                                <li class="file" id="report_17">Report 17</li>
-                                <li class="file" id="report_18">Report 18</li>
-                                <li class="file" id="report_19">Report 19</li>
-                            </ol>
-                        </li>
-                    </ol>
-                </div>
-                <div class="list_content_menu">
-                    <div class="align2">New incident</div>
-                </div>
-            </div>-->
-            <div class="list_content" id="groupbox_details">
-                <div class="groupbox_heading">
-                    Details for selected report
-                </div>
-                <div class="groupbox_wrapper" id="reportPane">
-                    Click a report to view it.
-                </div>
-                <div class="list_content_menu">
-                    
+                
+                <div class="list_content" id="groupbox_details">
+                    <div class="groupbox_heading">
+                        Details for selected report
+                    </div>
+                    <div class="groupbox_wrapper" id="reportPane">
+                        Click a report to view it.
+                    </div>
+                    <div class="list_content_menu">
+                        
+                    </div>
                 </div>
             </div>
         </div>
