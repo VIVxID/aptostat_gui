@@ -21,12 +21,12 @@ foreach ($checkList as $id => $incident) {
 
     if ($tabs == 1) {
 
-        echo "<li class='active'><a href='#tab1' data-toggle='tab'>".$id."</a></li>";
+        echo "<li class='active'><a href='#tab1' data-toggle='tab'>Incident #".$id."</a></li>";
         $tabs++;
 
     } else {
 
-        echo "<li><a href='#tab1' data-toggle='tab".$tabs."'>".$id."</a></li>";
+        echo "<li><a href='#tab".$tabs."' data-toggle='tab'>Incident #".$id."</a></li>";
         $tabs++;
 
     }
