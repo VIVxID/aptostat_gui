@@ -31,6 +31,7 @@
     print "Timestamp: " . $incident["timestamp"] . "<br />";
     print "Last Flag: " . $incident["lastFlag"] . "<br />";
     print "Connected Reports: ";
+
     foreach($reports as $group => $report) {
         print $report["idReport"] . ", ";
     }
