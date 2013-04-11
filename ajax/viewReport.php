@@ -1,7 +1,7 @@
 ﻿<?php
     //Uthenting av report
     
-    include 'inc/apiurl.php';
+    include '../inc/apiurl.php';
     
     $report = $_POST["report"];
     

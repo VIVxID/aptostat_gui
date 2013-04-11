@@ -1,7 +1,7 @@
 ﻿<?php
 session_start();
 
-include 'inc/apiurl.php';
+include '../inc/apiurl.php';
 
 $incident = $_POST["incident"];
 
