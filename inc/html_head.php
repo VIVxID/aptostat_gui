@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" />
     <link rel="stylesheet" href="css/tree.css" type="text/css" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" type="text/css" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<title>Aptostat | Statuspanel for Aptoma</title>
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
