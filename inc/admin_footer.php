@@ -9,7 +9,7 @@
         <div class="span3 centered footer_middle">
             <a href="list_incidents.php">View incidents</a>
         </div>
-        <div class="span3 footer_middle">
+        <div class="span2 centered footer_middle">
             <a href="http://twitter.com/aptomaops">Twitter</a>
         </div>
     </div>
