@@ -128,7 +128,7 @@ $incident = $result["incident"];
             var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
             $.ajax({
                 type: "POST",
-                url: "editIncident.php",
+                url: "newMessage.php",
                 data: dataString,
                 success: function(){
                     
