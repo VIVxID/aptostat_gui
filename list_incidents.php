@@ -88,14 +88,14 @@
                     $(".file").click(function() {
                         var incidentId = $(this).attr("id");
                         var incident = incidentId.replace("incident_", "");
-                        $("#reportPane").hide();
+                        $("#reportPane").style({opacity:0});
                         $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
                             else {
-                                $("#reportPane").fadeIn("normal");
+                                $("#reportPane").fadeTo("normal",1);
                             }
                         });
                         
