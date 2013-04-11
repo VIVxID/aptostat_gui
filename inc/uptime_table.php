@@ -43,8 +43,6 @@ $response = json_decode(curl_exec($curl),true);
     ksort($response);
     
     foreach ($response as $host => $errors) {
-    
-        $timeFrame = array();
 
         //Prints hostnames on the Y-axis.
         echo "<tr>";
@@ -54,33 +52,32 @@ $response = json_decode(curl_exec($curl),true);
 
         $i = 6;
 
-        //Runs through the dates, inserting error icons if Pingdom reports any downtime.
+        //Runs through the dates, inserting error icons dependig on the reported downtime.
         while ($i >= 0) {
         
             $print = 0;
             echo "<td>";
             
-            foreach ($errors as $errorDate => $status) {
+            foreach ($errors as $errorDate => $downtime) {
 
-                if (date("D d", time()-(86400*$i)) == date("D d", $errorDate)) {
-                
-                    if ($status == "down") {
+                if (date("D d", time()-(86400*$i)) == $errorDate) {
+
+                    $outage = array_sum($downtime);
+
+                    if ($outage > 1740) {
                     
-                        echo "<img src='../img/cross.png' />";   
-                        $print = 1;
+                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/cross.png' />";
                         
-                    } else {
+                    } elseif ($outage > 120) {
                     
-                        echo "<img src='../img/warning.png' />";
-                        $print = 1;
+                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/warning.png' />";
+
+                    } else {
+
+                        echo "<img href='#' class='downtime' data-original-title='".gmdate("i:s",$outage)."' src='../img/check.png' />";
+
                     }
                 }
-            }
-
-            if ($print == 0) {
-            
-                echo "<img src='../img/check.png' />";
-            
             }
             
             echo "</td>";
