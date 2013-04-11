@@ -1,10 +1,8 @@
 <?php
 
 $curl = curl_init();
-$tabs = 1;
-
 $options = array(
-    CURLOPT_URL => "http://aptoapi.vlab.iu.hio.no/api/report",
+    CURLOPT_URL => APIURL . "report",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
 );
