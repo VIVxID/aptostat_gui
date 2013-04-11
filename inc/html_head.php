@@ -1,3 +1,7 @@
+<?php
+    define("APIURL",     "http://aptoapi.vlab.iu.hio.no/api/");
+?>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 	<meta name="title" content="Aptoma statuspanel" />

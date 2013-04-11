@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
     <?php
-		include 'inc/html_head.inc';
+		include 'inc/html_head.php';
 	?>
     <body>
         
@@ -15,7 +15,7 @@
         
         <?php
             //API URL
-            $json_url = "http://aptoapi.vlab.iu.hio.no/api/report";
+            $json_url = APIURL . "report";
             
             //initializing curl
             $ch = curl_init($json_url);
@@ -108,7 +108,7 @@
                 });
         </script>
         
-        <?php include 'inc/admin_footer.inc'; ?>
+        <?php include 'inc/admin_footer.php'; ?>
         
     </body>
 </html>
