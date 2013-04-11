@@ -91,11 +91,9 @@
                         $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
-                                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText), {}, function() {
-                                    $(this).fadeIn("normal");
-                                }
+                                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
-                        }
+                        });
                         
                         $('#newMessage').show();
                     });
