@@ -94,7 +94,7 @@
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
                             else {
-                                $(this).fadeIn();
+                                $("#reportPane").fadeIn();
                             }
                         });
                         
