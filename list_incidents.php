@@ -88,11 +88,14 @@
                     $(".file").click(function() {
                         var incidentId = $(this).attr("id");
                         var incident = incidentId.replace("incident_", "");
+                        $("#reportPane").css("opacity", "0");
                         $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
-                            $(this).fadeIn("normal");
                             if (status == "error") {
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                            }
+                            else {
+                                $("#reportPane").fadeTo("normal",1);
                             }
                         });
                         
@@ -100,10 +103,14 @@
                     });
                     
                     $("#newMessage").click(function(event) {
+                        $("#reportPane").css("opacity", "0");
                         $("#reportPane").load("ajax/editIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                            }
+                            else {
+                                $("#reportPane").fadeTo("normal",1);
                             }
                         });
                         event.preventDefault();
