@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Dropbox\Skole\HiO\Hovedprosjekt Aptoma\git\aptostat_gui\ajax\editIncident.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/list_incidents.php" afterPath="$PROJECT_DIR$/list_incidents.php" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +37,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="newMessage.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="newMessage.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ajax/newMessage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="33" selection-start="4156" selection-end="4156" vertical-scroll-proportion="0.6745213">
+            <state line="7" column="1" selection-start="138" selection-end="138" vertical-scroll-proportion="-4.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list_incidents.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/list_incidents.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="62" selection-start="4394" selection-end="4394" vertical-scroll-proportion="0.50073636">
               <folding />
             </state>
           </provider>
@@ -65,7 +74,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/group_reports.php" />
-        <option value="$PROJECT_DIR$/list_incidents.php" />
         <option value="$PROJECT_DIR$/customer_front.php" />
         <option value="$PROJECT_DIR$/history_matrix.php" />
         <option value="$PROJECT_DIR$/ongoing_issues.php" />
@@ -78,7 +86,9 @@
         <option value="$PROJECT_DIR$/inc/ongoing_issues.php" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/inc/message_history.php" />
+        <option value="$PROJECT_DIR$/ajax/newMessage.php" />
         <option value="$PROJECT_DIR$/ajax/editIncident.php" />
+        <option value="$PROJECT_DIR$/list_incidents.php" />
       </list>
     </option>
   </component>
@@ -292,11 +302,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/glyphicons-halflings-white.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -374,16 +379,16 @@
         <state line="18" column="21" selection-start="420" selection-end="420" vertical-scroll-proportion="-5.8846154" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/list_incidents.php">
+    <entry file="file://$PROJECT_DIR$/ajax/newMessage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="49" selection-start="3371" selection-end="3371" vertical-scroll-proportion="-0.65384614">
+        <state line="7" column="1" selection-start="138" selection-end="138" vertical-scroll-proportion="-4.576923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/newMessage.php">
+    <entry file="file://$PROJECT_DIR$/list_incidents.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="33" selection-start="4156" selection-end="4156" vertical-scroll-proportion="0.6745213">
+        <state line="106" column="62" selection-start="4394" selection-end="4394" vertical-scroll-proportion="0.50073636">
           <folding />
         </state>
       </provider>
