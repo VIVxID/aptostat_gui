@@ -19,6 +19,7 @@ foreach ($checkList as $incident) {
     if (strtotime($incident["lastMessage"]["messageDate"]) > time()-259200) {
 
         $messages[$incident["lastMessage"]["messageDate"]] = array(
+            "messageDate" => $incident["lastMessage"]["messageDate"],
             "messageText" => $incident["lastMessage"]["messageText"],
             "author" => $incident["lastMessage"]["messageAuthor"],
             "title" => $incident["incidentTitle"],
@@ -52,8 +53,8 @@ if (empty($messages)) {
         echo "</tr>";
 
         echo "<tr>";
-        echo "<td colspan='2'>".$message["messageText"]."</td>";
-        echo "<td class='table-left'>- ".$message["author"]."</td>";
+        echo "<td class='table-left'><p>".$message["messageText"]."</p></td>";
+        echo "<td class='table-left'><p>- ".$message["author"]."</p></td>";
         echo "</tr>";
 
     }
