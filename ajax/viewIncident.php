@@ -4,7 +4,7 @@
     $incident = $_POST["incident"];
     
     //JSON
-    $json_url = "http://aptoapi.vlab.iu.hio.no/api/incident/$incident";
+    $json_url = APIURL . "incident/$incident";
     
     //initializing curl
     $ch = curl_init($json_url);
