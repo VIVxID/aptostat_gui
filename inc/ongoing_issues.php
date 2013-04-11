@@ -22,7 +22,7 @@ if (empty($checkList)) {
 
 } else {
 
-    echo '<div id="current_box error">';
+    echo '<div id="current_box" class="error">';
 
     echo "<div class='accordion' id='accordion2'>";
 

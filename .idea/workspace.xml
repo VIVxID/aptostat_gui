@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/ongoing_issues.php" afterPath="$PROJECT_DIR$/inc/ongoing_issues.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aptostat_gui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -13,7 +12,7 @@
     <file path="/Uptime.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365498577687" ignored="false" />
     <file path="/admin_front.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668644912" ignored="false" />
     <file path="/live_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668767894" ignored="false" />
-    <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678616308" ignored="false" />
+    <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678693391" ignored="false" />
     <file path="/html_head.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365670183373" ignored="false" />
     <file path="/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365678285522" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,23 +34,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ongoing_issues.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ongoing_issues.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="-13.730769">
+            <state line="24" column="38" selection-start="515" selection-end="515" vertical-scroll-proportion="0.57872343">
               <folding>
-                <marker date="1365678619898" expanded="true" signature="570:582" placeholder="..." />
-                <marker date="1365678619898" expanded="true" signature="1110:2301" placeholder="..." />
-                <marker date="1365678619898" expanded="true" signature="1300:1460" placeholder="..." />
+                <marker date="1365678694389" expanded="true" signature="578:590" placeholder="..." />
+                <marker date="1365678694389" expanded="true" signature="1118:2309" placeholder="..." />
+                <marker date="1365678694389" expanded="true" signature="1308:1468" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apto_stylesheet.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="apto_stylesheet.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="14" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.046511628">
+            <state line="89" column="14" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -284,9 +283,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="70" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365678619898" expanded="true" signature="570:582" placeholder="..." />
-            <marker date="1365678619898" expanded="true" signature="1110:2301" placeholder="..." />
-            <marker date="1365678619898" expanded="true" signature="1300:1460" placeholder="..." />
+            <marker date="1365678694389" expanded="true" signature="578:590" placeholder="..." />
+            <marker date="1365678694389" expanded="true" signature="1118:2309" placeholder="..." />
+            <marker date="1365678694389" expanded="true" signature="1308:1468" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -378,21 +377,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
+    <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="-13.730769">
-          <folding>
-            <marker date="1365678619898" expanded="true" signature="570:582" placeholder="..." />
-            <marker date="1365678619898" expanded="true" signature="1110:2301" placeholder="..." />
-            <marker date="1365678619898" expanded="true" signature="1300:1460" placeholder="..." />
-          </folding>
+        <state line="89" column="14" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/apto_stylesheet.css">
+    <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="14" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.046511628">
-          <folding />
+        <state line="24" column="38" selection-start="515" selection-end="515" vertical-scroll-proportion="0.57872343">
+          <folding>
+            <marker date="1365678694389" expanded="true" signature="578:590" placeholder="..." />
+            <marker date="1365678694389" expanded="true" signature="1118:2309" placeholder="..." />
+            <marker date="1365678694389" expanded="true" signature="1308:1468" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
