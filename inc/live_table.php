@@ -1,22 +1,18 @@
 <?php
 
-//JSON
-$json_url = APIURL . "live";
+$curl = curl_init();
 
-//initializing curl
-$ch = curl_init($json_url);
-
-//Curl options
 $options = array(
+    CURLOPT_URL => APIURL . "live",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
 );
 
 //setting curl options
-curl_setopt_array($ch, $options);
+curl_setopt_array($curl, $options);
 
 //getting results
-$result_json = curl_exec($ch);
+$result_json = curl_exec($curl);
 $result = json_decode($result_json, true);
 ksort($result);
 foreach($result as $service => $state) {
