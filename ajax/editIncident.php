@@ -3,11 +3,15 @@ session_start();
 
 include '../inc/apiurl.php';
 
-$incidentID = $_POST["incident"];
+if (isset($_POST["incident"])) {
 
-$_SESSION["incidentID"] = $incidentID;
+    $_SESSION["incident"] = $_POST["incident"];
 
-$url = APIURL . "incident/" . $_SESSION["incidentID"];
+}
+
+$incidentID = $_SESSION["incident"];
+
+$url = APIURL . "incident/$incidentID";
 $curl = curl_init($url);
 
 if(isset($_POST["flag"])) {
