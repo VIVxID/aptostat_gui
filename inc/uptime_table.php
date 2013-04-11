@@ -40,6 +40,8 @@ $response = json_decode(curl_exec($curl),true);
         echo "</td>";
     echo "</tr>";
 
+    ksort($response);
+    
     foreach ($response as $host => $errors) {
     
         $timeFrame = array();
