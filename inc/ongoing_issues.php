@@ -15,7 +15,7 @@ $response = json_decode(curl_exec($curl), true);
 
 $checkList = $response["report"]["incidents"];
 
-echo "<ul class='nav nav-tabs'>";
+echo "<ul class='nav nav-pills'>";
 
 foreach ($checkList as $id => $incident) {
 
@@ -61,7 +61,7 @@ foreach ($checkList as $id => $incident) {
     echo "<td class='table-left'>".$incident["incidentTitle"]."</td>";
     echo "</tr>";
 
-    echo "<hr />";
+    echo "<td colspan='2'><hr /></td>";
 
     echo "<tr>";
     echo "<td class='table-left'>Errors:</td>";
