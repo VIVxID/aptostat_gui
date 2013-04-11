@@ -91,7 +91,7 @@ a {
     margin: 50px auto 0;
     width: 80%;
     /*border: 2px solid #939393;*/
-    min-height: 200px;
+    min-height: 144px;
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -110,7 +110,7 @@ a {
 .all-clear {
     font-size: 20px;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 65px;
 }
 
 #current_box_table {
