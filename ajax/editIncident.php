@@ -92,7 +92,25 @@ $incident = $result["incident"];
         <fieldset>
             <legend>Message</legend>
             Author: <input name="author" type="text" length="20" /><br />
-            <textarea name="text" rows="10" cols="50">Update message goes here...</textarea>
+            <textarea id="message" name="text" rows="10" cols="50">Update message</textarea><br />
             <input type="submit" value="Submit" />
         </fieldset><br />                
     </form>
+    
+    <script type="text/javascript">
+        var placeholder = $("#message").val();
+        $("#message").focus(
+            function() {
+                if($(this).val() == placeholder) {
+                    $(this).val("");
+                }
+            }
+        );
+        $("#message").blur(
+            function() {
+                if($(this).val() == "") {
+                    $(this).val(placeholder);
+                }
+            }
+        );
+    </script>
