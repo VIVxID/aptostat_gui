@@ -83,14 +83,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
             
-                $('.sortable')/*.sortable({ /* not sure if we need them sortable anymore, at least not in the same way as before
-                    connectWith: $('.sortable'),
-                    helper: "clone"
-                    /*update : function () {
-                        var order = $('.testsortable').sortable('serialize');
-                        $("#info").load("process-sortable.php?"+order);
-                    }*//*
-                })*/.disableSelection(); /* turns the text into a "button" that can't be selected */
+                /*$('.sortable')/.disableSelection(); /* turns the text into a "button" that can't be selected */
 
                 $(".file").click(function() {
                     var reportId = $(this).attr('id');
