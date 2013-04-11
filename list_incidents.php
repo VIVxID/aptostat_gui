@@ -37,43 +37,45 @@
             ksort($incidents);
         ?>
         
-        <div class="container_12 content_box">
-            <div class="list_content" id="incidentbox_list">
-                <div class="groupbox_heading">
-                    Incidents
+        <div class="container content_box">
+            <div class="row">
+                <div class="list_content" id="incidentbox_list">
+                    <div class="groupbox_heading">
+                        Incidents
+                    </div>
+                    <div class="groupbox_wrapper">
+                        <ul>
+                            <?php
+                                foreach($incidents as $incident => $details) {
+                                        $date = $details["incidentTimestamp"];
+                                        $title = $details["incidentTitle"];
+                                        print "<li class='file' id='incident_$incident'>Incident $incident - $date - $title</li>\r\n";
+                                    
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="list_content_menu_fat">
+                        View all <input type="checkbox"/>
+                        Warning <input type="checkbox"/>
+                        Ignored <input type="checkbox"/>
+                        <br/>
+                        Critical <input type="checkbox"/>
+                        Resolved <input type="checkbox"/>
+                        Internal <input type="checkbox"/>
+                        Responding <input type="checkbox"/>
+                    </div>
                 </div>
-                <div class="groupbox_wrapper">
-                    <ul>
-                        <?php
-                            foreach($incidents as $incident => $details) {
-                                    $date = $details["incidentTimestamp"];
-                                    $title = $details["incidentTitle"];
-                                    print "<li class='file' id='incident_$incident'>Incident $incident - $date - $title</li>\r\n";
-                                
-                            }
-                        ?>
-                    </ul>
-                </div>
-                <div class="list_content_menu_fat">
-                    View all <input type="checkbox"/>
-                    Warning <input type="checkbox"/>
-                    Ignored <input type="checkbox"/>
-                    <br/>
-                    Critical <input type="checkbox"/>
-                    Resolved <input type="checkbox"/>
-                    Internal <input type="checkbox"/>
-                    Responding <input type="checkbox"/>
-                </div>
-            </div>
-            <div class="list_content" id="incidentbox_details">
-                <div class="groupbox_heading">
-                    Details
-                </div>
-                <div class="groupbox_wrapper" id="reportPane">
-                        Click on an incident to view it and to make or edit messages for the incident.
-                </div>
-                <div class="list_content_menu_fat">
-                    <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
+                <div class="list_content" id="incidentbox_details">
+                    <div class="groupbox_heading">
+                        Details
+                    </div>
+                    <div class="groupbox_wrapper" id="reportPane">
+                            Click on an incident to view it and to make or edit messages for the incident.
+                    </div>
+                    <div class="list_content_menu_fat">
+                        <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,7 +93,7 @@
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
-                        }).("#reportPane").toggle("fade");
+                        });
                         
                         $('#newMessage').show();
                     });
