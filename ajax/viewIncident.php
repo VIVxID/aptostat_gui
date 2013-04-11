@@ -36,6 +36,7 @@
         print $report["idReport"] . ", ";
     }
     print "<br />";
+    print "Author: " . $incident["lastMessageAuthor"] . "<br />";
     print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
     print "Author: " . $incident["lastMessageAuthor"] . "<br />";
     print "Last Message: " . $incident["lastMessage"] . "<br />";
