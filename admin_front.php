@@ -25,44 +25,15 @@
                     <div class="front_messagebox">
 
                         <?php include "inc/live_table.php" ?>
-                        
+
                     </div>
                 </div>
                 
                 <div class="span6 offset1">
-                    <div id="current_box" class="error">
-                        <table border="0" class="current_box_table">
-                            <tr>
-                                <td class="table-left">Ongoing issues</td>
-                                <td class="table-right">[Unresolved]</td>
-                            </tr>
-                            <tr>
-                                <td class="table-left">Services:</td>
-                                <td class="table-right">
-                                    DrPublish API<br/>
-                                    DrPublish Backoffice
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-left">Status:</td>
-                                <td class="table-right">Critical</td>
-                            </tr>
-                            <tr>
-                                <td class="table-left">Date:</td>
-                                <td class="table-right">07/03-2013 11:50</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <hr/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    We're in a bit of a snafu here and DrPublish Backoffice is down at the moment. DrPublish API may also be unstable.<br/>
-                                    We are working on a fix.
-                                </td>
-                            </tr>
-                        </table>
+                    <div id="current_box" class="tabbable">
+
+                        <?php include "inc/ongoing_issues.php"; ?>
+
                     </div>
                 </div>
             </div>
