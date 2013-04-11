@@ -1,6 +1,8 @@
 <?php
     //Uthenting av incident
     
+    include 'inc/apiurl.php';
+    
     $incident = $_POST["incident"];
     
     //JSON

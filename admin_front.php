@@ -6,6 +6,7 @@
 
     <?php
         include 'inc/html_head.php';
+        include 'inc/apiurl.php';
     ?>
     
     <body>

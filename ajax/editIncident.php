@@ -1,6 +1,8 @@
 ﻿<?php
 session_start();
-        
+
+include 'inc/apiurl.php';
+
 $incident = $_POST["incident"];
 
 $url = APIURL . "incident/$incident";

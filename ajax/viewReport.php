@@ -1,6 +1,8 @@
 ﻿<?php
     //Uthenting av report
     
+    include 'inc/apiurl.php';
+    
     $report = $_POST["report"];
     
     //JSON
