@@ -17,11 +17,11 @@ $checkList = $response["report"]["incidents"];
 
 if (!empty($checkList)) {
 
-    echo '<div id="current_box" class="tabbable">';
+    echo '<div id="current_box">';
 
 } else {
 
-    echo '<div id="current_box" class="tabbable">';
+    echo '<div id="current_box">';
 
 }
 
@@ -37,7 +37,7 @@ foreach ($checkList as $id => $incident) {
     echo "</a>";
     echo "</div>";
 
-    echo "<div id='#collapse".$id."' class='accordion-body collapse'>";
+    echo "<div id='collapse".$id."' class='accordion-body collapse'>";
     echo "<div class='accordion-inner'>";
 
     echo "<table border='0' class='current_box_table'>";

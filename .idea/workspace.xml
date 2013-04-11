@@ -15,7 +15,7 @@
     <file path="/live_table.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365668767894" ignored="false" />
     <file path="/ongoing_issues.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365676235650" ignored="false" />
     <file path="/html_head.php" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365670183373" ignored="false" />
-    <file path="$PROJECT_DIR$/css/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365675074029" ignored="false" />
+    <file path="$PROJECT_DIR$/css/apto_stylesheet.css" changelist="10bca2dc-9400-49b5-9f83-1a19c7ee1e84" time="1365676534235" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +38,11 @@
       <file leaf-file-name="ongoing_issues.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="834" selection-end="834" vertical-scroll-proportion="-0.012765957">
+            <state line="39" column="19" selection-start="820" selection-end="820" vertical-scroll-proportion="0.44539008">
               <folding>
-                <marker date="1365676250060" expanded="true" signature="524:532" placeholder="..." />
-                <marker date="1365676250060" expanded="true" signature="1021:2104" placeholder="..." />
-                <marker date="1365676250060" expanded="true" signature="1195:1339" placeholder="..." />
+                <marker date="1365677342183" expanded="true" signature="490:498" placeholder="..." />
+                <marker date="1365677342183" expanded="true" signature="986:2069" placeholder="..." />
+                <marker date="1365677342183" expanded="true" signature="1160:1304" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -60,7 +60,7 @@
       <file leaf-file-name="admin_front.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin_front.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="59" selection-start="774" selection-end="813" vertical-scroll-proportion="-9.153846">
+            <state line="33" column="0" selection-start="880" selection-end="880" vertical-scroll-proportion="-9.153846">
               <folding />
             </state>
           </provider>
@@ -279,9 +279,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="70" selection-start="631" selection-end="631" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365676250060" expanded="true" signature="524:532" placeholder="..." />
-            <marker date="1365676250060" expanded="true" signature="1021:2104" placeholder="..." />
-            <marker date="1365676250060" expanded="true" signature="1195:1339" placeholder="..." />
+            <marker date="1365677342183" expanded="true" signature="490:498" placeholder="..." />
+            <marker date="1365677342183" expanded="true" signature="986:2069" placeholder="..." />
+            <marker date="1365677342183" expanded="true" signature="1160:1304" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -375,18 +375,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="59" selection-start="774" selection-end="813" vertical-scroll-proportion="-9.153846">
+        <state line="33" column="0" selection-start="880" selection-end="880" vertical-scroll-proportion="-9.153846">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/ongoing_issues.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="834" selection-end="834" vertical-scroll-proportion="-0.012765957">
+        <state line="39" column="19" selection-start="820" selection-end="820" vertical-scroll-proportion="0.44539008">
           <folding>
-            <marker date="1365676250060" expanded="true" signature="524:532" placeholder="..." />
-            <marker date="1365676250060" expanded="true" signature="1021:2104" placeholder="..." />
-            <marker date="1365676250060" expanded="true" signature="1195:1339" placeholder="..." />
+            <marker date="1365677342183" expanded="true" signature="490:498" placeholder="..." />
+            <marker date="1365677342183" expanded="true" signature="986:2069" placeholder="..." />
+            <marker date="1365677342183" expanded="true" signature="1160:1304" placeholder="..." />
           </folding>
         </state>
       </provider>
