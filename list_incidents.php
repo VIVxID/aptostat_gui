@@ -88,6 +88,7 @@
                     $(".file").click(function() {
                         var incidentId = $(this).attr("id");
                         var incident = incidentId.replace("incident_", "");
+                        $("#reportPane").hide();
                         $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
