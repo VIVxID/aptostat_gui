@@ -51,7 +51,7 @@ $result = json_decode(curl_exec($curl),true);
 $incident = $result["incident"];
     
 ?>
-    <form action="editIncident.php" method="post">
+    <form action="ajax/editIncident.php" method="post">
     <br />
     <?php
         echo "Selected incident: ".$incidentID."<br /><br />";
