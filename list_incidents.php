@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
     <?php
-		include 'html_head.inc';
-		include 'propel_bootstrap.inc';
+		include 'inc/html_head.inc';
 	?>
     <body>
         
@@ -109,7 +108,7 @@
                 });
         </script>
         
-        <?php include 'admin_footer.inc'; ?>
+        <?php include 'inc/admin_footer.inc'; ?>
         
     </body>
 </html>

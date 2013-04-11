@@ -5,8 +5,7 @@
 <html>
 
     <?php
-        include 'html_head.inc';
-        include 'propel_bootstrap.inc';
+        include 'inc/html_head.inc';
     ?>
     
     <body>
@@ -454,7 +453,7 @@
             
             
              
-        <?php include 'cust_footer.inc'; ?>
+        <?php include 'inc/cust_footer.inc'; ?>
         
     </body>
 </html>
