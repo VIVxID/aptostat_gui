@@ -93,6 +93,9 @@
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
+                            else {
+                                $(this).fadeIn();
+                            }
                         });
                         
                         $('#newMessage').show();
