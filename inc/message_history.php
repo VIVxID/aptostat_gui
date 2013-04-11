@@ -44,7 +44,7 @@ if (empty($messages)) {
     foreach ($messages as $messageDate => $message) {
 
         echo "<tr>";
-        echo "<td><hr /></td>"
+        echo "<td><hr /></td>";
         echo "<td class='table-left'>".$message["title"]."</td>";
         echo "</tr>";
 
