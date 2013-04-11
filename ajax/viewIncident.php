@@ -33,7 +33,9 @@
     print "Connected Reports: ";
 
     foreach($reports as $group => $report) {
-        print $report["idReport"] . ", ";
+        foreach ($report as $report) {
+            print $report["idReport"] . ", ";
+        }
     }
     print "<br />";
     print "Author: " . $incident["lastMessageAuthor"] . "<br />";
