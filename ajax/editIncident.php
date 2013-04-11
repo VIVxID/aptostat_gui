@@ -3,7 +3,7 @@ session_start();
         
 $incident = $_POST["incident"];
 
-$url = "http://aptoapi.vlab.iu.hio.no/api/incident/$incident";
+$url = APIURL . "incident/$incident";
 $curl = curl_init($url);
 
 if(isset($_POST["flag"])) {

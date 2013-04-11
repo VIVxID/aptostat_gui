@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
     <?php
-		include 'inc/html_head.inc';
+		include 'inc/html_head.php';
 	?>
     <body>
         
@@ -141,7 +141,7 @@
             });
         </script>
         
-        <?php include 'inc/admin_footer.inc'; ?>
+        <?php include 'inc/admin_footer.php'; ?>
         
     </body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 
     <?php
-        include 'inc/html_head.inc';
+        include 'inc/html_head.php';
     ?>
     
     <body>
@@ -453,7 +453,7 @@
             
             
              
-        <?php include 'inc/cust_footer.inc'; ?>
+        <?php include 'inc/cust_footer.php'; ?>
         
     </body>
 </html>
