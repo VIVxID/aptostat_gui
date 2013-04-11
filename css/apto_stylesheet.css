@@ -107,6 +107,12 @@ a {
     background-color: #feffeb;
 }
 
+.all-clear {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 40px;
+}
+
 #current_box_table {
     width: 100%;
 }
