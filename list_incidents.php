@@ -91,7 +91,7 @@
                                 var msg = "Error: ";
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
-                        }).selectable();
+                        });
                         
                         $('#newMessage').show();
                     });

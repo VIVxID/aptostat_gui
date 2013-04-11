@@ -31,11 +31,11 @@
     print "Timestamp: " . $incident["timestamp"] . "<br />";
     print "Last Flag: " . $incident["lastFlag"] . "<br />";
     print "Connected Reports: ";
-    var_dump($reports);
     foreach($reports as $group => $report) {
         print $report["idReport"] . ", ";
     }
     print "<br />";
+    print "Author: " . $incident["lastMessageAuthor"] . "<br />";
     print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
     print "Author: " . $incident["lastMessageAuthor"] . "<br />";
     print "Last Message: " . $incident["lastMessage"] . "<br />";
