@@ -30,20 +30,20 @@
                     </div>
                     
                     <div class="span5 offset2">
-                        <div class="span12">
 
                             <?php include "inc/ongoing_issues.php"; ?>
 
-                        </div>
                     </div>
                 </div>
 
                 <hr />
                 
                 <div class="row">
+                    <div class="span12">
 
                     <?php include "inc/uptime_table.php"; ?>
 
+                    </div>
                 </div>
                 
                 <div class="row">
