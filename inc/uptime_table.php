@@ -114,16 +114,32 @@ $response = json_decode(curl_exec($curl),true);
         <button type="button" class="btn btn-primary"><a href="#year" data-toggle="tab">Year</a></button>
     </div>
 
+
+<div class="tab-content">
     <div class="tab-pane active" id="week">
         <table>
             <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
+            </tr>
+            <tr>
                 <td>1</td>
             </tr>
         </table>
@@ -133,12 +149,26 @@ $response = json_decode(curl_exec($curl),true);
         <table>
             <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
+            </tr>
+            <tr>
                 <td>2</td>
             </tr>
         </table>
@@ -148,14 +178,29 @@ $response = json_decode(curl_exec($curl),true);
         <table>
             <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
+            </tr>
+            <tr>
                 <td>3</td>
             </tr>
         </table>
     </div>
+</div>
 </div>
