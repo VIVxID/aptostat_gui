@@ -106,12 +106,10 @@ $response = json_decode(curl_exec($curl),true);
 
 <div class="span3">
 
-    <h3>Total Downtime</h3>
-
     <div class="btn-group" data-toggle="buttons-radio">
-        <button type="button" class="btn btn-primary"><a href="#week" data-toggle="tab">Week</a></button>
-        <button type="button" class="btn btn-primary"><a href="#month" data-toggle="tab">Month</a></button>
-        <button type="button" class="btn btn-primary"><a href="#year" data-toggle="tab">Year</a></button>
+        <button type="button" class="btn btn-primary"><a class="bootstrap-button-link" href="#week" data-toggle="tab">Week</a></button>
+        <button type="button" class="btn btn-primary"><a class="bootstrap-button-link" href="#month" data-toggle="tab">Month</a></button>
+        <button type="button" class="btn btn-primary"><a class="bootstrap-button-link" href="#year" data-toggle="tab">Year</a></button>
     </div>
 
 
@@ -119,28 +117,31 @@ $response = json_decode(curl_exec($curl),true);
     <div class="tab-pane active" id="week">
         <table>
             <tr>
-                <td>1</td>
+                <td>Uptime last week</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>1</td>
+                <td><img src='../img/check.png' /></td>
+            </tr>
+            <tr>
+                <td><img src='../img/check.png' /></td>
             </tr>
         </table>
     </div>
@@ -148,28 +149,31 @@ $response = json_decode(curl_exec($curl),true);
     <div class="tab-pane" id="month">
         <table>
             <tr>
-                <td>2</td>
+                <td>Uptime last month</td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td><img src='../img/check.png' /></td>
+            </tr>
+            <tr>
+                <td><img src='../img/check.png' /></td>
             </tr>
         </table>
     </div>
@@ -177,28 +181,31 @@ $response = json_decode(curl_exec($curl),true);
     <div class="tab-pane" id="year">
         <table>
             <tr>
-                <td>3</td>
+                <td>Uptime last year</td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td><img src='../img/check.png' /></td>
+            </tr>
+            <tr>
+                <td><img src='../img/check.png' /></td>
             </tr>
         </table>
     </div>

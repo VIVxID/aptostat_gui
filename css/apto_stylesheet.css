@@ -324,6 +324,11 @@ a {
     padding-bottom: 5px;
 }
 
+.bootstrap-button-link
+{
+    color: white;
+}
+
 /** tabell boks **/
 
 .author {
