@@ -52,7 +52,7 @@ $response = json_decode(curl_exec($curl),true);
 
         $i = 6;
 
-        //Runs through the dates, inserting error icons dependig on the reported downtime.
+        //Runs through the dates, inserting error icons depending on the reported downtime.
         while ($i >= 0) {
         
             $print = 0;
@@ -60,7 +60,7 @@ $response = json_decode(curl_exec($curl),true);
             
             foreach ($errors as $errorDate => $downtime) {
 
-                if (date("D d", time()-(86400*$i)) == $errorDate) {
+                if (date("m/d/Y", time()-(86400*$i)) == $errorDate) {
 
                     $outage = array_sum($downtime);
 
