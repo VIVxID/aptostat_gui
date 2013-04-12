@@ -29,22 +29,21 @@
                         </div>
                     </div>
                     
-                    <div class="span6 offset1">
+                    <div class="span5 offset2">
+                        <div class="span12">
 
                             <?php include "inc/ongoing_issues.php"; ?>
 
+                        </div>
                     </div>
                 </div>
 
                 <hr />
                 
                 <div class="row">
-                    <div class="span12">
-                        <h3> Status History - last 7 days</h3>
 
-                        <?php include "inc/uptime_table.php"; ?>
+                    <?php include "inc/uptime_table.php"; ?>
 
-                    </div>
                 </div>
                 
                 <div class="row">

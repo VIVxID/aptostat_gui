@@ -1,3 +1,5 @@
+<div class="span9">
+    <h3> Status History - last 7 days</h3>
 <table id="history">
     <tr>
         <td>
@@ -52,7 +54,7 @@ $response = json_decode(curl_exec($curl),true);
 
         $i = 6;
 
-        //Runs through the dates, inserting error icons depending on the reported downtime.
+        //Runs through the dates, inserting icons relevant to the reported downtime.
         while ($i >= 0) {
         
             $print = 0;
@@ -93,7 +95,67 @@ $response = json_decode(curl_exec($curl),true);
             $(function ()
             { $(".downtime").tooltip({'placement': 'left'});
             });
+            $(function ()
+            { $('.nav-tabs').button()
+            });
         </script>
 
     </tr>
 </table>
+</div>
+
+<div class="span3">
+
+    <h3>Total Downtime</h3>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-primary"><a href="#week" data-toggle="tab">Week</a></button>
+        <button type="button" class="btn btn-primary"><a href="#month" data-toggle="tab">Month</a></button>
+        <button type="button" class="btn btn-primary"><a href="#year" data-toggle="tab">Year</a></button>
+    </div>
+
+    <div class="tab-pane active" id="week">
+        <table>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="month">
+        <table>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="year">
+        <table>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </div>
+</div>
