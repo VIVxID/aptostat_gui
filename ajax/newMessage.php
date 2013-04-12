@@ -131,9 +131,10 @@ $incident = $result["incident"];
                 url: "newMessage.php",
                 data: dataString,
                 success: function(){
-                    
+                    $("#reportPane").css("opacity", "0");
+                    $("#reportPane").html("Message posted.");
+                    $("#reportPane").fadeTo("normal",1);
                 },
-                dataType: dataType
             });
         })
     </script>
