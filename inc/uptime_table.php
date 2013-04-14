@@ -61,7 +61,7 @@ $response = json_decode(curl_exec($curl),true);
             
             foreach ($errors as $errorDate => $downtime) {
 
-                if (date("m/d/Y", time()-(86400*$i)) == $errorDate) {
+                if (date("d/m/Y", time()-(86400*$i)) == $errorDate) {
 
                     $outage = array_sum($downtime);
 
