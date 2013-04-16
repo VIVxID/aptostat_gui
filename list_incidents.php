@@ -49,7 +49,7 @@
                                 foreach($incidents as $incident) {
                                         $date = $incident["createdTimestamp"];
                                         $title = $incident["title"];
-                                        print "<li class='file' id='incident_".$incident["id"]."'>Incident $incident - $date - $title</li>\r\n";
+                                        print "<li class='file' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
                                     
                                 }
                             ?>
