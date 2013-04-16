@@ -5,7 +5,7 @@
 <html>
 
     <?php
-        include '../inc/html_head.php';
+        include '/inc/html_head.php';
         include 'inc/apiurl.php';
     ?>
     
@@ -15,7 +15,7 @@
         
         <header id="header">
             <div id="header-content">
-                <a href="http://apto.vlab.iu.hio.no/admin_front.php"><img id="logo" src="img/logo.png" /></a>
+                <a href="http://apto.vlab.iu.hio.no/admin_front.php"><img id="logo" src="/img/logo.png" /></a>
             </div>
         </header>
         <div id="content_wrapper">
@@ -24,14 +24,14 @@
                     <div class="span5 suffix1">
                         <div class="front_messagebox">
 
-                            <?php include "../inc/live_table.php" ?>
+                            <?php include "/inc/live_table.php" ?>
 
                         </div>
                     </div>
                     
                     <div class="span5 offset2">
 
-                            <?php include "../inc/ongoing_issues.php"; ?>
+                            <?php include "/inc/ongoing_issues.php"; ?>
 
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="span12">
 
-                    <?php include "../inc/uptime_table.php"; ?>
+                    <?php include "/inc/uptime_table.php"; ?>
 
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="span12">
 
-                        <?php include "../inc/message_history.php"; ?>
+                        <?php include "/inc/message_history.php"; ?>
 
                     </div>
                 </div>
