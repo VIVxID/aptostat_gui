@@ -44,7 +44,7 @@
             ksort($groups);
         ?>
         
-        <div class="container content_box">
+        <div class="container">
             <div class="row">
                 <div class="list_content" id="groupbox_reports">
                     <div class="groupbox_heading">
