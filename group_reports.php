@@ -18,7 +18,8 @@
         
             //API URL
             $json_url = APIURL . "report";
-            
+            $groups = array();
+
             //initializing curl
             $ch = curl_init($json_url);
             
@@ -32,9 +33,14 @@
             curl_setopt_array($ch, $options);
             
             //getting results
-            $result_json = curl_exec($ch);
-            $result = json_decode($result_json, true);
-            $groups = $result["report"]["groups"];
+            $response = json_decode(curl_exec($ch),true);
+
+            foreach ($response["reports"] as $report) {
+
+                $groups[$report["host"]][] = $report;
+
+            }
+
             ksort($groups);
         ?>
         
