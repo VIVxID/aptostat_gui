@@ -1,7 +1,7 @@
 <h3> Status History - last 7 days</h3>
 <table id="history">
     <tr>
-        <td class="uptime-title">
+        <td id="uptime-title">
             Service:
         </td>
 <?php
