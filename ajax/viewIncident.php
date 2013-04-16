@@ -4,51 +4,41 @@
     include '../inc/apiurl.php';
     
     $incident = $_POST["incident"];
-    
-    //JSON
-    $json_url = APIURL . "incident/$incident";
-    
-    //initializing curl
-    $ch = curl_init($json_url);
-    
-    //Curl options
+
+    $ch = curl_init();
     $options = array(
+    CURLOPT_URL => APIURL . "incident/$incident",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
     );
     
-    //setting curl options
     curl_setopt_array($ch, $options);
-    
-    //getting results
-    $result_json = curl_exec($ch);
-    $result = json_decode($result_json, true);
-    $incident = $result["incident"];
+    $result = json_decode(curl_exec($ch),true);
+    $incident = $result["incidents"];
+    $messages = $incident["messageHistory"];
     $reports = $incident["connectedReports"];
-    $messages = $incident["connectedMessages"]["public"];
-    
-    print "Incident ID: " . $incident["idIncident"] . "<br />";
-    print "Timestamp: " . $incident["timestamp"] . "<br />";
-    print "Last Flag: " . $incident["lastFlag"] . "<br />";
+
+    print "Incident ID: " . $incident["id"] . "<br />";
+    print "Timestamp: " . $incident["createdTimestamp"] . "<br />";
+    print "Last Flag: " . $incident["lastStatus"] . "<br />";
     print "Connected Reports: ";
 
-    foreach($reports as $group => $report) {
-        foreach ($report as $report) {
-            print $report["idReport"] . ", ";
-        }
+    foreach($reports as $report) {
+            print $report . ", ";
     }
+
     print "<br />";
     print "Author: " . $incident["lastMessageAuthor"] . "<br />";
-    print "Last Message Date: " . $incident["lastMessageDate"] . "<br />";
+    print "Last Message Date: " . $incident["lastMessageTimestamp"] . "<br />";
     print "Author: " . $incident["lastMessageAuthor"] . "<br />";
-    print "Last Message: " . $incident["lastMessage"] . "<br />";
+    print "Last Message: " . $incident["lastMessageText"] . "<br />";
     
     print "<br /> Connected Messages : <br />";
     foreach($messages as $messages) {
         
-        $date = $messages["messageDate"];
-        $status = $messages["status"];
-        $author = $messages["author"];
+        $date = $messages["messageTimestamp"];
+        $status = $messages["messageStatus"];
+        $author = $messages["messageAuthor"];
         $messageText = $messages["messageText"];
         
         print "Date: " . $date . "<br />";
