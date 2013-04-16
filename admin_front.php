@@ -56,7 +56,16 @@
             
             </div>
         </div>
-        
+        <script type="text/javascript">
+            $(document).ready(function(){     
+                $("#dimmer").css("opacity", 0.5);
+                $(window).bind('scroll', function(){
+                    $(".trigger").on($(this).scrollTop() > 50, function(){
+                        $("#dimmer").css("opacity", 1);
+                    });
+                });
+            });
+        </script>
         <?php include 'inc/admin_footer.php'; ?>
        
     </body>
