@@ -98,10 +98,10 @@
                                 $("#reportPane").fadeTo("normal",1);
                             }
                         });
-                        
+
                         $('#newMessage').show();
                     });
-                    
+
                     $("#newMessage").click(function(event) {
                         $("#reportPane").css("opacity", "0");
                         $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
