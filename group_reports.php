@@ -59,7 +59,7 @@
                                         print "<input type='checkbox' id='$group' />\r\n";
                                         print "<ol class='sortable'>\r\n";
                                             foreach($reports as $report) { //goes through all reports for the service
-                                                print "<li class='file' id='report_".$report["idReport"]."'>Report ".$report["idReport"]."</li>\r\n"; //the .file class makes it clickable for ajax loading of the report
+                                                print "<li class='file' id='report_".$report["id"]."'>Report ".$report["id"]."</li>\r\n"; //the .file class makes it clickable for ajax loading of the report
                                             }
                                         print "</ol>";
                                     print "</li>";
