@@ -30,11 +30,11 @@ a {
     width: 100%;
 }
 
-.table-left {
+.left {
     float: left;
 }
 
-.table-right {
+.right {
     float: right;
 }
 
