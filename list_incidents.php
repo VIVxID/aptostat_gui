@@ -88,7 +88,7 @@
                     $(".file").click(function() {
                         var incidentId = $(this).attr("id");
                         incident = incidentId.replace("incident_", "");
-                        $("#reportPane").css("opacity", "0");
+                        $("#reportPane").fadeTo("normal", "0");
                         $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
@@ -103,7 +103,7 @@
                     });
                     
                     $("#newMessage").click(function(event) {
-                        $("#reportPane").css("opacity", "0");
+                        $("#reportPane").fadeTo("normal", "0");
                         $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
