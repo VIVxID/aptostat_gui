@@ -5,9 +5,8 @@
             Service:
         </td>
 <?php
-
+$odd = 1;
 $curl = curl_init();
-
 $options = array(
     CURLOPT_URL => APIURL . "uptime",
     CURLOPT_RETURNTRANSFER => true,
@@ -45,8 +44,16 @@ $response = json_decode(curl_exec($curl),true);
     
     foreach ($response as $host => $errors) {
 
+        if ($odd == 1) {
+            $rowColor = "odd";
+            $odd = 0;
+        } else {
+            $rowColor = "even";
+            $odd = 1;
+        }
+
         //Prints hostnames on the Y-axis.
-        echo "<tr>";
+        echo '<tr class="'.$rowColor.'">';
             echo "<td class='uptime-y'>";
                 echo $host;
             echo "</td>";
