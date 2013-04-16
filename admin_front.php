@@ -13,7 +13,7 @@
         
         <!--HEADER-->
         
-        <header id="header">
+        <header>
             <div id="header-content">
                 <a href="http://apto.vlab.iu.hio.no/admin_front.php"><img id="logo" src="img/logo.png" /></a>
             </div>
