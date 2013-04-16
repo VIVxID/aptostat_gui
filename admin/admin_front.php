@@ -38,29 +38,31 @@
 
                 <hr />
                 
-                <div class="row">
-                    <div class="span12">
-
-                    <?php include "../inc/uptime_table.php"; ?>
-
-                    </div>
-                </div>
+                <div id="dimmer">
                 
-                <div class="row">
-                    <div class="span12">
+                    <div class="row">
+                        <div class="span12">
 
-                        <?php include "../inc/message_history.php"; ?>
+                        <?php include "../inc/uptime_table.php"; ?>
 
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="span12">
+
+                            <?php include "../inc/message_history.php"; ?>
+
+                        </div>
                     </div>
                 </div>
-            
             </div>
         </div>
         <script type="text/javascript">
             $(document).ready(function(){     
-                $("#dimmer").css("opacity", 0.5);
+                $("#dimmer").css("opacity", 0.25);
                 $(window).bind('scroll', function(){
-                    $(".trigger").on($(this).scrollTop() > 50, function(){
+                    $("#dimmer").on($(this).scrollTop() > 50, function(){
                         $("#dimmer").css("opacity", 1);
                     });
                 });
