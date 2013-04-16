@@ -97,7 +97,7 @@ a {
     color: #646464;
 }
 
-/** current status **/
+/** current issues box **/
 
 #current_box {
     margin: 50px auto 0;
@@ -141,6 +141,12 @@ a {
 
 .centered {
     text-align: center;
+}
+
+#dimmer {
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 99;
 }
 
 /** group box **/
