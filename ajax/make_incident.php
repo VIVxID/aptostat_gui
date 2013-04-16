@@ -47,7 +47,18 @@
                 //initializing curl
                 $ch = curl_init($json_url);
                 
+                $arrayData = array(
+                    "title" => $_POST["name"],
+                    "flag" => $_POST["author"],
+                    "flag" => $_POST["flag"],
+                    "visibility" => 1);
+                
                 //Curl options
+                
+                $headers = array(
+                    "Accept: application/json",
+                    "Content-Type: application/json");
+                    
                 $options = array(
                     CURLOPT_HTTPHEADER => $headers,
                     CURLOPT_RETURNTRANSFER => true,
