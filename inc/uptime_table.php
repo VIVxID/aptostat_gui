@@ -18,25 +18,25 @@ curl_setopt_array($curl, $options);
 $response = json_decode(curl_exec($curl),true);
 
         //Prints dates on the X-axis in the format "Wed 06", "Thu 07" etc.
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time()-518400);
         echo "</td>";
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time()-432000);
         echo "</td>";
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time()-345600);
         echo "</td>";
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time()-259200);
         echo "</td>";
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time()-172800);
         echo "</td>";
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time()-86400);
         echo "</td>";
-        echo "<td>";
+        echo "<td class='uptime-x'>";
             echo date("D d",time());
         echo "</td>";
     echo "</tr>";
@@ -47,7 +47,7 @@ $response = json_decode(curl_exec($curl),true);
 
         //Prints hostnames on the Y-axis.
         echo "<tr>";
-            echo "<td>";
+            echo "<td class='uptime-y'>";
                 echo $host;
             echo "</td>";
 
@@ -57,7 +57,7 @@ $response = json_decode(curl_exec($curl),true);
         while ($i >= 0) {
         
             $print = 0;
-            echo "<td>";
+            echo "<td class='uptime-image'>";
             
             foreach ($errors as $errorDate => $downtime) {
 

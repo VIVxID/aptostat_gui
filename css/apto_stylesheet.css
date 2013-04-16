@@ -137,6 +137,30 @@ a {
     margin: 5px;
 }
 
+/** uptime **/
+#history {
+    background-color: #eeeeee;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.uptime-image {
+    border-top: 1px solid #eeeeee;
+    height: 30px;
+    width: 40px;
+}
+
+.uptime-x {
+    background-color: #eeeeee;
+    font-weight: bold;
+}
+
+.uptime-y {
+    border-top: 1px solid #eeeeee;
+    font-weight: bold;
+}
+
 /** other **/
 
 .centered {
