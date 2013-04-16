@@ -51,18 +51,18 @@ if (empty($checkList)) {
         echo "<table border='0' class='current_box_table'>";
 
         echo "<tr>";
-        echo "<td class='table-left'>Incident #".$incident["id"]."</td>";
+        echo "<td class='left'>Incident #".$incident["id"]."</td>";
         echo "</tr>";
 
         echo "<tr>";
-        echo "<td class='table-left'>".$incident["title"]."</td>";
+        echo "<td class='left'>".$incident["title"]."</td>";
         echo "</tr>";
 
         echo "<td colspan='2'><hr /></td>";
 
         echo "<tr>";
-        echo "<td class='table-left'>Created on:</td>";
-        echo "<td class='table-right'>".$incident["createdTimestamp"]."</td>";
+        echo "<td class='left'>Created on:</td>";
+        echo "<td class='right'>".$incident["createdTimestamp"]."</td>";
         echo "</tr>";
 
         echo "<tr>";
@@ -70,9 +70,9 @@ if (empty($checkList)) {
         echo "</tr>";
 
         echo "<tr>";
-        echo "<td class='table-left'>Last update:</td>";
-        echo "<td class='table-right'>".$incident["lastMessageTimestamp"]."</td>";
-        echo "<td class='table-right    '>".$incident["lastMessageText"]."</td>";
+        echo "<td class='left'>Last update:</td>";
+        echo "<td class='right'>".$incident["lastMessageTimestamp"]."</td>";
+        echo "<td class='right'>".$incident["lastMessageText"]."</td>";
         echo "</tr>";
 
         echo "</table>";
