@@ -38,16 +38,16 @@
 
                 <hr />
                 
-                
+                <div id="dimmer">
                 
                     <div class="row">
                         <div class="span12">
 
-                        <?php include "../inc/uptime_table.php"; ?>
+                            <?php include "../inc/uptime_table.php"; ?>
 
                         </div>
                     </div>
-                    
+                        
                     <div class="row">
                         <div class="span12">
 
@@ -56,9 +56,20 @@
                         </div>
                     
                     </div>
+                </div>
             </div>
         </div>
-       
+        <script type="text/javascript">
+            $(document).ready(function(){     
+                $("#dimmer").css("opacity", 0.25);
+                $(window).bind('scroll', function(){
+                    if($(window).scrollTop() > 10, function(){
+                        $("#dimmer").fadeTo("normal", 1);
+                    });
+                });
+            });
+        </script>
+
         <?php include 'inc/admin_footer.php'; ?>
        
     </body>
