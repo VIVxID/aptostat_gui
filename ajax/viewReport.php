@@ -24,12 +24,12 @@
     $result_json = curl_exec($ch);
     $result = json_decode($result_json, true);
     
-    print "Report ID: " . $result["report"]["idReport"] . "<br />";
-    print "Timestamp: " . $result["report"]["timestamp"] . "<br />";
-    print "Last update: " . $result["report"]["lastUpdate"] . "<br />";
-    print "Check type: " . $result["report"]["checkType"] . "<br />";
-    print "Source name: " . $result["report"]["sourceName"] . "<br />";
-    print "Service name: " . $result["report"]["hostName"] . "<br />";
-    print "Flag: " . $result["report"]["status"] . "<br /><br />";
-    print "Error message:<br />" . $result["report"]["errorMessage"];
+    print "Report ID: " . $result["reports"]["id"] . "<br />";
+    print "Timestamp: " . $result["reports"]["createdTimestamp"] . "<br />";
+    print "Last update: " . $result["reports"]["lastUpdatedTimestamp"] . "<br />";
+    print "Check type: " . $result["reports"]["checkType"] . "<br />";
+    print "Source name: " . $result["reports"]["source"] . "<br />";
+    print "Service name: " . $result["reports"]["host"] . "<br />";
+    print "Flag: " . $result["reports"]["flag"] . "<br /><br />";
+    print "Error message:<br />" . $result["reports"]["errorMessage"];
 ?>
