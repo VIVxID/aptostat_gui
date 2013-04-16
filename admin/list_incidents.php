@@ -74,7 +74,7 @@
                             Click on an incident to view it and to make or edit messages for the incident.
                     </div>
                     <div class="list_content_menu_fat">
-                        <a href="#" id="newMessage">Make new message</a>
+                        <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
                     </div>
                 </div>
             </div>
