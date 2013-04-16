@@ -85,12 +85,12 @@ $incident = $result["incident"];
                     </tr>
                 </table>
                 Flag: <select name="flag" id="fieldFlag">
-                    <option value="2">Critical</option>
-                    <option value="1">Warning</option>
-                    <option value="5">Responding</option>
-                    <option value="6">Resolved</option>
-                    <option value="4">Ignored</option>
-                    <option value="3">Internal</option>
+                    <option value="CRITICAL">Critical</option>
+                    <option value="WARNING">Warning</option>
+                    <option value="RESPONDING">Responding</option>
+                    <option value="RESOLVED">Resolved</option>
+                    <option value="IGNORED">Ignored</option>
+                    <option value="INTERNAL">Internal</option>
                 </select>
             </fieldset>
                 <br />
