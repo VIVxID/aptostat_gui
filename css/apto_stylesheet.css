@@ -148,6 +148,8 @@ a {
 #uptime-title {
     padding-top: 10px;
     padding-left: 15px;
+    font-weight: bold;
+    background-color: #bfbfbf;
 }
 
 .uptime-image {
