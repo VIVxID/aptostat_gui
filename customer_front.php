@@ -110,23 +110,23 @@
                 <div id="current_box" class="error">
                     <table border="0" class="current_box_table">
                         <tr>
-                            <td class="table-left">Ongoing issues</td>
-                            <td class="table-right">[Unresolved]</td>
+                            <td class="left">Ongoing issues</td>
+                            <td class="right">[Unresolved]</td>
                         </tr>
                         <tr>
-                            <td class="table-left">Services:</td>
-                            <td class="table-right">
+                            <td class="left">Services:</td>
+                            <td class="right">
                                 DrPublish API<br/>
                                 DrPublish Backoffice
                             </td>
                         </tr>
                         <tr>
-                            <td class="table-left">Status:</td>
-                            <td class="table-right">Critical</td>
+                            <td class="left">Status:</td>
+                            <td class="right">Critical</td>
                         </tr>
                         <tr>
-                            <td class="table-left">Date:</td>
-                            <td class="table-right">07/03-2013 11:50</td>
+                            <td class="left">Date:</td>
+                            <td class="right">07/03-2013 11:50</td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -418,23 +418,23 @@
             <h3>Issue history - Last 3 days</h3>
              <table border="0" class="current_box_table">
                         <tr>
-                            <td class="table-left">Ongoing issues</td>
-                            <td class="table-right">[Unresolved]</td>
+                            <td class="left">Ongoing issues</td>
+                            <td class="right">[Unresolved]</td>
                         </tr>
                         <tr>
-                            <td class="table-left">Services:</td>
-                            <td class="table-right">
+                            <td class="left">Services:</td>
+                            <td class="right">
                                 DrPublish API<br/>
                                 DrPublish Backoffice
                             </td>
                         </tr>
                         <tr>
-                            <td class="table-left">Status:</td>
-                            <td class="table-right">Critical</td>
+                            <td class="left">Status:</td>
+                            <td class="right">Critical</td>
                         </tr>
                         <tr>
-                            <td class="table-left">Date:</td>
-                            <td class="table-right">07/03-2013 11:50</td>
+                            <td class="left">Date:</td>
+                            <td class="right">07/03-2013 11:50</td>
                         </tr>
                         <tr>
                             <td colspan="2">
