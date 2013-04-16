@@ -52,11 +52,10 @@ if (empty($checkList)) {
 
         echo "<tr>";
         echo "<td class='table-left'>Incident #".$incident["id"]."</td>";
-        echo "<td class='table-right'>".$incident["lastStatus"]."</td>";
         echo "</tr>";
 
         echo "<tr>";
-        echo "<td class='table-right'>".$incident["title"]."</td>";
+        echo "<td class='table-left'>".$incident["title"]."</td>";
         echo "</tr>";
 
         echo "<td colspan='2'><hr /></td>";
