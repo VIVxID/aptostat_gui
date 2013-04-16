@@ -3,7 +3,7 @@
 $messages = array();
 $curl = curl_init();
 $options = array(
-    CURLOPT_URL => APIURL . "report",
+    CURLOPT_URL => APIURL . "incident",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
 );
@@ -12,18 +12,18 @@ curl_setopt_array($curl, $options);
 
 $response = json_decode(curl_exec($curl), true);
 
-$checkList = $response["report"]["incidents"];
+$checkList = $response["incidents"];
 
 foreach ($checkList as $incident) {
 
-    if (strtotime($incident["lastMessage"]["messageDate"]) > time()-259200) {
+    if (strtotime($incident["lastMessageTimestamp"]) > time()-259200) {
 
-        $messages[$incident["lastMessage"]["messageDate"]] = array(
-            "messageDate" => $incident["lastMessage"]["messageDate"],
-            "messageText" => $incident["lastMessage"]["messageText"],
-            "author" => $incident["lastMessage"]["messageAuthor"],
-            "title" => $incident["incidentTitle"],
-            "status" => $incident["lastMessage"]["status"]
+        $messages[$incident["lastMessageTimestamp"]] = array(
+            "messageDate" => $incident["lastMessageTimestamp"],
+            "messageText" => $incident["lastMessageText"],
+            "author" => $incident["lastMessageAuthor"],
+            "title" => $incident["title"],
+            "status" => $incident["lastStatus"]
         );
     }
 }
