@@ -16,7 +16,7 @@
         
         <?php
             //API URL
-            $json_url = APIURL . "report";
+            $json_url = APIURL . "incident";
             
             //initializing curl
             $ch = curl_init($json_url);
@@ -33,7 +33,7 @@
             //getting results
             $result_json = curl_exec($ch);
             $result = json_decode($result_json, true);
-            $incidents = $result["report"]["incidents"];
+            $incidents = $result["incidents"];
             ksort($incidents);
         ?>
         
@@ -46,10 +46,10 @@
                     <div class="groupbox_wrapper">
                         <ul>
                             <?php
-                                foreach($incidents as $incident => $details) {
-                                        $date = $details["incidentTimestamp"];
-                                        $title = $details["incidentTitle"];
-                                        print "<li class='file' id='incident_$incident'>Incident $incident - $date - $title</li>\r\n";
+                                foreach($incidents as $incident) {
+                                        $date = $incident["createdTimestamp"];
+                                        $title = $incident["title"];
+                                        print "<li class='file' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
                                     
                                 }
                             ?>

@@ -1,4 +1,4 @@
-<footer>
+<footer id="footer">
     <div class="container" id="footer_content">
         <div class="row">
             <div class="span3 centered footer_middle">
