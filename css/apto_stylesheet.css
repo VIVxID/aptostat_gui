@@ -152,6 +152,7 @@ a {
 
 .uptime-image {
     border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
     padding: 10px;
     text-align: center;
 }
@@ -161,12 +162,21 @@ a {
     padding: 10px;
     font-weight: bold;
     text-align: center;
+    border-left: 1px solid #FFFFFF;
 }
 
 .uptime-y {
     padding: 10px;
     border-top: 1px solid #FFFFFF;
     font-weight: bold;
+}
+
+.odd{
+    background-color: #FAFAFA;
+}
+
+.even{
+    background-color: #F0F0F0;
 }
 
 /** other **/

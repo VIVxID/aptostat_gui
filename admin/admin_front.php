@@ -63,7 +63,7 @@
             $(document).ready(function(){
                 $(window).bind('scroll', function(){
                     if($(window).scrollTop() <= 10, function(){
-                        $("#dimmer").fadeTo("normal", 0.25);
+                        $("#dimmer").css("opacity", 0.25);
                     }
                     else {
                         $("#dimmer").fadeTo("normal", 1);
