@@ -188,6 +188,7 @@ a {
     width: 100%;
     background-color: #FFFFFF;
     z-index: 99;
+    opacity: 0.25;
 }
 
 /** group box **/
