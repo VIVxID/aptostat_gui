@@ -60,9 +60,9 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function(){     
-                $("#dimmer").css("opacity", 0.5);
+                $("#dimmer").css("opacity", 0.25);
                 $(window).bind('scroll', function(){
-                    $(".trigger").on($(this).scrollTop() > 50, function(){
+                    $("#dimmer").on($(this).scrollTop() > 50, function(){
                         $("#dimmer").css("opacity", 1);
                     });
                 });
