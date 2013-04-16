@@ -145,19 +145,25 @@ a {
     border-radius: 6px;
 }
 
+#uptime-title {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
 .uptime-image {
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #FFFFFF;
     height: 30px;
-    width: 40px;
 }
 
 .uptime-x {
-    background-color: #eeeeee;
+    padding-top: 10px;
+    background-color: #bfbfbf;
     font-weight: bold;
 }
 
 .uptime-y {
-    border-top: 1px solid #eeeeee;
+    padding-left: 15px;
+    border-top: 1px solid #FFFFFF;
     font-weight: bold;
 }
 
