@@ -146,23 +146,25 @@ a {
 }
 
 #uptime-title {
-    padding-top: 10px;
-    padding-left: 15px;
+    padding: 10px;
     font-weight: bold;
 }
 
 .uptime-image {
     border-top: 1px solid #FFFFFF;
-    height: 30px;
+    padding: 10px;
+    text-align: center;
 }
 
 .uptime-x {
-    padding-top: 10px;
+    width: 10%;
+    padding: 10px;
     font-weight: bold;
+    text-align: center;
 }
 
 .uptime-y {
-    padding-left: 15px;
+    padding: 10px;
     border-top: 1px solid #FFFFFF;
     font-weight: bold;
 }
