@@ -16,7 +16,7 @@ $incidentList = $response["incidents"];
 
 foreach ($incidentList as $currentIncident) {
 
-    if ($currentIncident["hidden"] == "false") {
+    if ($currentIncident["hidden"] != "false") {
 
         $checkList[] = $currentIncident;
 
