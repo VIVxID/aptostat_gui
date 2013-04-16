@@ -151,8 +151,8 @@ a {
 }
 
 .uptime-image {
-    border-top: 1px solid #FFFFFF;
-    border-left: 1px solid #FFFFFF;
+    border-top: 1px solid #F0F0F0;
+    border-left: 1px solid #F0F0F0;
     padding: 10px;
     text-align: center;
 }
@@ -162,12 +162,11 @@ a {
     padding: 10px;
     font-weight: bold;
     text-align: center;
-    border-left: 1px solid #FFFFFF;
 }
 
 .uptime-y {
     padding: 10px;
-    border-top: 1px solid #FFFFFF;
+    border-top: 1px solid #F0F0F0;
     font-weight: bold;
 }
 
