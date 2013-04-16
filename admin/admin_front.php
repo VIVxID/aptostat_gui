@@ -61,6 +61,7 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function(){
+                $("#dimmer").css("opacity", 0.25);
                 $(window).bind('scroll', function(){
                     if($(window).scrollTop() <= 10, function(){
                         $("#dimmer").css("opacity", 0.25);
