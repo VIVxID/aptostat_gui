@@ -190,8 +190,8 @@
                             var result = $("#selectedItems").empty();
                             $(".ui-selected", this).each(function() {
                                 var itemId = $(this).attr('id');
-                                var item = reportId.replace("report_", "");
-                                result.append(" #" + (item + 1));
+                                var item = itemId.replace("report_", "");
+                                result.append(" #" + item);
                             });
                         }
                     });
