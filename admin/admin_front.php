@@ -8,9 +8,13 @@
         include '../inc/html_head.php';
         include 'inc/apiurl.php';
         include "../inc/uptime.php";
+        include "../inc/currentIncidents.php";
 
         $uptimeTable = new Uptime();
         $uptime = $uptimeTable->getUptimeAsArray();
+
+        $current = new CurrentIncidents();
+        $incidentsArray = $current->getIncidentsAsArray();
     ?>
     
     <body>
@@ -35,7 +39,7 @@
                     
                     <div class="span5 offset2">
 
-                            <?php include "../inc/ongoing_issues.php"; ?>
+                            <?php $current->generateIncidentList($incidentsArray) ?>
 
                     </div>
                 </div>
