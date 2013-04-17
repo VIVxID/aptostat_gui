@@ -10,10 +10,9 @@
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <title>Aptostat | Statuspanel for Aptoma</title>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script type="text/javascript" src="/js/vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery-ui-1.10.1.custom.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script type="text/javascript" src="/js/vendor/bootstrap.js"></script>
     <script>
         $(function ()
