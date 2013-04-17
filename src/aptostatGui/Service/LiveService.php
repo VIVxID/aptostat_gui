@@ -46,8 +46,6 @@ class LiveService
     {
         $list = $groupedLiveStatus;
 
-        $list['Atika']['Backoffice'] = 'down';
-
         foreach ($list as $groupName => $serviceGroups) {
             $groupState = 'up';
             foreach ($serviceGroups as $service) {
