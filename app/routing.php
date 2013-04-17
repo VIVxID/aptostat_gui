@@ -1,6 +1,8 @@
 <?php
 
-// End user front-end
+// Index: CustomerFrontEnd
 $app->get('/', function() use ($app) {
-    return $app['twig']->render('index.twig');
+    $liveService = new \aptostatGui\Service\LiveService();
+    $realTime = $liveService->getLiveAsArray();
+    return $app['twig']->render('index.twig', array('realTime' => $realTime));
 });

@@ -2,6 +2,9 @@
 $startTime = microtime(true);
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Constants
+define('APIURL', 'http://aptoapi.vlab.iu.hio.no/');
+
 // Set error reporting on
 error_reporting(E_ALL);
 
@@ -14,7 +17,6 @@ $config = array(
     'timer.start' => $startTime,
     'timer.threshold_info' => 1000,
     'timer.threshold_warning' => 5000,
-    'api.url' => 'http://aptoapi.vlab.iu.hio.no/',
 );
 
 // Apply custom config if available
