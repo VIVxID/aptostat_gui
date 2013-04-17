@@ -130,7 +130,6 @@
                                                 $date = $incident["createdTimestamp"];
                                                 $title = $incident["title"];
                                                 print "<li class='incident' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
-
                                             }
                                             ?>
                                         </ul>
