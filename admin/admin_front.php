@@ -38,7 +38,7 @@
 
                 <hr />
                 
-                <div id="dimmer">
+                <div id="#dimmer">
                 
                     <div class="row">
                         <div class="span12">
@@ -63,7 +63,7 @@
             $(document).ready(function(){     
                 $("#dimmer").css("opacity", 0.25);
                 $(window).bind('scroll', function(){
-                    if($(window).scrollTop() > 10, function(){
+                    if($(window).scrollTop() > 1, function(){
                         $("#dimmer").fadeTo("normal", 1);
                     });
                 });
