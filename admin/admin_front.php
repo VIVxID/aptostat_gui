@@ -59,16 +59,15 @@
                 </div>
             </div>
         </div>
-       <!-- <script type="text/javascript">
+       <script type="text/javascript">
             $(document).ready(function(){
-                $(window).bind('scroll', function(){
-
-                    if($(window).scrollTop() > 1, function(){
+                $(window).bind('scroll', function() {
+                    if($(window).scrollTop() > 1, function()) {
                         $("#dimmer").fadeTo("normal", 1);
                     });
                 });
             });
-        </script> -->
+        </script>
 
         <?php include 'inc/admin_footer.php'; ?>
        
