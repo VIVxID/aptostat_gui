@@ -76,6 +76,42 @@
 
                     </div>
                 </div>
+                <div class="tab-pane" id="tab2">
+                    <div class="list_content" id="incidentbox_list">
+                        <div class="groupbox_heading">
+                            Incidents
+                        </div>
+                        <div class="groupbox_wrapper">
+                            <ul>
+                                <?php
+                                    $incidents->generateIncidentsList($incidentList);
+                                ?>
+                            </ul>
+                        </div>
+                        <div class="list_content_menu_fat">
+                            View all <input type="checkbox"/>
+                            Warning <input type="checkbox"/>
+                            Ignored <input type="checkbox"/>
+                            <br/>
+                            Critical <input type="checkbox"/>
+                            Resolved <input type="checkbox"/>
+                            Internal <input type="checkbox"/>
+                            Responding <input type="checkbox"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list_content" id="groupbox_details">
+                    <div class="groupbox_heading">
+                        Details for selected report
+                    </div>
+                    <div class="groupbox_wrapper" id="reportPane">
+                        Click a report to view it.
+                    </div>
+                    <div class="list_content_menu">
+
+                    </div>
+                </div>
             </div>
         </div>
 
