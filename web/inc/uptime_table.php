@@ -8,7 +8,7 @@
 $odd = 1;
 $curl = curl_init();
 $options = array(
-    CURLOPT_URL => $app['api.url'] . "api/uptime",
+    CURLOPT_URL => APIURL . "uptime",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET"
 );
