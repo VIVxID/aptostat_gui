@@ -234,16 +234,13 @@ a {
     border-radius: 6px;
 }
 
-#groupbox_incidents {
-    width: 25%;
-    border-top: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-}
-
 #groupbox_details {
     width: 49%;
     border-top: 1px solid #DDDDDD;
     border-right: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 #incidentbox_list {
@@ -251,12 +248,9 @@ a {
     border-left: 1px solid #DDDDDD;
     border-right: 1px solid #DDDDDD;
     border-top: 1px solid #DDDDDD;
-}
-
-#incidentbox_details {
-    width: 49%;
-    border-right: 1px solid #DDDDDD;
-    border-top: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 .list_content_menu {
