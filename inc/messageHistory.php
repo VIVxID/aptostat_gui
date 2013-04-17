@@ -54,7 +54,7 @@ class MessageHistory
             echo "<h3>Message history - Last 3 days</h3>";
             echo "<table border='0' class='current_box_table'>";
 
-            foreach ($messages as $messageDate => $message) {
+            foreach ($messages as $message) {
 
                 echo "<tr>";
                 echo "<td><hr /></td>";

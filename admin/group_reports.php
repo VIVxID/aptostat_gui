@@ -3,6 +3,14 @@
     <?php
 		include '../inc/html_head.php';
         include 'inc/apiurl.php';
+        include 'inc/reports.php';
+        include 'inc/incidents.php';
+
+        $reports = new Reports();
+        $reportList = $reports->getReportsAsArray();
+
+        $incidents = new Incidents();
+        $incidentList = $incidents->getIncidentsAsArray();
 	?>
     <body>
         
@@ -13,57 +21,6 @@
                 <a href="http://apto.vlab.iu.hio.no/admin/admin_front.php"><img id="logo" src="/img/logo.png" /></a>
             </div>
         </header>
-        
-        <?php
-
-            $json_url = APIURL . "report";
-            $groups = array();
-            $collapseOrder = 1;
-
-            //initializing curl
-            $ch = curl_init($json_url);
-            
-            //Curl options
-            $options = array(
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => "GET"
-            );
-            
-            //setting curl options
-            curl_setopt_array($ch, $options);
-            
-            //getting results
-            $response = json_decode(curl_exec($ch),true);
-
-            foreach ($response["reports"] as $report) {
-
-                $groups[$report["host"]][] = $report;
-
-            }
-            ksort($groups);
-
-            //API URL
-            $json_url = APIURL . "incident";
-
-            //initializing curl
-            $ch = curl_init($json_url);
-
-            //Curl options
-            $options = array(
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_CUSTOMREQUEST => "GET"
-            );
-
-            //setting curl options
-            curl_setopt_array($ch, $options);
-
-            //getting results
-            $result_json = curl_exec($ch);
-            $result = json_decode($result_json, true);
-            $incidents = $result["incidents"];
-            ksort($incidents);
-
-        ?>
 
         <div id="content_wrapper">
             <div class="container">
@@ -82,34 +39,7 @@
                                     <div class="groupbox_wrapper">
                                         <div class="accordion" id="accordion2">
                                             <?php
-                                            foreach($groups as $group => $reports) { //gets service and its reports
-
-                                                if (count($reports) > 1){
-                                                    $countString = count($reports)." errors";
-                                                } else {
-                                                    $countString = "1 error";
-                                                }
-
-                                                print "<div class='accordion-group'>\r\n";
-                                                print "<div class='accordion-heading'>";
-                                                print "<a class='accordion-toggle collapsed' data-toggle='collapse' data-parent='#accordion2' href='#".$collapseOrder."'>".$group." - $countString</a>\r\n";
-                                                print "</div>\r\n";
-                                                print "<div id='".$collapseOrder."' class='accordion-body collapse'>\r\n";
-                                                print "<div class='accordion-inner'>\r\n";
-                                                print "<ol>\r\n";
-                                                foreach($reports as $report) { //goes through all reports for the service
-                                                    print "<li class='report file ui-widget-content' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
-                                                    print "Error #".$report["id"]." - ".$report["flag"]."\r\n";
-                                                    print "<p class='tinytext'>Check type: ".$report["checkType"]."</p>";
-                                                    print "<p class='tinytext'>Error message: ".$report["errorMessage"]."</p>";
-                                                }
-                                                print "</li>\r\n";
-                                                print "</ol>\r\n";
-                                                print "</div>\r\n";
-                                                print "</div>\r\n";
-                                                print "</div>\r\n";
-                                                $collapseOrder++;
-                                            }
+                                                $reports->generateReportList($reportList);
                                             ?>
                                         </div>
                                     </div>
@@ -126,11 +56,7 @@
                                     <div class="groupbox_wrapper">
                                         <ul>
                                             <?php
-                                            foreach($incidents as $incident) {
-                                                $date = $incident["createdTimestamp"];
-                                                $title = $incident["title"];
-                                                print "<li class='incident file' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
-                                            }
+                                                $incidents->generateIncidentsList($incidentList);
                                             ?>
                                         </ul>
                                     </div>
