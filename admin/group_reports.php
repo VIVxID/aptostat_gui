@@ -23,6 +23,7 @@
                                 <div class="list_content" id="groupbox_reports">
                                     <div class="groupbox_heading">
                                         Open reports
+                                        <p style="margin-right:6px" class="right">Status</p>
                                     </div>
                                     <div class="groupbox_wrapper">
                                         <div class="accordion" id="accordion2">

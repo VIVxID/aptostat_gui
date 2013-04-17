@@ -3,13 +3,6 @@
 class Uptime
 {
 
-    function __construct()
-    {
-
-
-
-    }
-
     function getUptimeAsArray ()
     {
 
@@ -111,6 +104,5 @@ class Uptime
             echo "</tr>";
 
         }
-
     }
 }
