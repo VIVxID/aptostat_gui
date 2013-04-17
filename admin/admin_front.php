@@ -61,11 +61,23 @@
         </div>
        <script type="text/javascript">
             $(document).ready(function(){
-                $(window).bind('scroll', function() {
+
+                /*$(window).bind('scroll', function() {
                     if($(window).scrollTop() > 1, function()) {
                         $("#dimmer").fadeTo("normal", 1);
                     });
-                });
+                });*/
+
+                function checkScrollPosition() {
+                    var top = $(window).scrollTop();
+                    if (top > 1) {
+                        $("#dimmer").fadeTo("normal", 1.0);
+                    }
+                }
+
+                $(window).scroll(checkScrollPosition());
+                checkScrollPosition();
+
             });
         </script>
 
