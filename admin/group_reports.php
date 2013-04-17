@@ -16,6 +16,13 @@
     <body>
 
         <span id="selectedItems">None selected</span>
+        <ol id="selectable">
+            <li class="ui-widget-content">Item 1</li>
+            <li class="ui-widget-content">Item 2</li>
+            <li class="ui-widget-content">Item 3</li>
+            <li class="ui-widget-content">Item 4</li>
+        </ol>
+
         <div class="tabbable">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab1" data-toggle="tab">Reports</a></li>
@@ -182,7 +189,7 @@
                 });
 
                 $(function() {
-                    $(".accordion-inner").bind("mousedown", function(event) {
+                    $("#selectable").bind("mousedown", function(event) {
                         event.metaKey = true;
                     }).selectable({
                         stop: function() {
