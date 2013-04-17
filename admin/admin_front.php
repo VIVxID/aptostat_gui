@@ -69,7 +69,6 @@
 
                     if($(window).scrollTop() > 1, function(){
                         $("#dimmer").fadeTo("normal", 1);
-
                     });
                 });
             });
