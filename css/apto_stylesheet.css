@@ -102,7 +102,7 @@ a {
 
 #current_box {
     width: 80%;
-    /*border: 2px solid #939393;*/
+    /*border: 1px solid #DDDDDD;*/
     min-height: 144px;
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
@@ -219,41 +219,38 @@ a {
     position: relative;
     top: 0;
     width: 100%;
-    border-bottom: 2px solid #939393;
+    border-bottom: 1px solid #DDDDDD;
     padding: 10px;
     font-weight: bold;
 }
 
 #groupbox_reports {
     width: 50%;
-    border-left: 2px solid #939393;
-    border-top: 2px solid #939393;
-    border-right: 2px solid #939393;
-}
-
-#groupbox_incidents {
-    width: 25%;
-    border-top: 2px solid #939393;
-    border-right: 2px solid #939393;
+    border-left: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 #groupbox_details {
     width: 49%;
-    border-top: 2px solid #939393;
-    border-right: 2px solid #939393;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 #incidentbox_list {
     width: 50%;
-    border-left: 2px solid #939393;
-    border-right: 2px solid #939393;
-    border-top: 2px solid #939393;
-}
-
-#incidentbox_details {
-    width: 49%;
-    border-right: 2px solid #939393;
-    border-top: 2px solid #939393;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 .list_content_menu {
@@ -294,7 +291,7 @@ a {
 
 .front_messagebox {
     padding: 10px;
-    /*border: 2px solid #939393;*/
+    /*border: 1px solid #DDDDDD;*/
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
