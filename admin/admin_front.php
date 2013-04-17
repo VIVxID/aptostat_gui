@@ -64,14 +64,14 @@
 
                 /*$(window).bind('scroll', function() {
                     if($(window).scrollTop() > 1, function()) {
-                        $("#dimmer").fadeTo("normal", 1);
+                        $("#dimmer").fadeTo("normal", 0);
                     });
                 });*/
 
                 function checkScrollPosition() {
                     var top = $(window).scrollTop();
                     if (top > 1) {
-                        $("#dimmer").fadeTo("normal", 1.0);
+                        $("#dimmer").fadeTo("normal", 0);
                     }
                 }
 
