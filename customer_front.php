@@ -4,6 +4,10 @@
     <?php
         include 'inc/html_head.php';
         include 'admin/inc/apiurl.php';
+        include "../inc/uptime.php";
+
+        $uptimeTable = new Uptime();
+        $uptime = $uptimeTable->getUptimeAsArray();
     ?>
 
     <body>
@@ -44,7 +48,7 @@
                             <td id="uptime-title">
                                 Service:
                             </td>
-                                <?php include "inc/uptime_table.php"; ?>
+                                <?php $uptimeTable->generateUptimeTable($uptime) ?>
                         </tr>
                     </table>
                 </div>
