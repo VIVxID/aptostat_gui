@@ -15,10 +15,10 @@
         </header>
         
         <?php
-        
-            //API URL
+
             $json_url = APIURL . "report";
             $groups = array();
+            $collapseOrder = 1;
 
             //initializing curl
             $ch = curl_init($json_url);
@@ -41,6 +41,7 @@
 
             }
 
+
             ksort($groups);
         ?>
         
@@ -51,21 +52,38 @@
                         Open reports
                     </div>
                     <div class="groupbox_wrapper">
-                        <ol class="tree" id="group_menu">
+                        <div class="accordion" id="accordion2">
                             <?php
                                 foreach($groups as $group => $reports) { //gets service and its reports
-                                    print "<li class='group'>\r\n";
-                                        print "<label for='$group'>$group</label>\r\n";
-                                        print "<input type='checkbox' id='$group' />\r\n";
-                                        print "<ol class='sortable'>\r\n";
-                                            foreach($reports as $report) { //goes through all reports for the service
-                                                print "<li class='file' id='report_".$report["id"]."'>Report ".$report["id"]."</li>\r\n"; //the .file class makes it clickable for ajax loading of the report
-                                            }
-                                        print "</ol>";
-                                    print "</li>";
+
+                                    if (count($reports) > 1){
+                                        $countString = count($reports)." errors";
+                                    } else {
+                                        $countString = "1 error";
+                                    }
+
+                                    print "<div class='accordion-group'>\r\n";
+                                        print "<div class='accordion-heading'>";
+                                        print "<a class='accordion-toggle collapsed' data-toggle='collapse' data-parent='#accordion2' href='#".$collapseOrder."'>".$group." - $countString</a>\r\n";
+                                        print "</div>\r\n";
+                                        print "<div id='".$collapseOrder."' class='accordion-body collapse'>\r\n";
+                                        print "<div class='accordion-inner'>\r\n";
+                                        print "<ol>\r\n";
+                                        foreach($reports as $report) { //goes through all reports for the service
+                                            print "<li class='file' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
+                                            print "Error #".$report["id"]." - ".$report["flag"]."\r\n";
+                                            print "<p class='tinytext'>Check type: ".$report["checkType"]."</p>";
+                                            print "<p class='tinytext'>Error message: ".$report["errorMessage"]."</p>";
+                                        }
+                                        print "</li>\r\n";
+                                        print "</ol>\r\n";
+                                        print "</div>\r\n";
+                                        print "</div>\r\n";
+                                    print "</div>\r\n";
+                                    $collapseOrder++;
                                 }
                             ?>
-                        </ol>
+                        </div>
                     </div>
                     <div class="list_content_menu">
                         

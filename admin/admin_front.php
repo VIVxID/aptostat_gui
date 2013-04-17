@@ -38,7 +38,7 @@
 
                 <hr />
                 
-                <div id="dimmer">
+                <div>
                 
                     <div class="row">
                         <div class="span12">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
+       <!-- <script type="text/javascript">
             $(document).ready(function(){
                 $(window).bind('scroll', function(){
                     if($(window).scrollTop() > 10, function(){
@@ -67,7 +67,7 @@
                     });
                 });
             });
-        </script>
+        </script> -->
 
         <?php include 'inc/admin_footer.php'; ?>
        

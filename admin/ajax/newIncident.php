@@ -62,8 +62,8 @@
                 $options = array(
                     CURLOPT_HTTPHEADER => $headers,
                     CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_CUSTOMREQUEST => "PUT"
-                    CURLOPT_POSTFIELDS => $jsonData
+                    CURLOPT_CUSTOMREQUEST => "PUT",
+                    CURLOPT_POSTFIELDS => $jsonData,
                 );
                 
                 //setting curl options
