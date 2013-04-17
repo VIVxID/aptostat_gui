@@ -35,10 +35,13 @@
             //getting results
             $response = json_decode(curl_exec($ch),true);
 
-            foreach ($response["reports"] as $report) {
 
-                $groups[$report["host"]][] = $report;
+            if (!is_array($response)) {
+                foreach ($response["reports"] as $report) {
 
+                    $groups[$report["host"]][] = $report;
+
+                }
             }
 
             ksort($groups);
@@ -53,6 +56,7 @@
                     <div class="groupbox_wrapper">
                         <div class="accordion" id="accordion2">
                             <?php
+                            if (!is_null($groups)) {
                                 foreach($groups as $group => $reports) { //gets service and its reports
                                     print "<div class='accordion-group'>\r\n";
                                         print "<div class='accordion-heading'>";
@@ -74,6 +78,7 @@
                                     print "</div>\r\n";
                                     $collapseOrder++;
                                 }
+                            }
                             ?>
                         </div>
                     </div>
