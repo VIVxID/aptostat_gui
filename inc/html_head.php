@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap-responsive.css" type="text/css" />
     <link rel="stylesheet" href="/css/tree.css" type="text/css" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="/css/jquery-ui-1.10.1.custom.css" type="text/css" />
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<title>Aptostat | Statuspanel for Aptoma</title>
     

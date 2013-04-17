@@ -70,7 +70,7 @@
                                         print "<div class='accordion-inner'>\r\n";
                                         print "<ol>\r\n";
                                         foreach($reports as $report) { //goes through all reports for the service
-                                            print "<li class='file' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
+                                            print "<li class='report ui-widget-content' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
                                             print "Error #".$report["id"]." - ".$report["flag"]."\r\n";
                                             print "<p class='tinytext'>Check type: ".$report["checkType"]."</p>";
                                             print "<p class='tinytext'>Error message: ".$report["errorMessage"]."</p>";
@@ -107,7 +107,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
 
-                $(".file").click(function() {
+                $(".report").click(function() {
                     var reportId = $(this).attr('id');
                     var report = reportId.replace("report_", "");
                     $("#reportPane").css("opacity", "0");
@@ -122,7 +122,7 @@
                     });
                 });
                 
-                $(".file").click(function() {
+                $(".report").click(function() {
                     var reportId = $(this).attr('id');
                     var report = reportId.replace("report_", "");
                     $("#reportPane").css("opacity", "0");
