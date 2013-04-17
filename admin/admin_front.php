@@ -38,7 +38,7 @@
 
                 <hr />
                 
-                <div id="dimmer">
+                <div>
                 
                     <div class="row">
                         <div class="span12">
