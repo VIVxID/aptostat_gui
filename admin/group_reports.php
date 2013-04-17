@@ -98,7 +98,7 @@
                                                 print "<div class='accordion-inner'>\r\n";
                                                 print "<ol>\r\n";
                                                 foreach($reports as $report) { //goes through all reports for the service
-                                                    print "<li class='report ui-widget-content' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
+                                                    print "<li class='report file ui-widget-content' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
                                                     print "Error #".$report["id"]." - ".$report["flag"]."\r\n";
                                                     print "<p class='tinytext'>Check type: ".$report["checkType"]."</p>";
                                                     print "<p class='tinytext'>Error message: ".$report["errorMessage"]."</p>";
@@ -129,7 +129,7 @@
                                             foreach($incidents as $incident) {
                                                 $date = $incident["createdTimestamp"];
                                                 $title = $incident["title"];
-                                                print "<li class='incident' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
+                                                print "<li class='incident file' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
                                             }
                                             ?>
                                         </ul>
