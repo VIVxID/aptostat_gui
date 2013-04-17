@@ -23,6 +23,7 @@ a {
 /** custom tags **/
 
 #content_wrapper {
+    margin: 50px auto 0;
     padding-bottom: 30px;
 }
 
@@ -100,7 +101,6 @@ a {
 /** current issues box **/
 
 #current_box {
-    margin: 50px auto 0;
     width: 80%;
     /*border: 2px solid #939393;*/
     min-height: 144px;
@@ -138,6 +138,7 @@ a {
 }
 
 /** uptime **/
+
 #history {
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
@@ -294,7 +295,6 @@ a {
 .front_messagebox {
     padding: 10px;
     /*border: 2px solid #939393;*/
-    margin: 50px auto 0;
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
