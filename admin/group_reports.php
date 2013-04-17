@@ -143,6 +143,12 @@
                     });
                     event.preventDefault();
                 });
+
+                $(function() {
+                    $(".accordion-inner").bind("mousedown", function(event) {
+                        event.metaKey = true;
+                    }).selectable();
+                })
                 
             });
         </script>
