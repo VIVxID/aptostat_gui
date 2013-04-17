@@ -12,19 +12,7 @@
         $incidents = new Incidents();
         $incidentList = $incidents->getIncidentsAsArray();
 	?>
-    <body>
-        
-        <!--HEADER-->
-        
-        <header id="header">
-            <div id="header-content">
-                <a href="http://apto.vlab.iu.hio.no/admin/admin_front.php"><img id="logo" src="/img/logo.png" /></a>
-            </div>
-        </header>
 
-        <div id="content_wrapper">
-            <div class="container">
-                <div class="row">
                     <div class="tabbable">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab1" data-toggle="tab">Reports</a></li>

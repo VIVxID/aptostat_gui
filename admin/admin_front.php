@@ -20,19 +20,7 @@
         $message = new MessageHistory();
         $messages = $message->getMessagesAsArray();
     ?>
-    
-    <body>
-        
-        <!--HEADER-->
-        
-        <header id="header">
-            <div id="header-content">
-                <a href="http://apto.vlab.iu.hio.no/admin_front.php"><img id="logo" src="/img/logo.png" /></a>
-            </div>
-        </header>
-        <div id="content_wrapper">
-            <div class="container">
-                <div class="row">
+
                     <div class="span5 suffix1">
                         <div class="front_messagebox">
 
