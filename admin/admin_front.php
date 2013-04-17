@@ -62,22 +62,12 @@
        <script type="text/javascript">
             $(document).ready(function(){
 
-                /*$(window).bind('scroll', function() {
-                    if($(window).scrollTop() > 1, function()) {
-                        $("#dimmer").fadeTo("normal",0);
-                    });
-                });*/
-
                 function checkScrollPosition() {
                     var top = $(window).scrollTop();
                     if (top > 1) {
                         $("#dimmer").fadeTo("normal",1);
                     }
-                    else {
-                        $("#dimmer").fadeTo("normal",0.25);
-                    }
                 }
-
                 $(window).scroll(checkScrollPosition);
                 checkScrollPosition();
 
