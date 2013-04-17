@@ -37,12 +37,8 @@
                 </div>
 
                 <hr />
-                
-<<<<<<< HEAD
-                <div id="#dimmer">
-=======
-                <div>
->>>>>>> cfed0a4153be907abe7f6ddd13338ce5e9937d4c
+
+                <div id="dimmer">
                 
                     <div class="row">
                         <div class="span12">
