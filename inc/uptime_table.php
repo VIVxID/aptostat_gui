@@ -1,9 +1,3 @@
-<h3> Status History - last 7 days</h3>
-<table id="history">
-    <tr>
-        <td id="uptime-title">
-            Service:
-        </td>
 <?php
 $odd = 1;
 $curl = curl_init();
@@ -94,17 +88,3 @@ $response = json_decode(curl_exec($curl),true);
     
         echo "</tr>";
     }
-    
-?>
-
-        <script>
-            $(function ()
-            { $(".downtime").tooltip({'placement': 'left'});
-            });
-            $(function ()
-            { $('.nav-tabs').button()
-            });
-        </script>
-
-    </tr>
-</table>

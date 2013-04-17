@@ -39,9 +39,15 @@ include 'admin/inc/apiurl.php';
 
             <div class="row">
                 <div class="span12">
-
-                    <?php include "inc/uptime_table.php"; ?>
-
+                    <h3> Status History - last 7 days</h3>
+                    <table id="history">
+                        <tr>
+                            <td id="uptime-title">
+                                Service:
+                            </td>
+                                <?php include "inc/uptime_table.php"; ?>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
