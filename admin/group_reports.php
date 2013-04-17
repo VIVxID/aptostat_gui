@@ -71,7 +71,7 @@
                                         print "<ol>\r\n";
                                         foreach($reports as $report) { //goes through all reports for the service
                                             print "<li class='file' id='report_".$report["id"]."'>";//the .file class makes it clickable for ajax loading of the report
-                                            print "Error #".$report["id"]."\r\n";
+                                            print "Error #".$report["id"]." - ".$report["flag"]."\r\n";
                                             print "<p class='tinytext'>Check type: ".$report["checkType"]."</p>";
                                             print "<p class='tinytext'>Error message: ".$report["errorMessage"]."</p>";
                                         }
