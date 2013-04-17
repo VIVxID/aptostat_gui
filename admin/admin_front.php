@@ -73,6 +73,9 @@
                     if (top > 1) {
                         $("#dimmer").fadeTo("normal",1);
                     }
+                    else {
+                        $("#dimmer").fadeTo("normal",0.25);
+                    }
                 }
 
                 $(window).scroll(checkScrollPosition);
