@@ -38,7 +38,11 @@
 
                 <hr />
                 
+<<<<<<< HEAD
                 <div id="#dimmer">
+=======
+                <div>
+>>>>>>> cfed0a4153be907abe7f6ddd13338ce5e9937d4c
                 
                     <div class="row">
                         <div class="span12">
@@ -59,16 +63,17 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function(){     
-                $("#dimmer").css("opacity", 0.25);
+       <!-- <script type="text/javascript">
+            $(document).ready(function(){
                 $(window).bind('scroll', function(){
+
                     if($(window).scrollTop() > 1, function(){
                         $("#dimmer").fadeTo("normal", 1);
+
                     });
                 });
             });
-        </script>
+        </script> -->
 
         <?php include 'inc/admin_footer.php'; ?>
        

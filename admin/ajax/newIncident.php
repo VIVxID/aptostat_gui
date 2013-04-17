@@ -17,7 +17,7 @@
         <?php
             if (isset($_POST["title"])) {
             
-                //Take this
+            
                 //API URL Report
                 $json_url = APIURL . "report";
                 
@@ -38,7 +38,7 @@
                 $result = json_decode($result_json, true);
                 $groups = $result["report"]["groups"];
                 ksort($groups);
-                //to here.
+                
                 
                 
                 //API URL Incident
@@ -62,8 +62,8 @@
                 $options = array(
                     CURLOPT_HTTPHEADER => $headers,
                     CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_CUSTOMREQUEST => "PUT"
-                    CURLOPT_POSTFIELDS => $jsonData
+                    CURLOPT_CUSTOMREQUEST => "PUT",
+                    CURLOPT_POSTFIELDS => $jsonData,
                 );
                 
                 //setting curl options

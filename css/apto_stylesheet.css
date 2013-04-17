@@ -151,7 +151,8 @@ a {
 }
 
 .uptime-image {
-    border-top: 1px solid #FFFFFF;
+    border-top: 1px solid #F0F0F0;
+    border-left: 1px solid #F0F0F0;
     padding: 10px;
     text-align: center;
 }
@@ -165,8 +166,16 @@ a {
 
 .uptime-y {
     padding: 10px;
-    border-top: 1px solid #FFFFFF;
+    border-top: 1px solid #F0F0F0;
     font-weight: bold;
+}
+
+.odd{
+    background-color: #FAFAFA;
+}
+
+.even{
+    background-color: #F5F5F5;
 }
 
 /** other **/
@@ -179,9 +188,15 @@ a {
     width: 100%;
     background-color: #FFFFFF;
     z-index: 99;
+    opacity: 0.25;
 }
 
 /** group box **/
+
+.tinytext {
+    margin: 0;
+    font-size: 10px;
+}
 
 .list_content {
     position: relative;
