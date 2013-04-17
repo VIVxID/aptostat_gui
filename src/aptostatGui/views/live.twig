@@ -1,0 +1,40 @@
+<ol class="tree">
+    {% for serviceGroupName, serviceGroup in realTime %}
+        <li>
+            {% if (serviceGroup['groupState'] == 'up') %}
+                <label for='{{ serviceGroupName }}'>
+                    <strong>{{ serviceGroupName }}</strong>
+                    <img src='../img/check.png' /> <strong>OK</strong>
+                </label>
+                <input type='checkbox' id='{{ serviceGroupName }}' />
+            {% elseif (serviceGroup['groupState']) == 'warning' %}
+                <label for='{{ serviceGroupName }}'>
+                    <strong>{{ serviceGroupName }}</strong>
+                    <img src='../img/warning.png' /> <strong>Problem</strong>
+                </label>
+                <input type='checkbox' checked id='{{ serviceGroupName }}' />
+            {% else %}
+                <label for='{{ serviceGroupName }}'>
+                    <strong>{{ serviceGroupName }}</strong>
+                    <img src='../img/cross.png' /> <strong>Down</strong>
+                </label>
+                <input type='checkbox' checked id='{{ serviceGroupName }}' />
+            {% endif %}
+
+            <ol>
+                {% for service, state in serviceGroup if service != 'groupState' %}
+                    <li class="file">
+                        {{ service }}
+                        {% if state == 'up' %}
+                            <img src='../img/check.png' /> OK
+                        {% elseif state == 'warning' %}
+                            <img src='../img/warning.png' /> Problem
+                        {% else %}
+                            <img src='../img/cross.png' /> Down
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </li>
+    {% endfor %}
+</ol>
