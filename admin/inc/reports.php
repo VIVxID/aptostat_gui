@@ -68,9 +68,9 @@ class Reports
             print "</div>\r\n";
             print "<div id='".$collapseOrder."' class='accordion-body collapse'>\r\n";
             print "<div class='accordion-inner'>\r\n";
-            print "<ol id='selectable'>\r\n";
+            print "<ol>\r\n";
             foreach($reports as $report) { //goes through all reports for the service
-                print "<li class='report file ui-widget-content' id='report_".$report["id"]."'>\r\n";//the .file class makes it clickable for ajax loading of the report
+                print "<li class='report file' id='report_".$report["id"]."'>\r\n";//the .file class makes it clickable for ajax loading of the report
                 print "Error #".$report["id"]." - ".ucwords(strtolower($report["flag"]))."\r\n";
                 print "<p class='tinytext'>Check type: ".$report["checkType"]."</p>\r\n";
                 print "<p class='tinytext'>Error message: ".$report["errorMessage"]."</p>\r\n";
