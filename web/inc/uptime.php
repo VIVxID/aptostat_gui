@@ -2,28 +2,8 @@
 
 class Uptime
 {
-
-    function getUptimeAsArray ()
+    public function generateUptimeTable($uptime)
     {
-
-        $curl = curl_init();
-        $options = array(
-            CURLOPT_URL => APIURL . "uptime",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => "GET"
-        );
-
-        curl_setopt_array($curl, $options);
-        $response = json_decode(curl_exec($curl),true);
-        ksort($response);
-
-        return $response;
-
-    }
-
-    function generateUptimeTable ($uptime)
-    {
-
         //Prints dates on the X-axis in the format "Wed 06", "Thu 07" etc.
         echo "<td class='uptime-x'>";
         echo date("D d",time()-518400);
