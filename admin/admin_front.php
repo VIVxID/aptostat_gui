@@ -71,7 +71,7 @@
                 function checkScrollPosition() {
                     var top = $(window).scrollTop();
                     if (top > 1) {
-                        $("#dimmer").fadeTo("normal",0);
+                        $("#dimmer").fadeTo("normal",1);
                     }
                 }
 
