@@ -16,12 +16,6 @@
     <body>
 
         <span id="selectedItems">None selected</span>
-        <ol id="selectable">
-            <li class="ui-widget-content">Item 1</li>
-            <li class="ui-widget-content">Item 2</li>
-            <li class="ui-widget-content">Item 3</li>
-            <li class="ui-widget-content">Item 4</li>
-        </ol>
 
         <div class="tabbable">
             <ul class="nav nav-tabs">
@@ -189,14 +183,15 @@
                 });
 
                 $(function() {
-                    $("#selectable").bind("mousedown", function(event) {
+                    $(".selectable").bind("mousedown", function(event) {
                         event.metaKey = true;
                     }).selectable({
                         stop: function() {
                             var result = $("#selectedItems").empty();
                             $(".ui-selected", this).each(function() {
-                                var index = $("#selectable li").index(this);
-                                result.append(" #" + (index + 1));
+                                var itemId = $(this).attr('id');
+                                var item = reportId.replace("report_", "");
+                                result.append(" #" + (item + 1));
                             });
                         }
                     });
