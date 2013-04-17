@@ -62,8 +62,8 @@
        <!-- <script type="text/javascript">
             $(document).ready(function(){
                 $(window).bind('scroll', function(){
-                    if($(this).scrollTop() > 10, function(){
-                        $("#dimmer").fadeOut();
+                    if($(window).scrollTop() > 10, function(){
+                        $("#dimmer").fadeTo("normal", 1);
                     });
                 });
             });
