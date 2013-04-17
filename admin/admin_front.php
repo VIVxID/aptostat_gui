@@ -9,12 +9,16 @@
         include 'inc/apiurl.php';
         include "../inc/uptime.php";
         include "../inc/currentIncidents.php";
+        include "../inc/messageHistory.php";
 
         $uptimeTable = new Uptime();
         $uptime = $uptimeTable->getUptimeAsArray();
 
         $current = new CurrentIncidents();
         $incidentsArray = $current->getIncidentsAsArray();
+
+        $message = new MessageHistory();
+        $messages = $message->getMessagesAsArray();
     ?>
     
     <body>
@@ -65,7 +69,7 @@
                     <div class="row">
                         <div class="span12">
 
-                            <?php include "../inc/message_history.php"; ?>
+                            <?php $message->generateMessageList($messages); ?>
 
                         </div>
                     
