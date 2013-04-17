@@ -146,19 +146,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
+                            <div class="list_content" id="groupbox_details">
+                                <div class="groupbox_heading">
+                                    Details for selected report
+                                </div>
+                                <div class="groupbox_wrapper" id="reportPane">
+                                    Click a report to view it.
+                                </div>
+                                <div class="list_content_menu">
 
-                    <div class="list_content" id="groupbox_details">
-                        <div class="groupbox_heading">
-                            Details for selected report
-                        </div>
-                        <div class="groupbox_wrapper" id="reportPane">
-                            Click a report to view it.
-                        </div>
-                        <div class="list_content_menu">
-
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
