@@ -193,6 +193,11 @@ a {
 
 /** group box **/
 
+.tinytext {
+    margin: 0px;
+    font-size: 10px;
+}
+
 .list_content {
     position: relative;
     display: inline;
