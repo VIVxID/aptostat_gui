@@ -2,7 +2,7 @@
     <div class="container" id="footer_content">
         <div class="row">
             <div class="span3 centered footer_middle">
-                <a href="admin_front.php">Admin home</a>
+                <a href="index.php">Admin home</a>
             </div>
             <div class="span3 centered footer_middle">
                 <a href="group_reports.php">Group reports</a>

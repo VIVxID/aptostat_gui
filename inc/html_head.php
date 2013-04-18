@@ -27,7 +27,7 @@
 
     <header id="header">
         <div id="header-content">
-            <a href="admin_front.php"><img id="logo" src="/img/logo.png" /></a>
+            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
         </div>
     </header>
 
