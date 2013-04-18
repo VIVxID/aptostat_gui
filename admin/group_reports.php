@@ -150,7 +150,7 @@
                     $(".selectable").bind("mousedown", function(event) {
                         event.metaKey = true;
                     }).selectable({
-                        tolerance: fit,
+                        tolerance: 'fit',
                         stop: function() {
                             var result = $("#selectedItems").empty();
                             $(".ui-selected", $("#accordion2")).each(function() {
