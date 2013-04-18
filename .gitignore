@@ -8,7 +8,7 @@ build/conf/aptostat_api-conf.php
 runtime-conf.xml
 
 # Composer
-vendor
+/vendor
 
 # PhpStorm
 .idea/workspace.xml
