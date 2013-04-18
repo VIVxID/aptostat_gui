@@ -1,5 +1,5 @@
 <?php
-    include 'inc/apiurl.php';
+    include '../inc/apiurl.php';
 
     if (isset($_POST["title"])) {
 
