@@ -99,13 +99,14 @@
                             $("#reportPane").fadeTo("normal",1);
                         }
                     });
+                    $('#newIncident').show();
                 });
 
-                $(".report").click(function() {
+                $("#neweIncident").click(function() {
                     var reportId = $(this).attr('id');
                     var report = reportId.replace("report_", "");
                     $("#reportPane").css("opacity", "0");
-                    $("#reportPane").load("ajax/makeIncident.php", {"report": report}, function(response, status, xhr) {
+                    $("#reportPane").load("ajax/newIncident.php", {"report": report}, function(response, status, xhr) {
                         if (status == "error") {
                             var msg = "Error: ";
                             $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
@@ -117,7 +118,6 @@
                 });
 
                 var incident;
-
                 $(".incident").click(function() {
                     var incidentId = $(this).attr("id");
                     incident = incidentId.replace("incident_", "");
@@ -131,13 +131,26 @@
                             $("#reportPane").fadeTo("normal",1);
                         }
                     });
-
                     $('#newMessage').show();
                 });
 
                 $("#newMessage").click(function(event) {
                     $("#reportPane").css("opacity", "0");
                     $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
+                        if (status == "error") {
+                            var msg = "Error: ";
+                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                        }
+                        else {
+                            $("#reportPane").fadeTo("normal",1);
+                        }
+                    });
+                    event.preventDefault();
+                });
+
+                $("#newIncident").click(function(event) {
+                    $("#reportPane").css("opacity", "0");
+                    $("#reportPane").load("ajax/newIncident.php", {"incident": incident}, function(response, status, xhr) {
                         if (status == "error") {
                             var msg = "Error: ";
                             $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
