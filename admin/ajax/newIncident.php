@@ -108,7 +108,7 @@
                 $(".ui-selected", $("#accordion2")).each(function() {
                     var itemId = $(this).attr('id');
                     var item = itemId.replace("report_", "");
-
+                    result.append( " #" + ( item + 1 ) );
                     selectedReports[i] = item;
                     i++;
                 });
