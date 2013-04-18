@@ -55,19 +55,19 @@ foreach($tree as $product => $array) {
     if($$product == "down") {
     
         print 
-            "<label for='$product'>$product <img src='../img/cross.png' /> Down</label>\r\n".
+            "<label for='$product'>$product <span class='service-status'><img src='../img/cross.png' /> Down</span></label>\r\n".
             "<input type='checkbox' checked id='$product' />\r\n";
     }
     elseif($$product == "warning") {
     
         print 
-            "<label for='$product'>$product <img src='../img/warning.png' /> Problem</label>\r\n".
+            "<label for='$product'>$product <span class='service-status'><img src='../img/warning.png' /> Problem</span></label>\r\n".
             "<input type='checkbox' checked id='$product' />\r\n";
     }
     else {
     
         print 
-            "<label for='$product'>$product <img src='../img/check.png' /> OK</label>\r\n".
+            "<label for='$product'>$product <span class='service-status'><img src='../img/check.png' /> OK</span></label>\r\n".
             "<input type='checkbox' id='$product' />\r\n";
     }
 

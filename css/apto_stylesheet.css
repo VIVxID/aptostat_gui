@@ -102,6 +102,12 @@ a {
     color: #646464;
 }
 
+/** live panel **/
+
+.service-status {
+    margin-right: 30px;
+}
+
 /** current issues box **/
 
 #current_box {
@@ -311,7 +317,7 @@ a {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    min-height:222px;
+    min-height:220px;
 }
 
 
