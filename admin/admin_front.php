@@ -56,7 +56,7 @@
                         
                     <div class="row">
                         <div class="span12">
-
+                        <hr/>
                             <?php $message->generateMessageList($messages); ?>
 
                         </div>
