@@ -27,22 +27,34 @@
 
     <header id="header">
         <div id="header-content">
-            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
-        </div>
-    </header>
 
-    <div id="content_wrapper">
-        <div class="container">
-            <div class="row">
+            <a href="admin_front.php"><img id="logo" src="/img/logo.png" /></a>
             
-            
-    <!-- Drop down menu-->
+             <!-- Drop down menu-->
     <div class="dropdown">
-          <a class="dropdown-toggle" id="menu" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+          <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
             Dropdown
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            ...
+            <a href="group_reports.php">Panel</a>
+            <a href="group_reports.php">Manage</a>
+            <a href="group_reports.php">Twitter</a>
           </ul>
 </div>
+
+            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
+
+        </div>
+    </header>
+    <body>
+
+    <div id="content_wrapper">
+        <div class="container">
+            <div class="row">
+    
+            
+            
+
+
+
