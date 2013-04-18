@@ -152,7 +152,7 @@
                     }).selectable({
                         stop: function() {
                             var result = $("#selectedItems").empty();
-                            $(".ui-selected", this).each(function() {
+                            $(".ui-selected", $(#accordion2)).each(function() {
                                 var itemId = $(this).attr('id');
                                 var item = itemId.replace("report_", "");
                                 result.append(" #" + item);
