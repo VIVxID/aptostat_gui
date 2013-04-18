@@ -55,18 +55,21 @@ print "<div id='service-panel-wrapper'>";
         if($$product == "down") {
 
             print
+                "<hr>".
                 "<label for='$product'>$product <span class='service-status'>Down <img src='../img/cross.png' /></span></label>\r\n".
                 "<input type='checkbox' checked id='$product' />\r\n";
         }
         elseif($$product == "warning") {
 
             print
+                "<hr>".
                 "<label for='$product'>$product <span class='service-status'>Problem <img src='../img/warning.png' /></span></label>\r\n".
                 "<input type='checkbox' checked id='$product' />\r\n";
         }
         else {
 
             print
+                "<hr>".
                 "<label for='$product'>$product <span class='service-status'>OK <img src='../img/check.png' /></span></label>\r\n".
                 "<input type='checkbox' id='$product' />\r\n";
         }
