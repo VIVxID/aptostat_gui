@@ -298,3 +298,15 @@ a {
     border-radius: 6px;
     min-height:222px;
 }
+
+
+/** .selectable **/
+
+.ui-selected {
+    background: #FFEFC6;
+}
+
+,ui-selecting {
+     background: #FFE49F;
+ }
+>>>>>>> 92305cb190c1a3c87def2bae13942808e8e03a8f
