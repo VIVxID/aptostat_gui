@@ -306,7 +306,6 @@ a {
     background: #FFEFC6;
 }
 
-,ui-selecting {
-     background: #FFE49F;
+.ui-selecting {
+     background: #FFE49F !important;
  }
-
