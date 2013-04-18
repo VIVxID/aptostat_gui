@@ -1,62 +1,55 @@
-{% debug currentIncidents %}
+{% if currentIncidents == 404 %}
+    <div id="current_box" class="no_issues">
+        <p class='all-clear'>No current issues.</p>
+    </div>
+{% else %}
+    <div id="current_box" class="error">
+        <div class='accordion' id='accordion2'>
 
-if (empty($incidents)) {
+            {% for incident in currentIncidents %}
 
-echo '<div id="current_box" class="no_issues">';
-    echo "<p class='all-clear'>No current issues.</p>";
+                <div class='accordion-group'>
+                    <div class='accordion-heading'>
+                        <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse{{ incident['id'] }}'>
+                        Incident #{{ incident['id'] }}
+                        </a>
+                    </div>
 
-    } else {
+                    <div id='collapse{{ incident['id'] }}' class='accordion-body collapse'>
+                        <div class='accordion-inner'>
+                            <table border='0' class='current_box_table'>
+                                <tr>
+                                    <td class='left'>Incident #{{ incident['id'] }}</td>
+                                </tr>
 
-    echo '<div id="current_box" class="error">';
+                                <tr>
+                                    <td class='left'>{{ incident['title'] }}</td>
+                                </tr>
 
-        echo "<div class='accordion' id='accordion2'>";
+                                <tr>
+                                    <td colspan='2'><hr /></td>
+                                </tr>
 
-            foreach ($incidents as $incident) {
+                                <tr>
+                                    <td class='left'>Created on:</td>
+                                    <td class='right'>{{ incident['createdTimestamp'] }}</td>
+                                </tr>
 
-            echo "<div class='accordion-group'>";
+                                <tr>
+                                    <td colspan='2'><hr /></td>
+                                </tr>
 
-                echo "<div class='accordion-heading'>";
-                    echo "<a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse".$incident["id"]."'>";
-                        echo "Incident #".$incident["id"];
-                        echo "</a>";
-                    echo "</div>";
+                            <tr>
+                                <td class='left'>Last update:</td>
+                                <td class='right'>{{ incident['lastMessageTimestamp'] }}</td>
+                                <td class='right'>{{ incident['lastMessageText'] }}</td>
+                            </tr>
 
-                echo "<div id='collapse".$incident["id"]."' class='accordion-body collapse'>";
-                    echo "<div class='accordion-inner'>";
-
-                        echo "<table border='0' class='current_box_table'>";
-
-                            echo "<tr>";
-                                echo "<td class='left'>Incident #".$incident["id"]."</td>";
-                                echo "</tr>";
-
-                            echo "<tr>";
-                                echo "<td class='left'>".$incident["title"]."</td>";
-                                echo "</tr>";
-
-                            echo "<td colspan='2'><hr /></td>";
-
-                            echo "<tr>";
-                                echo "<td class='left'>Created on:</td>";
-                                echo "<td class='right'>".$incident["createdTimestamp"]."</td>";
-                                echo "</tr>";
-
-                            echo "<tr>";
-                                echo "<td colspan='2'><hr /></td>";
-                                echo "</tr>";
-
-                            echo "<tr>";
-                                echo "<td class='left'>Last update:</td>";
-                                echo "<td class='right'>".$incident["lastMessageTimestamp"]."</td>";
-                                echo "<td class='right'>".$incident["lastMessageText"]."</td>";
-                                echo "</tr>";
-
-                            echo "</table>";
-                        echo "</div>";
-                    echo "</div>";
-                echo "</div>";
-            }
-
-            echo "</div>";
-        }
-        echo "</div>";
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

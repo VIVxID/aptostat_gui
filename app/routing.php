@@ -12,8 +12,7 @@ $app->get('/', function() use ($app) {
     $messageHistory = $messageService->getMessageHistoryAsArray();
 
     $incidentService = new aptostatGui\Service\IncidentService();
-    $currentIncidents = array('mah' => 'bah');
-    //$currentIncidents = $incidentService->getCurrentIncidentAsArray();
+    $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
 
     $includeBag = array(
         'realTime' => $realTime,
