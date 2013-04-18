@@ -13,25 +13,9 @@ class MessageService
             return 404;
         }
 
-        $checkList = $messageHistory["incidents"];
+        $incidentList = $messageHistory["incidents"];
 
-        foreach ($checkList as $incident) {
-
-            if (strtotime($incident["lastMessageTimestamp"]) > time()-259200) {
-
-                $messages[$incident["lastMessageTimestamp"]] = array(
-                    "messageDate" => $incident["lastMessageTimestamp"],
-                    "messageText" => $incident["lastMessageText"],
-                    "author" => $incident["lastMessageAuthor"],
-                    "title" => $incident["title"],
-                    "status" => $incident["lastStatus"]
-                );
-            }
-        }
-
-        rsort($messages);
-
-        return $messages;
+        return $this->formatMessageHistoryToArray($incidentList);
     }
 
     private function getDataFromApi()
@@ -55,5 +39,24 @@ class MessageService
             }
         }
         return $result;
+    }
+
+    private function formatMessageHistoryToArray($incidentList)
+    {
+        foreach ($incidentList as $incident) {
+
+            if (strtotime($incident["lastMessageTimestamp"]) > time()-259200) {
+
+                $messages[$incident["lastMessageTimestamp"]] = array(
+                    "messageDate" => $incident["lastMessageTimestamp"],
+                    "messageText" => $incident["lastMessageText"],
+                    "author" => $incident["lastMessageAuthor"],
+                    "title" => $incident["title"],
+                    "status" => $incident["lastStatus"]
+                );
+            }
+        }
+        rsort($messages);
+        return $messages;
     }
 }
