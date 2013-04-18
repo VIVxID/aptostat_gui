@@ -64,7 +64,7 @@ class Reports
 
             print "<div class='accordion-group'>\r\n";
             print "<div class='accordion-heading'>";
-            print "<a class='accordion-toggle collapsed' data-toggle='collapse' data-parent='#accordion2' href='#".$collapseOrder."'><img class='right' src='$titleImage' />".$group." - $titleErrorString</a>\r\n";
+            print "<a class='accordion-toggle collapsed' data-toggle='collapse' href='#".$collapseOrder."'><img class='right' src='$titleImage' />".$group." - $titleErrorString</a>\r\n";
             print "</div>\r\n";
             print "<div id='".$collapseOrder."' class='accordion-body collapse'>\r\n";
             print "<div class='accordion-inner'>\r\n";
