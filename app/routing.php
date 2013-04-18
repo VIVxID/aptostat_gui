@@ -18,7 +18,7 @@ $app->get('/', function() use ($app) {
         'realTime' => $realTime,
         'uptime' => $uptime,
         'messageHistory' => $messageHistory,
-        'currentIncidents' => $currentIncidents,
+        'currentIncidents' => $currentIncidents
     );
 
     return $app['twig']->render('customerIndex.twig', $includeBag);
@@ -27,14 +27,7 @@ $app->get('/', function() use ($app) {
 
 $app->get('/admin', function() use ($app) {
     $token = $app['security']->getToken();
-    return 'Welcome ' . $token->getUserName();
-});
 
-// Index: CustomerFrontEnd
-/*$app->get('/admin', function() use ($app) {
-
-    $token = $app['security']->getToken();
-    var_dump($token);
     $liveService = new \aptostatGui\Service\LiveService();
     $realTime = $liveService->getLiveAsArray();
 
@@ -44,11 +37,15 @@ $app->get('/admin', function() use ($app) {
     $messageService = new \aptostatGui\Service\MessageService();
     $messageHistory = $messageService->getMessageHistoryAsArray();
 
+    $incidentService = new aptostatGui\Service\IncidentService();
+    $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+
     $includeBag = array(
         'realTime' => $realTime,
         'uptime' => $uptime,
         'messageHistory' => $messageHistory,
+        'currentIncidents' => $currentIncidents
     );
 
     return $app['twig']->render('adminIndex.twig', $includeBag);
-});*/
+});
