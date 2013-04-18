@@ -22,6 +22,10 @@ a {
 
 /** custom tags **/
 
+.front-divider{
+    margin: 20px auto 20px;
+}
+
 #content_wrapper {
     margin: 50px auto 0;
     padding-bottom: 30px;
@@ -103,7 +107,6 @@ a {
 #current_box {
     width: 80%;
     /*border: 1px solid #DDDDDD;*/
-    margin-top: 90px;
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
