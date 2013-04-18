@@ -63,22 +63,56 @@
     }
 ?>
 
+<div id="form">
+    <form name="messageForm" action="" id="messageForm">
+        <br />
+        <?php
+            echo "New incident <br /><br />";
+            echo "<fieldset>";
+            echo "<legend>Data</legend>";
+            echo '<table border="0">';
+            echo "<tr>";
+            echo "<h4>Included reports: </h4><span id='select-result'>None</span>.";
+        ?>
+        </tr>
+        </table>
+        Flag: <select name="flag" id="fieldFlag">
+            <option value="CRITICAL">Critical</option>
+            <option value="WARNING">Warning</option>
+            <option value="RESPONDING">Responding</option>
+            <option value="RESOLVED">Resolved</option>
+            <option value="IGNORED">Ignored</option>
+            <option value="INTERNAL">Internal</option>
+        </select>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Message</legend>
+            Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+            <textarea id="fieldMessage" name="message" rows="10" cols="50">Update message</textarea><br />
+            <input type="submit" value="Submit" id="buttonSubmit" />
+        </fieldset><br />
+    </form>
+</div>
+
 <script type="text/javascript">
     $(function() {
         $(".selectable").bind("mousedown", function(event) {
             event.metaKey = true;
         }).selectable({
-                tolerance: 'fit',
-                stop: function() {
-                    selectedReports.length = 0;
-                    var i = 0;
-                    $(".ui-selected", $("#accordion2")).each(function() {
-                        var itemId = $(this).attr('id');
-                        var item = itemId.replace("report_", "");
-                        selectedReports[i] = item;
-                        i++;
-                    });
-                }
-            });
+            tolerance: 'fit',
+            stop: function() {
+                var result = $( "#select-result" ).empty();
+                selectedReports.length = 0;
+                var i = 0;
+                $(".ui-selected", $("#accordion2")).each(function() {
+                    var itemId = $(this).attr('id');
+                    var item = itemId.replace("report_", "");
+
+                    selectedReports[i] = item;
+                    i++;
+                });
+            }
+        });
     })
 </script>
