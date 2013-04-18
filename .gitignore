@@ -17,3 +17,7 @@ vendor
 # Propel
 build.properties
 runtime-conf.xml
+
+#.htaccess
+web/admin/.htaccess
+web/admin/.htpasswd

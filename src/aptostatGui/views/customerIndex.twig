@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+{% block title %}Customer front{% endblock %}
+
+{% block content %}
+    {% include 'header.twig' %}
+    <div id="content_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="span5 suffix1">
+                    {% include 'live.twig' %}
+                </div>
+
+                <div class="span5 offset2">
+                    {% include 'currentIncidents.twig' %}
+                </div>
+            </div>
+
+            <hr />
+
+            <div>
+
+                <div class="row">
+                    <div class="span12">
+                        {% include 'uptime.twig' %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span12">
+                        {% include 'messageHistory.twig' %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.twig' %}
+{% endblock %}
