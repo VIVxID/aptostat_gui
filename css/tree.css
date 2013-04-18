@@ -35,7 +35,7 @@ ol.tree
 	{
 		position: absolute;
 		left: 0;
-		margin-left: 0;
+		margin-left: 20px !important;
 		opacity: 0;
 		z-index: 2;
 		cursor: pointer;
@@ -61,7 +61,7 @@ ol.tree
 	li input:checked + ol
 	{
 		background: url(../img/toggle-small.png) 40px 5px no-repeat;
-		margin: -31px 0 0 -23px; /* 20px */
+		margin: -32px 0 0 -23px; /* 20px */
 		padding: 1.563em 0 0 80px;
 		height: auto;
 	}
