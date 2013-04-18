@@ -46,7 +46,7 @@ ol.tree
 		li input + ol
 		{
 			background: url(../img/toggle-small-expand.png) 40px 0 no-repeat;
-			margin: -26px 0 0 -23px; /* 15px */
+			margin: -27px 0 0 -23px; /* 15px */
 			height: 1em;
 		}
 		li input + ol > li { display: none; margin-left: -14px !important; padding-left: 1px; }
