@@ -7,9 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="span5 suffix1">
-                    <div class="front_messagebox">
-                        {% include 'live.twig' %}
-                    </div>
+                    {% include 'live.twig' %}
                 </div>
 
                 <div class="span5 offset2">
@@ -33,9 +31,7 @@
 
                 <div class="row">
                     <div class="span12">
-
-                        <?php include "inc/message_history.php"; ?>
-
+                        {% include 'messageHistory.twig' %}
                     </div>
 
                 </div>
