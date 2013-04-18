@@ -103,7 +103,7 @@ a {
 #current_box {
     width: 80%;
     /*border: 1px solid #DDDDDD;*/
-    min-height: 210px;
+    min-height: 200px;
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
