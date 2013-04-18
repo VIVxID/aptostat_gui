@@ -303,9 +303,9 @@ a {
 /** .selectable **/
 
 .ui-selected {
-    background: #FFEFC6;
+    background: #FFEFC6 !important;
 }
 
 ,ui-selecting {
-     background: #FFE49F;
+     background: #FFE49F !important;
  }
