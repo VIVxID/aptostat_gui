@@ -21,11 +21,11 @@ $app->get('/', function() use ($app) {
         'currentIncidents' => $currentIncidents,
     );
 
-    return $app['twig']->render('index.twig', $includeBag);
+    return $app['twig']->render('customerIndex.twig', $includeBag);
 });
 
 // Index: CustomerFrontEnd
-$app->get('/admin', function() use ($app) {
+/*$app->get('/admin', function() use ($app) {
     $liveService = new \aptostatGui\Service\LiveService();
     $realTime = $liveService->getLiveAsArray();
 
@@ -42,4 +42,4 @@ $app->get('/admin', function() use ($app) {
     );
 
     return $app['twig']->render('index.twig', $includeBag);
-});
+});*/
