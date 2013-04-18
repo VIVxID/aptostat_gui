@@ -45,7 +45,7 @@ class MessageHistory
 
         if (empty($messages)) {
 
-            echo '<div id="current_box" class="no_issues">';
+            echo '<div id="history-box" class="no_issues">';
             echo "<p class='all-clear'>No new messages.</p>";
 
         } else {
