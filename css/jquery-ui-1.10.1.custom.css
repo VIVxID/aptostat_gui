@@ -155,9 +155,7 @@
 	top: -5px;
 }
 .ui-selectable-helper {
-	position: absolute;
-	z-index: 100;
-	border: 1px dotted black;
+	display: none;
 }
 .ui-accordion .ui-accordion-header {
 	display: block;

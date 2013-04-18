@@ -313,7 +313,3 @@ a {
 .ui-unselecting {
     background: #FFE49F !important;
 }
-
-.ui-selectable-helper {
-    display: none;
-}

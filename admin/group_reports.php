@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
     <?php
-		include '../inc/html_head.php';
+		include '/inc/html_head.php';
         include 'inc/apiurl.php';
         include 'inc/reports.php';
         include 'inc/incidents.php';
@@ -13,72 +13,74 @@
         $incidentList = $incidents->getIncidentsAsArray();
 	?>
 
-    <body>
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Reports</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Incidents</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <div class="list_content" id="groupbox_reports">
+                                    <div class="groupbox_heading">
+                                        Open reports
+                                        <p style="margin-right:6px" class="right">Status</p>
+                                    </div>
+                                    <div class="groupbox_wrapper">
+                                        <div class="accordion" id="accordion2">
+                                            <?php
+                                                $reports->generateReportList($reportList);
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="list_content_menu">
 
-        <span id="selectedItems">None selected</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+                                <div class="list_content" id="incidentbox_list">
+                                    <div class="groupbox_heading">
+                                        Incidents
+                                    </div>
+                                    <div class="groupbox_wrapper">
+                                        <ul>
+                                            <?php
+                                                $incidents->generateIncidentsList($incidentList);
+                                            ?>
+                                        </ul>
+                                    </div>
+                                    <div class="list_content_menu_fat">
+                                        View all <input type="checkbox"/>
+                                        Warning <input type="checkbox"/>
+                                        Ignored <input type="checkbox"/>
+                                        <br/>
+                                        Critical <input type="checkbox"/>
+                                        Resolved <input type="checkbox"/>
+                                        Internal <input type="checkbox"/>
+                                        Responding <input type="checkbox"/>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="tabbable">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">Reports</a></li>
-                <li><a href="#tab2" data-toggle="tab">Incidents</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="tab1">
-                    <div class="list_content" id="groupbox_reports">
-                        <div class="groupbox_heading">
-                            Open reports
-                            <p style="margin-right:6px" class="right">Status</p>
-                        </div>
-                        <div class="groupbox_wrapper">
-                            <div class="accordion" id="accordion2">
-                                <?php
-                                    $reports->generateReportList($reportList);
-                                ?>
+                            <div class="list_content" id="groupbox_details">
+                                <div class="groupbox_heading">
+                                    Details for selected report
+                                </div>
+                                <div class="groupbox_wrapper" id="reportPane">
+                                    Click a report to view it.
+                                </div>
+                                <div class="list_content_menu">
+
+                                </div>
                             </div>
                         </div>
-                        <div class="list_content_menu">
+                    </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="tab2">
-                    <div class="list_content" id="incidentbox_list">
-                        <div class="groupbox_heading">
-                            Incidents
-                        </div>
-                        <div class="groupbox_wrapper">
-                            <ul>
-                                <?php
-                                    $incidents->generateIncidentsList($incidentList);
-                                ?>
-                            </ul>
-                        </div>
-                        <div class="list_content_menu_fat">
-                            View all <input type="checkbox"/>
-                            Warning <input type="checkbox"/>
-                            Ignored <input type="checkbox"/>
-                            <br/>
-                            Critical <input type="checkbox"/>
-                            Resolved <input type="checkbox"/>
-                            Internal <input type="checkbox"/>
-                            Responding <input type="checkbox"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="list_content" id="groupbox_details">
-                    <div class="groupbox_heading">
-                        Details for selected report
-                    </div>
-                    <div class="groupbox_wrapper" id="reportPane">
-                        Click a report to view it.
-                    </div>
-                    <div class="list_content_menu">
-
-                    </div>
                 </div>
             </div>
         </div>
+
+        <?php include 'inc/admin_footer.php'; ?>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -146,17 +148,21 @@
                     event.preventDefault();
                 });
 
+                var selectedReports = new Array();
+
                 $(function() {
                     $(".selectable").bind("mousedown", function(event) {
                         event.metaKey = true;
                     }).selectable({
                         tolerance: 'fit',
                         stop: function() {
-                            var result = $("#selectedItems").empty();
+                            selectedReports.length = 0;
+                            var i = 0;
                             $(".ui-selected", $("#accordion2")).each(function() {
                                 var itemId = $(this).attr('id');
                                 var item = itemId.replace("report_", "");
-                                result.append(" #" + item);
+                                selectedReports[i] = item;
+                                i++;
                             });
                         }
                     });
@@ -164,8 +170,6 @@
 
             });
         </script>
-
-        <?php include 'inc/admin_footer.php'; ?>
         
     </body>
 </html>
