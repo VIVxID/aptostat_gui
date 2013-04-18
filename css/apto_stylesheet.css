@@ -103,6 +103,16 @@ a {
 #current_box {
     width: 80%;
     /*border: 1px solid #DDDDDD;*/
+    margin-top: 120px;
+    background-color: #eeeeee;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 10px;
+}
+#history-box{
+    width: 80%;
+    /*border: 1px solid #DDDDDD;*/
     min-height: 230px;
     margin-top: 120px;
     background-color: #eeeeee;
