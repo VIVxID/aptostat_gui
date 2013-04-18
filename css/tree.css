@@ -9,7 +9,7 @@ ol.tree
 	{ 
 		position: relative;
 		list-style: none;
-        margin-top: 17px;
+        margin-top: 19px;
         margin-bottom: 21px;
         padding: 3px;
 	}
@@ -20,6 +20,7 @@ ol.tree
 	li.file
 	{
 		margin-left: -1px !important;
+        margin-top: 20px !important;
         cursor: pointer;
 	}
 		li.file a
