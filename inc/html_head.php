@@ -27,6 +27,7 @@
 
     <header id="header">
         <div id="header-content">
+
             <a href="admin_front.php"><img id="logo" src="/img/logo.png" /></a>
             
              <!-- Drop down menu-->
@@ -41,12 +42,19 @@
             <a href="group_reports.php">Twitter</a>
           </ul>
 </div>
+
+            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
+
         </div>
     </header>
+    <body>
 
     <div id="content_wrapper">
         <div class="container">
             <div class="row">
+    
             
             
-   
+
+
+
