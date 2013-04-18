@@ -70,7 +70,8 @@
                                     Click a report to view it.
                                 </div>
                                 <div class="list_content_menu">
-
+                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new incident</a>
+                                    <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
                                 </div>
                             </div>
                         </div>
@@ -149,24 +150,6 @@
                 });
 
                 var selectedReports = new Array();
-
-                $(function() {
-                    $(".selectable").bind("mousedown", function(event) {
-                        event.metaKey = true;
-                    }).selectable({
-                        tolerance: 'fit',
-                        stop: function() {
-                            selectedReports.length = 0;
-                            var i = 0;
-                            $(".ui-selected", $("#accordion2")).each(function() {
-                                var itemId = $(this).attr('id');
-                                var item = itemId.replace("report_", "");
-                                selectedReports[i] = item;
-                                i++;
-                            });
-                        }
-                    });
-                })
 
             });
         </script>

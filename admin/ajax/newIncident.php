@@ -77,5 +77,23 @@
             }
             ?>
             
-         
+        <script type="text/javascript">
+            $(function() {
+                $(".selectable").bind("mousedown", function(event) {
+                    event.metaKey = true;
+                }).selectable({
+                        tolerance: 'fit',
+                        stop: function() {
+                            selectedReports.length = 0;
+                            var i = 0;
+                            $(".ui-selected", $("#accordion2")).each(function() {
+                                var itemId = $(this).attr('id');
+                                var item = itemId.replace("report_", "");
+                                selectedReports[i] = item;
+                                i++;
+                            });
+                        }
+                    });
+            })
+        </script>
             
