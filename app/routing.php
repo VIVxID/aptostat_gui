@@ -24,7 +24,6 @@ $app->get('/', function() use ($app) {
     return $app['twig']->render('customerIndex.twig', $includeBag);
 });
 
-
 $app->get('/admin', function() use ($app) {
     $token = $app['security']->getToken();
 
@@ -44,7 +43,8 @@ $app->get('/admin', function() use ($app) {
         'realTime' => $realTime,
         'uptime' => $uptime,
         'messageHistory' => $messageHistory,
-        'currentIncidents' => $currentIncidents
+        'currentIncidents' => $currentIncidents,
+        'username' => $token->getUserName(),
     );
 
     return $app['twig']->render('adminIndex.twig', $includeBag);
