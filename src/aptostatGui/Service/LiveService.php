@@ -9,10 +9,6 @@ class LiveService
     {
         $liveData = $this->fetchDataFromApi();
 
-        if (is_null($liveData)) {
-            throw new \Exception('Could not fetch real-time data', 500);
-        }
-
         foreach ($liveData as $service => $state) {
             $explodedServiceName = explode(" ",$service);
             $groupedLiveStatus[$explodedServiceName[0]][$explodedServiceName[1]] = $state;
@@ -35,11 +31,15 @@ class LiveService
 
         curl_setopt_array($curl, $options);
 
-        $result_json = curl_exec($curl);
-        $LiveData = json_decode($result_json, true);
-        ksort($LiveData);
+        $result = json_decode(curl_exec($curl), true);
 
-        return $LiveData;
+        if (isset($result['error'])) {
+            throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
+        }
+
+        ksort($result);
+
+        return $result;
     }
 
     private function setGroupState($groupedLiveStatus)
