@@ -8,19 +8,21 @@ class UptimeService
     public function getUptimeAsArray()
     {
         $liveData = $this->fetchDataFromApi();
+        $uptimeStatusAsArray = array();
 
         if (is_null($liveData)) {
             throw new \Exception('Could not fetch real-time data', 500);
         }
 
-        foreach ($liveData as $service => $state) {
-            $explodedServiceName = explode(" ",$service);
-            $groupedLiveStatus[$explodedServiceName[0]][$explodedServiceName[1]] = $state;
+        foreach ($liveData as $hostname => $errors) {
+            foreach ($errors as $timestamp => $downtime) {
+
+                $uptimeStatusAsArray[$hostname][$timestamp] = array_sum($downtime);
+
+            }
         }
 
-        $liveStatusAsArray = $this->setGroupState($groupedLiveStatus);
-
-        return $liveStatusAsArray;
+        return $uptimeStatusAsArray;
     }
 
     private function fetchDataFromApi()
