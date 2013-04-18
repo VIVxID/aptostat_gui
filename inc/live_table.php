@@ -55,6 +55,7 @@ print "<div id='service-panel-wrapper'>";
         if($$product == "down") {
 
             print
+                "<hr>".
                 "<label for='$product'>$product <span class='service-status'>Down <img src='../img/cross.png' /></span></label>\r\n".
                 "<input type='checkbox' checked id='$product' />\r\n";
         }
