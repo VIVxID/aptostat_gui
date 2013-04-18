@@ -104,8 +104,12 @@ a {
 
 /** live panel **/
 
+#service-panel-wrapper {
+    width: 80%;
+}
+
 .service-status {
-    margin-right: 30px;
+    float: right;
 }
 
 /** current issues box **/
