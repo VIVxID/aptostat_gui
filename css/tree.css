@@ -19,7 +19,7 @@ ol.tree
     }
 	li.file
 	{
-		margin-left: -1px !important;
+		margin-left: 10px !important;
         margin-top: 20px !important;
         cursor: pointer;
 	}
@@ -53,7 +53,7 @@ ol.tree
 	li label
 	{
 		cursor: pointer;
-		padding-left: 37px;
+		padding-left: 40px;
         font-weight: bold;
         font-size: 18px;
 	}
