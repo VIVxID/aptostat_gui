@@ -1,0 +1,60 @@
+<h3> Status History - last 7 days</h3>
+<table id="history">
+    <tr>
+        <td id="uptime-title">
+            Service:
+        </td>
+
+        {% for i in 6..0 %}
+        <td class='uptime-x'>
+            {{ "now"|date_modify("-" ~ i ~ " day")|date("M d") }}
+        </td>
+        {% endfor %}
+
+    </tr>
+
+    {% set alternateColor = 1 %}
+    {% for host, timestamp in uptime %}
+
+        {% if alternateColor is even %}
+            <tr class="even">
+            {% set alternateColor = 1 %}
+        {% else %}
+            <tr class="odd">
+            {% set alternateColor = 0 %}
+        {% endif %}
+            <td class='uptime-y'>
+                {{ host }}
+            </td>
+
+        {% set print = 0 %}
+        {% for i in 6..0 %}
+
+        <td class='uptime-image'>
+
+            {% for errorDate, uptime in timestamp %}
+
+                {% if "now"|date_modify("-" ~ i ~ " day")|date("d/m/Y") == errorDate %}
+
+                    {% if uptime > 1740 %}
+                        <a href='#' class='downtime' title=' {{ (86400 - uptime)/864 }} % uptime '><img src='../img/cross.png' /></a>
+                        {% set print = 1 %}
+                    {% elseif uptime > 120 %}
+                        <a href='#' class='downtime' title=' {{ (86400 - uptime)/864 }} % uptime '><img src='../img/warning.png' /></a>
+                        {% set print = 1 %}
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+
+                {% if print == 0 %}
+                    <a href='#' class='downtime' ><img src='../img/check.png' /></a>
+                {% endif %}
+                {% set print = 0 %}
+                </td>
+
+        {% endfor %}
+
+        </tr>
+
+    {% endfor %}
