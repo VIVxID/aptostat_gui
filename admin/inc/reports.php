@@ -19,8 +19,10 @@ class Reports
 
         foreach ($response["reports"] as $report) {
 
-            $groups[$report["host"]][] = $report;
-
+            if ($report["flag"] == "RESOLVED") {
+                $groups[$report["host"]][] = $report;
+            }
+            
         }
         ksort($groups);
 
