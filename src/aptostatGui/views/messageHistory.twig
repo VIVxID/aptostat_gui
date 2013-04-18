@@ -1,0 +1,34 @@
+{% if messageHistory == 404 %}
+    <div id="current_box" class="no_issues">
+        <p class='all-clear'>No new messages.</p>
+    </div>
+{% else %}
+    <div id='current_box' class='error'>
+        <h3>Message history - Last 3 days</h3>
+        <table border='0' class='current_box_table'>
+            {% for message in messageHistory %}
+            <tr>
+                <td>
+                    <hr />
+                </td>
+            </tr>
+
+            <tr>
+                <td class='left'><h5>{{ message['title'] }}</h5></td>
+            </tr>
+
+            <tr>
+                <td class='left'><h5>Last update: {{ message['messageDate'] }}</h5></td>
+            </tr>
+
+            <tr>
+                <td class='left'>{{ message['messageText'] }}</td>
+            </tr>
+
+            <tr>
+                <td class='left'> - {{ message['author'] }}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+{% endif %}
