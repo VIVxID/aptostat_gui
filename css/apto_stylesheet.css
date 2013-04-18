@@ -310,3 +310,11 @@ a {
 .ui-selecting {
      background: #FFE49F !important;
  }
+
+.ui-unselecting {
+    background: #FFE49F !important;
+}
+
+.ui-selectable-helper {
+    display: none;
+}
