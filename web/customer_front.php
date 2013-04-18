@@ -3,7 +3,7 @@
 
 <?php
 include 'inc/html_head.php';
-include 'admin/inc/apiurl.php';
+include 'admins/inc/apiurl.php';
 ?>
 
 <body>

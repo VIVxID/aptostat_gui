@@ -24,8 +24,17 @@ $app->get('/', function() use ($app) {
     return $app['twig']->render('customerIndex.twig', $includeBag);
 });
 
+
+$app->get('/admin', function() use ($app) {
+    $token = $app['security']->getToken();
+    return 'Welcome ' . $token->getUserName();
+});
+
 // Index: CustomerFrontEnd
 /*$app->get('/admin', function() use ($app) {
+
+    $token = $app['security']->getToken();
+    var_dump($token);
     $liveService = new \aptostatGui\Service\LiveService();
     $realTime = $liveService->getLiveAsArray();
 
@@ -41,5 +50,5 @@ $app->get('/', function() use ($app) {
         'messageHistory' => $messageHistory,
     );
 
-    return $app['twig']->render('index.twig', $includeBag);
+    return $app['twig']->render('adminIndex.twig', $includeBag);
 });*/
