@@ -2,16 +2,48 @@
 
 // Index: CustomerFrontEnd
 $app->get('/', function() use ($app) {
-    $liveService = new aptostatGui\Service\LiveService();
-    $uptimeService = new \aptostatGui\Service\UptimeService();
-    $messageService = new \aptostatGui\Service\MessageService();
-    $incidentService = new aptostatGui\Service\IncidentService();
+
+    // Real-time status module
+    try {
+        $liveService = new aptostatGui\Service\LiveService();
+        $realTime = $liveService->getLiveAsArray();
+    } catch (Exception $e) {
+        $realTime = null;
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+    }
+
+    // Last 7 days uptime table
+    try {
+        $uptimeService = new \aptostatGui\Service\UptimeService();
+        $uptime = $uptimeService->getUptimeAsArray();
+    } catch (Exception $e) {
+        $uptime = null;
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+    }
+
+    // Last messages past 3 days module
+    try {
+        $messageService = new \aptostatGui\Service\MessageService();
+        $messageHistory = $messageService->getMessageHistoryAsArray(3);
+    } catch (Exception $e) {
+        $messageHistory = null;
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+    }
+
+    // Current incidents module
+    try {
+        $incidentService = new aptostatGui\Service\IncidentService();
+        $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+    } catch (Exception $e) {
+        $currentIncidents = null;
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+    }
 
     $includeBag = array(
-        'realTime' => $liveService->getLiveAsArray(),
-        'uptime' => $uptimeService->getUptimeAsArray(),
-        'messageHistory' => $messageService->getMessageHistoryAsArray(3),
-        'currentIncidents' => $incidentService->getCurrentIncidentsAsArray(),
+        'realTime' => $realTime,
+        'uptime' => $uptime,
+        'messageHistory' => $messageHistory,
+        'currentIncidents' => $currentIncidents,
     );
 
     return $app['twig']->render('customerIndex.twig', $includeBag);

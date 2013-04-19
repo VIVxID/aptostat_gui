@@ -7,41 +7,30 @@ class IncidentService
 {
     public function getCurrentIncidentsAsArray()
     {
-        $response = $this->getDataFromApi();
+        $apiService = new ApiService();
+        $incidentList = $apiService->getIncidentList();
 
-        $incidentList = $response["incidents"];
-
-        foreach ($incidentList as $currentIncident) {
-
-            if ($currentIncident["hidden"] != "false") {
-
-                $checkList[] = $currentIncident;
-
-            }
-
+        if ($incidentList == 404) {
+            return 404;
         }
-        return $checkList;
+
+        $filteredList = $this->filterByHidden($incidentList);
+
+        return $filteredList;
     }
 
-        private function getDataFromApi()
+    private function filterByHidden($incidentList)
     {
-        $curl = curl_init();
-        $options = array(
-            CURLOPT_URL => APIURL . "api/incident",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => "GET"
-        );
-
-        curl_setopt_array($curl, $options);
-
-        if (isset($result['error'])) {
-            if ($result['error']['statusCode'] == 404) {
-                return 404;
-            } else {
-                throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
+        foreach ($incidentList['incidents'] as $currentIncident) {
+            if ($currentIncident["hidden"] != "false") {
+                $checkList[] = $currentIncident;
             }
         }
 
-        return json_decode(curl_exec($curl), true);
+        if (!isset($checkList)) {
+            return 404;
+        }
+
+        return $checkList;
     }
 }

@@ -10,17 +10,15 @@ class MessageService
         $apiService = new ApiService();
         $incidentList = $apiService->getIncidentList();
 
-        if ($incidentList == 404) {
-            return 404;
-        }
-
         return $this->formatMessageHistoryToArray($incidentList, $numOfDaysBack);
     }
 
     private function formatMessageHistoryToArray($incidentList, $numOfDaysBack)
     {
         foreach ($incidentList['incidents'] as $incident) {
-            if (strtotime($incident['lastMessageTimestamp']) > strtotime('-' . $numOfDaysBack . ' days')) {
+            if (strtotime($incident['lastMessageTimestamp']) > strtotime('-' . $numOfDaysBack . ' days')
+                && !$incident['hidden']
+            ) {
                 $messages[$incident['lastMessageTimestamp']] = array(
                     'messageDate' => $incident['lastMessageTimestamp'],
                     'messageText' => $incident['lastMessageText'],
@@ -32,7 +30,7 @@ class MessageService
         }
 
         if (!isset($messages)) {
-            return 404;
+            throw new \Exception('No messages which are public', 404);
         }
 
         rsort($messages);

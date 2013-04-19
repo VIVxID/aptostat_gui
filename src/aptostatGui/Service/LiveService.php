@@ -7,7 +7,8 @@ class LiveService
 {
     public function getLiveAsArray()
     {
-        $liveData = $this->fetchDataFromApi();
+        $apiService = new ApiService();
+        $liveData = $apiService->getLive();
 
         foreach ($liveData as $service => $state) {
             $explodedServiceName = explode(" ",$service);
@@ -17,29 +18,6 @@ class LiveService
         $liveStatusAsArray = $this->setGroupState($groupedLiveStatus);
 
         return $liveStatusAsArray;
-    }
-
-    private function fetchDataFromApi()
-    {
-        $curl = curl_init();
-
-        $options = array(
-            CURLOPT_URL => APIURL . "api/live",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => "GET"
-        );
-
-        curl_setopt_array($curl, $options);
-
-        $result = json_decode(curl_exec($curl), true);
-
-        if (isset($result['error'])) {
-            throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
-        }
-
-        ksort($result);
-
-        return $result;
     }
 
     private function setGroupState($groupedLiveStatus)

@@ -1,4 +1,4 @@
-{% if currentIncidents == 404 %}
+{% if not currentIncidents %}
     <div id="current_box" class="no_issues">
         <p class='all-clear'>No current issues.</p>
     </div>
@@ -11,7 +11,7 @@
                 <div class='accordion-group'>
                     <div class='accordion-heading'>
                         <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse{{ incident['id'] }}'>
-                        Incident #{{ incident['id'] }}
+                        #{{ incident['id'] }} : {{ incident['title'] }}
                         </a>
                     </div>
 
@@ -31,7 +31,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class='left'>Created on:</td>
+                                    <td class='left'><strong>Created on:</strong></td>
                                     <td class='right'>{{ incident['createdTimestamp'] }}</td>
                                 </tr>
 
@@ -39,12 +39,17 @@
                                     <td colspan='2'><hr /></td>
                                 </tr>
 
-                            <tr>
-                                <td class='left'>Last update:</td>
-                                <td class='right'>{{ incident['lastMessageTimestamp'] }}</td>
-                                <td class='right'>{{ incident['lastMessageText'] }}</td>
-                            </tr>
+                                <tr>
+                                    <td class='left'><strong>Last update:</strong></td>
+                                    <td class='right'>{{ incident['lastMessageTimestamp'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan='2'><hr /></td>
+                                </tr>
 
+                                <tr>
+                                    <td class='left'>{{ incident['lastMessageText'] }}</td>
+                                </tr>
                             </table>
                         </div>
                     </div>

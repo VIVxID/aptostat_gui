@@ -49,15 +49,11 @@ class ApiService
         $result = json_decode(curl_exec($curl), true);
 
         if (is_null($result)) {
-            throw new \Exception('Could not connect API server', 500);
+            throw new \Exception('Failed to connect to API server', 500);
         }
 
         if (isset($result['error'])) {
-            if ($result['error']['statusCode'] == 404) {
-                return 404;
-            } else {
-                throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
-            }
+            throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
         }
         return $result;
     }
