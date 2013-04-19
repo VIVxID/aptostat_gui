@@ -48,11 +48,9 @@ a {
 #header {
     height: 80px;
     width: 100%;
-    background: linear-gradient(to bottom, white, lightgray);
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(lightgray));
+    
     margin: 0 auto;
-    border-bottom: 1px solid #c4c4c4;
-    box-shadow: 0 3px 3px #d4d4d4;
+    
 }
 
 #header-content {
