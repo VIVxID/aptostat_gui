@@ -23,6 +23,7 @@ a {
 /** custom tags **/
 
 #content_wrapper {
+    margin: 50px auto 0;
     padding-bottom: 30px;
 }
 
@@ -43,8 +44,8 @@ a {
 #header {
     height: 80px;
     width: 100%;
-    background: linear-gradient(to bottom, lightgray, white);
-    background: -webkit-gradient(linear, left top, left bottom, from(lightgray), to(white));
+    background: linear-gradient(to bottom, white, lightgray);
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(lightgray));
     margin: 0 auto;
     border-bottom: 1px solid #c4c4c4;
     box-shadow: 0 3px 3px #d4d4d4;
@@ -100,10 +101,10 @@ a {
 /** current issues box **/
 
 #current_box {
-    margin: 50px auto 0;
     width: 80%;
-    /*border: 2px solid #939393;*/
-    min-height: 144px;
+    /*border: 1px solid #DDDDDD;*/
+    min-height: 230px;
+    margin-top: 120px;
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -138,6 +139,7 @@ a {
 }
 
 /** uptime **/
+
 #history {
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
@@ -218,41 +220,38 @@ a {
     position: relative;
     top: 0;
     width: 100%;
-    border-bottom: 2px solid #939393;
+    border-bottom: 1px solid #DDDDDD;
     padding: 10px;
     font-weight: bold;
 }
 
 #groupbox_reports {
     width: 50%;
-    border-left: 2px solid #939393;
-    border-top: 2px solid #939393;
-    border-right: 2px solid #939393;
-}
-
-#groupbox_incidents {
-    width: 25%;
-    border-top: 2px solid #939393;
-    border-right: 2px solid #939393;
+    border-left: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 #groupbox_details {
     width: 49%;
-    border-top: 2px solid #939393;
-    border-right: 2px solid #939393;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 #incidentbox_list {
-    width: 49%;
-    border-left: 2px solid #939393;
-    border-right: 2px solid #939393;
-    border-top: 2px solid #939393;
-}
-
-#incidentbox_details {
-    width: 49%;
-    border-right: 2px solid #939393;
-    border-top: 2px solid #939393;
+    width: 50%;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 .list_content_menu {
@@ -293,10 +292,25 @@ a {
 
 .front_messagebox {
     padding: 10px;
-    /*border: 2px solid #939393;*/
-    margin: 50px auto 0;
+    /*border: 1px solid #DDDDDD;*/
     background-color: #eeeeee;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
+    min-height:222px;
+}
+
+
+/** .selectable **/
+
+.ui-selected {
+    background: #FFEFC6 !important;
+}
+
+.ui-selecting {
+     background: #FFE49F !important;
+ }
+
+.ui-unselecting {
+    background: #FFE49F !important;
 }

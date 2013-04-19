@@ -9,7 +9,8 @@ ol.tree
 	{ 
 		position: relative;
 		list-style: none;
-        margin-bottom: 2px;
+        margin-top: 19px;
+        margin-bottom: 21px;
         padding: 3px;
 	}
     li.group
@@ -18,7 +19,8 @@ ol.tree
     }
 	li.file
 	{
-		margin-left: -1px !important;
+		margin-left: 10px !important;
+        margin-top: 20px !important;
         cursor: pointer;
 	}
 		li.file a
@@ -44,20 +46,22 @@ ol.tree
 		li input + ol
 		{
 			background: url(../img/toggle-small-expand.png) 40px 0 no-repeat;
-			margin: -18px 0 0 -23px; /* 15px */
+			margin: -26px 0 0 -23px; /* 15px */
 			height: 1em;
 		}
 		li input + ol > li { display: none; margin-left: -14px !important; padding-left: 1px; }
 	li label
 	{
 		cursor: pointer;
-		padding-left: 37px;
+		padding-left: 40px;
+        font-weight: bold;
+        font-size: 18px;
 	}
 
 	li input:checked + ol
 	{
 		background: url(../img/toggle-small.png) 40px 5px no-repeat;
-		margin: -23px 0 0 -23px; /* 20px */
+		margin: -31px 0 0 -23px; /* 20px */
 		padding: 1.563em 0 0 80px;
 		height: auto;
 	}
