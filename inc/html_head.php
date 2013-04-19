@@ -31,9 +31,9 @@
            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
             
            <div class="menubar">
-            <a href="group_reports.php">Panel</a>
+            <a href="index.php">Panel</a>
             <a href="group_reports.php">Manage</a>
-            <a href="group_reports.php">Twitter</a>
+            <a href="https://twitter.com/aptoma">Twitter</a>
      </div>
 
             
