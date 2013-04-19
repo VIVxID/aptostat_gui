@@ -2,9 +2,6 @@
 $startTime = microtime(true);
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Set error reporting on
-error_reporting(E_ALL);
-
 use Symfony\Component\HttpKernel\Debug\ErrorHandler;
 ErrorHandler::register(); // Convert errors to exceptions
 
@@ -28,6 +25,11 @@ if (file_exists(__DIR__ . '/config.php')) {
 // Initialize Application
 $app = new Silex\Application($config);
 
+// Set error reporting on
+if ($app['debug']) {
+    error_reporting(E_ALL);
+}
+
 // Register twig
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => $app['twig.path'],
@@ -40,7 +42,6 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.name' => $app['monolog.name'],
     'monolog.level' => $app['monolog.level'],
     'monolog.logfile' => $app['monolog.logfile'],
-
 ));
 
 
@@ -57,7 +58,6 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
                 'nox' => array('ROLE_ADMIN', '5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg=='),
             ),
         ),
-
     )
 ));
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
