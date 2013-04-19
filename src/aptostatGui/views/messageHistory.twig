@@ -1,6 +1,6 @@
 {% if messageHistory == 404 %}
     <div id="current_box" class="no_issues">
-        <p class='all-clear'>No new messages.</p>
+        <p class='all-clear'>No messages the last 3 days.</p>
     </div>
 {% else %}
     <div id='current_box' class='error'>
@@ -28,7 +28,7 @@
             <tr>
                 <td class='left'> - {{ message['author'] }}</td>
             </tr>
-        </table>
         {% endfor %}
+        </table>
     </div>
 {% endif %}

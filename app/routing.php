@@ -3,22 +3,15 @@
 // Index: CustomerFrontEnd
 $app->get('/', function() use ($app) {
     $liveService = new aptostatGui\Service\LiveService();
-    $realTime = $liveService->getLiveAsArray();
-
     $uptimeService = new \aptostatGui\Service\UptimeService();
-    $uptime = $uptimeService->getUptimeAsArray();
-
     $messageService = new \aptostatGui\Service\MessageService();
-    $messageHistory = $messageService->getMessageHistoryAsArray();
-
     $incidentService = new aptostatGui\Service\IncidentService();
-    $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
 
     $includeBag = array(
-        'realTime' => $realTime,
-        'uptime' => $uptime,
-        'messageHistory' => $messageHistory,
-        'currentIncidents' => $currentIncidents
+        'realTime' => $liveService->getLiveAsArray(),
+        'uptime' => $uptimeService->getUptimeAsArray(),
+        'messageHistory' => $messageService->getMessageHistoryAsArray(3),
+        'currentIncidents' => $incidentService->getCurrentIncidentsAsArray(),
     );
 
     return $app['twig']->render('customerIndex.twig', $includeBag);
@@ -34,7 +27,7 @@ $app->get('/admin', function() use ($app) {
     $uptime = $uptimeService->getUptimeAsArray();
 
     $messageService = new \aptostatGui\Service\MessageService();
-    $messageHistory = $messageService->getMessageHistoryAsArray();
+    $messageHistory = $messageService->getMessageHistoryAsArray(3);
 
     $incidentService = new aptostatGui\Service\IncidentService();
     $currentIncidents = $incidentService->getCurrentIncidentsAsArray();

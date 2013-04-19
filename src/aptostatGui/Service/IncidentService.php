@@ -35,7 +35,7 @@ class IncidentService
         curl_setopt_array($curl, $options);
 
         if (isset($result['error'])) {
-            if ($reult['error']['statusCode'] == 404) {
+            if ($result['error']['statusCode'] == 404) {
                 return 404;
             } else {
                 throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
