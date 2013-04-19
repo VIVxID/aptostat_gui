@@ -30,11 +30,11 @@
 
            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
             
-           <div class="menubar">
-            <a href="index.php">Panel</a>
-            <a href="group_reports.php">Manage</a>
-            <a href="https://twitter.com/aptoma">Twitter</a>
-     </div>
+           <ul class="nav">
+      <li class="active"><a href="index.php">panel</a></li>
+      <li><a href="group_reports.php">manage</a></li>
+      <li><a href="#">not work</a></li>
+    </ul>
 
             
 
