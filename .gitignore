@@ -11,8 +11,7 @@ runtime-conf.xml
 /vendor
 
 # PhpStorm
-.idea/workspace.xml
-.idea/tasks.xml
+.idea/*.xml
 
 # Propel
 build.properties
