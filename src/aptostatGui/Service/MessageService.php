@@ -7,13 +7,11 @@ class MessageService
 {
     public function getMessageHistoryAsArray()
     {
-        $messageHistory = $this->getDataFromApi();
+        $incidentList = $this->getDataFromApi();
 
-        if ($messageHistory == 404) {
+        if ($incidentList == 404) {
             return 404;
         }
-
-        $incidentList = $messageHistory["incidents"];
 
         return $this->formatMessageHistoryToArray($incidentList);
     }
@@ -43,7 +41,7 @@ class MessageService
 
     private function formatMessageHistoryToArray($incidentList)
     {
-        foreach ($incidentList as $incident) {
+        foreach ($incidentList["incidents"] as $incident) {
 
             if (strtotime($incident["lastMessageTimestamp"]) > time()-259200) {
 
