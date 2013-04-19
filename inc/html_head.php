@@ -30,11 +30,16 @@
 
            <a href="index.php"><img id="logo" src="/img/logo.png" /></a>
             
-           <ul class="nav">
-      <li class="active"><a href="index.php">panel</a></li>
-      <li><a href="group_reports.php">manage</a></li>
-      <li><a href="#">not work</a></li>
-    </ul>
+           <div class="navbar">
+              <div class="navbar-inner">
+                <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
+                <ul class="nav">
+                  <li class="active"><a href="index.php">Panel</a></li>
+                  <li><a href="group_reports.php">Manage</a></li>
+                  <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
+                </ul>
+              </div>
+            </div>
 
             
 
