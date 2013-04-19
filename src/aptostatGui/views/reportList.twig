@@ -1,0 +1,55 @@
+{% set criticalsExist = 0 %}
+{% set warningsExist = 0 %}
+{% set collapseOrder = 1 %}
+
+{% for group, reports in groups %}
+
+    {% for report in reports %}
+        {% if report["flag"] == "WARNING" %}
+            {% set warningsExist = 1 %}
+        {% elseif report["flag"] == "CRITICAL" %}
+            {% set criticalsExist = 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if criticalsExist == 1 %}
+        {% set titleImage = "../img/cross.png" %}
+    {% elseif warningsExist = 1 %}
+        {% set titleImage = "../img/warning.png" %}
+    {% else %}
+        {% set titleImage = "../img/check.png" %}
+    {% endif %}
+
+    {% if warningsExist == 0 and criticalsExist == 0 %}
+        {% set titleErrorString = "All responding" %}
+    {% elseif reports|length > 1 %}
+        {% set titleErrorString = reports|length ~ " errors" %}
+    {% else %}
+        {% set titleErrorString = "1 error" %}
+    {% endif %}
+
+    {% set criticalsExist = 0 %}
+    {% set warningsExist = 0 %}
+
+    <div class='accordion-group'>
+        <div class='accordion-heading'>
+            <a class='accordion-toggle collapsed' data-toggle='collapse' href='{{ collapseOrder }}'><img class='right' src='{{ titleImage }}' />{{ group }} - {{ titleErrorString }}</a>
+        </div>
+        <div id='{{ collapseOrder }}' class='accordion-body collapse'>
+            <div class='accordion-inner'>
+                <ol class='selectable'>
+                    {% for report in reports %}
+                    <li class='report file ui-widget-content' id='report_{{ report["id"] }}'>
+                    Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
+                    <p class='tinytext'>Check type: {{ report["checkType"] }}</p>
+                    <p class='tinytext'>Error message: {{ report["errorMessage"] }}</p>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    {% set collapseOrder %}
+
+{% endfor %}
