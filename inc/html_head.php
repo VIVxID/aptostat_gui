@@ -26,8 +26,7 @@
     <!--HEADER-->
 
     <header id="header">
-        <div id="header-content">    
-           <div class="navbar">
+    <div class="navbar">
               <div class="navbar-inner">
                 <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
                 <ul class="nav">
@@ -37,6 +36,8 @@
                 </ul>
               </div>
             </div>
+        <div id="header-content">    
+           
 
             
 
