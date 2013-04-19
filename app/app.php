@@ -44,30 +44,8 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => $app['monolog.logfile'],
 ));
 
-
-//TODO: Cleanup security
-// Set up security
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
-    'security.firewalls' => array(
-        'admins' => array(
-            'pattern' => '^/admin',
-            'http' => true,
-            'users' => array(
-                // raw password is foo
-                'admin' => array('ROLE_ADMIN', '0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
-                'nox' => array('ROLE_ADMIN', '5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg=='),
-            ),
-        ),
-    )
-));
-use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
-
-$app['security.encoder.digest'] = $app->share(function ($app) {
-    // use the sha1 algorithm
-    // don't base64 encode the password
-    // use only 1 iteration
-    return new MessageDigestPasswordEncoder('sha1', false, 1);
-});
+// Set up basic security
+include 'security.php';
 
 // Constants
 define('APIURL', $app['api.url']);
