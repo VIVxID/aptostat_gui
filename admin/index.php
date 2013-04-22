@@ -77,7 +77,6 @@
             });
         </script>
 
-        <?php include 'inc/admin_footer.php'; ?>
        
     </body>
 </html>

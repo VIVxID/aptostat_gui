@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <?php include 'inc/admin_footer.php'; ?>
+        
 
         <script type="text/javascript">
             $(document).ready(function() {

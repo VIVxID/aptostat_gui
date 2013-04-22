@@ -76,7 +76,7 @@
             });
         </script>
 
-        <?php include 'inc/cust_footer.php'; ?>
+        
 
     </body>
 </html>
