@@ -89,7 +89,7 @@
         <fieldset>
             <legend>Message</legend>
             Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-            <textarea id="fieldMessage" name="message" rows="10" cols="50">Update message</textarea><br />
+            <textarea id="fieldMessage" name="message" rows="10" cols="50"></textarea><br />
             <input type="submit" value="Submit" id="buttonSubmit" />
         </fieldset><br />
     </form>
