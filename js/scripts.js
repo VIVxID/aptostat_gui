@@ -66,13 +66,14 @@ $("#newIncident").click(function(event) {
     event.preventDefault();
 });
 
+//hides new incident button on tab change
 $("#incidentTab").click(function()) {
-
+    $('#newIncident').hide();
 }
 
 var selectedReports = new Array();
 
-
+//filtering of incidents based on flags
 $(".filter").click(function() {
     var critical = $(".filter").getElementById("critical");
     var warning = $(".filter").getElementById("warning");
@@ -83,10 +84,10 @@ $(".filter").click(function() {
 });
 
 
-//used in newMessage.php
+//used in newMessage.php//
 
+//removes placeholder text on textarea focus
 var placeholder = $("#message").val();
-
 $("#message").focus(
     function() {
         if($(this).val() == placeholder) {
@@ -95,6 +96,7 @@ $("#message").focus(
     }
 );
 
+//inserts placeholder text if textarea is empty
 $("#message").blur(
     function() {
         if($(this).val() == "") {
@@ -103,6 +105,7 @@ $("#message").blur(
     }
 );
 
+//ajax post of new message form
 $("#messageForm").submit(function(event) {
     event.preventDefault();
     var author = $("#fieldAuthor").val();
@@ -124,6 +127,7 @@ $("#messageForm").submit(function(event) {
 
 //used in newIncident.php
 
+//activates click-to-select functionality for reports
 $(function() {
      $(".selectable").bind("mousedown", function(event) {
          event.metaKey = true;
