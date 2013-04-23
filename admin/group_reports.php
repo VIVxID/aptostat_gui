@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
     <?php
-		include '../inc/html_head.php';
+		include '/inc/html_head.php';
         include 'inc/apiurl.php';
         include 'inc/reports.php';
         include 'inc/incidents.php';

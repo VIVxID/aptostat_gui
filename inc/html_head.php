@@ -31,7 +31,7 @@
                 <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
                 <ul class="nav">
                   <li class="active"><a href="index.php">Panel</a></li>
-                  <li><a href="group_reports.php">Manage</a></li>
+                  <li><a href="http://aptoma.com/support">Support</a></li>
                   <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
                 </ul>
               </div>
