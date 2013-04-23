@@ -83,13 +83,7 @@
             </div>
         </div>
 
-        
-
-        <script type="text/javascript">
-
-
-               
-        </script>
+    <?php include '/js/scripts.js' ?>
         
     </body>
 </html>
