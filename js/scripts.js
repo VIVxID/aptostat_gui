@@ -86,12 +86,12 @@ $(document).ready(function() {
     //Filter incidents by flag on click
 
     $(".filter").click(function() {
-        var critical = $(".filter").getElementById("critical");
-        var warning = $(".filter").getElementById("warning");
-        var responding = $(".filter").getElementById("responding");
-        var resolved = $(".filter").getElementById("resolved");
-        var ignored = $(".filter").getElementById("ignored");
-        var internal = $(".filter").getElementById("internal");
+        var critical = $(window).getElementById("critical");
+        var warning = $(window).getElementById("warning");
+        var responding = $(window).getElementById("responding");
+        var resolved = $(window).getElementById("resolved");
+        var ignored = $(window).getElementById("ignored");
+        var internal = $(window).getElementById("internal");
         
         if (!critical.hasClass('active')) {
             $(".flag_CRITICAL").hide();
