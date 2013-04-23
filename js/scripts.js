@@ -89,10 +89,51 @@ $(document).ready(function() {
         var critical = $(".filter").getElementById("critical");
         var warning = $(".filter").getElementById("warning");
         var responding = $(".filter").getElementById("responding");
-        var resolved = $(".filter").getElementById("internal");
-        var ignored = $(".filter").getElementById("internal");
-
-
+        var resolved = $(".filter").getElementById("resolved");
+        var ignored = $(".filter").getElementById("ignored");
+        var internal = $(".filter").getElementById("internal");
+        
+        if (!critical.checked) {
+            $(".critical").hide();
+        }
+        else{
+            $(".critical").show();
+        }
+        
+        if (!warning.checked) {
+            $(".warning").hide();
+        }
+        else{
+            $(".warning").show();
+        }
+        
+        if (!responding.checked) {
+            $(".responding").hide();
+        }
+        else{
+            $(".responding").show();
+        }
+        
+        if (!resolved.checked) {
+            $(".resolved").hide();
+        }
+        else{
+            $(".resolved").show();
+        }
+        
+        if (!ignored.checked) {
+            $(".ignored").hide();
+        }
+        else{
+            $(".ignored").show();
+        }
+        
+        if (!internal.checked) {
+            $(".internal").hide();
+        }
+        else{
+            $(".internal").show();
+        }
     });
 
 
