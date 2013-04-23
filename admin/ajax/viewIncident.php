@@ -34,12 +34,12 @@
     print "Last Message: " . $incident["lastMessageText"] . "<br />";
     
     print "<br /> Connected Messages : <br />";
-    foreach($messages as $messages) {
+    foreach($messages as $message) {
         
-        $date = $messages["messageTimestamp"];
-        $status = $messages["messageStatus"];
-        $author = $messages["messageAuthor"];
-        $messageText = $messages["messageText"];
+        $date = $message["messageTimestamp"];
+        $status = $message["messageStatus"];
+        $author = $message["messageAuthor"];
+        $messageText = $message["messageText"];
         
         print "Date: " . $date . "<br />";
         print "Flag: " . $status . "<br />";
