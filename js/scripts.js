@@ -1,4 +1,4 @@
-$(document).ready(function()) {
+$(document).ready(function() {
     //used in groupReports.php//
 
 
@@ -76,9 +76,9 @@ $(document).ready(function()) {
     });
 
     //hides new incident button on tab change
-    $("#incidentTab").click(function()) {
+    $("#incidentTab").click(function() {
         $('#newIncident').hide();
-    }
+    });
 
     var selectedReports = new Array();
 
@@ -132,7 +132,7 @@ $(document).ready(function()) {
                 $("#reportPane").css("opacity", "0");
                 $("#reportPane").html("Message posted.");
                 $("#reportPane").fadeTo("normal",1);
-            },
+            }
         });
     });
 
@@ -159,4 +159,4 @@ $(document).ready(function()) {
              }
          });
     });
-}
+});
