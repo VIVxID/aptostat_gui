@@ -94,45 +94,45 @@ $(document).ready(function() {
         var internal = $(".filter").getElementById("internal");
         
         if (!critical.hasClass('active')) {
-            $(".critical").hide();
+            $(".flag_CRITICAL").hide();
         }
         else{
-            $(".critical").show();
+            $(".flag_CRITICAL").show();
         }
         
         if (!warning.hasClass('active')) {
-            $(".warning").hide();
+            $(".flag_WARNING").hide();
         }
         else{
-            $(".warning").show();
+            $(".flag_WARNING").show();
         }
         
         if (!responding.hasClass('active')) {
-            $(".responding").hide();
+            $(".flag_RESPONDING").hide();
         }
         else{
-            $(".responding").show();
+            $(".flag_RESPONDING").show();
         }
         
         if (!resolved.hasClass('active')) {
-            $(".resolved").hide();
+            $(".flag_RESOLVED").hide();
         }
         else{
-            $(".resolved").show();
+            $(".flag_RESOLVED").show();
         }
         
         if (!ignored.hasClass('active')){
-            $(".ignored").hide();
+            $(".flag_IGNORED").hide();
         }
         else{
-            $(".ignored").show();
+            $(".flag_IGNORED").show();
         }
         
         if (!internal.hasClass('active')) {
-            $(".internal").hide();
+            $(".flag_INTERNAL").hide();
         }
         else{
-            $(".internal").show();
+            $(".flag_INTERNAL").show();
         }
     });
 
