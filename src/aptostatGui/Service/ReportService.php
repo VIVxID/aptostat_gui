@@ -25,4 +25,14 @@ class ReportService
 
     }
 
+    public function getSingleReportAsArray($id)
+    {
+
+        $apiService = new ApiService();
+        $report = $apiService->getReportById($id);
+
+        return $report;
+
+    }
+
 }
