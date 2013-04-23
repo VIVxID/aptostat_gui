@@ -35,13 +35,6 @@ class ApiService
         return $this->getDataFromApi('api/live');
     }
 
-    //TODO:
-    public function postIncident($)
-    {
-        return $this->postDataToApi('api/incident', $postDataAsJson);
-    }
-
-    public function postMessage($incidentId, $post)
 
     private function getDataFromApi($subUrl)
     {

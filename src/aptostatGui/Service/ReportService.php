@@ -3,7 +3,7 @@
 namespace aptostatGui\Service;
 
 
-class Report
+class ReportService
 {
 
     public function getReportsAsArray()
