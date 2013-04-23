@@ -93,42 +93,42 @@ $(document).ready(function() {
         var ignored = $(".filter").getElementById("ignored");
         var internal = $(".filter").getElementById("internal");
         
-        if (!critical.checked) {
+        if (!critical.hasClass('active')) {
             $(".critical").hide();
         }
         else{
             $(".critical").show();
         }
         
-        if (!warning.checked) {
+        if (!warning.hasClass('active')) {
             $(".warning").hide();
         }
         else{
             $(".warning").show();
         }
         
-        if (!responding.checked) {
+        if (!responding.hasClass('active')) {
             $(".responding").hide();
         }
         else{
             $(".responding").show();
         }
         
-        if (!resolved.checked) {
+        if (!resolved.hasClass('active')) {
             $(".resolved").hide();
         }
         else{
             $(".resolved").show();
         }
         
-        if (!ignored.checked) {
+        if (!ignored.hasClass('active')){
             $(".ignored").hide();
         }
         else{
             $(".ignored").show();
         }
         
-        if (!internal.checked) {
+        if (!internal.hasClass('active')) {
             $(".internal").hide();
         }
         else{
