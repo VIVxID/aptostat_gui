@@ -1,0 +1,3 @@
+{% for incident in incidents %}
+    <li class='incident file' id='incident_{{ incident["id"] }}'>Incident {{ incident["id"] }} - {{ incident["createdTimestamp"] }} - {{ incident["title"] }}</li>
+{% endfor %}
