@@ -102,39 +102,3 @@ $incident = $result["incident"];
             </fieldset><br />
         </form>
     </div>
-    
-    <script type="text/javascript">
-        var placeholder = $("#message").val();
-        $("#message").focus(
-            function() {
-                if($(this).val() == placeholder) {
-                    $(this).val("");
-                }
-            }
-        );
-        $("#message").blur(
-            function() {
-                if($(this).val() == "") {
-                    $(this).val(placeholder);
-                }
-            }
-        );
-
-        $("#messageForm").submit(function(event) {
-            event.preventDefault();
-            var author = $("#fieldAuthor").val();
-            var flag = $("#fieldFlag").val();
-            var message =$("#fieldMessage").val();
-            var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
-            $.ajax({
-                type: "POST",
-                url: "newMessage.php",
-                data: dataString,
-                success: function(){
-                    $("#reportPane").css("opacity", "0");
-                    $("#reportPane").html("Message posted.");
-                    $("#reportPane").fadeTo("normal",1);
-                },
-            });
-        })
-    </script>

@@ -94,25 +94,3 @@
         </fieldset><br />
     </form>
 </div>
-
-<script type="text/javascript">
-    $(function() {
-        $(".selectable").bind("mousedown", function(event) {
-            event.metaKey = true;
-        }).selectable({
-            tolerance: 'fit',
-            stop: function() {
-                var result = $( "#select-result" ).empty();
-                selectedReports.length = 0;
-                var i = 0;
-                $(".ui-selected", $("#accordion2")).each(function() {
-                    var itemId = $(this).attr('id');
-                    var item = itemId.replace("report_", "");
-                    result.append( " #" + ( item + 1 ) );
-                    selectedReports[i] = item;
-                    i++;
-                });
-            }
-        });
-    })
-</script>

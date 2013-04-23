@@ -16,8 +16,8 @@
 
                     <div class="tabbable">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">Reports</a></li>
-                            <li><a href="#tab2" data-toggle="tab">Incidents</a></li>
+                            <li class="active" id="reportTab"><a href="#tab1" data-toggle="tab">Reports</a></li>
+                            <li id="incidentTab"><a href="#tab2" data-toggle="tab">Incidents</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
@@ -86,87 +86,7 @@
         
 
         <script type="text/javascript">
-            $(document).ready(function() {
 
-                $(".report").click(function() {
-                    var reportId = $(this).attr('id');
-                    var report = reportId.replace("report_", "");
-                    $("#reportPane").css("opacity", "0");
-                    $("#reportPane").load("ajax/viewReport.php", {"report": report}, function(response, status, xhr) {
-                        if (status == "error") {
-                            var msg = "Error: ";
-                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                        }
-                        else {
-                            $("#reportPane").fadeTo("normal",1);
-                        }
-                    });
-                    $('#newIncident').show();
-                });
-
-                $("#neweIncident").click(function() {
-                    var reportId = $(this).attr('id');
-                    var report = reportId.replace("report_", "");
-                    $("#reportPane").css("opacity", "0");
-                    $("#reportPane").load("ajax/newIncident.php", {"report": report}, function(response, status, xhr) {
-                        if (status == "error") {
-                            var msg = "Error: ";
-                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                        }
-                        else {
-                            $("#reportPane").fadeTo("normal",1);
-                        }
-                    });
-                });
-
-                var incident;
-                $(".incident").click(function() {
-                    var incidentId = $(this).attr("id");
-                    incident = incidentId.replace("incident_", "");
-                    $("#reportPane").css("opacity", "0");
-                    $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
-                        if (status == "error") {
-                            var msg = "Error: ";
-                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                        }
-                        else {
-                            $("#reportPane").fadeTo("normal",1);
-                        }
-                    });
-                    $('#newMessage').show();
-                });
-
-                $("#newMessage").click(function(event) {
-                    $("#reportPane").css("opacity", "0");
-                    $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
-                        if (status == "error") {
-                            var msg = "Error: ";
-                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                        }
-                        else {
-                            $("#reportPane").fadeTo("normal",1);
-                        }
-                    });
-                    event.preventDefault();
-                });
-
-                $("#newIncident").click(function(event) {
-                    $("#reportPane").css("opacity", "0");
-                    $("#reportPane").load("ajax/newIncident.php", {"incident": incident}, function(response, status, xhr) {
-                        if (status == "error") {
-                            var msg = "Error: ";
-                            $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                        }
-                        else {
-                            $("#reportPane").fadeTo("normal",1);
-                        }
-                    });
-                    event.preventDefault();
-                });
-
-                var selectedReports = new Array();
-
-            });
 
                
         </script>

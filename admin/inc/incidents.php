@@ -30,7 +30,8 @@ class Incidents
         foreach($incidents as $incident) {
             $date = $incident["createdTimestamp"];
             $title = $incident["title"];
-            print "<li class='incident file' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
+            $flag = $incident["lastStatus"];
+            print "<li class='incident file flag_$flag' id='incident_".$incident["id"]."'>Incident ".$incident["id"]." - $date - $title</li>\r\n";
         }
 
     }
