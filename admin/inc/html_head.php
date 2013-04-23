@@ -23,28 +23,19 @@
 </head>
 
 <body>
-
-    <!--HEADER-->
-
-<header id="header">
-<div class="navbar">
-    <div class="navbar-inner">
-        <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
-        <ul class="nav">
-            <li class="active"><a href="index.php">Panel</a></li>
-            <li><a href="group_reports.php">Manage</a></li>
-            <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
-        </ul>
-    </div>
-</div>
-</header>
-
     <div id="content_wrapper">
         <div class="container">
             <div class="row">
-    
-            
-            
 
-
-
+                <header id="header">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
+                            <ul class="nav">
+                                <li><a href="index.php">Panel</a></li>
+                                <li><a href="group_reports.php">Manage</a></li>
+                                <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
