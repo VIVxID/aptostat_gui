@@ -11,8 +11,9 @@ class UptimeService
         $uptime = $apiService->getUptime();
 
         foreach ($uptime as $hostname => $errors) {
-            foreach ($errors as $timestamp => $downtime) {
+            foreach ($errors as $dates => $downtime) {
 
+                $timestamp = substr($dates,0,10);
                 $uptimeStatusAsArray[$hostname][$timestamp] = array_sum($downtime);
 
             }
