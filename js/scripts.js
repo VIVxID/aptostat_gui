@@ -1,6 +1,8 @@
 //used in groupReports.php//
 
+
 //load viewReport on click
+
 $(".report").click(function() {
     var reportId = $(this).attr('id');
     var report = reportId.replace("report_", "");
@@ -19,7 +21,9 @@ $(".report").click(function() {
 
 var incident;
 
+
 //load viewIncident on click
+
 $(".incident").click(function() {
     var incidentId = $(this).attr("id");
     incident = incidentId.replace("incident_", "");
@@ -36,7 +40,9 @@ $(".incident").click(function() {
     $('#newMessage').show();
 });
 
+
 //load newMessage on click
+
 $("#newMessage").click(function(event) {
     $("#reportPane").css("opacity", "0");
     $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
@@ -51,7 +57,9 @@ $("#newMessage").click(function(event) {
     event.preventDefault();
 });
 
+
 //load newIncident on click
+
 $("#newIncident").click(function(event) {
     $("#reportPane").css("opacity", "0");
     $("#reportPane").load("ajax/newIncident.php", {"incident": incident}, function(response, status, xhr) {
@@ -73,11 +81,14 @@ $("#incidentTab").click(function()) {
 var selectedReports = new Array();
 
 
+//Filter incidents by flag on click
+
 $(".filter").click(function() {
     var critical = $(".filter").getElementById("critical");
     var warning = $(".filter").getElementById("warning");
     var responding = $(".filter").getElementById("responding");
-    var internal = $(".filter").getElementById("internal");
+    var resolved = $(".filter").getElementById("internal");
+    var ignored = $(".filter").getElementById("internal");
 
 
 });
