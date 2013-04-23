@@ -6,7 +6,7 @@ namespace aptostatGui\Service;
 class Report
 {
 
-    public function getReportsAsArray
+    public function getReportsAsArray()
     {
 
         $apiService = new ApiService();
