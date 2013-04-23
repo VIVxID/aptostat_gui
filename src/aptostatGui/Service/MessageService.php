@@ -8,32 +8,35 @@ class MessageService
     public function getMessageHistoryAsArray($numOfDaysBack)
     {
         $apiService = new ApiService();
-        $incidentList = $apiService->getIncidentList();
+        $messageList = $apiService->getMessageList();
 
-        return $this->formatMessageHistoryToArray($incidentList, $numOfDaysBack);
+        return $this->formatMessageHistoryToArray($messageList, $numOfDaysBack);
     }
 
-    private function formatMessageHistoryToArray($incidentList, $numOfDaysBack)
+    private function formatMessageHistoryToArray($messageList, $numOfDaysBack)
     {
-        foreach ($incidentList['incidents'] as $incident) {
-            if (strtotime($incident['lastMessageTimestamp']) > strtotime('-' . $numOfDaysBack . ' days')
-                && !$incident['hidden']
+        foreach ($messageList['message'] as $message) {
+            if (strtotime($message['timestamp']) > strtotime('-' . $numOfDaysBack . ' days')
             ) {
-                $messages[$incident['lastMessageTimestamp']] = array(
-                    'messageDate' => $incident['lastMessageTimestamp'],
-                    'messageText' => $incident['lastMessageText'],
-                    'author' => $incident['lastMessageAuthor'],
-                    'title' => $incident['title'],
-                    'status' => $incident['lastStatus']
+                $formattedMessageList[$message['timestamp']] = array(
+                    'messageId' => $message['id'],
+                    'incidentId' => $message['connectedToIncident'],
+                    'messageDate' => $message['timestamp'],
+                    'messageText' => $message['messageText'],
+                    'author' => $message['author'],
+                    'status' => $message['flag']
                 );
             }
         }
 
-        if (!isset($messages)) {
+
+
+        if (!isset($formattedMessageList)) {
             throw new \Exception('No messages which are public', 404);
         }
 
-        rsort($messages);
-        return $messages;
+
+        rsort($formattedMessageList);
+        return $formattedMessageList;
     }
 }

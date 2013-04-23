@@ -3,6 +3,8 @@
 namespace aptostatGui\Service;
 
 
+use Symfony\Component\Security\Acl\Exception\Exception;
+
 class ApiService
 {
     public function getReportList()
@@ -23,6 +25,16 @@ class ApiService
     public function getIncidentById($id)
     {
         return $this->getDataFromApi('api/incident/' . $id);
+    }
+
+    public function getMessageList()
+    {
+        return $this->getDataFromApi('api/message');
+    }
+
+    public function getMessageById($id)
+    {
+        return $this->getDataFromApi('api/message' . $id);
     }
 
     public function getUptime()
@@ -63,6 +75,81 @@ class ApiService
         return $this->postDataToApi($subUrl, $postDataAsArray);
     }
 
+    public function modifyMessageById($messageId, $author = null, $flag = null, $messageText = null, $hidden = null)
+    {
+        if (!is_null($author)) {
+            $putDataAsArray['author'] = $author;
+        }
+
+        if (!is_null($flag)) {
+            $putDataAsArray['flag'] = $flag;
+        }
+
+        if (!is_null($messageText)) {
+            $putDataAsArray['messageText'] = $messageText;
+        }
+
+        if (!is_null($hidden)) {
+            $putDataAsArray['hidden'] = $hidden;
+        }
+
+        if (!isset($putDataAsArray)) {
+            throw new Exception('No valid parameters has been passed', 400);
+        }
+
+        $subUrl = 'api/message/' . $messageId;
+
+        return $this->putDataToApi($subUrl, $putDataAsArray);
+    }
+
+    public function modifyReportById($reportId, $flag = null, $hidden = null)
+    {
+
+        if (!is_null($flag)) {
+            $putDataAsArray['flag'] = $flag;
+        }
+
+        if (!is_null($hidden)) {
+            $putDataAsArray['hidden'] = $hidden;
+        }
+
+        if (!isset($putDataAsArray)) {
+            throw new Exception('No valid parameters has been passed', 400);
+        }
+
+        $subUrl = 'api/report/' . $reportId;
+
+        return $this->putDataToApi($subUrl, $putDataAsArray);
+    }
+
+    public function addReportToIncidentById($incidentId, $reports)
+    {
+        $putDataAsArray['reportAction'] = 'add';
+        $putDataAsArray['reports'] = $reports;
+
+        $subUrl = 'api/incident/' . $incidentId;
+
+        return $this->putDataToApi($subUrl, $putDataAsArray);
+    }
+
+    public function removeReportToIncidentById($incidentId, $reports)
+    {
+        $putDataAsArray['reportAction'] = 'remove';
+        $putDataAsArray['reports'] = $reports;
+
+        $subUrl = 'api/incident/' . $incidentId;
+
+        return $this->putDataToApi($subUrl, $putDataAsArray);
+    }
+
+    public function modifyIncidentTitleById($incidentId, $title)
+    {
+        $putDataAsArray['title'] = $title;
+        $subUrl = 'api/incident/' . $incidentId;
+
+        return $this->putDataToApi($subUrl, $putDataAsArray);
+    }
+
     private function getDataFromApi($subUrl)
     {
         $curl = curl_init();
@@ -86,7 +173,7 @@ class ApiService
         return $result;
     }
 
-    private function postDataToApi($subUrl, $postDataAsJson)
+    private function postDataToApi($subUrl, $postDataAsArray)
     {
         $postDataAsJson = json_encode($postDataAsArray);
 
@@ -116,26 +203,33 @@ class ApiService
         return $response;
     }
 
-    private function putDataToApi($subUrl)
+    private function putDataToApi($subUrl, $putDataAsArray)
     {
+        $putDataAsJson = json_encode($putDataAsArray);
+
         $curl = curl_init();
         $options = array(
             CURLOPT_URL => APIURL . $subUrl,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => 'GET'
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_POSTFIELDS => $putDataAsJson,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($putDataAsJson),
+            ),
         );
 
         curl_setopt_array($curl, $options);
 
-        $result = json_decode(curl_exec($curl), true);
+        $response = json_decode(curl_exec($curl), true);
 
-        if (is_null($result)) {
+        if (is_null($response)) {
             throw new \Exception('Failed to connect to API server', 500);
         }
 
-        if (isset($result['error'])) {
-            throw new \Exception($result['error']['errorMessage'], $result['error']['statusCode']);
+        if (isset($response['error'])) {
+            throw new \Exception($response['error']['errorMessage'], $response['error']['statusCode']);
         }
-        return $result;
+        return $response;
     }
 }
