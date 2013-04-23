@@ -72,7 +72,7 @@
                                     Click a report to view it.
                                 </div>
                                 <div class="list_content_menu">
-                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new incident  </a>
+                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new incident</a>
                                     <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
                                 </div>
                             </div>
@@ -83,7 +83,23 @@
             </div>
         </div>
 
-    <?php include '/js/scripts.js' ?>
+        <script type="text/javascript">
+            $(".report").click(function() {
+                var reportId = $(this).attr('id');
+                var report = reportId.replace("report_", "");
+                $("#reportPane").css("opacity", "0");
+                $("#reportPane").load("ajax/viewReport.php", {"report": report}, function(response, status, xhr) {
+                    if (status == "error") {
+                        var msg = "Error: ";
+                        $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                    }
+                    else {
+                        $("#reportPane").fadeTo("normal",1);
+                    }
+                });
+                $('#newIncident').show();
+            });
+        </script>
         
     </body>
 </html>
