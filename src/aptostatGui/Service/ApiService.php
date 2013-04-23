@@ -35,13 +35,33 @@ class ApiService
         return $this->getDataFromApi('api/live');
     }
 
-    //TODO:
-    public function postIncident($)
+    public function postIncident($title, $author, $flag, $messageText, $reports, $hidden = false)
     {
-        return $this->postDataToApi('api/incident', $postDataAsJson);
+        $postDataAsArray = array(
+            'title' => $title,
+            'author' => $author,
+            'flag' => $flag,
+            'messageText' => $messageText,
+            'reports' => $reports,
+            'hidden' => $hidden,
+        );
+
+        return $this->postDataToApi('api/incident', $postDataAsArray);
     }
 
-    public function postMessage($incidentId, $post)
+    public function postMessage($incidentId, $author, $flag, $messageText, $hidden = false)
+    {
+        $postDataAsArray = array(
+            'author' => $author,
+            'flag' => $flag,
+            'messageText' => $messageText,
+            'hidden' => $hidden,
+        );
+
+        $subUrl = 'api/incident/' . $incidentId . '/message';
+
+        return $this->postDataToApi($subUrl, $postDataAsArray);
+    }
 
     private function getDataFromApi($subUrl)
     {
@@ -66,8 +86,10 @@ class ApiService
         return $result;
     }
 
-    private function postDataToApi($subUrl, $postDataAsJson)
+    private function postDataToApi($subUrl, $postDataAsArray)
     {
+        $postDataAsJson = json_encode($postDataAsArray);
+
         $curl = curl_init();
         $options = array(
             CURLOPT_URL => APIURL . $subUrl,
