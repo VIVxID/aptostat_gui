@@ -49,15 +49,16 @@
                                             ?>
                                         </ul>
                                     </div>
-                                    <div class="list_content_menu_fat">
-                                        View all <input type="checkbox"/>
-                                        Warning <input type="checkbox"/>
-                                        Ignored <input type="checkbox"/>
-                                        <br/>
-                                        Critical <input type="checkbox"/>
-                                        Resolved <input type="checkbox"/>
-                                        Internal <input type="checkbox"/>
-                                        Responding <input type="checkbox"/>
+                                    <div class="list_content_menu_fat"> 
+                                        <div class="btn-group" data-toggle="buttons-checkbox">
+                                          <button type="button" class="btn btn-primary filter" id="all">View all</button>
+                                          <button type="button" class="btn btn-primary filter" id="warning">Warning</button>
+                                          <button type="button" class="btn btn-primary filter" id="critical">Critical</button>
+                                          <button type="button" class="btn btn-primary filter" id="responding">Responding</button>
+                                          <button type="button" class="btn btn-primary filter" id="resolved">Resolved</button>
+                                          <button type="button" class="btn btn-primary filter" id="ignored">Ignored</button>
+                                          <button type="button" class="btn btn-primary filter" id="internal">Internal</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -165,6 +166,15 @@
                 var selectedReports = new Array();
 
             });
+
+                $(".filter").click(function() {
+                    var critical = $(".filter").getElementById("critical");
+                    var warning = $(".filter").getElementById("warning");
+                    var responding = $(".filter").getElementById("responding");
+                    var internal = $(".filter").getElementById("internal");
+                    
+                    
+                });
         </script>
         
     </body>
