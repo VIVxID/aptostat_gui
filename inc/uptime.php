@@ -72,7 +72,9 @@ class Uptime
 
                 echo "<td class='uptime-image'>";
 
-                foreach ($errors as $errorDate => $downtime) {
+                foreach ($errors as $errorDates => $downtime) {
+
+                    $errorDate = substr($errorDates,0,10);
 
                     if (date("d/m/Y", time()-(86400*$daysGenerated)) == $errorDate) {
 
