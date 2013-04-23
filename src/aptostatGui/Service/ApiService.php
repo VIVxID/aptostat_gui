@@ -86,7 +86,7 @@ class ApiService
         return $result;
     }
 
-    private function postDataToApi($subUrl, $postDataAsArray)
+    private function postDataToApi($subUrl, $postDataAsJson)
     {
         $postDataAsJson = json_encode($postDataAsArray);
 

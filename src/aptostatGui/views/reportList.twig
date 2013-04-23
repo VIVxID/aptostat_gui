@@ -2,7 +2,7 @@
 {% set warningsExist = 0 %}
 {% set collapseOrder = 1 %}
 
-{% for group, reports in groups %}
+{% for group, reports in currentReports %}
 
     {% for report in reports %}
         {% if report["flag"] == "WARNING" %}
@@ -14,7 +14,7 @@
 
     {% if criticalsExist == 1 %}
         {% set titleImage = "../img/cross.png" %}
-    {% elseif warningsExist = 1 %}
+    {% elseif warningsExist == 1 %}
         {% set titleImage = "../img/warning.png" %}
     {% else %}
         {% set titleImage = "../img/check.png" %}
@@ -33,7 +33,7 @@
 
     <div class='accordion-group'>
         <div class='accordion-heading'>
-            <a class='accordion-toggle collapsed' data-toggle='collapse' href='{{ collapseOrder }}'><img class='right' src='{{ titleImage }}' />{{ group }} - {{ titleErrorString }}</a>
+            <a class='accordion-toggle collapsed' data-toggle='collapse' href='#{{ collapseOrder }}'><img class='right' src='{{ titleImage }}' />{{ group }} - {{ titleErrorString }}</a>
         </div>
         <div id='{{ collapseOrder }}' class='accordion-body collapse'>
             <div class='accordion-inner'>
@@ -50,6 +50,6 @@
         </div>
     </div>
 
-    {% set collapseOrder %}
+    {% set collapseOrder = collapseOrder + 1 %}
 
 {% endfor %}

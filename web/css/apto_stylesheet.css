@@ -22,6 +22,10 @@ a {
 
 /** custom tags **/
 
+.front-divider{
+    margin: 20px auto 20px;
+}
+
 #content_wrapper {
     margin: 50px auto 0;
     padding-bottom: 30px;
@@ -44,11 +48,8 @@ a {
 #header {
     height: 80px;
     width: 100%;
-    background: linear-gradient(to bottom, white, lightgray);
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(lightgray));
     margin: 0 auto;
-    border-bottom: 1px solid #c4c4c4;
-    box-shadow: 0 3px 3px #d4d4d4;
+
 }
 
 #header-content {
@@ -93,14 +94,34 @@ a {
     color: #414141/*#372E2B*/;
     text-decoration: none !important;
 }
-    
+
 .footer_middle a:hover {
     color: #646464;
+}
+
+/** live panel **/
+
+#service-panel-wrapper {
+    width: 80%;
+}
+
+.service-status {
+    float: right;
 }
 
 /** current issues box **/
 
 #current_box {
+    width: 80%;
+    /*border: 1px solid #DDDDDD;*/
+    background-color: #eeeeee;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 10px;
+    min-height: 220px;
+}
+#history-box{
     width: 80%;
     /*border: 1px solid #DDDDDD;*/
     min-height: 230px;
@@ -278,7 +299,7 @@ a {
 }
 
 .list_content_menu a:hover {
-    color: ##414141;
+    color: #414141;
 }
 
 .list_content_menu_fat a {
@@ -297,7 +318,7 @@ a {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    min-height:222px;
+    min-height:220px;
 }
 
 
@@ -308,8 +329,8 @@ a {
 }
 
 .ui-selecting {
-     background: #FFE49F !important;
- }
+    background: #FFE49F !important;
+}
 
 .ui-unselecting {
     background: #FFE49F !important;
