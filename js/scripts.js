@@ -100,7 +100,7 @@ $(document).ready(function() {
 
     //removes placeholder text on textarea focus
     var placeholder = $("#message").val();
-    $("#message").focus(
+    $("#fieldMessage").focus(
         function() {
             if($(this).val() == placeholder) {
                 $(this).val("");
@@ -109,7 +109,7 @@ $(document).ready(function() {
     );
 
     //inserts placeholder text if textarea is empty
-    $("#message").blur(
+    $("#fieldMessage").blur(
         function() {
             if($(this).val() == "") {
                 $(this).val(placeholder);
