@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/manage', function() use ($app) {
+$app->get('/admin/manage', function() use ($app) {
 
     // Reports module
     try {
