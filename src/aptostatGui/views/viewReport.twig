@@ -1,4 +1,4 @@
-<p>Report ID: {{ report['id'] }}</p>
+<h6>Report ID: {{ report['id'] }}</h6>
 <p>Created: {{ report['createdTimestamp'] }}</p>
 <p>Last updated: {{ report['lastUpdatedTimestamp'] }}</p>
 <p>Check type: {{ report['checkType'] }}</p>
@@ -6,3 +6,10 @@
 <p>Service: {{ report['host'] }}</p>
 <p>Last status: {{ report['flag'] }}</p>
 <p>Error message: {{ report['errorMessage'] }}</p>
+
+<h6>Status history</h6>
+{% for update in report["statusHistory"] %}
+
+    <p></p>
+
+{% endfor %}
