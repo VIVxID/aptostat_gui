@@ -77,7 +77,7 @@ $app->post('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
 
     try {
         $apiService = new aptostatGui\Service\ApiService();
-        $incidentList = $apiService->getIncidentList();
+        $incidentList = $apiService->getSortedIncidentList();
 
         $includeBag = array(
             'incidentList' => $incidentList['incidents'],

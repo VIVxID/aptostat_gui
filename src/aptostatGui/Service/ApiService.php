@@ -22,6 +22,23 @@ class ApiService
         return $this->getDataFromApi('api/incident');
     }
 
+    public function getSortedIncidentList()
+    {
+        $list = $this->getDataFromApi('api/incident');
+        foreach ($list["incidents"] as $item) {
+            $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
+        }
+
+        arsort($dateKeys);
+
+        foreach ($dateKeys as $item) {
+            $out["incidents"][] = $item;
+        }
+
+        return $out;
+
+    }
+
     public function getIncidentById($id)
     {
         return $this->getDataFromApi('api/incident/' . $id);

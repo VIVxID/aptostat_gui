@@ -16,7 +16,17 @@ class IncidentService
 
         $filteredList = $this->filterByHidden($incidentList);
 
-        return $filteredList;
+        foreach ($filteredList as $item) {
+            $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
+        }
+
+        arsort($dateKeys);
+
+        foreach ($dateKeys as $item) {
+            $sortedList[] = $item;
+        }
+
+        return $sortedList;
     }
 
     private function filterByHidden($incidentList)
