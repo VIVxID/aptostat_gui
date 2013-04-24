@@ -7,9 +7,26 @@
 <p>Last status: {{ report['flag'] }}</p>
 <p>Error message: {{ report['errorMessage'] }}</p>
 
-<h6>Status history</h6>
+<br />
+
+<h6>Status history:</h6>
+<table class="table table-condensed">
+    <tr>
+        <td><strong>Date</strong></td>
+        <td><strong>Status</strong></td>
+    </tr>
 {% for update in report["statusHistory"] %}
 
-    <p></p>
+    {% if update["status"] == "CRITICAL" %}
+        <tr class="error">
+    {% elseif update["status"] == "WARNING" %}
+        <tr class="warning">
+    {% else %}
+        <tr class="success">
+    {% endif %}
 
+    <td>{{ update["updateTimestamp"] }}</td>
+    <td>{{ update["status"] }}</td>
+    </tr>
 {% endfor %}
+</table>
