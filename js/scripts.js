@@ -1,4 +1,15 @@
 $(document).ready(function() {
+
+    //used on index.php//
+
+    $(function() {
+        $(".downtime").tooltip({
+            'placement': 'left'
+        });
+    });
+
+
+
     //used in groupReports.php//
 
 
@@ -46,7 +57,7 @@ $(document).ready(function() {
 
     $("#newMessage").click(function(event) {
         $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
+        $("#reportPane").load("ajax/editIncident.php", {"incident": incident}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
@@ -140,7 +151,7 @@ $(document).ready(function() {
     });
 
 
-    //used in newMessage.php//
+    //used in editIncident.php//
 
     //removes placeholder text on textarea focus
     var placeholder = $("#message").val();
@@ -170,7 +181,7 @@ $(document).ready(function() {
         var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
         $.ajax({
             type: "POST",
-            url: "newMessage.php",
+            url: "editIncident.php",
             data: dataString,
             success: function(){
                 $("#reportPane").css("opacity", "0");

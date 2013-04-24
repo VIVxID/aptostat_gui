@@ -1,4 +1,4 @@
-    <?php
+﻿<?php
     include 'inc/html_head.php';
     include 'inc/apiurl.php';
     include 'inc/reports.php';
@@ -10,22 +10,18 @@
     $incidents = new Incidents();
     $incidentList = $incidents->getIncidentsAsArray();
 
+    $url = APIURL . "incident/$incidentID";
+    $curl = curl_init($url);
 
-    if (isset($_POST["submitInc"])) {
-
-        //API URL Incident
-        $json_url = APIURL . "incident";
-
-        //initializing curl
-        $ch = curl_init($json_url);
+    if(isset($_POST["submitEdit"])) {
 
         $arrayData = array(
-            "title" => $_POST["name"],
-            "flag" => $_POST["author"],
+            "message" => $_POST["message"],
+            "author" => $_POST["author"],
             "flag" => $_POST["flag"],
             "visibility" => 1);
 
-        //Curl options
+        $jsonData = json_encode($arrayData);
 
         $headers = array(
             "Accept: application/json",
@@ -35,19 +31,21 @@
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => "PUT",
-            CURLOPT_POSTFIELDS => $jsonData,
-        );
+            CURLOPT_POSTFIELDS => $jsonData);
 
-        //setting curl options
-        curl_setopt_array($ch, $options);
+        curl_setopt_array($curl,$options);
 
-        //getting results
-        $result_json = curl_exec($ch);
-        $result = json_decode($result_json, true);
-        $incidents = $result["incident"]["incidents"];
-        ksort($incidents);
+        if (curl_exec($curl) === false) {
+            echo "Curl error: " . curl_error($curl);
+            exit();
+        }
+        else {
+            echo "Message recieved.";
+            exit();
+        }
     }
-    ?>
+
+?>
 
                     <div class="tabbable">
                         <ul class="nav nav-tabs">
@@ -106,15 +104,32 @@
                                     <div id="form">
                                         <form name="messageForm" action="" id="messageForm">
                                             <br />
-                                            New incident <br /><br />
+                                            <?php
+                                                echo "Selected incident: ".$incidentID."<br /><br />";
+                                            ?>
                                             <fieldset>
                                                 <legend>Data</legend>
                                                 <table border="0">
                                                     <tr>
-                                                        <h4>Included reports: </h4><span id='select-result'>None</span>
+                                                        <h4>Reports:</h4>
+                                                        <ul>
+                                                            <?php
+                                                                foreach ($incident["connectedReports"] as $groupName => $group) {
+
+                                                                    echo "<li>".$groupName."</li>";
+                                                                    echo "<ul>";
+
+                                                                    foreach ($group as $report) {
+                                                                        echo "<li>".$report["checkType"]." - ".$report["errorMessage"]."</li>";
+                                                                    }
+                                                                    echo "</ul>";
+                                                                }
+                                                            ?>
+                                                        </ul>
                                                     </tr>
                                                 </table>
-                                                Flag: <select name="flag" id="fieldFlag">
+                                                Flag:
+                                                <select name="flag" id="fieldFlag">
                                                     <option value="CRITICAL">Critical</option>
                                                     <option value="WARNING">Warning</option>
                                                     <option value="RESPONDING">Responding</option>

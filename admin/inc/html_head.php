@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
     <meta name="title" content="Aptoma statuspanel" />
@@ -15,11 +17,6 @@
     <script type="text/javascript" src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script type="text/javascript" src="/js/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/js/scripts.js"></script>
-    <script>
-        $(function ()
-        { $(".downtime").tooltip({'placement': 'left'});
-        });
-    </script>
 </head>
 
 <body>

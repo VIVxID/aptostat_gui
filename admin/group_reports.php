@@ -50,7 +50,7 @@
                                             ?>
                                         </ul>
                                     </div>
-                                    <div class="list_content_menu_fat"> 
+                                    <div class="list_content_menu">
                                         <div class="btn-group" data-toggle="buttons-checkbox">
                                           <button type="button" class="btn btn-primary filter active" id="warning">Warning</button>
                                           <button type="button" class="btn btn-primary filter active" id="critical">Critical</button>
