@@ -276,9 +276,9 @@ a {
 }
 
 #Newinc_button {
-    float: left;
-    margin-left: 5px;
-    margin-top: 10px;
+    color: white;
+    float: right;
+    margin-top: 4px;
 }
 
 .list_content_menu {
