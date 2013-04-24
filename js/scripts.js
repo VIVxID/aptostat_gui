@@ -80,7 +80,10 @@ $(document).ready(function() {
         $('#newIncident').hide();
     });
 
-    var selectedReports = new Array();
+    //hides new incident button on tab change
+    $("#reportTab").click(function() {
+        $('#newMessage').hide();
+    });
 
 
     //Filter incidents by flag on click
@@ -182,22 +185,26 @@ $(document).ready(function() {
 
     //activates click-to-select functionality for reports
     $(function() {
-         $(".selectable").bind("mousedown", function(event) {
-             event.metaKey = true;
-         }).selectable({
-             tolerance: 'fit',
-             stop: function() {
-                 var result = $( "#select-result" ).empty();
-                 selectedReports.length = 0;
-                 var i = 0;
-                 $(".ui-selected", $("#accordion2")).each(function() {
-                     var itemId = $(this).attr('id');
-                     var item = itemId.replace("report_", "");
-                     result.append( " #" + ( item + 1 ) );
-                     selectedReports[i] = item;
-                     i++;
-                 });
-             }
-         });
+        var selectedReports = new Array();
+        $('#reportSelect').click(function() {
+            $(".selectable").bind("mousedown", function(event) {
+                event.metaKey = true;
+            }).selectable({
+                tolerance: 'fit',
+                stop: function() {
+                    var result = $( "#select-result" ).empty();
+                    selectedReports.length = 0;
+                    var i = 0;
+                    $(".ui-selected", $("#accordion2")).each(function() {
+                        var itemId = $(this).attr('id');
+                        var item = itemId.replace("report_", "");
+                        result.append( " #" + ( item + 1 ) );
+                        selectedReports[i] = item;
+                        i++;
+                    });
+                }
+            });
+            $("#selectedReports").html(selectedReports);
+        })
     });
 });
