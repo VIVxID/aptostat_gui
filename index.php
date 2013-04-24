@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <div class="span5 offset2">
+                    <div class="span5 offset2 visible-desktop">
 
                         <?php $current->generateIncidentList($incidentsArray) ?>
 
