@@ -1,4 +1,3 @@
-{% for report in reportData %}
 <p>Report ID: {{ report['id'] }}</p>
 <p>Created: {{ report['createdTimestamp'] }}</p>
 <p>Last updated: {{ report['lastUpdatedTimestamp'] }}</p>
@@ -7,4 +6,3 @@
 <p>Service: {{ report['host'] }}</p>
 <p>Last status: {{ report['flag'] }}</p>
 <p>Error message: {{ report['errorMessage'] }}</p>
-{% endfor %}
