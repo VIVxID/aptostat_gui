@@ -23,9 +23,9 @@
     {% if warningsExist == 0 and criticalsExist == 0 %}
         {% set titleErrorString = "All responding" %}
     {% elseif reports|length > 1 %}
-        {% set titleErrorString = reports|length ~ " errors" %}
+        {% set titleErrorString = reports|length ~ " reports" %}
     {% else %}
-        {% set titleErrorString = "1 error" %}
+        {% set titleErrorString = "1 report" %}
     {% endif %}
 
     {% set criticalsExist = 0 %}

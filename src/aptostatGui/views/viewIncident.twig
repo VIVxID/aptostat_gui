@@ -11,8 +11,8 @@
 
     <h6>Connected Reports:</h6>
     <ul>
-    {% for report in incident["connectedReports"] %}
-        <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }}</li>
+    {% for report, status in incident["connectedReports"] %}
+        <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - {{ status }}</li>
     {% endfor %}
     </ul>
     <hr />
