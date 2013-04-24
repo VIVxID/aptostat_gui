@@ -37,6 +37,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 $app['twig']->addExtension(new Twig_Extensions_Extension_Debug());
 
+// Register Url-generator
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
 // Set tmp monolog
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.name' => $app['monolog.name'],

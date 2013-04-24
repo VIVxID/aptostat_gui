@@ -49,4 +49,5 @@ $app->get('/admin', function() use ($app) {
     );
 
     return $app['twig']->render('adminIndex.twig', $includeBag);
-});
+})
+->bind('admin');

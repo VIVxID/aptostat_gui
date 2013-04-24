@@ -1,5 +1,6 @@
 {% extends 'layout.twig' %}
-{% block title %}Manage{% endblock %}
+
+{% block title %}Manage reports and incidents{% endblock %}
 
 {% block content %}
     {% include 'adminHeader.twig' %}
@@ -64,6 +65,8 @@
             </div>
         </div>
     </div>
+{% endblock %}
 
-
+{% block closing_scripts %}
+    <script type="text/javascript" src="/js/scripts.js"></script>
 {% endblock %}

@@ -27,4 +27,5 @@ $app->get('/admin/manage', function() use ($app) {
     );
 
     return $app['twig']->render('manage.twig', $includeBag);
-});
+})
+->bind('manage');
