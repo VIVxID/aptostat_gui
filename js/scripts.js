@@ -41,38 +41,11 @@ $(document).ready(function() {
         $('#newMessage').show();
     });
 
+    
+    //redirects to newIncident on button click
 
-    //load newMessage on click
-
-    $("#newMessage").click(function(event) {
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        event.preventDefault();
-    });
-
-
-    //load newIncident on click
-
-    $("#newIncident").click(function(event) {
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/newIncident.php", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        event.preventDefault();
+    $("#newincButton").click(function(event) {
+       window.location.href = "newIncident.php/"
     });
 
     //hides new incident button on tab change

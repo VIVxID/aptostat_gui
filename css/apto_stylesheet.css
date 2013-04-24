@@ -275,10 +275,10 @@ a {
     border-radius: 6px;
 }
 
-#Newinc_button {
+#newincButton {
     color: white;
     float: right;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .list_content_menu {
