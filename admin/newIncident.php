@@ -105,7 +105,7 @@
                                     Details for selected report
                                 </div>
                                 
-                            <form name="messageForm" action="" id="messageForm"> 
+                            <form name="messageForm" action="group_reports.php" id="messageForm"> 
                                 <div class="groupbox_wrapper" id="reportPane">                             
                                     <div id="form">
                                         New incident
@@ -137,7 +137,8 @@
                                 </div>
                                 
                                 <div class="list_content_menu">
-                                    <input type="submit" value="Submit" id="buttonSubmit" />      
+                                    <input type="submit" value="Cancel" name="cancel" id="buttonSubmit" style:float:left;/>
+                                    <input type="submit" value="Save" name="save" id="buttonSubmit" style:float:right;/>      
                                 </div>
                             </form>
                             
