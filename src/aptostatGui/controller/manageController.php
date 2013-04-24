@@ -52,6 +52,23 @@ $app->post('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
     }
 });
 
-$app->post('/admin/ajax/viewIncident', function() use ($app) {
-    return "The monster of alot incident";
+
+$app->post('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
+
+
+    try {
+        $incidentId = $paramBag->request->get('incident');
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $incident = $apiService->getIncidentById($incidentId);
+
+        $includeBag = array(
+            'incidentData' => $incident,
+        );
+
+        return $app['twig']->render('viewIncident.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "fail";
+    }
 });
