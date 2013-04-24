@@ -71,7 +71,7 @@
                                     Click a report to view it.
                                 </div>
                                 <div class="list_content_menu">
-                                    <button class="btn btn-link" type="button"  a href="newIncident.php>Make new incident</button>
+                                    <button class="btn btn-link" type="button">Make new incident</button>
                                     
                                 </div>
                             </div>
