@@ -2,27 +2,21 @@
 {% if not uptime %}
     <table id="history">
         <tr>
-            <td>
-                Uptime data could not be fetched
-            </td>
+            <td>Uptime data could not be fetched</td>
         </tr>
     </table>
 {% else %}
     <table id="history">
         <tr>
-            <td id="uptime-title">
-                Service:
-            </td>
+            <td id="uptime-title">Service:</td>
 
             {% for i in 6..0 %}
-                <td class='uptime-x'>
-                    {{ "now"|date_modify("-" ~ i ~ " day")|date("M d") }}
-                </td>
+                <td class='uptime-x'>{{ "now"|date_modify("-" ~ i ~ " day")|date("M d") }}</td>
             {% endfor %}
 
         </tr>
-
         {% set alternateColor = 1 %}
+
         {% for host, timestamp in uptime %}
 
             {% if alternateColor is even %}
@@ -32,15 +26,12 @@
                 <tr class="odd">
                 {% set alternateColor = 0 %}
             {% endif %}
-            <td class='uptime-y'>
-                {{ host }}
-            </td>
 
+            <td class='uptime-y'>{{ host }}</td>
             {% set print = 0 %}
             {% for i in 6..0 %}
 
                 <td class='uptime-image'>
-
                     {% for errorDate, uptime in timestamp %}
 
                         {% if "now"|date_modify("-" ~ i ~ " day")|date("d/m/Y") == errorDate %}
@@ -59,13 +50,11 @@
                     {% if print == 0 %}
                         <img src='../img/check.png' />
                     {% endif %}
+
                     {% set print = 0 %}
                 </td>
-
             {% endfor %}
-
             </tr>
-
         {% endfor %}
     </table>
 {% endif %}
