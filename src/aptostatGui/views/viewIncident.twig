@@ -12,18 +12,27 @@
     <h6>Connected Reports:</h6>
     <ul>
     {% for report, status in incident["connectedReports"] %}
-        <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - {{ status }}</li>
+        {% if status == 'WARNING' %}
+            <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - <span class="label label-warning">{{ status }}</span></li>
+        {% elseif status == 'CRITICAL' %}
+            <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - <span class="label label-important">{{ status }}</span></li>
+        {% else %}
+            <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - <span class="label label-success">{{ status }}</span></li>
+        {% endif %}
+
+
     {% endfor %}
     </ul>
     <hr />
 
     <h6>Previous updates: </h6>
     {% for message in incident["messageHistory"] %}
-        <p>Date: {{ message["messageTimestamp"] }}</p>
-        <p>Status: {{ message["messageStatus"] }}</p>
-        <p>Author: {{ message["messageAuthor"] }}</p>
-        <p>Message: {{ message["messageText"] }}</p>
-        <br />
+        <div class="well">
+            <p>Date: {{ message["messageTimestamp"] }}</p>
+            <p>Status: {{ message["messageStatus"] }}</p>
+            <p>Author: {{ message["messageAuthor"] }}</p>
+            <p>Message: {{ message["messageText"] }}</p>
+        </div>
     {% endfor %}
 
 {% endfor %}
