@@ -26,5 +26,5 @@ $app->get('/admin/manage', function() use ($app) {
         'currentIncidents' => $currentIncidents,
     );
 
-    return $app['twig']->render('manageIndex.twig', $includeBag);
+    return $app['twig']->render('manage.twig', $includeBag);
 });
