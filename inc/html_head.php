@@ -26,9 +26,9 @@
         <div class="navbar-inner">
             <a class="brand" href="index.php" ><img src="/img/logo.png" /></a>
             <ul class="nav">
-                <li><a href="index.php" class="row visible-desktop">Panel</a></li>
-                <li><a href="http://aptoma.com/support" class="row visible-desktop">Support</a></li>
-                <li><a href="http://twitter.com/aptomaops" class="row visible-desktop">Twitter</a></li>
+                <li><a href="index.php" class=" visible-desktop">Panel</a></li>
+                <li><a href="http://aptoma.com/support" class=" visible-desktop">Support</a></li>
+                <li><a href="http://twitter.com/aptomaops" class=" visible-desktop">Twitter</a></li>
             </ul>
         </div>
     </div>

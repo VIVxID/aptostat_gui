@@ -275,6 +275,12 @@ a {
     border-radius: 6px;
 }
 
+#newincButton {
+    color: white;
+    float: right;
+    margin-top: 2px;
+}
+
 .list_content_menu {
     bottom: 0;
     width: 100%;
@@ -320,6 +326,8 @@ a {
     border-radius: 6px;
     min-height:220px;
 }
+
+
 
 
 /** .selectable **/
