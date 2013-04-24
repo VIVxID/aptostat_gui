@@ -46,27 +46,6 @@ $(document).ready(function() {
         $('#newIncident').show();
     });
 
-    var incident;
-
-
-    //load viewIncident on click
-
-    $(".incident").on("click", function clickIncident() {
-        var incidentId = $(this).attr("id");
-        incident = incidentId.replace("incident_", "");
-        $("#reportPane").css("opacity", "0");
-            $("#reportPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#reportPane").fadeTo("normal",1);
-                }
-            });
-        $('#newMessage').show();
-    });
-
     //load newMessage on click
 
     $("#newMessage").click(function(event) {
