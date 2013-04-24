@@ -52,13 +52,12 @@
                                     </div>
                                     <div class="list_content_menu_fat"> 
                                         <div class="btn-group" data-toggle="buttons-checkbox">
-                                          <button type="button" class="btn btn-primary filter" id="all">View all</button>
-                                          <button type="button" class="btn btn-primary filter" id="warning">Warning</button>
-                                          <button type="button" class="btn btn-primary filter" id="critical">Critical</button>
-                                          <button type="button" class="btn btn-primary filter" id="responding">Responding</button>
+                                          <button type="button" class="btn btn-primary filter active" id="warning">Warning</button>
+                                          <button type="button" class="btn btn-primary filter active" id="critical">Critical</button>
+                                          <button type="button" class="btn btn-primary filter active" id="responding">Responding</button>
                                           <button type="button" class="btn btn-primary filter" id="resolved">Resolved</button>
                                           <button type="button" class="btn btn-primary filter" id="ignored">Ignored</button>
-                                          <button type="button" class="btn btn-primary filter" id="internal">Internal</button>
+                                          <button type="button" class="btn btn-primary filter active" id="internal">Internal</button>
                                         </div>
                                     </div>
                                 </div>
@@ -72,8 +71,8 @@
                                     Click a report to view it.
                                 </div>
                                 <div class="list_content_menu">
-                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new incident</a>
-                                    <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
+                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; ">Make new incident</a>
+                                    
                                 </div>
                             </div>
                         </div>

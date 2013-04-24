@@ -24,31 +24,24 @@
 
 <body>
 
-    <!--HEADER-->
-
-    <header id="header">
+<header id="header">
     <div class="navbar">
-              <div class="navbar-inner">
-                <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
-                <ul class="nav">
-                  <li class="active"><a href="index.php">Panel</a></li>
-                  <li><a href="http://aptoma.com/support">Support</a></li>
-                  <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
-                </ul>
-              </div>
-            </div>
-        <div id="header-content">    
-           
-
-            
-
+        <div class="navbar-inner">
+            <a class="brand" href="index.php" ><img src="/img/logo.png" /></a>
+            <ul class="nav">
+                <li><a href="index.php" class="row visible-desktop">Panel</a></li>
+                <li><a href="http://aptoma.com/support" class="row visible-desktop">Support</a></li>
+                <li><a href="http://twitter.com/aptomaops" class="row visible-desktop">Twitter</a></li>
+            </ul>
         </div>
-    </header>
-    <body>
+    </div>
+</header>
 
     <div id="content_wrapper">
         <div class="container">
             <div class="row">
+
+
     
             
             

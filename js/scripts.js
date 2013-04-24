@@ -89,13 +89,54 @@ $(document).ready(function() {
     //Filter incidents by flag on click
 
     $(".filter").click(function() {
-        var critical = $(".filter").getElementById("critical");
-        var warning = $(".filter").getElementById("warning");
-        var responding = $(".filter").getElementById("responding");
-        var resolved = $(".filter").getElementById("internal");
-        var ignored = $(".filter").getElementById("internal");
-
-
+        var critical = $(window).getElementById("critical");
+        var warning = $(window).getElementById("warning");
+        var responding = $(window).getElementById("responding");
+        var resolved = $(window).getElementById("resolved");
+        var ignored = $(window).getElementById("ignored");
+        var internal = $(window).getElementById("internal");
+        
+        if (!critical.hasClass('active')) {
+            $(".flag_CRITICAL").hide();
+        }
+        else{
+            $(".flag_CRITICAL").show();
+        }
+        
+        if (!warning.hasClass('active')) {
+            $(".flag_WARNING").hide();
+        }
+        else{
+            $(".flag_WARNING").show();
+        }
+        
+        if (!responding.hasClass('active')) {
+            $(".flag_RESPONDING").hide();
+        }
+        else{
+            $(".flag_RESPONDING").show();
+        }
+        
+        if (!resolved.hasClass('active')) {
+            $(".flag_RESOLVED").hide();
+        }
+        else{
+            $(".flag_RESOLVED").show();
+        }
+        
+        if (!ignored.hasClass('active')){
+            $(".flag_IGNORED").hide();
+        }
+        else{
+            $(".flag_IGNORED").show();
+        }
+        
+        if (!internal.hasClass('active')) {
+            $(".flag_INTERNAL").hide();
+        }
+        else{
+            $(".flag_INTERNAL").show();
+        }
     });
 
 
