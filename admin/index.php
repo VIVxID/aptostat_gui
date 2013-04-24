@@ -18,7 +18,7 @@
         $messages = $message->getMessagesAsArray();
     ?>
 
-                    <div class="span5 suffix1">
+                    <div class="span5 suffix1 index-top">
                         <div class="front_messagebox">
 
                             <?php include "../inc/live_table.php" ?>
@@ -26,10 +26,8 @@
                         </div>
                     </div>
                     
-                    <div class="span5 offset2">
-
+                    <div class="span5 offset2 index-top">
                             <?php $current->generateIncidentList($incidentsArray) ?>
-
                     </div>
                 </div>
 
@@ -53,16 +51,16 @@
                         
                     <div class="row">
                         <div class="span12">
-                        <hr/>
+                            <hr/>
                             <?php $message->generateMessageList($messages); ?>
-
                         </div>
                     
                     </div>
                 </div>
             </div>
         </div>
-       <script type="text/javascript">
+
+        <script type="text/javascript">
             $(document).ready(function(){
 
                 function checkScrollPosition() {
@@ -76,7 +74,6 @@
 
             });
         </script>
-
        
     </body>
 </html>
