@@ -1,0 +1,29 @@
+{% for incident in incidentData %}
+
+    <h6>Incident ID: {{ incident["id"] }}</h6>
+    <p>Created on: {{ incident["createdTimestamp"] }}</p>
+    <p>Current Status: {{ incident["lastStatus"] }}</p>
+    <br />
+    <p>Last updated by: {{ incident["lastMessageAuthor"] }}</p>
+    <p>Last updated on: {{ incident["lastMessageTimestamp"] }}</p>
+    <p>Last message: {{ incident["lastMessageText"] }}</p>
+    <hr />
+
+    <h6>Connected Reports:</h6>
+    <ul>
+    {% for report in incident["connectedReports"] %}
+        <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }}</li>
+    {% endfor %}
+    </ul>
+    <hr />
+
+    <h6>Previous updates: </h6>
+    {% for message in incident["messageHistory"] %}
+        <p>Date: {{ message["messageTimestamp"] }}</p>
+        <p>Status: {{ message["messageStatus"] }}</p>
+        <p>Author: {{ message["messageAuthor"] }}</p>
+        <p>Message: {{ message["messageText"] }}</p>
+        <br />
+    {% endfor %}
+
+{% endfor %}
