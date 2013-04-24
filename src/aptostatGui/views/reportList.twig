@@ -40,9 +40,9 @@
                 <ol class='selectable'>
                     {% for report in reports %}
                     <li class='report file ui-widget-content' id='report_{{ report["id"] }}'>
-                    Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
-                    <p class='tinytext'>Check type: {{ report["checkType"] }}</p>
-                    <p class='tinytext'>Error message: {{ report["errorMessage"] }}</p>
+                        Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
+                        <p class='tinytext'>Check type: {{ report["checkType"] }}</p>
+                        <p class='tinytext'>Error message: {{ report["errorMessage"] }}</p>
                     </li>
                     {% endfor %}
                 </ol>
