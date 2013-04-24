@@ -27,11 +27,11 @@
 <header id="header">
     <div class="navbar">
         <div class="navbar-inner">
-            <a class="brand" href="index.php"><img src="/img/logo.png" /></a>
+            <a class="brand" href="index.php" ><img src="/img/logo.png" /></a>
             <ul class="nav">
-                <li><a href="index.php">Panel</a></li>
-                <li><a href="http://aptoma.com/support">Support</a></li>
-                <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
+                <li><a href="index.php" class="row visible-desktop">Panel</a></li>
+                <li><a href="http://aptoma.com/support" class="row visible-desktop">Support</a></li>
+                <li><a href="http://twitter.com/aptomaops" class="row visible-desktop">Twitter</a></li>
             </ul>
         </div>
     </div>

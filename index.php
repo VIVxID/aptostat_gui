@@ -33,7 +33,7 @@
                     </div>
                 </div>
 
-                <hr />
+                <hr class="visible-desktop"/>
 
                 <div class="visible-desktop" id="dimmer">
             <div class="row visible-desktop">
