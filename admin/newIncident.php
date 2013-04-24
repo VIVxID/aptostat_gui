@@ -1,52 +1,52 @@
     <?php
-    include 'inc/html_head.php';
-    include 'inc/apiurl.php';
-    include 'inc/reports.php';
-    include 'inc/incidents.php';
+        include 'inc/html_head.php';
+        include 'inc/apiurl.php';
+        include 'inc/reports.php';
+        include 'inc/incidents.php';
 
-    $reports = new Reports();
-    $reportList = $reports->getReportsAsArray();
+        $reports = new Reports();
+        $reportList = $reports->getReportsAsArray();
 
-    $incidents = new Incidents();
-    $incidentList = $incidents->getIncidentsAsArray();
+        $incidents = new Incidents();
+        $incidentList = $incidents->getIncidentsAsArray();
 
 
-    if (isset($_POST["submitInc"])) {
+        if (isset($_POST["submitInc"])) {
 
-        //API URL Incident
-        $json_url = APIURL . "incident";
+            //API URL Incident
+            $json_url = APIURL . "incident";
 
-        //initializing curl
-        $ch = curl_init($json_url);
+            //initializing curl
+            $ch = curl_init($json_url);
 
-        $arrayData = array(
-            "title" => $_POST["name"],
-            "flag" => $_POST["author"],
-            "flag" => $_POST["flag"],
-            "visibility" => 1);
+            $arrayData = array(
+                "title" => $_POST["name"],
+                "flag" => $_POST["author"],
+                "flag" => $_POST["flag"],
+                "visibility" => 1);
 
-        //Curl options
+            //Curl options
 
-        $headers = array(
-            "Accept: application/json",
-            "Content-Type: application/json");
+            $headers = array(
+                "Accept: application/json",
+                "Content-Type: application/json");
 
-        $options = array(
-            CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CUSTOMREQUEST => "PUT",
-            CURLOPT_POSTFIELDS => $jsonData,
-        );
+            $options = array(
+                CURLOPT_HTTPHEADER => $headers,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => "PUT",
+                CURLOPT_POSTFIELDS => $jsonData,
+            );
 
-        //setting curl options
-        curl_setopt_array($ch, $options);
+            //setting curl options
+            curl_setopt_array($ch, $options);
 
-        //getting results
-        $result_json = curl_exec($ch);
-        $result = json_decode($result_json, true);
-        $incidents = $result["incident"]["incidents"];
-        ksort($incidents);
-    }
+            //getting results
+            $result_json = curl_exec($ch);
+            $result = json_decode($result_json, true);
+            $incidents = $result["incident"]["incidents"];
+            ksort($incidents);
+        }
     ?>
 
                     <div class="tabbable">
