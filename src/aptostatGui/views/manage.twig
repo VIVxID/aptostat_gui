@@ -35,14 +35,12 @@
                                 <div class="groupbox_heading">
                                     Incidents
                                 </div>
-                                <div class="groupbox_wrapper">
-                                    <ul>
-                                        {% include 'incidentList.twig' %}
-                                    </ul>
+                                <div class="groupbox_wrapper" id="incidentPane">
+                                    {% include 'listIncident.twig' %}
                                 </div>
                                 <div class="list_content_menu">
                                     <div class="btn-group" data-toggle="buttons-checkbox">
-                                        <button type="button" class="btn btn-inverse filter" id="hidden">Show all</button>
+                                        <button type="button" class="btn filter" id="showAll" unchecked >Show all</button>
                                     </div>
                                 </div>
                             </div>

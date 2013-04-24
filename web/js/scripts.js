@@ -1,6 +1,31 @@
 $(document).ready(function() {
     //used in groupReports.php//
 
+    // Add filterButtonListener
+
+    $(".filter").on("click", function() {
+        if ($("#showAll").hasClass("active")) {
+            $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+        } else {
+            $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+        }
+    });
 
     //load viewReport on click
 
@@ -15,6 +40,7 @@ $(document).ready(function() {
             }
             else {
                 $("#reportPane").fadeTo("normal",1);
+                $(this).load;
             }
         });
         $('#newIncident').show();
@@ -25,22 +51,21 @@ $(document).ready(function() {
 
     //load viewIncident on click
 
-    $(".incident").click(function() {
+    $(".incident").on("click", function clickIncident() {
         var incidentId = $(this).attr("id");
         incident = incidentId.replace("incident_", "");
         $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
+            $("#reportPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#reportPane").fadeTo("normal",1);
+                }
+            });
         $('#newMessage').show();
     });
-
 
     //load newMessage on click
 
@@ -84,61 +109,6 @@ $(document).ready(function() {
     $("#reportTab").click(function() {
         $('#newMessage').hide();
     });
-
-
-    //Filter incidents by flag on click
-
-    $(".filter").click(function() {
-        var critical = $(window).getElementById("critical");
-        var warning = $(window).getElementById("warning");
-        var responding = $(window).getElementById("responding");
-        var resolved = $(window).getElementById("resolved");
-        var ignored = $(window).getElementById("ignored");
-        var internal = $(window).getElementById("internal");
-        
-        if (!critical.hasClass('active')) {
-            $(".flag_CRITICAL").hide();
-        }
-        else{
-            $(".flag_CRITICAL").show();
-        }
-        
-        if (!warning.hasClass('active')) {
-            $(".flag_WARNING").hide();
-        }
-        else{
-            $(".flag_WARNING").show();
-        }
-        
-        if (!responding.hasClass('active')) {
-            $(".flag_RESPONDING").hide();
-        }
-        else{
-            $(".flag_RESPONDING").show();
-        }
-        
-        if (!resolved.hasClass('active')) {
-            $(".flag_RESOLVED").hide();
-        }
-        else{
-            $(".flag_RESOLVED").show();
-        }
-        
-        if (!ignored.hasClass('active')){
-            $(".flag_IGNORED").hide();
-        }
-        else{
-            $(".flag_IGNORED").show();
-        }
-        
-        if (!internal.hasClass('active')) {
-            $(".flag_INTERNAL").hide();
-        }
-        else{
-            $(".flag_INTERNAL").show();
-        }
-    });
-
 
     //used in newMessage.php//
 

@@ -25,7 +25,8 @@ $app->get('/admin/manage', function() use ($app) {
 
     $includeBag = array(
         'currentReports' => $currentReports,
-        'currentIncidents' => $currentIncidents,
+        'incidentList' => $currentIncidents,
+        'showHidden' => false,
     );
 
     return $app['twig']->render('manage.twig', $includeBag);
@@ -54,7 +55,6 @@ $app->post('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
 
 $app->post('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
 
-
     try {
         $incidentId = $paramBag->request->get('incident');
         $apiService = new aptostatGui\Service\ApiService();
@@ -68,6 +68,25 @@ $app->post('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
         return $app['twig']->render('viewIncident.twig', $includeBag);
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "fail";
+        return "Something went wrong. Please try again.";
+    }
+});
+
+
+$app->post('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
+
+    try {
+        $apiService = new aptostatGui\Service\ApiService();
+        $incidentList = $apiService->getIncidentList();
+
+        $includeBag = array(
+            'incidentList' => $incidentList['incidents'],
+            'showHidden' => $paramBag->request->get('showHidden'),
+        );
+
+        return $app['twig']->render('listIncident.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
     }
 });

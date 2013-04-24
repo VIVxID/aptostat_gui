@@ -1,0 +1,13 @@
+<ul>
+    {% if showHidden == 'true' %}
+        {% for incident in incidentList %}
+            <li class='incident file' id='incident_{{ incident["id"] }}'>Incident {{ incident["id"] }} - {{ incident["createdTimestamp"] }} - {{ incident["title"] }}</li>
+        {% endfor %}
+    {% else %}
+        {% for incident in incidentList %}
+            {% if incident['hidden'] == false %}
+                <li class='incident file' id='incident_{{ incident["id"] }}'>Incident {{ incident["id"] }} - {{ incident["createdTimestamp"] }} - {{ incident["title"] }}</li>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</ul>
