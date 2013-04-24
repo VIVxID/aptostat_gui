@@ -34,7 +34,6 @@ $app->get('/admin/manage', function() use ($app) {
 
 $app->post('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
 
-
     try {
         $reportId = $paramBag->request->get('report');
         $apiService = new aptostatGui\Service\ApiService();
@@ -42,13 +41,13 @@ $app->post('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
         $report = $apiService->getReportById($reportId);
 
         $includeBag = array(
-            'reportData' => $report,
+            'report' => $report['reports'],
         );
 
         return $app['twig']->render('viewReport.twig', $includeBag);
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "fail";
+        return "Something went wrong. Please try again.";
     }
 });
 
