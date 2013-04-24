@@ -1,4 +1,4 @@
-    <?php
+<?php
     include 'inc/html_head.php';
     include 'inc/apiurl.php';
     include 'inc/reports.php';
@@ -47,13 +47,15 @@
         $incidents = $result["incident"]["incidents"];
         ksort($incidents);
     }
-    ?>
+?>
 
                     <div class="tabbable">
+                    
                         <ul class="nav nav-tabs">
                             <li class="active" id="reportTab"><a href="#tab1" data-toggle="tab">Reports</a></li>
                             <li id="incidentTab"><a href="#tab2" data-toggle="tab">Incidents</a></li>
                         </ul>
+                        
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <div class="list_content" id="groupbox_reports">
@@ -102,44 +104,47 @@
                                 <div class="groupbox_heading">
                                     Details for selected report
                                 </div>
-                                <div class="groupbox_wrapper" id="reportPane">
+                                
+                            <form name="messageForm" action="" id="messageForm"> 
+                                <div class="groupbox_wrapper" id="reportPane">                             
                                     <div id="form">
-                                        <form name="messageForm" action="" id="messageForm">
-                                            <br />
-                                            New incident <br /><br />
-                                            <fieldset>
-                                                <legend>Data</legend>
-                                                <table border="0">
-                                                    <tr>
-                                                        <h4>Included reports: </h4><span id='select-result'>None</span>
-                                                    </tr>
-                                                </table>
-                                                Flag: <select name="flag" id="fieldFlag">
-                                                    <option value="CRITICAL">Critical</option>
-                                                    <option value="WARNING">Warning</option>
-                                                    <option value="RESPONDING">Responding</option>
-                                                    <option value="RESOLVED">Resolved</option>
-                                                    <option value="IGNORED">Ignored</option>
-                                                    <option value="INTERNAL">Internal</option>
-                                                </select>
-                                            </fieldset>
-                                            <br />
-                                            <fieldset>
-                                                <legend>Message</legend>
-                                                Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-                                                <textarea id="fieldMessage" name="message" rows="10" cols="50"></textarea><br />
-                                                <input type="submit" value="Submit" id="buttonSubmit" />
-                                            </fieldset><br />
-                                        </form>
-                                    </div>
+                                        New incident
+                                                
+                                        <fieldset>
+                                            <legend>Data</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <h4>Included reports: </h4><span id='select-result'>None</span>
+                                                </tr>
+                                            </table>
+                                            Flag: <select name="flag" id="fieldFlag">
+                                                <option value="CRITICAL">Critical</option>
+                                                <option value="WARNING">Warning</option>
+                                                <option value="RESPONDING">Responding</option>
+                                                <option value="RESOLVED">Resolved</option>
+                                                <option value="IGNORED">Ignored</option>
+                                                <option value="INTERNAL">Internal</option>
+                                            </select>
+                                        </fieldset>
+                                        
+                                        <fieldset>
+                                            <legend>Message</legend>
+                                            Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                                            <textarea id="fieldMessage" name="message" rows="10" cols="50"></textarea><br />
+                                            
+                                        </fieldset>
+                                     </div>
                                 </div>
+                                
                                 <div class="list_content_menu">
-                                    <a href="#" id="editIncident" style="float: right; margin-right: 5px; margin-top: 10px; ">Edit incident</a>
+                                    <input type="submit" value="Submit" id="buttonSubmit" />      
                                 </div>
-                            </div>
+                            </form>
+                            
+                           </div>
+                           
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
