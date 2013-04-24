@@ -1,16 +1,8 @@
-<<<<<<< HEAD
     <?php
         include 'inc/html_head.php';
         include 'inc/apiurl.php';
         include 'inc/reports.php';
         include 'inc/incidents.php';
-=======
-<?php
-    include 'inc/html_head.php';
-    include 'inc/apiurl.php';
-    include 'inc/reports.php';
-    include 'inc/incidents.php';
->>>>>>> cc34cbb34044bf3bef8fc8fcba0f108b70409084
 
         $reports = new Reports();
         $reportList = $reports->getReportsAsArray();
