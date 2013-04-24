@@ -1,6 +1,6 @@
 <?php
 
-use
+use Symfony\Component\HttpFoundation\Request;
 
 $app->get('/admin/manage', function() use ($app) {
 
@@ -32,22 +32,24 @@ $app->get('/admin/manage', function() use ($app) {
 })
 ->bind('manage');
 
-$app->post('/admin/ajax/viewReport', function() use ($app) {
+$app->post('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
 
-    $reportId = $;
 
-    //getting results
-    $result_json = curl_exec($ch);
-    $result = json_decode($result_json, true);
+    try {
+        $reportId = $paramBag->request->get('report');
+        $apiService = new aptostatGui\Service\ApiService();
 
-    print "Report ID: " . $result["reports"]["id"] . "<br />";
-    print "Timestamp: " . $result["reports"]["createdTimestamp"] . "<br />";
-    print "Last update: " . $result["reports"]["lastUpdatedTimestamp"] . "<br />";
-    print "Check type: " . $result["reports"]["checkType"] . "<br />";
-    print "Source name: " . $result["reports"]["source"] . "<br />";
-    print "Service name: " . $result["reports"]["host"] . "<br />";
-    print "Flag: " . $result["reports"]["flag"] . "<br /><br />";
-    print "Error message:<br />" . $result["reports"]["errorMessage"];
+        $report = $apiService->getReportById($reportId);
+
+        $includeBag = array(
+            'reportData' => $report,
+        );
+
+        return $app['twig']->render('viewReport.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "fail";
+    }
 });
 
 $app->post('/admin/ajax/viewIncident', function() use ($app) {
