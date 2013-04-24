@@ -35,8 +35,8 @@
 
                 <hr />
 
-                <div id="dimmer">
-            <div class="row">
+                <div class="visible-desktop" id="dimmer">
+            <div class="row visible-desktop">
                 <div class="span12">
                     <h3> Status History - last 7 days</h3>
                     <table id="history">
@@ -49,7 +49,7 @@
                     </table>
                 </div>
             </div>
-                    <div class="row">
+                    <div class="row visible-desktop">
                         <div class="span12">
 
                             <?php $message->generateMessageList($messages); ?>

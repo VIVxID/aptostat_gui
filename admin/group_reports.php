@@ -71,8 +71,8 @@
                                     Click a report to view it.
                                 </div>
                                 <div class="list_content_menu">
-                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new incident</a>
-                                    <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
+                                    <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; ">Make new incident</a>
+                                    
                                 </div>
                             </div>
                         </div>
