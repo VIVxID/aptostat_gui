@@ -31,13 +31,10 @@
                 <form name="messageForm" action="" id="messageForm">
                     <div class="groupbox_wrapper" id="incidentForm">
                         <div id="form">
-                            New incident
-
                             <fieldset>
-                                <legend>Data</legend>
                                 <table border="0">
                                     <tr>
-                                        <h4>Included reports: </h4><span id='select-result'>None</span>
+                                        <h4>Included reports: </h4><span id='select-result'>None</span><br />
                                     </tr>
                                 </table>
                                 Flag: <select name="flag" id="fieldFlag">
@@ -52,9 +49,10 @@
 
                             <fieldset>
                                 <legend>Message</legend>
-                                Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                                Author:<br />>
+                                <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                                Message<br />>
                                 <textarea id="fieldMessage" name="message" rows="10" cols="50"></textarea><br />
-
                             </fieldset>
                         </div>
                     </div>
