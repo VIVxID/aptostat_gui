@@ -8,7 +8,7 @@
         
         //checking if cancel is set from the make incident page
         if(isset($_POST["cancel"])){
-            }
+        }
             
         $reports = new Reports();
         $reportList = $reports->getReportsAsArray();

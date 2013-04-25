@@ -32,43 +32,47 @@
                     <div class="groupbox_wrapper" id="incidentForm">
                         <div id="form">
                             <fieldset>
-                                <legend>Title</legend>
+                                <legend>New incident</legend>
+                                <h4>Title:</h4>
                                 <input name="title" type="text" length="20" id="fieldTitle" />
                             </fieldset>
                             <fieldset>
                                 <h4>Included reports:</h4>
                                 <table border="0">
                                     <tr>
-                                        <span id='selectedReports'>[CLICK ON THE REPORTS YOU WISH TO INCLUDE]</span><br />
+                                        <span id='selectedReports'>Click reports to include them</span><br /><br />
                                     </tr>
                                 </table>
 
                                 <script type="text/javascript">
-                                    $(function() {
-                                        var selectedReports = new Array();
-                                        $('#reportSelect').click(function() {
-                                            $(".selectable").bind("mousedown", function(event) {
-                                                event.metaKey = true;
-                                            }).selectable({
-                                                tolerance: 'fit',
-                                                stop: function() {
-                                                    var result = $( "#select-result" ).empty();
-                                                    selectedReports.length = 0;
-                                                    var i = 0;
-                                                    $(".ui-selected", $("#accordion2")).each(function() {
-                                                        var itemId = $(this).attr('id');
-                                                        var item = itemId.replace("report_", "");
-                                                        result.append( " #" + ( item + 1 ) );
-                                                        selectedReports[i] = item;
-                                                        i++;
-                                                    });
-                                                }
-                                            });
-                                        $("#selectedReports").html(selectedReports);
-                                    })
+                                    $(document).ready(function () {
+                                        $(function() {
+                                            var selectedReports = new Array();
+                                            $('#reportSelect').click(function() {
+                                                $(".selectable").bind("mousedown", function(event) {
+                                                    event.metaKey = true;
+                                                }).selectable({
+                                                    tolerance: 'fit',
+                                                    stop: function() {
+                                                        var result = $( "#selectedReports" ).empty();
+                                                        selectedReports.length = 0;
+                                                        var i = 0;
+                                                        $(".ui-selected", $("#accordion2")).each(function() {
+                                                            var itemId = $(this).attr('id');
+                                                            var item = itemId.replace("report_", "");
+                                                            result.append( " #" + item );
+                                                            selectedReports[i] = item;
+                                                            i++;
+                                                        });
+                                                    }
+                                                });
+                                                $("#selectedReports").html(selectedReports);
+                                            })
+                                        })
+                                    });
                                 </script>
 
-                                <span>Flag:</span>
+                                <span>Flag:</span><br />
                                 <select name="flag" id="fieldFlag">
                                     <option value="CRITICAL">Critical</option>
                                     <option value="WARNING">Warning</option>
@@ -83,15 +87,15 @@
                                 <legend>Message</legend>
                                 <span>Author:</span><br />
                                 <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-                                <span>Message:</span<br />
+                                <span>Message:</span><br />
                                 <textarea id="fieldMessage" name="message" rows="5" cols="50">Write message here...</textarea><br />
                             </fieldset>
                         </div>
                     </div>
 
                     <div class="list_content_menu">
-                        <input type="submit" value="Cancel" name="cancel" id="buttonSubmit" style:float:left;/>
-                        <input type="submit" value="Save" name="save" id="buttonSubmit" style:float:right;/>
+                        <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" style="float:left">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Save" id="buttonSubmit" style="float:right" />
                     </div>
                 </form>
             </div>
