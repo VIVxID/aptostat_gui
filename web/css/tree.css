@@ -22,6 +22,7 @@ ol.tree
 		margin-left: 10px !important;
         margin-top: 20px !important;
         cursor: pointer;
+        border-radius: 10px;
 	}
 		li.file a
 		{
