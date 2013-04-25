@@ -46,7 +46,7 @@ class ApiService
 
     public function getMessageList()
     {
-        return $this->getDataFromApi('api/message');
+        return $this->getDataFromApi('api/message?showHidden=1');
     }
 
     public function getMessageById($id)
