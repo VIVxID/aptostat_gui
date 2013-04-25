@@ -75,53 +75,6 @@ $app->match('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
 $app->match('/admin/newIncident', function(Request $paramBag) use ($app) {
 
     try {
-
-        /*
-         *
-         $incidents = new Incidents();
-        $incidentList = $incidents->getIncidentsAsArray();
-
-
-        if (isset($_POST["submitInc"])) {
-
-        //API URL Incident
-        $json_url = APIURL . "incident";
-
-        //initializing curl
-        $ch = curl_init($json_url);
-
-        $arrayData = array(
-        "title" => $_POST["name"],
-        "flag" => $_POST["author"],
-        "flag" => $_POST["flag"],
-        "visibility" => 1);
-
-        //Curl options
-
-        $headers = array(
-        "Accept: application/json",
-        "Content-Type: application/json");
-
-        $options = array(
-        CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_CUSTOMREQUEST => "PUT",
-        CURLOPT_POSTFIELDS => $jsonData,
-        );
-
-        //setting curl options
-        curl_setopt_array($ch, $options);
-
-        //getting results
-        $result_json = curl_exec($ch);
-        $result = json_decode($result_json, true);
-        $incidents = $result["incident"]["incidents"];
-        ksort($incidents);
-        }
-        ?>
-         *
-         */
-
         // Reports module
         try {
             $reportService = new aptostatGui\Service\ReportService();
