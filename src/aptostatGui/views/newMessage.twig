@@ -1,47 +1,55 @@
 ﻿{% if messageSent is defined %}
-
-<h4>Message posted</h4>
-
-    <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-success">Return</a>
-
+<div class="well">
+    <h4>Success</h4>
+    <p>A new message has been posted.</p>
+    <p><-- Click somewhere else on the interface to do something else</p>
+</div>
 {% else %}
 
-{% for incident in incidentData %}
-<div id="form">
-    <form name="messageForm" action="" id="messageForm">
-            <fieldset>
-                Incident: <input class="input-mini" type="text" id="fieldIncident" value="{{ incident["id"] }}" readonly="true">
-            </fieldset>
-            <fieldset class="pull-right">
-                Flag:<br/>
+<div id="newMessage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newMessageLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="newMessageLabel">Create a new message</h3>
+    </div>
+    <div id="form">
+        <form name="messageForm" id="messageForm" action="">
+            <div class="modal-body">
+                <fieldset>
+                    Incident: <input class="input-mini" type="text" id="fieldIncident" value="{{ incident["id"] }}" readonly="true">
+                </fieldset>
+                <fieldset class="pull-right">
+                    Flag:<br/>
                     <select name="flag" id="fieldFlag">
-                    <option value="CRITICAL">Critical</option>
-                    <option value="WARNING">Warning</option>
-                    <option value="RESPONDING">Responding</option>
-                    <option value="RESOLVED">Resolved</option>
-                    <option value="IGNORED">Ignored</option>
-                    <option value="INTERNAL">Internal</option>
-                </select>
-            </fieldset>
+                        <option value="CRITICAL">Critical</option>
+                        <option value="WARNING">Warning</option>
+                        <option value="RESPONDING">Responding</option>
+                        <option value="RESOLVED">Resolved</option>
+                        <option value="IGNORED">Ignored</option>
+                        <option value="INTERNAL">Internal</option>
+                    </select>
+                </fieldset>
                 <br />
-            <fieldset class="pull-left">
-                Author:
-                <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-            </fieldset><br />
-            <fieldset>
-                Message:<br />
-                <textarea id="fieldMessage" name="message" rows="10" cols="50" style="width:553px" ></textarea>
-                <br />
-                Hide this incident?<br />
-                <select name="hide" id="fieldHide">
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-                </select><br />
-                <input type="submit" class="btn btn-primary" value="Submit" id="buttonSubmit" />
-            </fieldset>
+                <fieldset class="pull-left">
+                    Author:
+                    <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                </fieldset><br />
+                <fieldset>
+                    Message:<br />
+                    <textarea id="fieldMessage" name="message" rows="10" cols="50" style="width:500px" ></textarea>
+                    <br />
+                    Hide this incident?<br />
+                    <select name="hide" id="fieldHide">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select><br />
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <input type="submit" class="btn btn-primary" value="Save new message"/>
+            </div>
         </form>
     </div>
-{% endfor %}
 {% endif %}
     <script type="text/javascript">
         $("#messageForm").submit(function(event) {
@@ -52,14 +60,18 @@
             var message =$("#fieldMessage").val();
             var incident =$("#fieldIncident").val();
             var hidden =$("#fieldHide").val();
-            $("#incidentPane").load("ajax/executeNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+
+            $("#incidentPane").load("ajax/saveNewMessage", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+
                 if (status == "error") {
                     var msg = "Error: ";
                     $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                 }
                 else {
                     $("#reportPane").fadeTo("normal",1);
+                    $("#my-modal").modal('hide');
                 }
             });
         })
     </script>
+</div>

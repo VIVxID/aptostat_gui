@@ -40,14 +40,14 @@
                                 <h4>Included reports:</h4>
                                 <table border="0">
                                     <tr>
-                                        <span id='selectedReports'>[CLICK ON THE REPORTS YOU WISH TO INCLUDE]</span><br /><br />
+                                        <span id='selectedReports'>Click reports to include them</span><br /><br />
                                     </tr>
                                 </table>
 
                                 <script type="text/javascript">
-                                    $(function() {
-                                        var selectedReports = new Array();
-                                        $('#reportSelect').click(function() {
+                                    $(document).ready(function () {
+                                        $(function() {
+                                            var selectedReports = [];
                                             $(".selectable").bind("mousedown", function(event) {
                                                 event.metaKey = true;
                                             }).selectable({
@@ -59,14 +59,15 @@
                                                     $(".ui-selected", $("#accordion2")).each(function() {
                                                         var itemId = $(this).attr('id');
                                                         var item = itemId.replace("report_", "");
-                                                        result.append( " #" + ( item + 1 ) );
+                                                        result.append( " #" + item );
                                                         selectedReports[i] = item;
                                                         i++;
                                                     });
                                                 }
                                             });
-                                        $("#selectedReports").html(selectedReports);
-                                    })
+                                            $("#selectedReports").html(selectedReports);
+                                        })
+                                    });
                                 </script>
 
                                 <span>Flag:</span><br />
@@ -99,4 +100,30 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+        $("#messageForm").submit(function(event) {
+            event.preventDefault();
+            var author = $("#fieldAuthor").val();
+            var title = $("#fieldTitle").val();
+            var flag = $("#fieldFlag").val();
+            var message =$("#fieldMessage").val();
+            var incident =$("#fieldIncident").val();
+            var hidden =$("#fieldHide").val();
+            
+            $("#incidentPane").load("ajax/executeNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+            
+             if (status == "error") {
+                    var msg = "Error: ";
+                    $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#reportPane").fadeTo("normal",1);
+                    $("#my-modal").modal('hide');
+                }
+            });
+        })
+    </script>
+
+            
 {% endblock %}

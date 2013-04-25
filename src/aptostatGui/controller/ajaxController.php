@@ -85,8 +85,7 @@ $app->post('/admin/ajax/saveNewMessage', function(Request $paramBag) use ($app) 
 
         return $app['twig']->render('newMessage.twig', $includeBag);
     } catch (\Exception $e) {
-        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "Something went wrong. Please try again.";
+        return $e->getMessage();
     }
 });
 
@@ -98,10 +97,40 @@ $app->post('/admin/ajax/editIncident', function(Request $paramBag) use ($app) {
         $incident = $apiService->getIncidentById($incidentId);
 
         $includeBag = array(
-            'incidentData' => $incident,
+            'incident' => $incident['incidents'],
         );
 
-        return $app['twig']->render('editMessage.twig', $includeBag);
+        return $app['twig']->render('editIncident.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+});
+
+$app->post('/admin/ajax/NewIncident', function(Request $paramBag) use ($app) {
+
+    try {
+        $incidentId = $paramBag->request->get('incident');
+        $messageText = $paramBag->request->get('message');
+        $messageAuthor = $paramBag->request->get('author');
+        $messageFlag = $paramBag->request->get('flag');
+        $messageHidden = $paramBag->request->get('hidden');
+
+        if ($messageHidden == "true") {
+            $hidden = true;
+        } else {
+            $hidden = false;
+        }
+
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $apiService->postMessage($incidentId,$messageAuthor,$messageFlag,$messageText,$hidden);
+
+        $includeBag = array(
+            "messageSent" => true
+        );
+
+        return $app['twig']->render('newIncident.twig', $includeBag);
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
         return "Something went wrong. Please try again.";
