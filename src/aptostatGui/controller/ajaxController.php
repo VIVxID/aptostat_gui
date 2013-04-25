@@ -107,7 +107,7 @@ $app->post('/admin/ajax/editIncident', function(Request $paramBag) use ($app) {
     }
 });
 
-$app->post('/admin/ajax/NewIncident', function(Request $paramBag) use ($app) {
+$app->post('/admin/ajax/newIncident', function(Request $paramBag) use ($app) {
 
     try {
         $incidentId = $paramBag->request->get('incident');

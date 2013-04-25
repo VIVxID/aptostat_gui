@@ -110,7 +110,7 @@
         var message =$("#fieldMessage").val();
         var incident =$("#fieldIncident").val();
         var hidden =$("#fieldHide").val();
-        $("#incidentPane").load("ajax/executeNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+        $("#incidentPane").load("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
