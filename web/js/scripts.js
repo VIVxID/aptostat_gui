@@ -1,82 +1,55 @@
 $(document).ready(function() {
-    //used in groupReports.php//
 
-    // Add filterButtonListener
+    //used on index.php//
 
-    $(".filter").on("click", function() {
-        if ($("#showAll").hasClass("active")) {
-            $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                }
-            });
-        } else {
-            $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                }
-            });
-        }
+    $(function() {
+        $(".downtime").tooltip({
+            'placement': 'left'
+        });
     });
 
-    //load viewReport on click
-
-    $(".report").click(function() {
-        var reportId = $(this).attr('id');
-        var report = reportId.replace("report_", "");
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewReport", {"report": report}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+    $(function(){
+        function checkScrollPosition() {
+            var top = $(window).scrollTop();
+            if (top > 1) {
+                $("#dimmer").fadeTo("normal",1);
             }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-                $(this).load;
-            }
-        });
-        $('#newIncident').show();
-    });
-
-    //load newMessage on click
-
-    $("#newMessage").click(function(event) {
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/newMessage", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        event.preventDefault();
+    }
+    $(window).scroll(checkScrollPosition);
+    checkScrollPosition();
     });
 
 
-    //load newIncident on click
+    //used in manage.php//
 
-    $("#newIncident").click(function(event) {
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("../ajax/newIncident.php", {"incident": incident}, function(response, status, xhr) {
+    //filter active incidents
+
+    if ($("#showAll").hasClass("active")) {
+        $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
             }
             else {
-                $("#reportPane").fadeTo("normal",1);
+                $("#incidentPane").fadeTo("normal",1);
             }
         });
-        event.preventDefault();
+    } else {
+        $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Error: ";
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else {
+                $("#incidentPane").fadeTo("normal",1);
+            }
+        });
+    }
+
+    //redirects to newIncident on button click
+
+    $("#newincButton").click(function(event) {
+       window.location.href = "newIncident.php"
     });
 
     //hides new incident button on tab change
@@ -89,7 +62,7 @@ $(document).ready(function() {
         $('#newMessage').hide();
     });
 
-    //used in newMessage.twig//
+    //used in editIncident.php//
 
     //removes placeholder text on textarea focus
     var placeholder = $("#message").val();
@@ -119,7 +92,7 @@ $(document).ready(function() {
         var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
         $.ajax({
             type: "POST",
-            url: "newMessage",
+            url: "editIncident.php",
             data: dataString,
             success: function(){
                 $("#reportPane").css("opacity", "0");
