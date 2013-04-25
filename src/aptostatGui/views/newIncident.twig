@@ -93,7 +93,7 @@
 
                     <div class="list_content_menu">
                         <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Cancel</a>
-                        <input type="submit" class="btn btn-primary" value="Save" id="buttonSubmit" id="submitBtn" style="float:right" />
+                        <input type="submit" class="btn btn-primary" value="Save" id="submitBtn" style="float:right" />
                     </div>
                 </form>
             </div>
@@ -111,7 +111,7 @@
         var incident =$("#fieldIncident").val();
         var hidden =$("#fieldHide").val();
         $("#incidentPane").load("ajax/executeNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
-         if (status == "error") {
+            if (status == "error") {
                 var msg = "Error: ";
                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
             }
