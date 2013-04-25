@@ -119,9 +119,15 @@ $app->post('/admin/ajax/executeNewMessage', function(Request $paramBag) use ($ap
         $messageAuthor = $paramBag->request->get('author');
         $messageFlag = $paramBag->request->get('flag');
 
+        if ($paramBag->request->get('hidden') == "true"){
+            $hidden = true;
+        } else {
+            $hidden = false;
+        }
+
         $apiService = new aptostatGui\Service\ApiService();
 
-        $apiService->postMessage($incidentId,$messageAuthor,$messageFlag,$messageText,false);
+        $apiService->postMessage($incidentId,$messageAuthor,$messageFlag,$messageText,$hidden);
 
         $includeBag = array(
             "messageSent" => true
