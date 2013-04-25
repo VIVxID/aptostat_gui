@@ -84,13 +84,8 @@ $(document).ready(function() {
 
     //redirects to newIncident on button click
 
-    $("#newincButton").click(function(event) {
+    $("#newIncident").click(function(event) {
        window.location.href = "newIncident.php"
-    });
-
-    //hides new incident button on tab change
-    $("#incidentTab").click(function() {
-        $('#newIncident').hide();
     });
 
     //hides new incident button on tab change
