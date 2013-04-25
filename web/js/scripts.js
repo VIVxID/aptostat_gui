@@ -131,25 +131,6 @@ $(document).ready(function() {
         }
     );
 
-    //ajax post of new message form
-    $("#messageForm").submit(function(event) {
-        event.preventDefault();
-        var author = $("#fieldAuthor").val();
-        var flag = $("#fieldFlag").val();
-        var message =$("#fieldMessage").val();
-        var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
-        $.ajax({
-            type: "POST",
-            url: "editIncident.php",
-            data: dataString,
-            success: function(){
-                $("#reportPane").css("opacity", "0");
-                $("#reportPane").html("Message posted.");
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-    });
-
 
     //used in newIncident.php
 
