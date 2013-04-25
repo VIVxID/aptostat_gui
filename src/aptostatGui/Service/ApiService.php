@@ -80,6 +80,11 @@ class ApiService
 
     public function postMessage($incidentId, $author, $flag, $messageText, $hidden = false)
     {
+
+        if (empty($author) || empty($messageText)) {
+            throw new \Exception('Either author og messageText were empty');
+        }
+
         $postDataAsArray = array(
             'author' => $author,
             'flag' => $flag,

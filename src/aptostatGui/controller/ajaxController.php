@@ -85,8 +85,7 @@ $app->post('/admin/ajax/saveNewMessage', function(Request $paramBag) use ($app) 
 
         return $app['twig']->render('newMessage.twig', $includeBag);
     } catch (\Exception $e) {
-        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "Something went wrong. Please try again.";
+        return $e->getMessage();
     }
 });
 
@@ -98,10 +97,10 @@ $app->post('/admin/ajax/editIncident', function(Request $paramBag) use ($app) {
         $incident = $apiService->getIncidentById($incidentId);
 
         $includeBag = array(
-            'incidentData' => $incident,
+            'incident' => $incident['incidents'],
         );
 
-        return $app['twig']->render('editMessage.twig', $includeBag);
+        return $app['twig']->render('editIncident.twig', $includeBag);
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
         return "Something went wrong. Please try again.";
