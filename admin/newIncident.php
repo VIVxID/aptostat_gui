@@ -66,7 +66,7 @@
                                     <div class="groupbox_wrapper">
                                         <div class="accordion" id="accordion2">
                                             <?php
-                                            $reports->generateReportList($reportList);
+                                                $reports->generateReportList($reportList);
                                             ?>
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@
                                     <div class="groupbox_wrapper">
                                         <ul>
                                             <?php
-                                            $incidents->generateIncidentsList($incidentList);
+                                                $incidents->generateIncidentsList($incidentList);
                                             ?>
                                         </ul>
                                     </div>
@@ -106,7 +106,7 @@
                                 </div>
                                 
                             <form name="messageForm" action="" id="messageForm"> 
-                                <div class="groupbox_wrapper" id="reportPane">                             
+                                <div class="groupbox_wrapper" id="incidentForm">
                                     <div id="form">
                                         New incident
                                                 
