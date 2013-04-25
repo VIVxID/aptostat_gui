@@ -43,7 +43,7 @@ $(document).ready(function() {
 
     $("#editIncident").click(function(event) {
         $("#incidentPane").css("opacity", "0");
-        $("#incidentPane").load("ajax/newMessage", {"incident": incident}, function(response, status, xhr) {
+        $("#incidentPane").load("ajax/editIncident", {"incident": incident}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
