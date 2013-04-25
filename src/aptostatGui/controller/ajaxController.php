@@ -130,7 +130,7 @@ $app->post('/admin/ajax/NewIncident', function(Request $paramBag) use ($app) {
             "messageSent" => true
         );
 
-        return $app['twig']->render('newMessage.twig', $includeBag);
+        return $app['twig']->render('newIncident.twig', $includeBag);
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
         return "Something went wrong. Please try again.";
