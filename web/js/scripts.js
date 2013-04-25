@@ -25,27 +25,26 @@ $(document).ready(function() {
     //filter active incidents
 
     if ($("#showAll").hasClass("active")) {
-            $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                }
-            });
-        } else {
-            $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                }
-            });
-        }
-    });
+        $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Error: ";
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else {
+                $("#incidentPane").fadeTo("normal",1);
+            }
+        });
+    } else {
+        $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Error: ";
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else {
+                $("#incidentPane").fadeTo("normal",1);
+            }
+        });
+    }
 
     //redirects to newIncident on button click
 
