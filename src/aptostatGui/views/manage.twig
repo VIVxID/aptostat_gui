@@ -51,6 +51,13 @@
                                 Details for selected report
                             </div>
                             <div class="groupbox_wrapper" id="reportPane">
+
+                                {% if messageSent is defined %}
+
+                                <h4>Message posted</h4>
+
+                                {% endif %}
+
                                 Click a report to view it.
                             </div>
                             <div class="list_content_menu">

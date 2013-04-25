@@ -110,3 +110,26 @@ $app->post('/admin/ajax/newMessage', function(Request $paramBag) use ($app) {
         return "Something went wrong. Please try again.";
     }
 });
+
+$app->post('/admin/ajax/executeNewMessage', function(Request $paramBag) use ($app) {
+
+    try {
+        $incidentId = $paramBag->request->get('incident');
+        $messageText = $paramBag->request->get('message');
+        $messageAuthor = $paramBag->request->get('author');
+        $messageFlag = $paramBag->request->get('flag');
+
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $apiService->postMessage($incidentId,$messageAuthor,$messageFlag,$messageText,false);
+
+        $includeBag = array(
+            "messageSent" => true
+        );
+
+        return $app['twig']->render('newMessage.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+});
