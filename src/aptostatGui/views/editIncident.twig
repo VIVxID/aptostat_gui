@@ -1,6 +1,8 @@
-<h6>Incident ID: {{ incident["id"] }}</h6>
-<p>Created on: {{ incident["createdTimestamp"] }}</p>
-<p>Current Status: {{ incident["lastStatus"] }}</p>
+<h5>Title: </h5>
+{{ incident["title"] }} <a href="#editTitle" role="button" class="btn-small btn-warning" data-toggle="modal">Edit title</a>
+<p></p><strong>Incident ID:</strong> {{ incident["id"] }}</p>
+<p><strong>Created on:</strong> {{ incident["createdTimestamp"]|date("d M. Y H:i") }}</p>
+<p><strong>Current Status:</strong> {{ incident["lastStatus"] }}</p>
 <hr />
 
 <h6>Connected Reports:</h6>
@@ -21,6 +23,7 @@
 
 <a href="#newMessage" role="button" class="btn btn-info" data-toggle="modal">New message</a>
 <a href="#editMessage" role="button" class="btn btn-info" data-toggle="modal">Edit a message</a>
-<a href="#" role="button" class="btn btn-info" data-toggle="modal">Manage connected reports</a>
+<a href="#" role="button" class="btn btn-info" data-toggle="modal">Add/remove connected reports</a>
 
+{% include 'editTitle.twig' %}
 {% include 'newMessage.twig' %}
