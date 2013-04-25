@@ -46,7 +46,7 @@ class ApiService
 
     public function getMessageList()
     {
-        return $this->getDataFromApi('api/message');
+        return $this->getDataFromApi('api/message?showHidden=1');
     }
 
     public function getMessageById($id)
@@ -80,6 +80,11 @@ class ApiService
 
     public function postMessage($incidentId, $author, $flag, $messageText, $hidden = false)
     {
+
+        if (empty($author) || empty($messageText)) {
+            throw new \Exception('Either author og messageText were empty');
+        }
+
         $postDataAsArray = array(
             'author' => $author,
             'flag' => $flag,
