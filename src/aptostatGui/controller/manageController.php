@@ -56,13 +56,31 @@ $app->match('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
 $app->match('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
 
     try {
+        $incidentId = $paramBag->request->get('incident');
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $incident = $apiService->getIncidentById($incidentId);
+
+        $includeBag = array(
+            'incidentData' => $incident,
+        );
+
+        return $app['twig']->render('viewIncident.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+});
+
+$app->match('/admin/newIncident', function(Request $paramBag) use ($app) {
+
+    try {
 
         /*
-
-
-        $incidents = new Incidents();
+         *
+         $incidents = new Incidents();
         $incidentList = $incidents->getIncidentsAsArray();
-        
+
 
         if (isset($_POST["submitInc"])) {
 
@@ -101,32 +119,20 @@ $app->match('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
         ksort($incidents);
         }
         ?>
+         *
+         */
 
-         * */
-
-
-
-
-        $incidentId = $paramBag->request->get('incident');
-        $apiService = new aptostatGui\Service\ApiService();
-
-        $incident = $apiService->getIncidentById($incidentId);
+        // Reports module
+        try {
+            $reportService = new aptostatGui\Service\ReportService();
+            $currentReports = $reportService->getReportsAsArray();
+        } catch (Exception $e) {
+            $currentReports = null;
+            $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        }
 
         $includeBag = array(
-            'incidentData' => $incident,
-        );
-
-        return $app['twig']->render('viewIncident.twig', $includeBag);
-    } catch (\Exception $e) {
-        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "Something went wrong. Please try again.";
-    }
-});
-
-$app->match('/admin/newIncident', function(Request $paramBag) use ($app) {
-
-    try {
-        $includeBag = array(
+            'currentReports' => $currentReports,
         );
 
         return $app['twig']->render('newIncident.twig', $includeBag);
