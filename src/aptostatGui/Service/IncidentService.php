@@ -56,7 +56,7 @@ class IncidentService
     private function filterByHidden($incidentList)
     {
         foreach ($incidentList['incidents'] as $currentIncident) {
-            if ($currentIncident["hidden"] != "false") {
+            if ($currentIncident["hidden"] != "true") {
                 $checkList[] = $currentIncident;
             }
         }
@@ -71,7 +71,7 @@ class IncidentService
     private function filterByVisible($incidentList)
     {
         foreach ($incidentList['incidents'] as $currentIncident) {
-            if ($currentIncident["hidden"] != "true") {
+            if ($currentIncident["hidden"] == "true") {
                 $checkList[] = $currentIncident;
             }
         }
