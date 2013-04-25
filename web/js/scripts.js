@@ -154,7 +154,7 @@ $(document).ready(function() {
     //used in newIncident.php
 
     //activates click-to-select functionality for reports
-    $(function() {
+    /*$(function() {
         var selectedReports = new Array();
         $('#reportSelect').click(function() {
             $(".selectable").bind("mousedown", function(event) {
@@ -168,7 +168,7 @@ $(document).ready(function() {
                     $(".ui-selected", $("#accordion2")).each(function() {
                         var itemId = $(this).attr('id');
                         var item = itemId.replace("report_", "");
-                        result.append( " #" + ( item + 1 ) );
+                        result.append( " #" + ( item) );
                         selectedReports[i] = item;
                         i++;
                     });
@@ -176,5 +176,5 @@ $(document).ready(function() {
             });
             $("#selectedReports").html(selectedReports);
         })
-    });
+    });*/
 });

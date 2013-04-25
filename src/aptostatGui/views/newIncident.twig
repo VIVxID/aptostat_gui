@@ -40,12 +40,12 @@
                                 <h4>Included reports:</h4>
                                 <table border="0">
                                     <tr>
-                                        <span id='selectedReports'>[CLICK ON THE REPORTS YOU WISH TO INCLUDE]</span><br /><br />
+                                        <span id='selectedReports'>Click button to select reports -></span> <a href="#" id="selectRepBtn">Button</a><br /><br />
                                     </tr>
                                 </table>
 
                                 <script type="text/javascript">
-                                    $(function() {
+                                    $("#selectRepBtn").click(function() {
                                         var selectedReports = new Array();
                                         $('#reportSelect').click(function() {
                                             $(".selectable").bind("mousedown", function(event) {
@@ -59,14 +59,15 @@
                                                     $(".ui-selected", $("#accordion2")).each(function() {
                                                         var itemId = $(this).attr('id');
                                                         var item = itemId.replace("report_", "");
-                                                        result.append( " #" + ( item + 1 ) );
+                                                        result.append( " #" + item );
                                                         selectedReports[i] = item;
                                                         i++;
                                                     });
                                                 }
                                             });
-                                        $("#selectedReports").html(selectedReports);
-                                    })
+                                            $("#selectedReports").html(selectedReports);
+                                        })
+                                    });
                                 </script>
 
                                 <span>Flag:</span><br />
