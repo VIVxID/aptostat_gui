@@ -40,12 +40,12 @@
                                 <h4>Included reports:</h4>
                                 <table border="0">
                                     <tr>
-                                        <span id='selectedReports'>Click button to select reports -></span> <a href="#" id="selectRepBtn">Button</a><br /><br />
+                                        <span id='selectedReports'>Click reports to include them</span><br /><br />
                                     </tr>
                                 </table>
 
                                 <script type="text/javascript">
-                                    $("#selectRepBtn").click(function() {
+                                    function() {
                                         var selectedReports = new Array();
                                         $('#reportSelect').click(function() {
                                             $(".selectable").bind("mousedown", function(event) {
