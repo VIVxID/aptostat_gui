@@ -113,10 +113,10 @@
         $("#incidentPane").load("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
             }
             else {
-                $("#reportPane").fadeTo("normal",1);
+                $("#incidentPane").fadeTo("normal",1);
                 $("#cancelBtn").hide();
                 $("#submitBtn").hide();
             }
