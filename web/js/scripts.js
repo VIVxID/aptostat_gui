@@ -101,8 +101,8 @@ $(document).ready(function() {
 
     //redirects to newIncident on button click
 
-    $("#newIncident").click(function() {
-        window.location.href = "newIncident.php";
+    $(".newIncident").click(function() {
+        window.location.href = "newIncident";
     });
 
     //hides edit incident button on tab change

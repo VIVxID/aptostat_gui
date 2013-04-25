@@ -47,7 +47,7 @@
             var message =$("#fieldMessage").val();
             var incident =$("#fieldIncident").val();
             var hidden =$("#fieldHidden").val();
-            $("#reportPane").load("ajax/executeNewMessage", {"incident": incident, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+            $("#incidentPane").load("ajax/executeNewMessage", {"incident": incident, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
                     $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
