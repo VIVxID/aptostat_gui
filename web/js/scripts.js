@@ -102,7 +102,7 @@ $(document).ready(function() {
     //redirects to newIncident on button click
 
     $(".newIncident").click(function() {
-        window.location.href = "newIncident.php";
+        window.location.href = "admin/newIncident";
     });
 
     //hides edit incident button on tab change
