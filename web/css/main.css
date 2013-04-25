@@ -281,6 +281,16 @@ a {
     border-radius: 6px;
 }
 
+.incident {
+    display: block;
+    margin-bottom: 2px;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
 #newincButton {
     color: white;
     float: right;
