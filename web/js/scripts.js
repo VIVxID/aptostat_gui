@@ -28,16 +28,16 @@ $(document).ready(function() {
         var reportId = $(this).attr('id');
         var report = reportId.replace("report_", "");
         $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewReport.php", {"report": report}, function(response, status, xhr) {
+        $("#reportPane").load("ajax/viewReport", {"report": report}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
+            }
             else {
                 $("#reportPane").fadeTo("normal",1);
-                }
-            });
+            }
         });
+    });
 
 
     //load viewIncident on click
@@ -46,7 +46,7 @@ $(document).ready(function() {
         var incidentId = $(this).attr("id");
         incident = incidentId.replace("incident_", "");
         $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
+        $("#reportPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
@@ -56,31 +56,33 @@ $(document).ready(function() {
                 }
             });
         $('#editIncident').show();
-    }
+    });
 
     //filter active incidents
 
-    if ($("#showAll").hasClass("active")) {
-        $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#incidentPane").fadeTo("normal",1);
-            }
-        });
-    } else {
-        $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#incidentPane").fadeTo("normal",1);
-            }
-        });
-    }
+    $(".filter").on("click", function() {
+        if ($("#showAll").hasClass("active")) {
+            $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+        } else {
+            $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+        }
+    });
 
     //redirects to newIncident on button click
 
