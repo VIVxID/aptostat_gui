@@ -52,7 +52,7 @@
                                             }).selectable({
                                                 tolerance: 'fit',
                                                 stop: function() {
-                                                    var result = $( "#select-result" ).empty();
+                                                    var result = $( "#selectedReports" ).empty();
                                                     selectedReports.length = 0;
                                                     var i = 0;
                                                     $(".ui-selected", $("#accordion2")).each(function() {
@@ -90,8 +90,8 @@
                     </div>
 
                     <div class="list_content_menu">
-                        <input type="submit" value="Cancel" name="cancel" id="buttonSubmit" style:float:left;/>
-                        <input type="submit" value="Save" name="save" id="buttonSubmit" style:float:right;/>
+                        <a href="{{ app.url_generator.generate('manage') }}" class="btn" style="float:left">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Save" id="buttonSubmit" style="float:right" />
                     </div>
                 </form>
             </div>
