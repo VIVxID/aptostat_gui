@@ -9,49 +9,34 @@ $(document).ready(function() {
     });
 
 
+    //used in manage.php//
 
-    //used in groupReports.php//
-
-
-    //load viewReport on click
-
-    $(".report").click(function() {
-        var reportId = $(this).attr('id');
-        var report = reportId.replace("report_", "");
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewReport.php", {"report": report}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        $('#newIncident').show();
+    
+    //filter active incidents
+    
+    if ($("#showAll").hasClass("active")) {
+            $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+        } else {
+            $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+        }
     });
-
-    var incident;
-
-
-    //load viewIncident on click
-
-    $(".incident").click(function() {
-        var incidentId = $(this).attr("id");
-        incident = incidentId.replace("incident_", "");
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewIncident.php", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        $('#newMessage').show();
-    });
-
+    
     
     //redirects to newIncident on button click
 

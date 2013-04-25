@@ -104,7 +104,7 @@
                                 <div class="groupbox_heading">
                                     Details for selected report
                                 </div>
-                            
+
                             <form name="messageForm" action="" id="messageForm">
                                 <div class="groupbox_wrapper" id="incidentForm">
                                     <div id="form">
