@@ -129,4 +129,3 @@ $(document).ready(function() {
             $("#selectedReports").html(selectedReports);
         })
     });
-});
