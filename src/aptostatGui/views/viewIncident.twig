@@ -3,10 +3,6 @@
     <h6>Incident ID: {{ incident["id"] }}</h6>
     <p>Created on: {{ incident["createdTimestamp"] }}</p>
     <p>Current Status: {{ incident["lastStatus"] }}</p>
-    <br />
-    <p>Last updated by: {{ incident["lastMessageAuthor"] }}</p>
-    <p>Last updated on: {{ incident["lastMessageTimestamp"] }}</p>
-    <p>Last message: {{ incident["lastMessageText"] }}</p>
     <hr />
 
     <h6>Connected Reports:</h6>
@@ -26,7 +22,7 @@
     <hr />
 
     <h6>Previous updates: </h6>
-    {% for message in incident["messageHistory"] %}
+    {% for message in incident["messageHistory"]|reverse %}
         <div class="well">
             <p>Date: {{ message["messageTimestamp"] }}</p>
             <p>Status: {{ message["messageStatus"] }}</p>
