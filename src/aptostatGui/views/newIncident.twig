@@ -59,11 +59,12 @@
                                                     $(".ui-selected", $("#accordion2")).each(function() {
                                                         var itemId = $(this).attr('id');
                                                         var item = itemId.replace("report_", "");
-                                                        result.append( " #" + item );
                                                         selectedReports[i] = item;
                                                         i++;
                                                     });
-                                                    result.html(selectedReports.join(" "));0
+                                                    for (var i=0;i<selectedReports.length;i++) {
+                                                        result.append( "#" + selectedReports[i] + " " );
+                                                    }
                                                 }
                                             });
                                         })
