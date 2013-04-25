@@ -28,7 +28,7 @@
                     Details for selected report
                 </div>
 
-                <form name="incidentForm" action="" id="messageForm">
+                <form name="incidentForm" action="" id="messageForm" method="post">
                     <div class="groupbox_wrapper" id="incidentForm">
                         <div id="form">
                             <fieldset>
@@ -136,7 +136,7 @@
             var message = $("#fieldMessage").val();
             var incident = $("#fieldIncident").val();
             var hidden = $("#fieldHide").val();
-            $("#incidentPane").post("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, , "hidden": hidden}, function(response, status, xhr) {
+            $("#incidentPane").post("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, "hidden": hidden}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
                     $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
