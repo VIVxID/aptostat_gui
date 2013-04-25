@@ -45,14 +45,14 @@ $(document).ready(function() {
     $(".incident").click(function() {
         var incidentId = $(this).attr("id");
         incident = incidentId.replace("incident_", "");
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
+        $("#incidentPane").css("opacity", "0");
+        $("#incidentPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
                 }
             else {
-                $("#reportPane").fadeTo("normal",1);
+                $("#incidentPane").fadeTo("normal",1);
                 }
             });
         $('#editIncident').show();
