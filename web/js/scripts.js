@@ -101,13 +101,13 @@ $(document).ready(function() {
 
     //redirects to newIncident on button click
 
-    $("#newIncident").click(function(event) {
-       window.location.href = "newIncident.php"
+    $("#newIncident").click(function() {
+        window.location.href = "newIncident.php";
     });
 
-    //hides new incident button on tab change
+    //hides edit incident button on tab change
     $("#reportTab").click(function() {
-        $('#newMessage').hide();
+        $('#editIncident').hide();
     });
 
     //used in editIncident.php//
