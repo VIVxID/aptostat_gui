@@ -100,4 +100,30 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+        $("#messageForm").submit(function(event) {
+            event.preventDefault();
+            var author = $("#fieldAuthor").val();
+            var title = $("#fieldTitle").val();
+            var flag = $("#fieldFlag").val();
+            var message =$("#fieldMessage").val();
+            var incident =$("#fieldIncident").val();
+            var hidden =$("#fieldHide").val();
+            
+            $("#incidentPane").load("ajax/executeNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+            
+             if (status == "error") {
+                    var msg = "Error: ";
+                    $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#reportPane").fadeTo("normal",1);
+                    $("#my-modal").modal('hide');
+                }
+            });
+        })
+    </script>
+
+            
 {% endblock %}
