@@ -1,10 +1,19 @@
 $(document).ready(function() {
-    //used in groupReports.php//
 
-    // Add filterButtonListener
+    //used on index.php//
 
-    $(".filter").on("click", function() {
-        if ($("#showAll").hasClass("active")) {
+    $(function() {
+        $(".downtime").tooltip({
+            'placement': 'left'
+        });
+    });
+
+
+    //used in manage.php//
+
+    //filter active incidents
+    
+    if ($("#showAll").hasClass("active")) {
             $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
@@ -26,57 +35,11 @@ $(document).ready(function() {
             });
         }
     });
+    
+    //redirects to newIncident on button click
 
-    //load viewReport on click
-
-    $(".report").click(function() {
-        var reportId = $(this).attr('id');
-        var report = reportId.replace("report_", "");
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/viewReport", {"report": report}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-                $(this).load;
-            }
-        });
-        $('#newIncident').show();
-    });
-
-    //load newMessage on click
-
-    $("#newMessage").click(function(event) {
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("ajax/newMessage", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        event.preventDefault();
-    });
-
-
-    //load newIncident on click
-
-    $("#newIncident").click(function(event) {
-        $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("../ajax/newIncident.php", {"incident": incident}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#reportPane").fadeTo("normal",1);
-            }
-        });
-        event.preventDefault();
+    $("#newincButton").click(function(event) {
+       window.location.href = "newIncident.php"
     });
 
     //hides new incident button on tab change
@@ -89,7 +52,7 @@ $(document).ready(function() {
         $('#newMessage').hide();
     });
 
-    //used in newMessage.twig//
+    //used in editIncident.php//
 
     //removes placeholder text on textarea focus
     var placeholder = $("#message").val();
@@ -119,7 +82,7 @@ $(document).ready(function() {
         var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
         $.ajax({
             type: "POST",
-            url: "newMessage",
+            url: "editIncident.php",
             data: dataString,
             success: function(){
                 $("#reportPane").css("opacity", "0");
