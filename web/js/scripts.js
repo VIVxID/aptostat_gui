@@ -12,7 +12,7 @@ $(document).ready(function() {
     //used in manage.php//
 
     //filter active incidents
-    
+
     if ($("#showAll").hasClass("active")) {
             $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
                 if (status == "error") {
@@ -35,7 +35,7 @@ $(document).ready(function() {
             });
         }
     });
-    
+
     //redirects to newIncident on button click
 
     $("#newincButton").click(function(event) {
