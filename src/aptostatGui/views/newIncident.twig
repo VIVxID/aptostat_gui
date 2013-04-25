@@ -114,12 +114,10 @@
                 stop: function() {
                     var result = $( "#selectedReports" ).empty();
                     selectedReports.length = 0;
-                    var i = 0;
                     $(".ui-selected", $("#accordion2")).each(function() {
                         var itemId = $(this).attr('id');
                         var item = itemId.replace("report_", "");
-                        selectedReports[i] = item;
-                        i++;
+                        selectedReports[] = item;
                     });
                     for (var i=0;i<selectedReports.length;i++) {
                         result.append( "#" + selectedReports[i] + " " );
