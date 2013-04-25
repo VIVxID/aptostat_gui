@@ -30,9 +30,13 @@
             </fieldset><br />
             <fieldset>
                 Message:<br />
-                <textarea id="fieldMessage" name="message" rows="10" cols="50" style="width:553px" >
-                </textarea><br />
-                Hide this incident? <input value="true" id="fieldHidden" type="checkbox">
+                <textarea id="fieldMessage" name="message" rows="10" cols="50" style="width:553px" ></textarea>
+                <br />
+                Hide this incident?<br />
+                <select name="hide" id="fieldHide">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+                </select><br />
                 <input type="submit" class="btn btn-primary" value="Submit" id="buttonSubmit" />
             </fieldset>
         </form>
@@ -46,7 +50,7 @@
             var flag = $("#fieldFlag").val();
             var message =$("#fieldMessage").val();
             var incident =$("#fieldIncident").val();
-            var hidden =$("#fieldHidden").val();
+            var hidden =$("#fieldHide").val();
             $("#incidentPane").load("ajax/executeNewMessage", {"incident": incident, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
