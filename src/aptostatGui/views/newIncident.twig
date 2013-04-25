@@ -136,7 +136,7 @@
             var message = $("#fieldMessage").val();
             var incident = $("#fieldIncident").val();
             var hidden = $("#fieldHide").val();
-            $("#incidentPane").load("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, , "hidden": hidden}, function(response, status, xhr) {
+            $("#incidentPane").post("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, , "hidden": hidden}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
                     $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
