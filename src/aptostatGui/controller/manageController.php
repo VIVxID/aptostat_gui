@@ -118,8 +118,9 @@ $app->post('/admin/ajax/executeNewMessage', function(Request $paramBag) use ($ap
         $messageText = $paramBag->request->get('message');
         $messageAuthor = $paramBag->request->get('author');
         $messageFlag = $paramBag->request->get('flag');
+        $messageHidden = $paramBag->request->get('hidden');
 
-        if ($paramBag->request->get('hidden') == "true"){
+        if ($messageHidden == "true") {
             $hidden = true;
         } else {
             $hidden = false;
