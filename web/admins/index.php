@@ -59,21 +59,6 @@
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-                function checkScrollPosition() {
-                    var top = $(window).scrollTop();
-                    if (top > 1) {
-                        $("#dimmer").fadeTo("normal",1);
-                    }
-                }
-                $(window).scroll(checkScrollPosition);
-                checkScrollPosition();
-
-            });
-        </script>
        
     </body>
 </html>
