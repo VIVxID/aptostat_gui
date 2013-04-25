@@ -136,3 +136,24 @@ $app->post('/admin/ajax/newIncident', function(Request $paramBag) use ($app) {
         return "Something went wrong. Please try again.";
     }
 });
+
+$app->post('/admin/ajax/editTitle', function(Request $paramBag) use ($app) {
+
+    try {
+        $incidentId = $paramBag->request->get('incident');
+        $title = $paramBag->request->get('title');
+
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $apiService->modifyIncidentTitleById($incidentId, $title);
+
+        $includeBag = array(
+            "titleEdited" => true
+        );
+
+        return $app['twig']->render('editTitle.twig', $includeBag);
+    } catch (\Exception $e) {
+        return $e->getMessage();
+    }
+});
+
