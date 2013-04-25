@@ -77,23 +77,23 @@ $(document).ready(function() {
 
     $(".filter").on("click", function() {
         if ($("#showAll").hasClass("active")) {
-            $("#incidentPane").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
+            $("#incidentList").load("ajax/listIncident", {"showHidden": false}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                    $("#incidentList").html(msg + xhr.status + " " + xhr.statusText);
                 }
                 else {
-                    $("#incidentPane").fadeTo("normal",1);
+                    $("#incidentList").fadeTo("normal",1);
                 }
             });
         } else {
-            $("#incidentPane").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
+            $("#incidentList").load("ajax/listIncident", {"showHidden": true}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                    $("#incidentList").html(msg + xhr.status + " " + xhr.statusText);
                 }
                 else {
-                    $("#incidentPane").fadeTo("normal",1);
+                    $("#incidentList").fadeTo("normal",1);
                 }
             });
         }
