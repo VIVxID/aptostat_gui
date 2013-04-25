@@ -59,17 +59,17 @@ $(document).ready(function() {
 
     $(".incident").click(function() {
         var incidentId = $(this).attr("id");
-        incident = incidentId.replace("incident_", "");
+        var incident = incidentId.replace("incident_", "");
         $("#incidentPane").css("opacity", "0");
         $("#incidentPane").load("ajax/viewIncident", {"incident": incident}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
+            }
             else {
                 $("#incidentPane").fadeTo("normal",1);
-                }
-            });
+            }
+        });
         $('#editIncident').show();
     });
 
