@@ -1,0 +1,32 @@
+<h6>Report ID: {{ report['id'] }}</h6>
+<p>Created: {{ report['createdTimestamp'] }}</p>
+<p>Last updated: {{ report['lastUpdatedTimestamp'] }}</p>
+<p>Check type: {{ report['checkType'] }}</p>
+<p>Source: {{ report['source'] }}</p>
+<p>Service: {{ report['host'] }}</p>
+<p>Last status: {{ report['flag'] }}</p>
+<p>Error message: {{ report['errorMessage'] }}</p>
+
+<br />
+
+<h6>Status history:</h6>
+<table class="table table-condensed">
+    <tr>
+        <td><strong>Date</strong></td>
+        <td><strong>Status</strong></td>
+    </tr>
+{% for update in report["statusHistory"] %}
+
+    {% if update["status"] == "CRITICAL" %}
+        <tr class="error">
+    {% elseif update["status"] == "WARNING" %}
+        <tr class="warning">
+    {% else %}
+        <tr class="success">
+    {% endif %}
+
+    <td>{{ update["updateTimestamp"] }}</td>
+    <td>{{ update["status"] }}</td>
+    </tr>
+{% endfor %}
+</table>

@@ -1,3 +1,22 @@
-.idea/*.xml
-/app
+# Log files
+app/log
+*.log
+
+# Local propel files
+build.properties
+build/conf/aptostat_api-conf.php
+runtime-conf.xml
+
+# Composer
 /vendor
+
+# PhpStorm
+.idea/*.xml
+
+# Propel
+build.properties
+runtime-conf.xml
+
+#.htaccess
+web/admin/.htaccess
+web/admin/.htpasswd

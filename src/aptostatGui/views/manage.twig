@@ -1,0 +1,70 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Manage reports and incidents{% endblock %}
+
+{% block content %}
+    {% include 'adminHeader.twig' %}
+
+    <div id="content_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab">Reports</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Incidents</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <div class="list_content" id="groupbox_reports">
+                                <div class="groupbox_heading">
+                                    Open reports
+                                    <p style="margin-right:6px" class="right">Status</p>
+                                </div>
+                                <div class="groupbox_wrapper">
+                                    <div class="accordion" id="accordion2">
+                                        {% include 'reportList.twig' %}
+                                    </div>
+                                </div>
+                                <div class="list_content_menu">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <div class="list_content" id="incidentbox_list">
+                                <div class="groupbox_heading">
+                                    Incidents
+                                </div>
+                                <div class="groupbox_wrapper" id="incidentPane">
+                                    {% include 'listIncident.twig' %}
+                                </div>
+                                <div class="list_content_menu">
+                                    <div class="btn-group" data-toggle="buttons-checkbox">
+                                        <button type="button" class="btn filter" id="showAll" unchecked >Show all</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list_content" id="groupbox_details">
+                            <div class="groupbox_heading">
+                                Details for selected report
+                            </div>
+                            <div class="groupbox_wrapper" id="reportPane">
+                                Click a report to view it.
+                            </div>
+                            <div class="list_content_menu">
+                                <a href="#" id="newIncident" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new incident</a>
+                                <a href="#" id="newMessage" style="float: right; margin-right: 5px; margin-top: 10px; display: none;">Make new message</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block closing_scripts %}
+    <script type="text/javascript" src="/js/scripts.js"></script>
+{% endblock %}
