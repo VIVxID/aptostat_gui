@@ -125,7 +125,7 @@ a {
 #current_box {
     width: 80%;
     /*border: 1px solid #DDDDDD;*/
-    background-color: #eeeeee;
+    background-color: #F5F5F5;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -149,7 +149,7 @@ a {
 }
 
 #current_box.error {
-    background-color: #feffeb;
+    background-color: #F5F5F5;
 }
 
 .all-clear {
@@ -322,7 +322,7 @@ a {
 .front_messagebox {
     padding: 10px;
     /*border: 1px solid #DDDDDD;*/
-    background-color: #eeeeee;
+    background-color: #F5F5F5;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;

@@ -3,7 +3,7 @@
         <p class='all-clear'>No issues the last 3 days.</p>
     </div>
 {% else %}
-    <div id='current_box' class='error'>
+    <div id='current_box' class='error' style="margin-bottom: 30px">
         <h3>Issue history - Last 3 days</h3>
         <div class="accordion" id="accordion3">
             {% for incident in messageHistory %}
