@@ -28,7 +28,7 @@
                     Details for selected report
                 </div>
 
-                <form name="messageForm" action="" id="messageForm">
+                <form name="incidentForm" action="" id="messageForm">
                     <div class="groupbox_wrapper" id="incidentForm">
                         <div id="form">
                             <fieldset>
@@ -102,7 +102,7 @@
 </div>
 
 <script type="text/javascript">
-    $("#messageForm").submit(function(event) {
+    $("#incidentForm").submit(function(event) {
         event.preventDefault();
         var author = $("#fieldAuthor").val();
         var title = $("#fieldTitle").val();
