@@ -10,3 +10,4 @@ This should result in `app/log/dev.log`
 
 Give read and write access for all on dev.log
 
+## Usage
