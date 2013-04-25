@@ -10,25 +10,33 @@ class MessageService
         $apiService = new ApiService();
         $messageList = $apiService->getMessageList();
 
-        return $this->formatMessageHistoryToArray($messageList, $numOfDaysBack);
+        $incidentService = new IncidentService();
+        $incidents = $incidentService->getHiddenIncidentsAsArray();
+
+        return $this->formatMessageHistoryToArray($messageList, $numOfDaysBack, $incidents);
     }
 
-    private function formatMessageHistoryToArray($messageList, $numOfDaysBack)
+    private function formatMessageHistoryToArray($messageList, $numOfDaysBack, $incidents)
     {
-        foreach ($messageList['message'] as $message) {
-            if (strtotime($message['timestamp']) > strtotime('-' . $numOfDaysBack . ' days')
-            ) {
-                $formattedMessageList[$message['timestamp']] = array(
-                    'messageId' => $message['id'],
-                    'incidentId' => $message['connectedToIncident'],
-                    'messageDate' => $message['timestamp'],
-                    'messageText' => $message['messageText'],
-                    'author' => $message['author'],
-                    'status' => $message['flag']
-                );
+        foreach ($incidents as $incident) {
+            $formattedMessageList[$incident["id"]]["title"] = $incident["title"];
+            $formattedMessageList[$incident["id"]]["id"] = $incident["id"];
+
+            foreach ($messageList['message'] as $message) {
+                if ($message["connectedToIncident"] == $incident["id"]) {
+                    if (strtotime($incident['lastMessageTimestamp']) > strtotime('-' . $numOfDaysBack . ' days')) {
+
+                        $formattedMessageList[$incident['id']]["messages"][] = array(
+                            'messageId' => $message['id'],
+                            'messageDate' => $message['timestamp'],
+                            'messageText' => $message['messageText'],
+                            'author' => $message['author'],
+                            'status' => $message['flag']
+                        );
+                    }
+                }
             }
         }
-
 
 
         if (!isset($formattedMessageList)) {

@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+
 $app->match('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
 
     try {
@@ -58,27 +60,7 @@ $app->post('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
     }
 });
 
-
-$app->post('/admin/ajax/newMessage', function(Request $paramBag) use ($app) {
-
-    try {
-        $incidentId = $paramBag->request->get('incident');
-        $apiService = new aptostatGui\Service\ApiService();
-
-        $incident = $apiService->getIncidentById($incidentId);
-
-        $includeBag = array(
-            'incidentData' => $incident,
-        );
-
-        return $app['twig']->render('newMessage.twig', $includeBag);
-    } catch (\Exception $e) {
-        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "Something went wrong. Please try again.";
-    }
-});
-
-$app->post('/admin/ajax/executeNewMessage', function(Request $paramBag) use ($app) {
+$app->post('/admin/ajax/saveNewMessage', function(Request $paramBag) use ($app) {
 
     try {
         $incidentId = $paramBag->request->get('incident');
@@ -102,6 +84,24 @@ $app->post('/admin/ajax/executeNewMessage', function(Request $paramBag) use ($ap
         );
 
         return $app['twig']->render('newMessage.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+});
+
+$app->post('/admin/ajax/editIncident', function(Request $paramBag) use ($app) {
+    try {
+        $incidentId = $paramBag->request->get('incident');
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $incident = $apiService->getIncidentById($incidentId);
+
+        $includeBag = array(
+            'incidentData' => $incident,
+        );
+
+        return $app['twig']->render('editMessage.twig', $includeBag);
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
         return "Something went wrong. Please try again.";
