@@ -16,7 +16,7 @@
     <script type="text/javascript" src="/js/vendor/jquery-ui-1.10.1.custom.min.js"></script>
     <script type="text/javascript" src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <script type="text/javascript" src="/js/vendor/bootstrap.js"></script>
-    <script type="text/javascript" src="/web/js/scripts.js"></script>
+    <script type="text/javascript" src="/js/scripts.js"></script>
 </head>
 
 <body>
