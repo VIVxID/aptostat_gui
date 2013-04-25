@@ -39,6 +39,21 @@ $(document).ready(function() {
         });
     });
 
+    //load newMessage on click
+
+    $("#newMessage").click(function(event) {
+        $("#reportPane").css("opacity", "0");
+        $("#reportPane").load("ajax/newMessage", {"incident": incident}, function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Error: ";
+                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else {
+                $("#reportPane").fadeTo("normal",1);
+            }
+        });
+        event.preventDefault();
+    });
 
     //load viewIncident on click
 
