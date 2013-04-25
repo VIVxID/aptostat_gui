@@ -28,16 +28,48 @@
                     Details for selected report
                 </div>
 
-                <form name="messageForm" action="" id="messageForm">
+                <form name="messageForm" action="manage" id="messageForm">
                     <div class="groupbox_wrapper" id="incidentForm">
                         <div id="form">
                             <fieldset>
+                                <legend>Title</legend>
+                                <input name="title" type="text" length="20" id="fieldTitle" />
+                            </fieldset>
+                            <fieldset>
+                                <h4>Included reports:</h4>
                                 <table border="0">
                                     <tr>
-                                        <h4>Included reports: </h4><span id='select-result'>None</span><br />
+                                        <span id='selectedReports'>[CLICK ON THE REPORTS YOU WISH TO INCLUDE]</span><br />
                                     </tr>
                                 </table>
-                                Flag: <select name="flag" id="fieldFlag">
+
+                                <script type="text/javascript">
+                                    $(function() {
+                                        var selectedReports = new Array();
+                                        $('#reportSelect').click(function() {
+                                            $(".selectable").bind("mousedown", function(event) {
+                                                event.metaKey = true;
+                                            }).selectable({
+                                                tolerance: 'fit',
+                                                stop: function() {
+                                                    var result = $( "#select-result" ).empty();
+                                                    selectedReports.length = 0;
+                                                    var i = 0;
+                                                    $(".ui-selected", $("#accordion2")).each(function() {
+                                                        var itemId = $(this).attr('id');
+                                                        var item = itemId.replace("report_", "");
+                                                        result.append( " #" + ( item + 1 ) );
+                                                        selectedReports[i] = item;
+                                                        i++;
+                                                    });
+                                                }
+                                            });
+                                        $("#selectedReports").html(selectedReports);
+                                    })
+                                </script>
+
+                                <span>Flag:</span>
+                                <select name="flag" id="fieldFlag">
                                     <option value="CRITICAL">Critical</option>
                                     <option value="WARNING">Warning</option>
                                     <option value="RESPONDING">Responding</option>
@@ -49,10 +81,10 @@
 
                             <fieldset>
                                 <legend>Message</legend>
-                                Author:<br />>
+                                <span>Author:</span><br />
                                 <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-                                Message<br />>
-                                <textarea id="fieldMessage" name="message" rows="10" cols="50"></textarea><br />
+                                <span>Message:</span<br />
+                                <textarea id="fieldMessage" name="message" rows="5" cols="50">Write message here...</textarea><br />
                             </fieldset>
                         </div>
                     </div>

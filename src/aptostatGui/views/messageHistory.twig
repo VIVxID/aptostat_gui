@@ -1,34 +1,47 @@
 {% if not messageHistory %}
     <div id="current_box" class="no_issues">
-        <p class='all-clear'>No messages the last 3 days.</p>
+        <p class='all-clear'>No issues the last 3 days.</p>
     </div>
 {% else %}
-    <div id='current_box' class='error'>
-        <h3>Message history - Last 3 days</h3>
-        <table border='0' class='current_box_table'>
-            {% for message in messageHistory %}
-            <tr>
-                <td>
-                    <hr />
-                </td>
-            </tr>
+    <div id='current_box' class='error' style="margin-bottom: 30px">
+        <h3>Issue history - Last 3 days</h3>
+        <div class="accordion" id="accordion3">
+            {% for incident in messageHistory %}
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#{{ incident["id"] }}"><span class="label label-success"> Resolved </span>   {{ incident["title"] }}</a>
+                </div>
+                <div id="{{ incident["id"] }}" class="accordion-body collapse">
+                    <div class="accordion-inner">
 
-            <tr>
-                <td class='left'><h5>Message #{{ message['messageId'] }} connected to incident #{{ message['incidentId'] }}</h5></td>
-            </tr>
+                        {% for message in incident["messages"] %}
 
-            <tr>
-                <td class='left'><h5>Last update: {{ message['messageDate'] }}</h5></td>
-            </tr>
+                            {% if message["status"] == "CRITICAL" %}
+                                {% set titleImage = "../img/cross.png" %}
+                            {% elseif message["status"] == "WARNING" %}
+                                {% set titleImage = "../img/warning.png" %}
+                            {% elseif message["status"] == "RESPONDING" %}
+                                {% set titleImage = "../img/check.png" %}
+                            {% elseif message["status"] == "RESOLVED" %}
+                                {% set titleImage = "../img/check.png" %}
+                            {% endif %}
 
-            <tr>
-                <td class='left'>{{ message['messageText'] }}</td>
-            </tr>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td style="width:10%"><img src='{{ titleImage }}'><br /><small>{{ message["messageDate"] }}</small></td>
+                                    <td>
+                                        <p>{{ message["messageText"] }}</p>
+                                        <p> - {{ message["author"] }}</p>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <tr>
-                <td class='left'> - {{ message['author'] }}</td>
-            </tr>
-        {% endfor %}
-        </table>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endif %}
