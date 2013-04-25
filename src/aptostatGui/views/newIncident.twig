@@ -47,27 +47,25 @@
                                 <script type="text/javascript">
                                     $(document).ready(function () {
                                         $(function() {
-                                            var selectedReports = new Array();
-                                            $('#reportSelect').click(function() {
-                                                $(".selectable").bind("mousedown", function(event) {
-                                                    event.metaKey = true;
-                                                }).selectable({
-                                                    tolerance: 'fit',
-                                                    stop: function() {
-                                                        var result = $( "#selectedReports" ).empty();
-                                                        selectedReports.length = 0;
-                                                        var i = 0;
-                                                        $(".ui-selected", $("#accordion2")).each(function() {
-                                                            var itemId = $(this).attr('id');
-                                                            var item = itemId.replace("report_", "");
-                                                            result.append( " #" + item );
-                                                            selectedReports[i] = item;
-                                                            i++;
-                                                        });
-                                                    }
-                                                });
-                                                $("#selectedReports").html(selectedReports);
-                                            })
+                                            var selectedReports = [];
+                                            $(".selectable").bind("mousedown", function(event) {
+                                                event.metaKey = true;
+                                            }).selectable({
+                                                tolerance: 'fit',
+                                                stop: function() {
+                                                    var result = $( "#selectedReports" ).empty();
+                                                    selectedReports.length = 0;
+                                                    var i = 0;
+                                                    $(".ui-selected", $("#accordion2")).each(function() {
+                                                        var itemId = $(this).attr('id');
+                                                        var item = itemId.replace("report_", "");
+                                                        result.append( " #" + item );
+                                                        selectedReports[i] = item;
+                                                        i++;
+                                                    });
+                                                }
+                                            });
+                                            $("#selectedReports").html(selectedReports);
                                         })
                                     });
                                 </script>
