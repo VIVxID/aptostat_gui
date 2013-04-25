@@ -46,8 +46,8 @@
 
                                 <script type="text/javascript">
                                     $(document).ready(function () {
+                                        var selectedReports = [];
                                         $(function() {
-                                            var selectedReports = [];
                                             $(".selectable").bind("mousedown", function(event) {
                                                 event.metaKey = true;
                                             }).selectable({
@@ -103,26 +103,53 @@
 </div>
 
 <script type="text/javascript">
-    $("#incidentForm").submit(function(event) {
-        event.preventDefault();
-        var author = $("#fieldAuthor").val();
-        var title = $("#fieldTitle").val();
-        var flag = $("#fieldFlag").val();
-        var message =$("#fieldMessage").val();
-        var incident =$("#fieldIncident").val();
-        var hidden =$("#fieldHide").val();
-        $("#incidentPane").load("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
-            if (status == "error") {
-                var msg = "Error: ";
-                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-            }
-            else {
-                $("#incidentPane").fadeTo("normal",1);
-                $("#cancelBtn").hide();
-                $("#submitBtn").hide();
-            }
-        });
+
+    $(document).ready(function () {
+        var selectedReports = [];
+        $(function() {
+            $(".selectable").bind("mousedown", function(event) {
+                event.metaKey = true;
+            }).selectable({
+                tolerance: 'fit',
+                stop: function() {
+                    var result = $( "#selectedReports" ).empty();
+                    selectedReports.length = 0;
+                    var i = 0;
+                    $(".ui-selected", $("#accordion2")).each(function() {
+                        var itemId = $(this).attr('id');
+                        var item = itemId.replace("report_", "");
+                        selectedReports[i] = item;
+                        i++;
+                    });
+                    for (var i=0;i<selectedReports.length;i++) {
+                        result.append( "#" + selectedReports[i] + " " );
+                    }
+                }
+            });
+        })
+
+        $("#incidentForm").submit(function(event) {
+            event.preventDefault();
+            var author = $("#fieldAuthor").val();
+            var title = $("#fieldTitle").val();
+            var flag = $("#fieldFlag").val();
+            var message = $("#fieldMessage").val();
+            var incident = $("#fieldIncident").val();
+            var hidden = $("#fieldHide").val();
+            $("#incidentPane").load("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": reports, "author": author, , "hidden": hidden}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                    $("#cancelBtn").hide();
+                    $("#submitBtn").hide();
+                }
+            });
+        })
     })
+
 </script>
 
             
