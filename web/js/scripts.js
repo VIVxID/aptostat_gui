@@ -113,7 +113,7 @@ $(document).ready(function() {
     //used in editIncident.php//
 
     //removes placeholder text on textarea focus
-    var placeholder = $("#message").val();
+    var placeholder = $("#fieldMessage").val();
     $("#fieldMessage").focus(
         function() {
             if($(this).val() == placeholder) {
