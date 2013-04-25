@@ -102,7 +102,7 @@ $(document).ready(function() {
     //redirects to newIncident on button click
 
     $(".newIncident").click(function() {
-        window.location.href = "ajax/newIncident";
+        window.location.href = "ajax/newIncident.php";
     });
 
     //hides edit incident button on tab change
