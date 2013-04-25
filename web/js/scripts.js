@@ -132,7 +132,7 @@ $(document).ready(function() {
     );
 
     //ajax post of new message form
-    $("#messageForm").submit(function(event) {
+    /*$("#messageForm").submit(function(event) {
         event.preventDefault();
         var author = $("#fieldAuthor").val();
         var flag = $("#fieldFlag").val();
@@ -148,7 +148,7 @@ $(document).ready(function() {
                 $("#reportPane").fadeTo("normal",1);
             }
         });
-    });
+    });*/
 
 
     //used in newIncident.php
