@@ -110,10 +110,11 @@ $app->post('/admin/ajax/editIncident', function(Request $paramBag) use ($app) {
 $app->post('/admin/ajax/newIncident', function(Request $paramBag) use ($app) {
 
     try {
-        $incidentId = $paramBag->request->get('incident');
+        $incidentTitle = $paramBag->request->get('title');
         $messageText = $paramBag->request->get('message');
         $messageAuthor = $paramBag->request->get('author');
         $messageFlag = $paramBag->request->get('flag');
+        $incidentReports = $paramBag->request->get('reports');
         $messageHidden = $paramBag->request->get('hidden');
 
         if ($messageHidden == "true") {
@@ -124,7 +125,7 @@ $app->post('/admin/ajax/newIncident', function(Request $paramBag) use ($app) {
 
         $apiService = new aptostatGui\Service\ApiService();
 
-        $apiService->postMessage($incidentId,$messageAuthor,$messageFlag,$messageText,$hidden);
+        $apiService->postIncident($incidentTitle,$messageAuthor,$messageFlag,$messageText,$incidentReports,$hidden);
 
         $includeBag = array(
             "messageSent" => true
