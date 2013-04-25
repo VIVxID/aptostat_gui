@@ -5,11 +5,10 @@
 {% block content %}
     {% include 'adminHeader.twig' %}
 
-    {# TODO: INTEGREATE THE INLINE STYLING #}
-<div id="content_wrapper" style="margin-top: 50px;">
+<div id="content_wrapper">
     <div class="container">
         <div class="row">
-            <div class="list_content" id="groupbox_reports">
+            <div class="list_content index-top" id="groupbox_reports">
                 <div class="groupbox_heading">
                     Open reports
                     <p style="margin-right:6px" class="right">Status</p>
@@ -24,24 +23,53 @@
                 </div>
             </div>
 
-            <div class="list_content" id="groupbox_details">
+            <div class="list_content index-top" id="groupbox_details">
                 <div class="groupbox_heading">
                     Details for selected report
                 </div>
 
-                <form name="messageForm" action="" id="messageForm">
+                <form name="messageForm" action="manage" id="messageForm">
                     <div class="groupbox_wrapper" id="incidentForm">
                         <div id="form">
-                            New incident
-
                             <fieldset>
-                                <legend>Data</legend>
+                                <legend>Title</legend>
+                                <input name="title" type="text" length="20" id="fieldTitle" />
+                            </fieldset>
+                            <fieldset>
+                                <h4>Included reports:</h4>
                                 <table border="0">
                                     <tr>
-                                        <h4>Included reports: </h4><span id='select-result'>None</span>
+                                        <span id='selectedReports'>[CLICK ON THE REPORTS YOU WISH TO INCLUDE]</span><br />
                                     </tr>
                                 </table>
-                                Flag: <select name="flag" id="fieldFlag">
+
+                                <script type="text/javascript">
+                                    $(function() {
+                                        var selectedReports = new Array();
+                                        $('#reportSelect').click(function() {
+                                            $(".selectable").bind("mousedown", function(event) {
+                                                event.metaKey = true;
+                                            }).selectable({
+                                                tolerance: 'fit',
+                                                stop: function() {
+                                                    var result = $( "#select-result" ).empty();
+                                                    selectedReports.length = 0;
+                                                    var i = 0;
+                                                    $(".ui-selected", $("#accordion2")).each(function() {
+                                                        var itemId = $(this).attr('id');
+                                                        var item = itemId.replace("report_", "");
+                                                        result.append( " #" + ( item + 1 ) );
+                                                        selectedReports[i] = item;
+                                                        i++;
+                                                    });
+                                                }
+                                            });
+                                        $("#selectedReports").html(selectedReports);
+                                    })
+                                </script>
+
+                                <span>Flag:</span>
+                                <select name="flag" id="fieldFlag">
                                     <option value="CRITICAL">Critical</option>
                                     <option value="WARNING">Warning</option>
                                     <option value="RESPONDING">Responding</option>
@@ -53,9 +81,10 @@
 
                             <fieldset>
                                 <legend>Message</legend>
-                                Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-                                <textarea id="fieldMessage" name="message" rows="10" cols="50"></textarea><br />
-
+                                <span>Author:</span><br />
+                                <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                                <span>Message:</span<br />
+                                <textarea id="fieldMessage" name="message" rows="5" cols="50">Write message here...</textarea><br />
                             </fieldset>
                         </div>
                     </div>
