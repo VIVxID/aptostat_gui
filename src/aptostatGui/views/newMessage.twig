@@ -1,0 +1,81 @@
+﻿{% for incident in incidentData %}
+
+<h6>Incident ID: {{ incident["id"] }}</h6>
+<p>Created on: {{ incident["createdTimestamp"] }}</p>
+<p>Current Status: {{ incident["lastStatus"] }}</p>
+<hr />
+
+<h6>Connected Reports:</h6>
+<ul>
+    {% for report, status in incident["connectedReports"] %}
+        {% if status == 'WARNING' %}
+            <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - <span class="label label-warning">{{ status }}</span></li>
+        {% elseif status == 'CRITICAL' %}
+            <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - <span class="label label-important">{{ status }}</span></li>
+        {% else %}
+            <li style="margin-top: 0px;margin-bottom: 0px;"># {{ report }} - <span class="label label-success">{{ status }}</span></li>
+        {% endif %}
+
+
+    {% endfor %}
+</ul>
+<hr />
+
+<div id="form">
+    <form name="messageForm" action="" id="messageForm">
+        Selected incident: {{ incident["id"] }}
+            <fieldset>
+                Flag: <select name="flag" id="fieldFlag">
+                    <option value="CRITICAL">Critical</option>
+                    <option value="WARNING">Warning</option>
+                    <option value="RESPONDING">Responding</option>
+                    <option value="RESOLVED">Resolved</option>
+                    <option value="IGNORED">Ignored</option>
+                    <option value="INTERNAL">Internal</option>
+                </select>
+            </fieldset>
+                <br />
+            <fieldset>
+                <legend>Message</legend>
+                Author: <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                <textarea id="fieldMessage" name="message" rows="10" cols="50">Update message</textarea><br />
+                <input type="submit" value="Submit" id="buttonSubmit" />
+            </fieldset><br />
+        </form>
+    </div>
+{% endfor %}
+    <script type="text/javascript">
+        var placeholder = $("#message").val();
+        $("#message").focus(
+            function() {
+                if($(this).val() == placeholder) {
+                    $(this).val("");
+                }
+            }
+        );
+        $("#message").blur(
+            function() {
+                if($(this).val() == "") {
+                    $(this).val(placeholder);
+                }
+            }
+        );
+
+        $("#messageForm").submit(function(event) {
+            event.preventDefault();
+            var author = $("#fieldAuthor").val();
+            var flag = $("#fieldFlag").val();
+            var message =$("#fieldMessage").val();
+            var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
+            $.ajax({
+                type: "POST",
+                url: "newMessage.php",
+                data: dataString,
+                success: function(){
+                    $("#reportPane").css("opacity", "0");
+                    $("#reportPane").html("Message posted.");
+                    $("#reportPane").fadeTo("normal",1);
+                },
+            });
+        })
+    </script>

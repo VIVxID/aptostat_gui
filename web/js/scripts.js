@@ -50,7 +50,7 @@ $(document).ready(function() {
 
     $("#newMessage").click(function(event) {
         $("#reportPane").css("opacity", "0");
-        $("#reportPane").load("../ajax/newMessage.php", {"incident": incident}, function(response, status, xhr) {
+        $("#reportPane").load("ajax/newMessage", {"incident": incident}, function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Error: ";
                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
@@ -89,7 +89,7 @@ $(document).ready(function() {
         $('#newMessage').hide();
     });
 
-    //used in newMessage.php//
+    //used in newMessage.twig//
 
     //removes placeholder text on textarea focus
     var placeholder = $("#message").val();
@@ -119,7 +119,7 @@ $(document).ready(function() {
         var dataString = "author=" + author + "&flag=" + flag + "&message=" + message;
         $.ajax({
             type: "POST",
-            url: "newMessage.php",
+            url: "newMessage",
             data: dataString,
             success: function(){
                 $("#reportPane").css("opacity", "0");
