@@ -1,6 +1,6 @@
 <h6>Report ID: {{ report['id'] }}</h6>
-<p>Created: {{ report['createdTimestamp'] }}</p>
-<p>Last updated: {{ report['lastUpdatedTimestamp'] }}</p>
+<p>Created: {{ report['createdTimestamp']|date("d.M y H:i:s") }}</p>
+<p>Last updated: {{ report['lastUpdatedTimestamp']|date("d.M y H:i:s") }}</p>
 <p>Check type: {{ report['checkType'] }}</p>
 <p>Source: {{ report['source'] }}</p>
 <p>Service: {{ report['host'] }}</p>
@@ -25,7 +25,7 @@
         <tr class="success">
     {% endif %}
 
-    <td>{{ update["updateTimestamp"] }}</td>
+    <td>{{ update["updateTimestamp"]|date("d.M y H:i:s") }}</td>
     <td>{{ update["status"] }}</td>
     </tr>
 {% endfor %}

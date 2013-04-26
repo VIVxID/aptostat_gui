@@ -31,7 +31,7 @@
                 <br />
                 <fieldset class="pull-left">
                     Author:
-                    <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                    <input id="author" type="text" name="author" length="20"><br>
                 </fieldset><br />
                 <fieldset>
                     Message:<br />
@@ -54,13 +54,12 @@
     <script type="text/javascript">
         $("#messageForm").submit(function(event) {
             event.preventDefault();
-            var author = $("#fieldAuthor").val();
-            var title = $("#fieldTitle").val();
             var flag = $("#fieldFlag").val();
-            var message =$("#fieldMessage").val();
-            var incident =$("#fieldIncident").val();
-            var hidden =$("#fieldHide").val();
-            $("#incidentPane").load("ajax/saveNewMessage", {"incident": incident, "title": title, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+            var message = $("#fieldMessage").val();
+            var author = $("#author").val();
+            var incident = $("#fieldIncident").val();
+            var hidden = $("#fieldHide").val();
+            $("#incidentPane").load("ajax/saveNewMessage", {"incident": incident, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
                 if (status == "error") {
                     var msg = "Error: ";
                     $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);

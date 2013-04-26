@@ -1,7 +1,7 @@
 <h5>Title: </h5>
 {{ incident["title"] }} <a href="#editTitle" role="button" class="btn-small btn-warning" data-toggle="modal">Edit title <i class="icon-pencil icon-white"></i></a>
 <p></p><strong>Incident ID:</strong> {{ incident["id"] }}</p>
-<p><strong>Created on:</strong> {{ incident["createdTimestamp"]|date("d M. Y H:i") }}</p>
+<p><strong>Created on:</strong> {{ incident["createdTimestamp"]|date("d.M Y H:i") }}</p>
 <p><strong>Current Status:</strong> {{ incident["lastStatus"] }}</p>
 <hr />
 

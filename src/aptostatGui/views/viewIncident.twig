@@ -1,7 +1,7 @@
 {% for incident in incidentData %}
 
     <h6>Incident ID: {{ incident["id"] }}</h6>
-    <p>Created on: {{ incident["createdTimestamp"] }}</p>
+    <p>Created on: {{ incident["createdTimestamp"]|date("d.M y H:i") }}</p>
     {% if incident["lastStatus"] == 'WARNING' %}
         <p>Current incident status: <span class="label label-warning">{{ incident["lastStatus"] }}</span></p>
     {% elseif incident["lastStatus"] == 'CRITICAL' %}

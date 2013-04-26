@@ -69,6 +69,8 @@ $app->post('/admin/ajax/saveNewMessage', function(Request $paramBag) use ($app) 
         $messageFlag = $paramBag->request->get('flag');
         $messageHidden = $paramBag->request->get('hidden');
 
+        var_dump($paramBag);
+
         if ($messageHidden == "true") {
             $hidden = true;
         } else {
