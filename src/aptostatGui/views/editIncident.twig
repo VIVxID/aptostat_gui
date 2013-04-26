@@ -1,5 +1,5 @@
 <h5>Title: </h5>
-{{ incident["title"] }} <a href="#editTitle" role="button" class="btn-small btn-warning" data-toggle="modal">Edit title</a>
+{{ incident["title"] }} <a href="#editTitle" role="button" class="btn-small btn-warning" data-toggle="modal">Edit title <i class="icon-pencil icon-white"></i></a>
 <p></p><strong>Incident ID:</strong> {{ incident["id"] }}</p>
 <p><strong>Created on:</strong> {{ incident["createdTimestamp"]|date("d M. Y H:i") }}</p>
 <p><strong>Current Status:</strong> {{ incident["lastStatus"] }}</p>
@@ -21,9 +21,9 @@
 <hr>
 
 
-<a href="#newMessage" role="button" class="btn btn-info" data-toggle="modal">New message</a>
-<a href="#editMessage" role="button" class="btn btn-info" data-toggle="modal">Edit a message</a>
-<a href="#" role="button" class="btn btn-info" data-toggle="modal">Add/remove connected reports</a>
+<a href="#newMessage" role="button" class="btn btn-info" data-toggle="modal">New message <i class="icon-plus-sign icon-white"></i></a>
+<a href="#editMessage" role="button" class="btn btn-info" data-toggle="modal">Edit a message <i class="icon-pencil icon-white"></i></a>
+<a href="#" role="button" class="btn btn-info" data-toggle="modal">Add/remove connected reports <i class="icon-pencil icon-white"></i></a>
 
 {% include 'editTitle.twig' %}
 {% include 'newMessage.twig' %}
