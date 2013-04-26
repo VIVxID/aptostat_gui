@@ -22,8 +22,26 @@
 
 
 <a href="#newMessage" role="button" class="btn btn-info" data-toggle="modal">New message <i class="icon-plus-sign icon-white"></i></a>
-<a href="#editMessage" role="button" class="btn btn-info" data-toggle="modal">Edit a message <i class="icon-pencil icon-white"></i></a>
+<a href="#" id="editMessage" role="button" class="btn btn-info">Edit a message <i class="icon-pencil icon-white"></i></a>
 <a href="#" role="button" class="btn btn-info" data-toggle="modal">Add/remove connected reports <i class="icon-pencil icon-white"></i></a>
 
 {% include 'editTitle.twig' %}
 {% include 'newMessage.twig' %}
+
+
+<script type="text/javascript">
+    //load editMessage on click
+    $("#editMessage").click(function(event) {
+        $("#incidentPane").css("opacity", "0");
+        $("#incidentPane").load("ajax/editMessage", {"incident": incident}, function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Error: ";
+                $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else {
+                $("#incidentPane").fadeTo("normal",1);
+            }
+        });
+        event.preventDefault();
+    });
+</script>

@@ -107,6 +107,53 @@ $app->post('/admin/ajax/editIncident', function(Request $paramBag) use ($app) {
     }
 });
 
+$app->post('/admin/ajax/saveEditMessage', function(Request $paramBag) use ($app) {
+
+    try {
+        $messageId = $paramBag->request->get('messageId');
+        $messageText = $paramBag->request->get('message');
+        $messageAuthor = $paramBag->request->get('author');
+        $messageFlag = $paramBag->request->get('flag');
+        $messageHidden = $paramBag->request->get('hidden');
+
+        if ($messageHidden == "true") {
+            $hidden = true;
+        } else {
+            $hidden = false;
+        }
+
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $apiService->modifyMessageById($messageId,$messageAuthor,$messageFlag,$messageText,$messageHidden);
+
+        $includeBag = array(
+            "messageEdited" => true
+        );
+
+        return $app['twig']->render('editMessage.twig', $includeBag);
+    } catch (\Exception $e) {
+        return $e->getMessage();
+    }
+});
+
+$app->post('/admin/ajax/editMessage', function(Request $paramBag) use ($app) {
+    try {
+        $incidentId = $paramBag->request->get('incident');
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $incident = $apiService->getIncidentById($incidentId);
+
+        $includeBag = array(
+            'incident' => $incident['incidents'],
+        );
+
+        return $app['twig']->render('editMessage.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+});
+
 $app->post('/admin/ajax/newIncident', function(Request $paramBag) use ($app) {
 
     try {

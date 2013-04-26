@@ -39,8 +39,7 @@ $(document).ready(function() {
         });
     });
 
-    //load newMessage on click
-
+    //load editIncident on click
     $("#editIncident").click(function(event) {
         $("#incidentPane").css("opacity", "0");
         $("#incidentPane").load("ajax/editIncident", {"incident": incident}, function(response, status, xhr) {

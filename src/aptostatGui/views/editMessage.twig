@@ -1,0 +1,133 @@
+{% if messageEdited is defined %}
+    <div class="well">
+        <h4>Success</h4>
+        <p>A message has been edited.</p>
+        <p><-- Click somewhere else on the interface to do something else</p>
+    </div>
+{% else %}
+    <h4>Edit messages for incident: {{ incident['id'] }}</h4>
+    <h5>Incident title: </h5>
+    {{ incident["title"] }}
+    <hr />
+
+    <div class="accordion" id="accordion3">
+        {% for message in incident["messageHistory"]|reverse %}
+
+            {% if message["messageStatus"] == "CRITICAL" %}
+                {% set titleImage = "../img/cross.png" %}
+                {% set altText = "Critical" %}
+                {% set statusLabel = '<span class="label label-important">CRITICAL</span>' %}
+            {% elseif message["messageStatus"] == "WARNING" %}
+                {% set titleImage = "../img/warning.png" %}
+                {% set altText = "Warning" %}
+                {% set statusLabel = '<span class="label label-warning">WARNING</span>' %}
+            {% elseif message["messageStatus"] == "RESPONDING" %}
+                {% set titleImage = "../img/check.png" %}
+                {% set altText = "Responding" %}
+                {% set statusLabel = '<span class="label label-success">RESPONDING</span>' %}
+            {% elseif message["messageStatus"] == "RESOLVED" %}
+                {% set titleImage = "../img/check.png" %}
+                {% set altText = "Resolved" %}
+                {% set statusLabel = '<span class="label label-success">RESOLVED</span>' %}
+            {% endif %}
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#{{ message["id"] }}"> {{ statusLabel|raw }} {{ message["messageTimestamp"] }} - {{ message['messageText']|slice(0,40) }} {% if message['messageText']|length > 40 %}<small>[...]</small>{% endif %}</a>
+                </div>
+                <div id="{{ message["id"] }}" class="accordion-body collapse">
+                    <div class="accordion-inner">
+
+                        <a role="button" class="pull-right btn-mini btn-warning" data-toggle="modal" href="#editMessage{{ message['id'] }}">Edit message <i class="icon-pencil icon-white"></i></a>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="width:20%;text-align: center"><strong>Status:</strong> <br><img src='{{ titleImage }}' alt='{{ altText }}'></td>
+                                <td>
+                                    <p><strong>Author:</strong> {{ message["messageAuthor"] }}</p>
+                                    <p><strong>Hidden?:</strong> {% if message['hidden'] %}True{% else %}False{% endif %}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%;text-align: center">
+                                    <strong>Timestamp:</strong>
+                                    <small>{{ message["messageTimestamp"] }}</small>
+                                </td>
+                                <td>
+                                    <p><strong>Message:</strong></p>
+                                    <p>{{ message["messageText"] }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="editMessage{{ message['id'] }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editMessageLabel" aria-hidden="true" data-backdrop="false">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="editMessageLabel">Edit a message</h3>
+                </div>
+                <div id="form">
+                    <form name="editMessageForm" id="editMessageForm" action="">
+                        <div class="modal-body">
+                            <input id="messageId" type="hidden" value="{{ message['id'] }}">
+                            <fieldset class="pull-right">
+                                Flag:<br/>
+                                <select name="flag" id="fieldFlag">
+                                    <option {% if message['messageStatus'] == 'CRITICAL' %}selected="selected" {% endif %}value="CRITICAL">Critical</option>
+                                    <option {% if message['messageStatus'] == 'WARNING' %}selected="selected" {% endif %}value="WARNING">Warning</option>
+                                    <option {% if message['messageStatus'] == 'RESPONDING' %}selected="selected" {% endif %}value="RESPONDING">Responding</option>
+                                    <option {% if message['messageStatus'] == 'RESOLVED' %}selected="selected" {% endif %}value="RESOLVED">Resolved</option>
+                                    <option {% if message['messageStatus'] == 'IGNORED' %}selected="selected" {% endif %}value="IGNORED">Ignored</option>
+                                    <option {% if message['messageStatus'] == 'INTERNAL' %}selected="selected" {% endif %}value="INTERNAL">Internal</option>
+                                </select>
+                            </fieldset>
+                            <br />
+                            <fieldset class="pull-left">
+                                Author:
+                                <input id="author" type="text" name="author" length="20" value="{{ message['messageAuthor'] }}"><br>
+                            </fieldset><br />
+                            <fieldset>
+                                Message:<br />
+                                <textarea id="fieldMessage" name="message" rows="10" cols="50" style="width:500px" >{{ message['messageText'] }}</textarea>
+                                <br />
+                                Hide the incident along with this message?<br />
+                                <select name="hide" id="fieldHide">
+                                    <option value="false">No</option>
+                                    <option {% if message['hidden'] %}selected="selected" {% endif %}value="true">Yes</option>
+                                </select><br />
+                            </fieldset>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Save new message"/>
+                        </div>
+                    </form>
+                </div>
+                <script type="text/javascript">
+                    $("#editMessageForm").submit(function(event) {
+                        event.preventDefault();
+                        var messageId = $("#messageId").val();
+                        var flag = $("#fieldFlag").val();
+                        var message = $("#fieldMessage").val();
+                        var author = $("#author").val();
+                        var hidden = $("#fieldHide").val();
+                        $("#incidentPane").load("ajax/saveEditMessage", {"messageId": messageId, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
+                            if (status == "error") {
+                                var msg = "Error: ";
+                                $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                            }
+                            else {
+                                $("#reportPane").fadeTo("normal",1);
+                            }
+                        });
+                    })
+                </script>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endif %}
+
