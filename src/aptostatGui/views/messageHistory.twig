@@ -16,7 +16,7 @@
 
                     <div class="accordion-inner">
 
-                        {% for message in incident["message"] %}
+                        {% for message in incident["messages"] %}
 
                             {% if message["status"] == "CRITICAL" %}
                                 {% set titleImage = "../img/cross.png" %}
