@@ -21,6 +21,7 @@ class MessageService
         foreach ($incidents as $incident) {
             $formattedMessageList[$incident["id"]]["title"] = $incident["title"];
             $formattedMessageList[$incident["id"]]["id"] = $incident["id"];
+            $formattedMessageList[$incident["id"]]["messages"] = array();
 
             foreach ($messageList['message'] as $message) {
                 if ($message["connectedToIncident"] == $incident["id"]) {
