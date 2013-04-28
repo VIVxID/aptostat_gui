@@ -71,7 +71,7 @@ class IncidentService
     private function filterByVisible($incidentList)
     {
         foreach ($incidentList['incidents'] as $currentIncident) {
-            if ($currentIncident["hidden"] == "true") {
+            if ($currentIncident["hidden"] == "true" && strtotime($currentIncident["lastMessageTimestamp"]) > strtotime("-3 days")) {
                 $checkList[] = $currentIncident;
             }
         }
