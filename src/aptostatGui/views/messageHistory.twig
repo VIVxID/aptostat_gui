@@ -9,12 +9,12 @@
             {% for incident in messageHistory %}
             <div class="accordion-group">
                 <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#{{ incident["id"] }}"><span class="label label-success"> Resolved </span>   {{ incident["title"] }}</a>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#{{ incident['id'] }}"><span class="label label-success"> Resolved </span>   {{ incident["title"] }}</a>
                 </div>
-                <div id="incident['id']" class="accordion-body collapse">
+                <div id="{{incident['id'] }}" class="accordion-body collapse">
                     <div class="accordion-inner">
 
-                        {% for message in incident["messages"] %}
+                        {% for message in incident["message"] %}
 
                             {% if message["status"] == "CRITICAL" %}
                                 {% set titleImage = "../img/cross.png" %}
