@@ -66,6 +66,14 @@ class ApiService
 
     public function postIncident($title, $author, $flag, $messageText, $reports, $hidden = false)
     {
+        if (empty($title) ||
+            empty($author) ||
+            empty($messageText) ||
+            empty($reports)
+        ) {
+            throw new \Exception('Some of the fields were empty. Please check it and try again');
+        }
+
         $postDataAsArray = array(
             'title' => $title,
             'author' => $author,

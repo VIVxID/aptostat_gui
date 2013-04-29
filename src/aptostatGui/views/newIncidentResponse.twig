@@ -1,0 +1,12 @@
+{% if status %}
+    <div class="well">
+        <h4>Success</h4>
+        <p>A new incident has been created.</p>
+        <p><-- Click somewhere else on the interface to do something else</p>
+    </div>
+{% else %}
+    <div class="well">
+        <h4>Error</h4>
+        <p>Something went wrong. Did you remember to fill out all the fields and attach reports?</p>
+    </div>
+{% endif %}
