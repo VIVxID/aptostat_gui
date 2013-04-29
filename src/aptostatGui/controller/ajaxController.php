@@ -228,34 +228,19 @@ $app->match('/admin/ajax/newIncidentResponse', function(Request $paramBag) use (
     }
 });
 
-$app->post('/admin/ajax/addReportToIncident', function(Request $paramBag) use ($app) {
+$app->post('/admin/ajax/modifyReportConnectedToIncident', function(Request $paramBag) use ($app) {
     try {
-        $reportId = $paramBag->request->get('reportId');
         $incidentId = $paramBag->request->get('incidentId');
-
-        $app['monolog']->addDebug('reportId: ' . $reportId);
-        $app['monolog']->addDebug('incidentId: ' . $incidentId);
+        $oldList = $paramBag->request->get('oldList');
+        $newList = $paramBag->request->get('newList');
 
         $apiService = new aptostatGui\Service\ApiService();
-        $apiService->addReportToIncidentById($incidentId, $reportId);
 
-        return true;
-    } catch (\Exception $e) {
-        $app['monolog']->addDebug($e->getMessage());
-        return "Something went wrong. Please try again.";
-    }
-});
+        if (!empty($oldList)) {
+            $apiService->removeReportToIncidentById($incidentId, $oldList);
+        }
 
-$app->post('/admin/ajax/removeReportToIncident', function(Request $paramBag) use ($app) {
-    try {
-        $reportId = $paramBag->request->get('reportId');
-        $incidentId = $paramBag->request->get('incidentId');
-
-        $app['monolog']->addDebug('reportId: ' . $reportId);
-        $app['monolog']->addDebug('incidentId: ' . $incidentId);
-
-        $apiService = new aptostatGui\Service\ApiService();
-        $apiService->removeReportToIncidentById($incidentId, $reportId);
+        $apiService->addReportToIncidentById($incidentId, $newList);
 
         return true;
     } catch (\Exception $e) {

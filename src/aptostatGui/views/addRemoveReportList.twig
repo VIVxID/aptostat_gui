@@ -37,17 +37,14 @@
         </div>
         <div id='{{ collapseOrder }}' class='accordion-body collapse'>
             <div class='accordion-inner'>
-                <ol>
+                <ol class="selectable">
                     {% for report in reports %}
                         {% if report['id'] in conRepList %}
-                            <li class='report file ui-widget-content' style="color: #999;"id='report_{{ report["id"] }}'>
-                                Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
-                                <button class="btn btn-primary pull-right disabled" id="addReport" value="{{ report['id'] }}"><i class="icon-plus-sign icon-white"></i>Report already connected</button>
+                            <li class='report file ui-widget-content ui-selected' id='report_{{ report["id"] }}'>
                         {% else %}
                             <li class='report file ui-widget-content' id='report_{{ report["id"] }}'>
-                                Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
-                                <button class="btn btn-primary pull-right addReport" value="{{ report['id'] }}"><i class="icon-plus-sign icon-white"></i> Add report</button>
                         {% endif %}
+                                Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
                                 <p class='tinytext'><strong>Check Type:</strong> {{ report["checkType"]|capitalize }}</p>
                                 <p class='tinytext'><strong>Created timestamp:</strong> {{ report["createdTimestamp"]|date("d.M Y H:i") }}</p>
                                 <p class='tinytext'><strong>Last updated timestamp:</strong> {{ report["lastUpdatedTimestamp"]|date("d.M Y H:i") }}</p>

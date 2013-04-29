@@ -38,12 +38,28 @@
                                     </fieldset>
                                     <fieldset>
                                         <h4>Included reports:</h4>
-                                        {% include 'connectedReportsList.twig' %}
+                                        {% if conRepList is defined %}
+                                            {% set list = null %}
+                                            {% for report in conRepList %}
+                                                {% set list = list ~ '#' ~ report ~ ' ' %}
+                                            {% endfor %}
+                                            <table border="0">
+                                                <tr>
+                                                    <span id='selectedReports'>{{ list }}</span><br /><br />
+                                                </tr>
+                                            </table>
+                                        {% else %}
+                                            <table border="0">
+                                                <tr>
+                                                    <span id='selectedReports'>Click reports to include them</span><br /><br />
+                                                </tr>
+                                            </table>
+                                        {% endif %}
                                 </div>
                             </div>
-
                             <div class="list_content_menu">
                                 <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Go back</a>
+                                <input type="submit" class="btn btn-primary" value="Save" id="submitBtn" style="float:right" />
                             </div>
                         </form>
                     </div>
@@ -54,25 +70,46 @@
         <script type="text/javascript">
 
             $(document).ready(function () {
-                $(".addReport").on("click", function(event) {
+                $("#submitBtn").on("click", function(event) {
                     event.preventDefault();
-                    var reportId = $(this).val();
+                    var oldList = {{ conRepList|json_encode() }};
+                    var newList = selectedReports;
                     var incidentId = {{ incident['id'] }};
-                    $.post('../ajax/addReportToIncident', { 'reportId': reportId, 'incidentId': incidentId }, function() {
+
+                    console.log(oldList);
+                    console.log(newList);
+                    console.log(incidentId);
+
+                    $.post('../ajax/modifyReportConnectedToIncident', { 'oldList': oldList, 'newList': newList, 'incidentId': incidentId }, function() {
                         location.reload();
                     });
                 });
 
-                $(".removeReport").on("click", function(event) {
-                    event.preventDefault();
-                    var reportId = $(this).val();
-                    var incidentId = {{ incident['id'] }};
-                    $.post('../ajax/removeReportToIncident', { 'reportId': reportId, 'incidentId': incidentId }, function() {
-                        location.reload();
+                // Selectable
+                var selectedReports = [];
+                $(function() {
+                    $(".selectable").bind("mousedown", function(event) {
+                        event.metaKey = true;
+                    }).selectable({
+                        tolerance: 'fit',
+                        stop: function() {
+                            var result = $( "#selectedReports" ).empty();
+                            selectedReports.length = 0;
+                            var i = 0;
+                            $(".ui-selected", $("#accordion2")).each(function() {
+                                var itemId = $(this).attr('id');
+                                var item = itemId.replace("report_", "");
+                                selectedReports[i] = item;
+                                i++;
+                            });
+                            for (var i=0;i<selectedReports.length;i++) {
+                                result.append( "#" + selectedReports[i] + " " );
+                            }
+                        }
                     });
-                });
+                })
+
             });
-
 
         </script>
 
