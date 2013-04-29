@@ -43,6 +43,7 @@
                         Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
                         <p class='tinytext'>Check type: {{ report["checkType"] }}</p>
                         <p class='tinytext'>Error message: {{ report["errorMessage"] }}</p>
+                        <p class='tinytext'>Host: {{ report["host"] }}</p>
                     </li>
                     {% endfor %}
                 </ol>

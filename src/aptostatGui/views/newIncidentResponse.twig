@@ -2,7 +2,7 @@
     <div class="well">
         <h4>Success</h4>
         <p>A new incident has been created.</p>
-        <p><-- Click somewhere else on the interface to do something else</p>
+        <a href="{{ app.url_generator.generate('manage') }}"
     </div>
 {% else %}
     <div class="well">
