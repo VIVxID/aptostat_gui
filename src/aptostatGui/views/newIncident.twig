@@ -28,9 +28,9 @@
                     Details for selected report
                 </div>
 
-                <form name="incidentForm" action="" id="messageForm" method="post">
-                    <div class="groupbox_wrapper" id="incidentForm">
-                        <div id="form">
+                <form name="incidentForm" action="" id="incidentForm" method="post">
+                    <div class="groupbox_wrapper">
+                        <div>
                             <fieldset>
                                 <legend>New incident</legend>
                                 <h4>Title:</h4>
@@ -117,7 +117,7 @@
                     $(".ui-selected", $("#accordion2")).each(function() {
                         var itemId = $(this).attr('id');
                         var item = itemId.replace("report_", "");
-                        selectedReports[] = item;
+                        selectedReports.push(item);
                     });
                     for (var i=0;i<selectedReports.length;i++) {
                         result.append( "#" + selectedReports[i] + " " );
@@ -128,22 +128,18 @@
 
         $("#incidentForm").submit(function(event) {
             event.preventDefault();
-            var author = $("#fieldAuthor").val();
-            var title = $("#fieldTitle").val();
-            var flag = $("#fieldFlag").val();
-            var message = $("#fieldMessage").val();
-            var incident = $("#fieldIncident").val();
-            var hidden = $("#fieldHide").val();
-            $("#incidentPane").post("ajax/newIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, "hidden": hidden}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                    $("#cancelBtn").hide();
-                    $("#submitBtn").hide();
-                }
+            var content = {};
+            content.author = $("#fieldAuthor").val();
+            content.title = $("#fieldTitle").val();
+            content.flag = $("#fieldFlag").val();
+            content.message = $("#fieldMessage").val();
+            content.incident = $("#fieldIncident").val();
+            content.hidden = $("#fieldHide").val();
+            content.reports = selectedReports
+            $.ajax({
+                url: "ajax/newIncident",
+                data: content,
+                type: "POST"
             })
         });
     });
