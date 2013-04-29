@@ -137,7 +137,7 @@
             content.hidden = $("#fieldHide").val();
             content.reports = selectedReports
             $.ajax({
-                url: "ajax/newIncident",
+                url: "ajax/saveNewIncident",
                 data: content,
                 type: "POST"
             })
