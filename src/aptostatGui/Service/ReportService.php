@@ -31,6 +31,19 @@ class ReportService
         $apiService = new ApiService();
         $report = $apiService->getReportById($id);
 
+        foreach ($report["reports"]["statusHistory"] as $update) {
+
+            $dateKey[strtotime($update["updateTimestamp"])] = $update;
+
+        }
+
+        krsort($dateKey);
+        unset($report["reports"]["statusHistory"]);
+
+        foreach ($dateKey as $update) {
+            $report["reports"]["statusHistory"][] = $update;
+        }
+
         return $report;
 
     }

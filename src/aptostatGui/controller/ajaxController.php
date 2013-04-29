@@ -6,9 +6,9 @@ $app->match('/admin/ajax/viewReport', function(Request $paramBag) use ($app) {
 
     try {
         $reportId = $paramBag->request->get('report');
-        $apiService = new aptostatGui\Service\ApiService();
+        $reportService = new aptostatGui\Service\ReportService();
 
-        $report = $apiService->getReportById($reportId);
+        $report = $reportService->getSingleReportAsArray($reportId);
 
         $includeBag = array(
             'report' => $report['reports'],

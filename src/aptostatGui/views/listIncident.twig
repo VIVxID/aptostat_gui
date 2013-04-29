@@ -4,11 +4,14 @@
         {% set criticalsExist = 0 %}
         {% set warningsExist = 0 %}
 
-        {% if incident["lastStatus"] == "WARNING" %}
-            {% set warningsExist = 1 %}
-        {% elseif incident["lastStatus"] == "CRITICAL" %}
-            {% set criticalsExist = 1 %}
-        {% endif %}
+        {% for report in incident["connectedReports"] %}
+            {% if report == "WARNING" %}
+                {% set warningsExist = 1 %}
+            {% elseif report == "CRITICAL" %}
+                {% set criticalsExist = 1 %}
+            {% endif %}
+        {% endfor %}
+
 
         {% if criticalsExist == 1 %}
             {% set titleImage = "../img/cross.png" %}
