@@ -139,5 +139,21 @@
     
     <a href="#" id="editIncident" class="btn btn-danger">Back</a>
 
+    <script type="text/javascript">
+        $("#editIncident").click(function(event) {
+            $("#incidentPane").css("opacity", "0");
+            $("#incidentPane").load("ajax/editIncident", {"incident": incident}, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentPane").fadeTo("normal",1);
+                }
+            });
+            event.preventDefault();
+        });
+    </script>
+    
 {% endif %}
 
