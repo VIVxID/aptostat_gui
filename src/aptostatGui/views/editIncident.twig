@@ -23,14 +23,15 @@
 
 <a href="#newMessage" role="button" class="btn btn-info" data-toggle="modal">New message <i class="icon-plus-sign icon-white"></i></a>
 <a href="#" id="editMessage" role="button" class="btn btn-info">Edit a message <i class="icon-pencil icon-white"></i></a>
-<a href="#" role="button" class="btn btn-info" data-toggle="modal">Add/remove connected reports <i class="icon-pencil icon-white"></i></a>
+<a href="{{ app.url_generator.generate('addRemoveReports', { 'incidentId': incident['id'] }) }}" class="btn btn-info">Add/remove connected reports <i class='icon-pencil icon-white'></i></a>
 
 {% include 'editTitle.twig' %}
 {% include 'newMessage.twig' %}
 
 
 <script type="text/javascript">
-    //load editMessage on click
+
+    // Listener for editMessage button
     $("#editMessage").click(function(event) {
         $("#incidentPane").css("opacity", "0");
         $("#incidentPane").load("ajax/editMessage", {"incident": incident}, function(response, status, xhr) {

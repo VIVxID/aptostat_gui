@@ -29,6 +29,14 @@
                 {% set titleImage = "../img/check.png" %}
                 {% set altText = "Resolved" %}
                 {% set statusLabel = '<span class="label label-success">RESOLVED</span>' %}
+            {% elseif message["messageStatus"] == "INTERNAL" %}
+                {% set titleImage = "../img/warning.png" %}
+                {% set altText = "INTERNAL" %}
+                {% set statusLabel = '<span class="label label-warning">INTERNAL</span>' %}
+            {% elseif message["messageStatus"] == "IGNORED" %}
+                {% set titleImage = "../img/check.png" %}
+                {% set altText = "Ignored" %}
+                {% set statusLabel = '<span class="label label-inverse">IGNORED</span>' %}
             {% endif %}
 
             <div class="accordion-group">
@@ -44,7 +52,7 @@
                                 <td style="width:20%;text-align: center"><strong>Status:</strong> <br><img src='{{ titleImage }}' alt='{{ altText }}'></td>
                                 <td>
                                     <p><strong>Author:</strong> {{ message["messageAuthor"] }}</p>
-                                    <p><strong>Hidden?:</strong> {% if message['hidden'] %}True{% else %}False{% endif %}</p>
+                                    <p><strong>Hidden:</strong> {% if message['hidden'] %}True{% else %}False{% endif %}</p>
                                 </td>
                             </tr>
                             <tr>

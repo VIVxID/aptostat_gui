@@ -55,3 +55,57 @@ $app->match('/admin/newIncident', function(Request $paramBag) use ($app) {
         return "Something went wrong. Please try again.";
     }
 });
+
+$app->match('/admin/addRemoveReports/{incidentId}', function(Request $paramBag, $incidentId) use ($app) {
+    try {
+        $apiService = new aptostatGui\Service\ApiService();
+
+        $incident = $apiService->getIncidentById($incidentId);
+
+        // Reports module
+        try {
+            $reportService = new aptostatGui\Service\ReportService();
+            $currentReports = $reportService->getReportsAsArray();
+        } catch (Exception $e) {
+            $currentReports = null;
+            $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        }
+
+        // Connected reports list
+        try {
+            $reportService = new aptostatGui\Service\ReportService();
+            $connectedReports = $reportService->getConnectedReportsAsArray($incidentId);
+        } catch (Exception $e) {
+            $connectedReports = null;
+            $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        }
+
+        // Create a list over connectedReports
+        try {
+            $list = $incident['incidents']['connectedReports'];
+
+            foreach ($list as $key => $value) {
+                $conRepList[] = $key;
+            }
+
+            $includeBag['conRepList'] = $conRepList;
+        } catch (Exception $e) {
+            $conRepList = null;
+            $app['monolog']->addDebug('Notice: Could not create conRepList');
+        }
+
+
+        $includeBag = array(
+            'incident' => $incident['incidents'],
+            'currentReports' => $currentReports,
+            'connectedReports' => $connectedReports,
+            'conRepList' => $conRepList,
+        );
+
+        return $app['twig']->render('addRemoveReports.twig', $includeBag);
+    } catch (\Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+})
+->bind('addRemoveReports');

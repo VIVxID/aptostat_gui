@@ -64,6 +64,10 @@ class ApiService
         return $this->getDataFromApi('api/live');
     }
 
+    public function getConnectedReports($id) {
+        return $this->getDataFromApi('api/incident/'.$id.'/report');
+    }
+
     public function postIncident($title, $author, $flag, $messageText, $reports, $hidden = false)
     {
         if (empty($title) ||
@@ -153,7 +157,7 @@ class ApiService
 
     public function addReportToIncidentById($incidentId, $reports)
     {
-        $putDataAsArray['reportAction'] = 'add';
+        $putDataAsArray['reportAction'] = 'addReports';
         $putDataAsArray['reports'] = $reports;
 
         $subUrl = 'api/incident/' . $incidentId;
@@ -163,7 +167,7 @@ class ApiService
 
     public function removeReportToIncidentById($incidentId, $reports)
     {
-        $putDataAsArray['reportAction'] = 'remove';
+        $putDataAsArray['reportAction'] = 'removeReports';
         $putDataAsArray['reports'] = $reports;
 
         $subUrl = 'api/incident/' . $incidentId;

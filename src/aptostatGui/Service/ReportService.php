@@ -25,6 +25,25 @@ class ReportService
 
     }
 
+    public function getConnectedReportsAsArray($id)
+    {
+
+        $apiService = new ApiService();
+        $reports = $apiService->getConnectedReports($id);
+
+        foreach ($reports["reports"] as $report) {
+
+            if ($report["flag"] != "RESOLVED") {
+                $groups[$report["host"]][] = $report;
+            }
+
+        }
+        ksort($groups);
+
+        return $groups;
+
+    }
+
     public function getSingleReportAsArray($id)
     {
 

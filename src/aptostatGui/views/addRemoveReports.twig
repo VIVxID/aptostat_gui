@@ -1,0 +1,80 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Make a new incident{% endblock %}
+
+{% block content %}
+    {% include 'adminHeader.twig' %}
+
+        <div id="content_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="list_content index-top" id="groupbox_reports">
+                        <div class="groupbox_heading">
+                            Reports
+                            <p style="margin-right:6px" class="right">Status</p>
+                        </div>
+                        <div class="groupbox_wrapper">
+                            <div class="accordion" id="accordion2">
+                                {% include 'addRemoveReportList.twig' %}
+                            </div>
+                        </div>
+                        <div class="list_content_menu">
+
+                        </div>
+                    </div>
+
+                    <div class="list_content index-top" id="groupbox_details">
+                        <div class="groupbox_heading">
+                            Add/remove connected reports
+                        </div>
+
+                        <form name="addRemoveForm" action="" id="addRemoveForm" method="post">
+                            <div class="groupbox_wrapper" id="groupbox_content">
+                                <div>
+                                    <fieldset>
+                                        <p><strong>Incident title: </strong>{{ incident['title'] }}</p>
+                                        <p><strong>Incident Id: </strong>{{ incident['id'] }}</p>
+                                        <br>
+                                    </fieldset>
+                                    <fieldset>
+                                        <h4>Included reports:</h4>
+                                        {% include 'connectedReportsList.twig' %}
+                                </div>
+                            </div>
+
+                            <div class="list_content_menu">
+                                <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Go back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $(".addReport").on("click", function(event) {
+                    event.preventDefault();
+                    var reportId = $(this).val();
+                    var incidentId = {{ incident['id'] }};
+                    $.post('../ajax/addReportToIncident', { 'reportId': reportId, 'incidentId': incidentId }, function() {
+                        location.reload();
+                    });
+                });
+
+                $(".removeReport").on("click", function(event) {
+                    event.preventDefault();
+                    var reportId = $(this).val();
+                    var incidentId = {{ incident['id'] }};
+                    $.post('../ajax/removeReportToIncident', { 'reportId': reportId, 'incidentId': incidentId }, function() {
+                        location.reload();
+                    });
+                });
+            });
+
+
+        </script>
+
+
+{% endblock %}

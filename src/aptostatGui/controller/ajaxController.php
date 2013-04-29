@@ -227,3 +227,39 @@ $app->match('/admin/ajax/newIncidentResponse', function(Request $paramBag) use (
         return "Something went wrong. Please try again.";
     }
 });
+
+$app->post('/admin/ajax/addReportToIncident', function(Request $paramBag) use ($app) {
+    try {
+        $reportId = $paramBag->request->get('reportId');
+        $incidentId = $paramBag->request->get('incidentId');
+
+        $app['monolog']->addDebug('reportId: ' . $reportId);
+        $app['monolog']->addDebug('incidentId: ' . $incidentId);
+
+        $apiService = new aptostatGui\Service\ApiService();
+        $apiService->addReportToIncidentById($incidentId, $reportId);
+
+        return true;
+    } catch (\Exception $e) {
+        $app['monolog']->addDebug($e->getMessage());
+        return "Something went wrong. Please try again.";
+    }
+});
+
+$app->post('/admin/ajax/removeReportToIncident', function(Request $paramBag) use ($app) {
+    try {
+        $reportId = $paramBag->request->get('reportId');
+        $incidentId = $paramBag->request->get('incidentId');
+
+        $app['monolog']->addDebug('reportId: ' . $reportId);
+        $app['monolog']->addDebug('incidentId: ' . $incidentId);
+
+        $apiService = new aptostatGui\Service\ApiService();
+        $apiService->removeReportToIncidentById($incidentId, $reportId);
+
+        return true;
+    } catch (\Exception $e) {
+        $app['monolog']->addDebug($e->getMessage());
+        return "Something went wrong. Please try again.";
+    }
+});
