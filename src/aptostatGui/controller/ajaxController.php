@@ -172,16 +172,21 @@ $app->post('/admin/ajax/saveNewIncident', function(Request $paramBag) use ($app)
 
         $apiService = new aptostatGui\Service\ApiService();
 
+        $app['monolog']->addDebug('Calling postIncident method...');
         $apiService->postIncident($incidentTitle,$messageAuthor,$messageFlag,$messageText,$incidentReports,$hidden);
 
+        $app['monolog']->addDebug('postIncident method successfully passed');
+
         $includeBag = array(
-            "messageSent" => true
+            "incidentCreated" => true,
         );
 
-        return $app['twig']->render('newIncident.twig', $includeBag);
+        $app['monolog']->addDebug('About to render out newIncident.twig');
+
+        return "";
     } catch (\Exception $e) {
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
-        return "Something went wrong. Please try again.";
+        return $app->json("Fail", 400);
     }
 });
 
@@ -205,3 +210,20 @@ $app->post('/admin/ajax/editTitle', function(Request $paramBag) use ($app) {
     }
 });
 
+$app->match('/admin/ajax/newIncidentResponse', function(Request $paramBag) use ($app) {
+    try {
+        if ($paramBag->request->get('status') == 400) {
+            $response = false;
+        } else {
+            $response = true;
+        }
+
+        $includeBag = array(
+            'status' => $response,
+        );
+
+        return $app['twig']->render('newIncidentResponse.twig', $includeBag);
+    } catch (\Exception $e) {
+        return "Something went wrong. Please try again.";
+    }
+});

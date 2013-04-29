@@ -5,164 +5,180 @@
 {% block content %}
     {% include 'adminHeader.twig' %}
 
-<div id="content_wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="list_content index-top" id="groupbox_reports">
-                <div class="groupbox_heading">
-                    Open reports
-                    <p style="margin-right:6px" class="right">Status</p>
-                </div>
-                <div class="groupbox_wrapper">
-                    <div class="accordion" id="accordion2">
-                        {% include 'reportList.twig' %}
+    {% if incidentCreated is defined %}
+        <div class="well">
+            <h4>Success</h4>
+            <p>The incident has been created</p>
+            <p><-- Click somewhere else on the interface to do something else</p>
+        </div>
+    {% else %}
+
+    <div id="content_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="list_content index-top" id="groupbox_reports">
+                    <div class="groupbox_heading">
+                        Open reports
+                        <p style="margin-right:6px" class="right">Status</p>
                     </div>
-                </div>
-                <div class="list_content_menu">
-
-                </div>
-            </div>
-
-            <div class="list_content index-top" id="groupbox_details">
-                <div class="groupbox_heading">
-                    Details for selected report
-                </div>
-
-                <form name="incidentForm" action="" id="incidentForm" method="post">
                     <div class="groupbox_wrapper">
-                        <div>
-                            <fieldset>
-                                <legend>New incident</legend>
-                                <h4>Title:</h4>
-                                <input name="title" type="text" length="20" id="fieldTitle" />
-                            </fieldset>
-                            <fieldset>
-                                <h4>Included reports:</h4>
-                                <table border="0">
-                                    <tr>
-                                        <span id='selectedReports'>Click reports to include them</span><br /><br />
-                                    </tr>
-                                </table>
-
-                                <script type="text/javascript">
-                                    $(document).ready(function () {
-                                        var selectedReports = [];
-                                        $(function() {
-                                            $(".selectable").bind("mousedown", function(event) {
-                                                event.metaKey = true;
-                                            }).selectable({
-                                                tolerance: 'fit',
-                                                stop: function() {
-                                                    var result = $( "#selectedReports" ).empty();
-                                                    selectedReports.length = 0;
-                                                    var i = 0;
-                                                    $(".ui-selected", $("#accordion2")).each(function() {
-                                                        var itemId = $(this).attr('id');
-                                                        var item = itemId.replace("report_", "");
-                                                        selectedReports[i] = item;
-                                                        i++;
-                                                    });
-                                                    for (var i=0;i<selectedReports.length;i++) {
-                                                        result.append( "#" + selectedReports[i] + " " );
-                                                    }
-                                                }
-                                            });
-                                        })
-                                    });
-                                </script>
-
-                                <span>Flag:</span><br />
-                                <select name="flag" id="fieldFlag">
-                                    <option value="CRITICAL">Critical</option>
-                                    <option value="WARNING">Warning</option>
-                                    <option value="RESPONDING">Responding</option>
-                                    <option value="RESOLVED">Resolved</option>
-                                    <option value="IGNORED">Ignored</option>
-                                    <option value="INTERNAL">Internal</option>
-                                </select>
-                            </fieldset>
-
-                            <fieldset>
-                                <legend>Message</legend>
-                                <span>Author:</span><br />
-                                <input name="author" type="text" length="20" id="fieldAuthor" /><br />
-                                <span>Message:</span><br />
-                                <textarea id="fieldMessage" name="message" rows="5" cols="50">Write message here...</textarea><br />
-                            </fieldset>
+                        <div class="accordion" id="accordion2">
+                            {% include 'reportList.twig' %}
                         </div>
                     </div>
-
                     <div class="list_content_menu">
-                        <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Cancel</a>
-                        <input type="submit" class="btn btn-primary" value="Save" id="submitBtn" style="float:right" />
+
                     </div>
-                </form>
+                </div>
+
+                <div class="list_content index-top" id="groupbox_details">
+                    <div class="groupbox_heading">
+                        Details for selected report
+                    </div>
+
+                    <form name="incidentForm" action="" id="incidentForm" method="post">
+                        <div class="groupbox_wrapper" id="groupbox_content">
+                            <div>
+                                <fieldset>
+                                    <legend>New incident</legend>
+                                    <h4>Title:</h4>
+                                    <input name="title" type="text" length="20" id="fieldTitle" />
+                                </fieldset>
+                                <fieldset>
+                                    <h4>Included reports:</h4>
+                                    <table border="0">
+                                        <tr>
+                                            <span id='selectedReports'>Click reports to include them</span><br /><br />
+                                        </tr>
+                                    </table>
+
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            var selectedReports = [];
+                                            $(function() {
+                                                $(".selectable").bind("mousedown", function(event) {
+                                                    event.metaKey = true;
+                                                }).selectable({
+                                                    tolerance: 'fit',
+                                                    stop: function() {
+                                                        var result = $( "#selectedReports" ).empty();
+                                                        selectedReports.length = 0;
+                                                        var i = 0;
+                                                        $(".ui-selected", $("#accordion2")).each(function() {
+                                                            var itemId = $(this).attr('id');
+                                                            var item = itemId.replace("report_", "");
+                                                            selectedReports[i] = item;
+                                                            i++;
+                                                        });
+                                                        for (var i=0;i<selectedReports.length;i++) {
+                                                            result.append( "#" + selectedReports[i] + " " );
+                                                        }
+                                                    }
+                                                });
+                                            })
+                                        });
+                                    </script>
+
+                                    <span>Flag:</span><br />
+                                    <select name="flag" id="fieldFlag">
+                                        <option value="CRITICAL">Critical</option>
+                                        <option value="WARNING">Warning</option>
+                                        <option value="RESPONDING">Responding</option>
+                                        <option value="RESOLVED">Resolved</option>
+                                        <option value="IGNORED">Ignored</option>
+                                        <option value="INTERNAL">Internal</option>
+                                    </select>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend>Message</legend>
+                                    <span>Author:</span><br />
+                                    <input name="author" type="text" length="20" id="fieldAuthor" /><br />
+                                    <span>Message:</span><br />
+                                    <textarea id="fieldMessage" name="message" rows="5" cols="50">Write message here...</textarea><br />
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="list_content_menu">
+                            <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Cancel</a>
+                            <input type="submit" class="btn btn-primary" value="Save" id="submitBtn" style="float:right" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $(document).ready(function () {
-        var selectedReports = [];
-        $(function() {
-            $(".selectable").bind("mousedown", function(event) {
-                event.metaKey = true;
-            }).selectable({
-                tolerance: 'fit',
-                stop: function() {
-                    var result = $( "#selectedReports" ).empty();
-                    selectedReports.length = 0;
-                    $(".ui-selected", $("#accordion2")).each(function() {
-                        var itemId = $(this).attr('id');
-                        var item = itemId.replace("report_", "");
-                        selectedReports.push(item);
-                    });
-                    for (var i=0;i<selectedReports.length;i++) {
-                        result.append( "#" + selectedReports[i] + " " );
+        $(document).ready(function () {
+            var selectedReports = [];
+            $(function() {
+                $(".selectable").bind("mousedown", function(event) {
+                    event.metaKey = true;
+                }).selectable({
+                    tolerance: 'fit',
+                    stop: function() {
+                        var result = $( "#selectedReports" ).empty();
+                        selectedReports.length = 0;
+                        $(".ui-selected", $("#accordion2")).each(function() {
+                            var itemId = $(this).attr('id');
+                            var item = itemId.replace("report_", "");
+                            selectedReports.push(item);
+                        });
+                        for (var i=0;i<selectedReports.length;i++) {
+                            result.append( "#" + selectedReports[i] + " " );
+                        }
                     }
-                }
-            })
+                })
+            });
+
+            $("#incidentForm").submit(function(event) {
+                event.preventDefault();
+                /*var author = $("#fieldAuthor").val();
+                var title = $("#fieldTitle").val();
+                var flag = $("#fieldFlag").val();
+                var message = $("#fieldMessage").val();
+                var incident = $("#fieldIncident").val();
+                var hidden = $("#fieldHide").val();
+                $("#incidentPane").post("ajax/saveNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, "hidden": hidden}, function(response, status, xhr) {
+                    if (status == "error") {
+                        var msg = "Error: ";
+                        $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                        $("#cancelBtn").hide();
+                        $("#submitBtn").hide();
+                    }
+                    else {
+                        $("#incidentPane").fadeTo("normal",1);
+                        $("#cancelBtn").hide();
+                        $("#submitBtn").hide();
+                    }*/
+                var content = {};
+                content.author = $("#fieldAuthor").val();
+                content.title = $("#fieldTitle").val();
+                content.flag = $("#fieldFlag").val();
+                content.message = $("#fieldMessage").val();
+                content.incident = $("#fieldIncident").val();
+                content.hidden = $("#fieldHide").val();
+                content.reports = selectedReports
+                $.ajax({
+                    url: "ajax/saveNewIncident",
+                    data: content,
+                    type: "POST"
+                }).complete(function (response) {
+                    if (response.status == 400) {
+                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 400});
+                    } else {
+                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});
+                    }
+                    console.log(response);
+                })
+            });
         });
 
-        $("#incidentForm").submit(function(event) {
-            event.preventDefault();
-            /*var author = $("#fieldAuthor").val();
-            var title = $("#fieldTitle").val();
-            var flag = $("#fieldFlag").val();
-            var message = $("#fieldMessage").val();
-            var incident = $("#fieldIncident").val();
-            var hidden = $("#fieldHide").val();
-            $("#incidentPane").post("ajax/saveNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, "hidden": hidden}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                    $("#cancelBtn").hide();
-                    $("#submitBtn").hide();
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                    $("#cancelBtn").hide();
-                    $("#submitBtn").hide();
-                }*/
-            var content = {};
-            content.author = $("#fieldAuthor").val();
-            content.title = $("#fieldTitle").val();
-            content.flag = $("#fieldFlag").val();
-            content.message = $("#fieldMessage").val();
-            content.incident = $("#fieldIncident").val();
-            content.hidden = $("#fieldHide").val();
-            content.reports = selectedReports
-            $.ajax({
-                url: "ajax/saveNewIncident",
-                data: content,
-                type: "POST"
-            })
-        });
-    });
-
-</script>
+    </script>
+    {% endif %}
 
             
 {% endblock %}
