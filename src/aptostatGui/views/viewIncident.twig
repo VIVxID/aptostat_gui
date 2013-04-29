@@ -10,9 +10,9 @@
         <p>Current incident status: <span class="label label-success">{{ incident["lastStatus"] }}</span></p>
     {% endif %}
     {% if incident['hidden'] %}
-        <p>Currently hidden?: True</p>
+        <p>Currently hidden: True</p>
     {% else %}
-        <p>Currently hidden?: False</p>
+        <p>Currently hidden: False</p>
     {% endif %}
     <hr />
 
@@ -44,9 +44,9 @@
             <p>Author: {{ message["messageAuthor"] }}</p>
             <p>Message: {{ message["messageText"] }}</p>
             {% if message['hidden'] %}
-                <p>Hidden?: True</p>
+                <p>Hidden: True</p>
             {% else %}
-                <p>Hidden?: False</p>
+                <p>Hidden: False</p>
             {% endif %}
         </div>
     {% endfor %}
