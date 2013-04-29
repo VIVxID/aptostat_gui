@@ -39,14 +39,34 @@
                                     <fieldset>
                                         <h4>Included reports:</h4>
                                         {% if conRepList is defined %}
-                                            {% set list = null %}
-                                            {% for report in conRepList %}
-                                                {% set list = list ~ '#' ~ report ~ ' ' %}
-                                            {% endfor %}
-                                            <table border="0">
-                                                <tr>
-                                                    <span id='selectedReports'>{{ list }}</span><br /><br />
-                                                </tr>
+                                            <table class="table table-striped table-condensed">
+                                                {% set list = null %}
+                                                <tbody id="selectedReports">
+                                                    {% for report in conRepList %}
+                                                        <tr>
+                                                            <td># {{ report }}</td>
+                                                            <td>
+                                                                {% if incident['connectedReports'][report] == 'WARNING' %}
+                                                                    <span class="label label-warning">{{ incident['connectedReports'][report] }}</span>
+                                                                {% elseif incident['connectedReports'][report] == 'CRITICAL' %}
+                                                                    <span class="label label-important">{{ incident['connectedReports'][report] }}</span>
+                                                                {% elseif incident['connectedReports'][report] == 'RESPONDING' %}
+                                                                    <span class="label label-success">{{ incident['connectedReports'][report] }}</span>
+                                                                {% elseif incident['connectedReports'][report] == 'RESOLVED' %}
+                                                                    <span class="label label-success">{{ incident['connectedReports'][report] }}</span>
+                                                                {% else %}
+                                                                    <span class="label label-inverse">{{ incident['connectedReports'][report] }}</span>
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                                <thead>
+                                                    <tr>
+                                                        <th>ReportID</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
                                             </table>
                                         {% else %}
                                             <table border="0">
@@ -59,8 +79,9 @@
                             </div>
                             <div class="list_content_menu">
                                 <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Go back</a>
-                                <input type="submit" class="btn btn-primary" value="Save" id="submitBtn" style="float:right" />
+                                <input type="submit" class="btn btn-primary" data-loading-text="Saving..." value="Save" id="submitBtn" style="float:right" />
                             </div>
+                            <input type="hidden" name="statusList" id="statusList" value="{{ statusList|json_encode() }}">
                         </form>
                     </div>
                 </div>
@@ -103,7 +124,19 @@
                                 i++;
                             });
                             for (var i=0;i<selectedReports.length;i++) {
-                                result.append( "#" + selectedReports[i] + " " );
+                                var statusList = $("#statusList").val();
+                                statusList = $.parseJSON(statusList);
+                                if (statusList[selectedReports[i]] == 'WARNING') {
+                                    result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-warning'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                                } else if (statusList[selectedReports[i]] == 'CRITICAL') {
+                                    result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-important'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                                } else if (statusList[selectedReports[i]] == 'RESOLVED') {
+                                    result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-success'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                                } else if (statusList[selectedReports[i]] == 'RESPONDING') {
+                                    result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-success'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                                } else {
+                                    result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-inverse'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                                }
                             }
                         }
                     });

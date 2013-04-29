@@ -46,10 +46,20 @@
                                 </fieldset>
                                 <fieldset>
                                     <h4>Included reports:</h4>
-                                        <table border="0">
-                                            <tr>
-                                                <span id='selectedReports'>Click reports to include them</span><br /><br />
-                                            </tr>
+                                        <table class="table table-striped table-condensed">
+                                            <tbody id="selectedReports">
+                                                <tr>
+                                                    <td>
+                                                        Click reports to include them
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th>ReportID</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
                                         </table>
 
                                     <script type="text/javascript">
@@ -104,6 +114,7 @@
                             <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Cancel</a>
                             <input type="submit" class="btn btn-primary" value="Save" id="submitBtn" style="float:right" />
                         </div>
+                        <input type="hidden" name="statusList" id="statusList" value="{{ statusList|json_encode() }}">
                     </form>
                 </div>
             </div>
@@ -128,7 +139,19 @@
                             selectedReports.push(item);
                         });
                         for (var i=0;i<selectedReports.length;i++) {
-                            result.append( "#" + selectedReports[i] + " " );
+                            var statusList = $("#statusList").val();
+                            statusList = $.parseJSON(statusList);
+                            if (statusList[selectedReports[i]] == 'WARNING') {
+                                result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-warning'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                            } else if (statusList[selectedReports[i]] == 'CRITICAL') {
+                                result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-important'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                            } else if (statusList[selectedReports[i]] == 'RESOLVED') {
+                                result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-success'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                            } else if (statusList[selectedReports[i]] == 'RESPONDING') {
+                                result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-success'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                            } else {
+                                result.append( "<tr><td>" + selectedReports[i] + "</td><td><span class='label label-inverse'>" + statusList[selectedReports[i]] + "</span></td></tr>");
+                            }
                         }
                     }
                 })

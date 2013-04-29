@@ -45,8 +45,26 @@ $app->match('/admin/newIncident', function(Request $paramBag) use ($app) {
             $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
         }
 
+        // Create a status list
+        try {
+            $apiService = new aptostatGui\Service\ApiService();
+            $reportList = $apiService->getReportList();
+
+            foreach ($reportList['reports'] as $report) {
+                $id = $report['id'];
+                $status = $report['flag'];
+                $statusList[$id] = $status;
+            }
+
+            $includeBag['statusList'] = $statusList;
+        } catch (Exception $e) {
+            $statusList = null;
+            $app['monolog']->addDebug('Notice: Could not create conRepList');
+        }
+
         $includeBag = array(
             'currentReports' => $currentReports,
+            'statusList' => $statusList,
         );
 
         return $app['twig']->render('newIncident.twig', $includeBag);
@@ -94,12 +112,28 @@ $app->match('/admin/addRemoveReports/{incidentId}', function(Request $paramBag, 
             $app['monolog']->addDebug('Notice: Could not create conRepList');
         }
 
+        // Create a status list
+        try {
+            $reportList = $apiService->getReportList();
+
+            foreach ($reportList['reports'] as $report) {
+                $id = $report['id'];
+                $status = $report['flag'];
+                $statusList[$id] = $status;
+            }
+
+            $includeBag['statusList'] = $statusList;
+        } catch (Exception $e) {
+            $statusList = null;
+            $app['monolog']->addDebug('Notice: Could not create conRepList');
+        }
 
         $includeBag = array(
             'incident' => $incident['incidents'],
             'currentReports' => $currentReports,
             'connectedReports' => $connectedReports,
             'conRepList' => $conRepList,
+            'statusList' => $statusList,
         );
 
         return $app['twig']->render('addRemoveReports.twig', $includeBag);
