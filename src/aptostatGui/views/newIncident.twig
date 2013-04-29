@@ -29,7 +29,7 @@
                 </div>
 
                 <form name="incidentForm" action="" id="incidentForm" method="post">
-                    <div class="groupbox_wrapper" id="incidentForm">
+                    <div class="groupbox_wrapper">
                         <div id="form">
                             <fieldset>
                                 <legend>New incident</legend>
@@ -117,7 +117,7 @@
                     $(".ui-selected", $("#accordion2")).each(function() {
                         var itemId = $(this).attr('id');
                         var item = itemId.replace("report_", "");
-                        selectedReports[] = item;
+                        selectedReports.push = item[];
                     });
                     for (var i=0;i<selectedReports.length;i++) {
                         result.append( "#" + selectedReports[i] + " " );
