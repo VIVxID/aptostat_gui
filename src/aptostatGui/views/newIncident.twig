@@ -138,6 +138,8 @@
                 if (status == "error") {
                     var msg = "Error: ";
                     $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
+                    $("#cancelBtn").hide();
+                    $("#submitBtn").hide();
                 }
                 else {
                     $("#incidentPane").fadeTo("normal",1);
