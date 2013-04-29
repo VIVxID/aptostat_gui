@@ -41,9 +41,9 @@
                     {% for report in reports %}
                     <li class='report file ui-widget-content' id='report_{{ report["id"] }}'>
                         Error #{{ report["id"] }} - {{ report["flag"]|capitalize }}
-                        <p class='tinytext'>Check type: {{ report["checkType"] }}</p>
-                        <p class='tinytext'>Error message: {{ report["errorMessage"] }}</p>
-                        <p class='tinytext'>Host: {{ report["host"] }}</p>
+                        <p class='tinytext'>Check type: {{ report["checkType"]|capitalize }}</p>
+                        <p class='tinytext'>Error message: {{ report["errorMessage"]|capitalize }}</p>
+                        <p class='tinytext'>Host: {{ report["source"]|capitalize }}</p>
                     </li>
                     {% endfor %}
                 </ol>
