@@ -26,6 +26,8 @@
                                 {% set titleImage = "../img/check.png" %}
                             {% elseif message["status"] == "RESOLVED" %}
                                 {% set titleImage = "../img/check.png" %}
+                            {% else %}
+                                {% set titleImage = "../img/question.png" %}
                             {% endif %}
 
                             <table class="table table-bordered">
