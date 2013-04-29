@@ -9,6 +9,11 @@
     {% else %}
         <p>Current incident status: <span class="label label-success">{{ incident["lastStatus"] }}</span></p>
     {% endif %}
+    {% if incident['hidden'] %}
+        <p>Currently hidden?: True</p>
+    {% else %}
+        <p>Currently hidden?: False</p>
+    {% endif %}
     <hr />
 
     <h6>Connected Reports:</h6>
@@ -38,6 +43,11 @@
             {% endif %}
             <p>Author: {{ message["messageAuthor"] }}</p>
             <p>Message: {{ message["messageText"] }}</p>
+            {% if message['hidden'] %}
+                <p>Hidden?: True</p>
+            {% else %}
+                <p>Hidden?: False</p>
+            {% endif %}
         </div>
     {% endfor %}
 
