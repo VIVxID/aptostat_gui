@@ -1,10 +1,18 @@
 <h6>Report ID: {{ report['id'] }}</h6>
 <p>Created: {{ report['createdTimestamp']|date("d.M y H:i:s") }}</p>
 <p>Last updated: {{ report['lastUpdatedTimestamp']|date("d.M y H:i:s") }}</p>
-<p>Check type: {{ report['checkType'] }}</p>
-<p>Source: {{ report['source'] }}</p>
+<p>Check type: {{ report['checkType']|capitalize }}</p>
+<p>Source: {{ report['source']|capitalize }}</p>
 <p>Service: {{ report['host'] }}</p>
-<p>Last status: {{ report['flag'] }}</p>
+
+{% if report['flag'] == 'WARNING' %}
+    <p>Error Message: <span class="label label-warning">{{ report['flag'] }}</span></p>
+{% elseif report['flag'] == 'CRITICAL' %}
+    <p>Error Message: <span class="label label-important">{{ report['flag'] }}</span></p>
+{% elseif report['flag'] == 'RESPONDING' %}
+    <p>Error Message: <span class="label label-success">{{ report['flag'] }}</span></p>
+{% endif %}
+
 <p>Error message: {{ report['errorMessage'] }}</p>
 
 <br />
