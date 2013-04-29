@@ -154,7 +154,7 @@ $app->post('/admin/ajax/editMessage', function(Request $paramBag) use ($app) {
     }
 });
 
-$app->post('/admin/ajax/newIncident', function(Request $paramBag) use ($app) {
+$app->post('/admin/ajax/saveNewIncident', function(Request $paramBag) use ($app) {
 
     try {
         $incidentTitle = $paramBag->request->get('title');
