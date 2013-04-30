@@ -248,3 +248,23 @@ $app->post('/admin/ajax/modifyReportConnectedToIncident', function(Request $para
         return "Something went wrong. Please try again.";
     }
 });
+
+$app->match('/admin/ajax/reloadIncidentList', function() use ($app) {
+
+    try {
+        $incidentService = new aptostatGui\Service\IncidentService();
+        $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+
+        $includeBag = array(
+            'incidentList' => $currentIncidents,
+            'showHidden' => false
+        );
+
+        return $app['twig']->render('listIncident.twig', $includeBag);
+
+    } catch (Exception $e) {
+        $currentIncidents = null;
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Something went wrong. Please try again.";
+    }
+});
