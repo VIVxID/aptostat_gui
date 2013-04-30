@@ -102,7 +102,7 @@
                     console.log(incidentId);
 
                     $.post('../ajax/modifyReportConnectedToIncident', { 'oldList': oldList, 'newList': newList, 'incidentId': incidentId }, function() {
-                        location.href("{{ app.url_generator.generate('manage') }}");
+                        location.href({{ app.url_generator.generate('manage') }});
                     });
                 });
 
