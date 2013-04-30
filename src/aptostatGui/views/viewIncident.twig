@@ -1,7 +1,7 @@
 {% for incident in incidentData %}
 
-    <h6>Incident ID: {{ incident["id"] }}</h6>
-    <p>Created on: {{ incident["createdTimestamp"]|date("d.M y H:i") }}</p>
+    <h5>Incident ID: {{ incident["id"] }}</h5>
+    <h5>Created on: {{ incident["createdTimestamp"]|date("d.M y H:i") }}</h5>
     {% if incident["lastStatus"] == 'WARNING' %}
         <p>Current incident status: <span class="label label-warning">{{ incident["lastStatus"] }}</span></p>
     {% elseif incident["lastStatus"] == 'CRITICAL' %}
@@ -33,7 +33,7 @@
     <h6>Previous updates: </h6>
     {% for message in incident["messageHistory"]|reverse %}
         <div class="well">
-            <p>Date: {{ message["messageTimestamp"] }}</p>
+            <h5>Date: {{ message["messageTimestamp"] }}</h5>
             {% if message["messageStatus"] == 'WARNING' %}
                 <p>Status: <span class="label label-warning">{{ message["messageStatus"] }}</span></p>
             {% elseif message["messageStatus"] == 'CRITICAL' %}
