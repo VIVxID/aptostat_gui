@@ -35,6 +35,7 @@ class IncidentService
     {
         $apiService = new ApiService();
         $incidentList = $apiService->getIncidentList();
+        $sortedList = array();
 
         if ($incidentList == 404) {
             return 404;
@@ -48,10 +49,14 @@ class IncidentService
             }
         }
 
-        arsort($dateKeys);
+        if (isset($dateKeys)) {
 
-        foreach ($dateKeys as $item) {
-            $sortedList[] = $item;
+            arsort($dateKeys);
+
+            foreach ($dateKeys as $item) {
+                $sortedList[] = $item;
+            }
+
         }
 
         return $sortedList;
