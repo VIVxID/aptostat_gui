@@ -42,8 +42,8 @@
                                 <fieldset>
                                     <legend>New incident</legend>
                                     
-                                    <div class="alert alert-error" id="my-alert">
-                                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <div class="alert alert-error" style="display: none;">
+                                      <button type="button" class="close">&times;</button>
                                       <strong>Error!</strong> Something went wrong, check if you have filled all the boxes and try again
                                     </div>
                                     
@@ -166,7 +166,11 @@
                     }
                 })
             });
-
+            
+            $('.close').click(function(){
+                $('.alert').hide();
+            });
+                
             $("#incidentForm").submit(function(event) {
                 event.preventDefault();
              
@@ -184,9 +188,9 @@
                     type: "POST"
                 }).complete(function (response) {
                     if (response.status == 400) {
-                      $('#my-alert').show();
+                      $('.alert').show();
                     } else {
-                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});         
+                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});
                     }
                     console.log(response);
                 })
