@@ -77,12 +77,12 @@
                     <h3 id="editMessageLabel">Edit a message</h3>
                 </div>
                 <div id="form">
-                    <form name="editMessageForm" id="editMessageForm" action="">
+                    <form name="editMessageForm" class="editMessageForm" action="">
                         <div class="modal-body">
-                            <input id="messageId" type="hidden" value="{{ message['id'] }}">
+                            <input class="messageId" type="hidden" value="{{ message['id'] }}">
                             <fieldset class="pull-right">
                                 Flag:<br/>
-                                <select name="flag" id="fieldFlag">
+                                <select name="flag" class="fieldFlag">
                                     <option {% if message['messageStatus'] == 'CRITICAL' %}selected="selected" {% endif %}value="CRITICAL">Critical</option>
                                     <option {% if message['messageStatus'] == 'WARNING' %}selected="selected" {% endif %}value="WARNING">Warning</option>
                                     <option {% if message['messageStatus'] == 'RESPONDING' %}selected="selected" {% endif %}value="RESPONDING">Responding</option>
@@ -94,14 +94,14 @@
                             <br />
                             <fieldset class="pull-left">
                                 Author:
-                                <input id="author" type="text" name="author" length="20" value="{{ message['messageAuthor'] }}"><br>
+                                <input class="author" type="text" name="author" length="20" value="{{ message['messageAuthor'] }}"><br>
                             </fieldset><br />
                             <fieldset>
                                 Message:<br />
-                                <textarea id="fieldMessage" name="message" rows="10" cols="50" style="width:500px" >{{ message['messageText'] }}</textarea>
+                                <textarea class="fieldMessage" name="message" rows="10" cols="50" style="width:500px" >{{ message['messageText'] }}</textarea>
                                 <br />
                                 Hide the incident along with this message?<br />
-                                <select name="hide" id="fieldHide">
+                                <select name="hide" class="fieldHide">
                                     <option value="false">No</option>
                                     <option {% if message['hidden'] %}selected="selected" {% endif %}value="true">Yes</option>
                                 </select><br />
@@ -114,13 +114,13 @@
                     </form>
                 </div>
                 <script type="text/javascript">
-                    $("#editMessageForm").submit(function(event) {
+                    $(".editMessageForm").submit(function(event) {
                         event.preventDefault();
-                        var messageId = $("#messageId").val();
-                        var flag = $("#fieldFlag").val();
-                        var message = $("#fieldMessage").val();
-                        var author = $("#author").val();
-                        var hidden = $("#fieldHide").val();
+                        var messageId = $(this).find(".messageId").val();
+                        var flag = $(this).find(".fieldFlag").val();
+                        var message = $(this).find("-fieldMessage").val();
+                        var author = $(this).find("-author").val();
+                        var hidden = $(this).find(".fieldHide").val();
                         $("#incidentPane").load("ajax/saveEditMessage", {"messageId": messageId, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
                             if (status == "error") {
                                 var msg = "Error: ";
@@ -128,6 +128,15 @@
                             }
                             else {
                                 $("#reportPane").fadeTo("normal",1);
+                                $("#incidentList").load("ajax/reloadIncidentList", function(response, status, xhr) {
+                                    if (status == "error") {
+                                        var msg = "Error: ";
+                                        $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
+                                    }
+                                    else {
+                                        $("#reportPane").fadeTo("normal",1);
+                                    }
+                                });
                             }
                         });
                     })
@@ -137,10 +146,10 @@
         {% endfor %}
     </div>
     
-    <a href="#" id="editIncident" class="btn btn-danger">Back</a>
+    <a href="#" id="back" class="btn btn-danger">Back</a>
 
     <script type="text/javascript">
-        $("#editIncident").click(function(event) {
+        $("#back").click(function(event) {
             $("#incidentPane").css("opacity", "0");
             $("#incidentPane").load("ajax/editIncident", {"incident": incident}, function(response, status, xhr) {
                 if (status == "error") {
