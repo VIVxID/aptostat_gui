@@ -169,7 +169,7 @@
             
             $.('.close').click(function(){
                 $('.alert').hide();
-            })
+            });
                 
             $("#incidentForm").submit(function(event) {
                 event.preventDefault();
@@ -190,7 +190,7 @@
                     if (response.status == 400) {
                       $('.alert').show();
                     } else {
-                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});         
+                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});
                     }
                     console.log(response);
                 })
