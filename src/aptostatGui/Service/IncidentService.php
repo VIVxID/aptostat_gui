@@ -17,7 +17,9 @@ class IncidentService
         $filteredList = $this->filterByHidden($incidentList);
 
         foreach ($filteredList as $item) {
-            $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
+            if ($item["lastStatus"] != "RESOLVED"){
+                $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
+            }
         }
 
         arsort($dateKeys);
@@ -29,7 +31,7 @@ class IncidentService
         return $sortedList;
     }
 
-    public function getHiddenIncidentsAsArray()
+    public function getResolvedIncidentsAsArray()
     {
         $apiService = new ApiService();
         $incidentList = $apiService->getIncidentList();
@@ -38,10 +40,12 @@ class IncidentService
             return 404;
         }
 
-        $filteredList = $this->filterByVisible($incidentList);
+        $filteredList = $this->filterByHidden($incidentList);
 
         foreach ($filteredList as $item) {
-            $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
+            if ($item["lastStatus"] == "RESOLVED"){
+                $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
+            }
         }
 
         arsort($dateKeys);
@@ -66,21 +70,5 @@ class IncidentService
         }
 
         return $checkList;
-    }
-
-    private function filterByVisible($incidentList)
-    {
-        foreach ($incidentList['incidents'] as $currentIncident) {
-            if ($currentIncident["hidden"] == "true" && strtotime($currentIncident["lastMessageTimestamp"]) > strtotime("-3 days")) {
-                $checkList[] = $currentIncident;
-            }
-        }
-
-        if (!isset($checkList)) {
-            return 404;
-        }
-
-        return $checkList;
-
     }
 }
