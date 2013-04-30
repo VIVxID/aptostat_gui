@@ -38,8 +38,10 @@
                 <p>Status: <span class="label label-warning">{{ message["messageStatus"] }}</span></p>
             {% elseif message["messageStatus"] == 'CRITICAL' %}
                 <p>Status: <span class="label label-important">{{ message["messageStatus"] }}</span></p>
-            {% else %}
+            {% elseif message["messageStatus"] == "RESPONDING" or message["messageStatus"] == "RESOLVED" %}
                 <p>Status: <span class="label label-success">{{ message["messageStatus"] }}</span></p>
+            {% else %}
+                <p>Status: <span class="label label-info">{{ message["messageStatus"] }}</span></p>
             {% endif %}
             <p>Author: {{ message["messageAuthor"] }}</p>
             <p>Message: {{ message["messageText"] }}</p>
