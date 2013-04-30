@@ -11,7 +11,7 @@ class MessageService
         $messageList = $apiService->getMessageList();
 
         $incidentService = new IncidentService();
-        $incidents = $incidentService->getHiddenIncidentsAsArray();
+        $incidents = $incidentService->getResolvedIncidentsAsArray();
 
         return $this->formatMessageHistoryToArray($messageList, $numOfDaysBack, $incidents);
     }
@@ -19,21 +19,25 @@ class MessageService
     private function formatMessageHistoryToArray($messageList, $numOfDaysBack, $incidents)
     {
         foreach ($incidents as $incident) {
-            $formattedMessageList[$incident["id"]]["title"] = $incident["title"];
-            $formattedMessageList[$incident["id"]]["id"] = $incident["id"];
-            $formattedMessageList[$incident["id"]]["messages"] = array();
 
-            foreach ($messageList['message'] as $message) {
-                if ($message["connectedToIncident"] == $incident["id"]) {
-                    if (strtotime($incident['lastMessageTimestamp']) > strtotime('-' . $numOfDaysBack . ' days')) {
+            if ($incident["lastStatus"] == "RESOLVED"){
 
-                        $formattedMessageList[$incident['id']]["messages"][] = array(
-                            'messageId' => $message['id'],
-                            'messageDate' => $message['timestamp'],
-                            'messageText' => $message['messageText'],
-                            'author' => $message['author'],
-                            'status' => $message['flag']
-                        );
+                $formattedMessageList[$incident["id"]]["title"] = $incident["title"];
+                $formattedMessageList[$incident["id"]]["id"] = $incident["id"];
+                $formattedMessageList[$incident["id"]]["messages"] = array();
+
+                foreach ($messageList['message'] as $message) {
+                    if ($message["connectedToIncident"] == $incident["id"]) {
+                        if (strtotime($incident['lastMessageTimestamp']) > strtotime('-' . $numOfDaysBack . ' days')) {
+
+                            $formattedMessageList[$incident['id']]["messages"][] = array(
+                                'messageId' => $message['id'],
+                                'messageDate' => $message['timestamp'],
+                                'messageText' => $message['messageText'],
+                                'author' => $message['author'],
+                                'status' => $message['flag']
+                            );
+                        }
                     }
                 }
             }
