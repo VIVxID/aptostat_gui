@@ -184,7 +184,7 @@
                     type: "POST"
                 }).complete(function (response) {
                     if (response.status == 400) {
-                      $('error').show();
+                      $('#error').show();
                     } else {
                         $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});         
                     }
