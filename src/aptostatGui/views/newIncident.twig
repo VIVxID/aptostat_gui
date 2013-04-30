@@ -116,6 +116,11 @@
                         </div>
                         <input type="hidden" name="statusList" id="statusList" value="{{ statusList|json_encode() }}">
                     </form>
+                    
+                    <div class="alert alert-error">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>Error!</strong> Something went wrong, check if you have filled all the boxes and try again
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,24 +164,7 @@
 
             $("#incidentForm").submit(function(event) {
                 event.preventDefault();
-                /*var author = $("#fieldAuthor").val();
-                var title = $("#fieldTitle").val();
-                var flag = $("#fieldFlag").val();
-                var message = $("#fieldMessage").val();
-                var incident = $("#fieldIncident").val();
-                var hidden = $("#fieldHide").val();
-                $("#incidentPane").post("ajax/saveNewIncident", {"incident": incident, "title": title, "message": message, "flag": flag, "reports": selectedReports, "author": author, "hidden": hidden}, function(response, status, xhr) {
-                    if (status == "error") {
-                        var msg = "Error: ";
-                        $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                        $("#cancelBtn").hide();
-                        $("#submitBtn").hide();
-                    }
-                    else {
-                        $("#incidentPane").fadeTo("normal",1);
-                        $("#cancelBtn").hide();
-                        $("#submitBtn").hide();
-                    }*/
+             
                 var content = {};
                 content.author = $("#fieldAuthor").val();
                 content.title = $("#fieldTitle").val();
@@ -191,9 +179,12 @@
                     type: "POST"
                 }).complete(function (response) {
                     if (response.status == 400) {
-                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 400});
+                      $('#my-alert').bind('closed', function () {
+                        
+                      })
+             
                     } else {
-                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});
+                        $("#groupbox_content").load('ajax/newIncidentResponse', {"status": 200});         
                     }
                     console.log(response);
                 })
