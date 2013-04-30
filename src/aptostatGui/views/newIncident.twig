@@ -172,7 +172,7 @@
                 content.message = $("#fieldMessage").val();
                 content.incident = $("#fieldIncident").val();
                 content.hidden = $("#fieldHide").val();
-                content.reports = selectedReports
+                content.reports = selectedReports;
                 $.ajax({
                     url: "ajax/saveNewIncident",
                     data: content,

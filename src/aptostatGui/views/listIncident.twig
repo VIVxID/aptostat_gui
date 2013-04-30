@@ -29,7 +29,7 @@
         {% endif %}
 
         <div class="incident file" id='incident_{{ incident["id"] }}'>
-            <a href="#">Incident {{ incident['id'] }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
+            <a href="#">{{ incident['createdTimestamp']|slice(0,10) }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
         </div>
     {% endfor %}
 {% else %}
@@ -64,7 +64,7 @@
             {% endif %}
 
             <div class="incident file" id='incident_{{ incident["id"] }}'>
-                <a href="#" >Incident {{ incident['id'] }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
+                <a href="#" >{{ incident['createdTimestamp']|slice(0,10) }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
             </div>
         {% endif %}
     {% endfor %}
