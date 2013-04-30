@@ -2,17 +2,19 @@
 
     <h5>Incident ID: {{ incident["id"] }}</h5>
     <h5>Created on: {{ incident["createdTimestamp"]|date("d.M y H:i") }}</h5>
+    <h5>Incident title:</h5>
+    <p>{{ incident["title"] }}</p>
     {% if incident["lastStatus"] == 'WARNING' %}
-        <p>Current incident status: <span class="label label-warning">{{ incident["lastStatus"] }}</span></p>
+        <p><strong>Current incident status:</strong> <span class="label label-warning">{{ incident["lastStatus"] }}</span></p>
     {% elseif incident["lastStatus"] == 'CRITICAL' %}
-        <p>Current incident status: <span class="label label-important">{{ incident["lastStatus"] }}</span></p>
+        <p><strong>Current incident status:</strong> <span class="label label-important">{{ incident["lastStatus"] }}</span></p>
     {% else %}
-        <p>Current incident status: <span class="label label-success">{{ incident["lastStatus"] }}</span></p>
+        <p><strong>Current incident status:</strong> <span class="label label-success">{{ incident["lastStatus"] }}</span></p>
     {% endif %}
     {% if incident['hidden'] %}
-        <p>Currently hidden: True</p>
+        <p><strong>Currently hidden:</strong> True</p>
     {% else %}
-        <p>Currently hidden: False</p>
+        <p><strong>Currently hidden:</strong> False</p>
     {% endif %}
     <hr />
 

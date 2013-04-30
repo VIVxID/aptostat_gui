@@ -18,9 +18,17 @@
 
                 <div class='accordion-group'>
                     <div class='accordion-heading'>
-                        <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse{{ incident['id'] }}'>
-                            #{{ incident['id'] }} : {{ incident['title'] }}
-                            {{ labelStatus|raw }}
+                        {% set accordionHeader = '#' ~ incident["id"] ~ ' - ' %}
+                        {% set accordionHeader = accordionHeader ~ incident["createdTimestamp"]|slice(0,10) ~ ': ' %}
+                        {% if incident['title']|length > 15 %}
+                            {% set accordionHeader = accordionHeader ~ incident["title"]|slice(0,15) ~ ' <small>[...]</small>' %}
+                        {% else %}
+                            {% set accordionHeader = accordionHeader ~ incident["title"] %}
+                        {% endif %}
+                        {% set accordionHeader = accordionHeader ~  labelStatus|raw %}
+
+                        <a class='accordion-toggle' data-toggle='collapse' title="{{ incident['title'] }}" data-parent='#accordion2' href='#collapse{{ incident['id'] }}'>
+                            {{ accordionHeader|raw }}
                         </a>
                     </div>
 

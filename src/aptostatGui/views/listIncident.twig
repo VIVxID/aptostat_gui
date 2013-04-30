@@ -12,7 +12,7 @@
             {% endif %}
         {% endfor %}
 
-        {% if incident["lastStatus"] == "CRITICAL" %}
+        {% if incident["lastStatus"]    == "CRITICAL" %}
             {% set titleImage = "../img/cross.png" %}
         {% elseif incident["lastStatus"] == "WARNING" %}
             {% set titleImage = "../img/warning.png" %}
@@ -29,7 +29,12 @@
         {% endif %}
 
         <div class="incident file" id='incident_{{ incident["id"] }}'>
-            <a href="#">#{{ incident['id'] }} - {{ incident['createdTimestamp']|slice(0,10) }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
+            {% set accordionHeader = '#' ~ incident["id"] ~ ' - ' %}
+            {% set accordionHeader = accordionHeader ~ incident["createdTimestamp"]|slice(0,10) ~ ': ' %}
+            {% set accordionHeader = accordionHeader ~ incident["title"] %}
+            {% set accordionHeader = accordionHeader ~ ' <span class="label label-info">' ~ titleErrorString ~ '</span> <img class="right" src="' ~ titleImage ~ '" />' %}
+
+            <a href="#" title="{{ incident['title'] }}">{{ accordionHeader|raw }}</a>
         </div>
     {% endfor %}
 {% else %}
@@ -64,7 +69,16 @@
             {% endif %}
 
             <div class="incident file" id='incident_{{ incident["id"] }}'>
-                <a href="#" >#{{ incident['id'] }} - {{ incident['createdTimestamp']|slice(0,10) }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
+                {% set accordionHeader = '#' ~ incident["id"] ~ ' - ' %}
+                {% set accordionHeader = accordionHeader ~ incident["createdTimestamp"]|slice(0,10) ~ ': ' %}
+                {% if incident['title']|length > 40 %}
+                    {% set accordionHeader = accordionHeader ~ incident["title"]|slice(0,40) ~ ' <small>[...]</small>' %}
+                {% else %}
+                    {% set accordionHeader = accordionHeader ~ incident["title"] %}
+                {% endif %}
+                {% set accordionHeader = accordionHeader ~ ' <span class="label label-info">' ~ titleErrorString ~ '</span> <img class="right" src="' ~ titleImage ~ '" />' %}
+
+                <a href="#" title="{{ incident['title'] }}">{{ accordionHeader|raw }}</a>
             </div>
         {% endif %}
     {% endfor %}

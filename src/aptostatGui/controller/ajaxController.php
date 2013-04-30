@@ -236,11 +236,13 @@ $app->post('/admin/ajax/modifyReportConnectedToIncident', function(Request $para
 
         $apiService = new aptostatGui\Service\ApiService();
 
-        if (!empty($oldList)) {
+        if (!empty($oldList) && !empty($newList)) {
             $apiService->removeReportToIncidentById($incidentId, $oldList);
         }
 
-        $apiService->addReportToIncidentById($incidentId, $newList);
+        if (!empty($newList)) {
+            $apiService->addReportToIncidentById($incidentId, $newList);
+        }
 
         return true;
     } catch (\Exception $e) {
