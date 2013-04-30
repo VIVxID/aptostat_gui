@@ -18,27 +18,30 @@
 
                         {% for message in incident["messages"] %}
 
-                            {% if message["status"] == "CRITICAL" %}
-                                {% set titleImage = "../img/cross.png" %}
-                            {% elseif message["status"] == "WARNING" %}
-                                {% set titleImage = "../img/warning.png" %}
-                            {% elseif message["status"] == "RESPONDING" %}
-                                {% set titleImage = "../img/check.png" %}
-                            {% elseif message["status"] == "RESOLVED" %}
-                                {% set titleImage = "../img/check.png" %}
-                            {% else %}
-                                {% set titleImage = "../img/question.png" %}
-                            {% endif %}
+                            {% if message["status"] != "INTERNAL" and message["status"] != "IGNORED" %}
 
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td style="width:10%;text-align: center"><img src='{{ titleImage }}'><br /><small>{{ message["messageDate"] }}</small></td>
-                                    <td>
-                                        <p>{{ message["messageText"] }}</p>
-                                        <p> - {{ message["author"] }}</p>
-                                    </td>
-                                </tr>
-                            </table>
+                                {% if message["status"] == "CRITICAL" %}
+                                    {% set titleImage = "../img/cross.png" %}
+                                {% elseif message["status"] == "WARNING" %}
+                                    {% set titleImage = "../img/warning.png" %}
+                                {% elseif message["status"] == "RESPONDING" %}
+                                    {% set titleImage = "../img/check.png" %}
+                                {% elseif message["status"] == "RESOLVED" %}
+                                    {% set titleImage = "../img/check.png" %}
+                                {% else %}
+                                    {% set titleImage = "../img/question.png" %}
+                                {% endif %}
+
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td style="width:10%;text-align: center"><img src='{{ titleImage }}'><br /><small>{{ message["messageDate"] }}</small></td>
+                                        <td>
+                                            <p>{{ message["messageText"] }}</p>
+                                            <p> - {{ message["author"] }}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            {% endif %}
 
                         {% endfor %}
 
