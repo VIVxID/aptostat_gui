@@ -42,7 +42,7 @@
                                 <fieldset>
                                     <legend>New incident</legend>
                                     
-                                    <div class="alert alert-error" id="my-alert" style="display:hidden;">
+                                    <div class="alert alert-error" id="my-alert">
                                       <button type="button" class="close" data-dismiss="alert">&times;</button>
                                       <strong>Error!</strong> Something went wrong, check if you have filled all the boxes and try again
                                     </div>
@@ -132,6 +132,8 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+            $("#my-alert").hide();
+
             var selectedReports = [];
             $(function() {
                 $(".selectable").bind("mousedown", function(event) {
