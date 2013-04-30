@@ -78,6 +78,11 @@ class ApiService
             throw new \Exception('Some of the fields were empty. Please check it and try again');
         }
 
+        if ($messageText == 'Write message here...') {
+            throw new \Exception('Message field was empty');
+        }
+
+
         $postDataAsArray = array(
             'title' => $title,
             'author' => $author,
