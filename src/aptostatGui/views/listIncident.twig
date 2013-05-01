@@ -16,6 +16,8 @@
             {% set titleImage = "../img/cross.png" %}
         {% elseif incident["lastStatus"] == "WARNING" %}
             {% set titleImage = "../img/warning.png" %}
+        {% elseif incident["lastStatus"] == "INTERNAL" or incident["lastStatus"] == "IGNORED" %}
+            {% set titleImage = "../img/question.png" %}
         {% else %}
             {% set titleImage = "../img/check.png" %}
         {% endif %}
@@ -56,6 +58,8 @@
                 {% set titleImage = "../img/cross.png" %}
             {% elseif incident["lastStatus"] == "WARNING" %}
                 {% set titleImage = "../img/warning.png" %}
+            {% elseif incident["lastStatus"] == "INTERNAL" or incident["lastStatus"] == "IGNORED" %}
+                {% set titleImage = "../img/question.png" %}
             {% else %}
                 {% set titleImage = "../img/check.png" %}
             {% endif %}

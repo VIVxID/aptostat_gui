@@ -8,6 +8,8 @@
         <p><strong>Current incident status:</strong> <span class="label label-warning">{{ incident["lastStatus"] }}</span></p>
     {% elseif incident["lastStatus"] == 'CRITICAL' %}
         <p><strong>Current incident status:</strong> <span class="label label-important">{{ incident["lastStatus"] }}</span></p>
+    {% elseif incident["lastStatus"] == 'INTERNAL' or incident["lastStatus"] == 'IGNORED' %}
+        <p><strong>Current incident status:</strong> <span class="label label-info">{{ incident["lastStatus"] }}</span></p>
     {% else %}
         <p><strong>Current incident status:</strong> <span class="label label-success">{{ incident["lastStatus"] }}</span></p>
     {% endif %}

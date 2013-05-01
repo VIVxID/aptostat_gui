@@ -17,7 +17,7 @@ class IncidentService
         $filteredList = $this->filterByHidden($incidentList);
 
         foreach ($filteredList as $item) {
-            if ($item["lastStatus"] != "RESOLVED"){
+            if ($item["lastStatus"] != "RESOLVED" && $item["lastStatus"] != "INTERNAL" && $item["lastStatus"] != "IGNORED"){
                 $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
             }
         }
