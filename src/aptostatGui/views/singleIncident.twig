@@ -44,12 +44,12 @@
             </div>
         </div>
         <div class="row-fluid">
-            <div class="span10 offset1">
+            <div class="span8 offset2">
                 <hr>
             </div>
         </div>
         <div class="row-fluid">
-            <div class="span10 offset1">
+            <div class="span8 offset2">
                 <section class="sectionBox">
                     <h3>Message history:</h3>
                     <small>Sorted from new to old</small>
@@ -68,7 +68,7 @@
                                         {% endif %}
 
                                         {{ message['messageTimestamp']|date('d.m.y [H:i]') }}
-                                         - {{ message['messageText']|slice(0,120) }}{% if message['messageText']|length() > 120 %} [...]{% endif %}
+                                         - {{ message['messageText']|slice(0,80) }}{% if message['messageText']|length() > 80 %} [...]{% endif %}
                                     </a>
                                 </div>
                                 <div id="accordion{{ message['id'] }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">

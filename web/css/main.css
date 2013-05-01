@@ -381,3 +381,8 @@ a {
 .sectionBox .dl-horizontal dd {
     margin-left: 150px;
 }
+
+.sectionBox .accordion-heading,
+.sectionBox .accordion-inner {
+    background-color: #ffffff;
+}
