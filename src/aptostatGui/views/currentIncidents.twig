@@ -12,6 +12,10 @@
                     {% set labelStatus = '<span class="label label-important right"> CRITICAL </span>' %}
                 {% elseif incident['lastStatus'] == 'WARNING' %}
                     {% set labelStatus = '<span class="label label-warning right"> WARNING </span>' %}
+                {% elseif incident['lastStatus'] == 'RESPONDING' %}
+                    {% set labelStatus = '<span class="label label-success right"> RESPONDING </span>' %}
+                {% elseif incident['lastStatus'] == 'RESOLVED' %}
+                    {% set labelStatus = '<span class="label label-success right"> RESOLVED </span>' %}
                 {% else %}
                     {% set labelStatus = '<span class="label label-info right"> UNKNOWN </span>' %}
                 {% endif %}
