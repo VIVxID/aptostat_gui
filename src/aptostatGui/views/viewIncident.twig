@@ -46,7 +46,7 @@
                 <p>Status: <span class="label label-info">{{ message["messageStatus"] }}</span></p>
             {% endif %}
             <p>Author: {{ message["messageAuthor"] }}</p>
-            <p>Message: {{ message["messageText"] }}</p>
+            <p>Message: {{ message["messageText"]|nl2br }}</p>
             {% if message['hidden'] %}
                 <p>Hidden: True</p>
             {% else %}

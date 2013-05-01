@@ -1,9 +1,23 @@
 {% if titleEdited is defined %}
-<div class="well">
-    <h4>Success</h4>
-    <p>The title has been modified</p>
-    <p><-- Click somewhere else on the interface to do something else</p>
-</div>
+    <div class="well">
+        <h4>Success</h4>
+        <p>The title has been modified</p>
+        <p><-- Click on something on the left to view or edit something else or</p>
+        <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-primary">Go back to manage</a>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#incidentList').load('ajax/listIncident', function(){
+                if (status == "error") {
+                    var msg = "Error: ";
+                    $("#incidentList").html(msg + xhr.status + " " + xhr.statusText);
+                }
+                else {
+                    $("#incidentList").fadeTo("normal",1);
+                }
+            });
+        });
+    </script>
 {% else %}
 
 <div id="editTitle" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editTitleLabel" aria-hidden="true" data-backdrop="false">
@@ -42,6 +56,7 @@
                 }
                 else {
                     $("#reportPane").fadeTo("normal",1);
+                    $("#incidentList").fadeTo("normal",0);
                 }
             });
         })

@@ -42,7 +42,7 @@ $app->match('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
 });
 
 
-$app->post('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
+$app->match('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
 
     try {
         $apiService = new aptostatGui\Service\ApiService();
