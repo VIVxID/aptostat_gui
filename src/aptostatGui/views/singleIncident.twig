@@ -1,0 +1,161 @@
+{% extends 'layout.twig' %}
+{% block title %}Incident #{{ incident['id'] }}{% endblock %}
+
+{% block content %}
+    {% include 'customerHeader.twig' %}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span8 offset2">
+                <h2>Incident #{{ incident['id'] }} - {{ incident['title']|slice(0,35) }}{% if incident['title']|length() > 35 %} [...]{% endif %}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4  offset2">
+                <section class="sectionBox">
+                    <h3>Incident status:</h3>
+                    <p class="text-center hugeLabelContainer">
+                        {% if incident['lastStatus'] == 'WARNING' %}
+                            <span class="label-warning label-huge">{{ incident['lastStatus'] }}</span>
+                        {% elseif incident['lastStatus'] == 'CRITICAL' %}
+                            <span class="label-important label-huge">{{ incident['lastStatus'] }}</span>
+                        {% else %}
+                            <span class="label-success label-huge">{{ incident['lastStatus'] }}</span>
+                        {% endif %}
+                    </p>
+                </section>
+            </div>
+            <div class="span4">
+                <section class="sectionBox">
+                    <h3>Incident info:</h3>
+                    <dl>
+                        <dt>Title:</dt>
+                        <dd>{{ incident['title'] }}</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Incident id:</dt>
+                        <dd>{{ incident['id'] }}</dd>
+                        <dt>Created:</dt>
+                        <dd>{{ incident['createdTimestamp']|date('d. M Y - H:i:s') }}</dd>
+                        <dt>Last updated:</dt>
+                        <dd>{{ incident['lastMessageTimestamp']|date('d. M Y - H:i:s') }}</dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <hr>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span5 offset1">
+                <section class="sectionBox">
+                    <h3>Message history:</h3>
+                    <small>Sorted from new to old</small>
+                    <div class="accordion" id="accordion">
+                        {% for message in incident['messageHistory'] if message['messageStatus'] != 'IGNORED' and message['messageStatus'] != 'INTERNAL' %}
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#accordion{{ message['id'] }}">
+
+                                        {% if message['messageStatus'] == 'WARNING' %}
+                                            <span class="label label-warning">{{ message['messageStatus'] }}</span>
+                                        {% elseif message['messageStatus'] == 'CRITICAL' %}
+                                            <span class="label label-important">{{ message['messageStatus'] }}</span>
+                                        {% else %}
+                                            <span class="label label-success">{{ message['messageStatus'] }}</span>
+                                        {% endif %}
+
+                                        {{ message['messageTimestamp']|date('d.m.y [H:i]') }}
+                                         - {{ message['messageText']|slice(0,25) }}{% if message['messageText']|length() > 25 %} [...]{% endif %}
+                                    </a>
+                                </div>
+                                <div id="accordion{{ message['id'] }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
+                                    <div class="accordion-inner">
+                                        <dl class="dl-horizontal">
+                                            <dt>Author:</dt>
+                                            <dd>{{ message['messageAuthor'] }}</dd>
+                                            <dt>Timestamp:</dt>
+                                            <dd>{{ message['messageTimestamp']|date('d. M Y - H:i:s') }}</dd>
+                                            <dt>Status:</dt>
+                                            <dd>
+                                                {% if message['messageStatus'] == 'WARNING' %}
+                                                    <span class="label label-warning">{{ message['messageStatus'] }}</span>
+                                                {% elseif message['messageStatus'] == 'CRITICAL' %}
+                                                    <span class="label label-important">{{ message['messageStatus'] }}</span>
+                                                {% else %}
+                                                    <span class="label label-success">{{ message['messageStatus'] }}</span>
+                                                {% endif %}
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Message text:</dt>
+                                            <dd>{{ message['messageText']|nl2br }}</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+            <div class="span5">
+                <section class="sectionBox">
+                    <h3>Connected reports:</h3>
+                    <div class="accordion" id="accordion2">
+                        {% for report in connectedReports %}
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion2{{ report['id'] }}">
+
+                                        {% if report['flag'] == 'WARNING' %}
+                                            <span class="label label-warning">{{ report['flag'] }}</span>
+                                        {% elseif report['flag'] == 'CRITICAL' %}
+                                            <span class="label label-important">{{ report['flag'] }}</span>
+                                        {% else %}
+                                            <span class="label label-success">{{ report['flag'] }}</span>
+                                        {% endif %}
+
+                                        {{ report['createdTimestamp']|date('d.m.y [H:i]') }}
+                                        - {{ report['host']|slice(0,25) }}{% if report['host']|length() > 25 %} [...]{% endif %}
+                                    </a>
+                                </div>
+                                <div id="accordion2{{ report['id'] }}" class="accordion-body collapse{% if loop.first %} in{% endif %}">
+                                    <div class="accordion-inner">
+                                        <dl class="dl-horizontal">
+                                            <dt>Source:</dt>
+                                            <dd>{{ report['source'] }}</dd>
+                                            <dt>Service:</dt>
+                                            <dd>{{ report['host'] }}</dd>
+                                            <dt>Checktype:</dt>
+                                            <dd>{{ report['checkType'] }}</dd>
+                                            <dt>Created:</dt>
+                                            <dd>{{ report['createdTimestamp']|date('d. M Y - H:i:s') }}</dd>
+                                            <dt>Last updated:</dt>
+                                            <dd>{{ report['lastUpdatedTimestamp']|date('d. M Y - H:i:s') }}</dd>
+                                            <dt>Status:</dt>
+                                            <dd>
+                                                {% if report['flag'] == 'WARNING' %}
+                                                    <span class="label label-warning">{{ report['flag'] }}</span>
+                                                {% elseif report['flag'] == 'CRITICAL' %}
+                                                    <span class="label label-important">{{ report['flag'] }}</span>
+                                                {% else %}
+                                                    <span class="label label-success">{{ report['flag'] }}</span>
+                                                {% endif %}
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Error message text:</dt>
+                                            <dd>{{ report['errorMessage']|nl2br }}</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}
