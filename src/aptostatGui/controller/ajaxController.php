@@ -49,7 +49,7 @@ $app->match('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
         $incidentList = $apiService->getSortedIncidentList();
 
         $includeBag = array(
-            'incidentList' => $incidentList['incidents'],
+            'incidentList' => $incidentList["incidents"],
             'showHidden' => $paramBag->request->get('showHidden'),
         );
 
@@ -254,11 +254,11 @@ $app->post('/admin/ajax/modifyReportConnectedToIncident', function(Request $para
 $app->match('/admin/ajax/reloadIncidentList', function() use ($app) {
 
     try {
-        $incidentService = new aptostatGui\Service\IncidentService();
-        $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+        $apiService = new aptostatGui\Service\ApiService();
+        $currentIncidents = $apiService->getSortedIncidentList();
 
         $includeBag = array(
-            'incidentList' => $currentIncidents,
+            'incidentList' => $currentIncidents["incidents"],
             'showHidden' => false
         );
 

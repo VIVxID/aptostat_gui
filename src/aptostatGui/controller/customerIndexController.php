@@ -32,7 +32,7 @@ $app->get('/', function() use ($app) {
     // Current incidents module
     try {
         $incidentService = new aptostatGui\Service\IncidentService();
-        $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+        $currentIncidents = $incidentService->getUnresolvedIncidentsAsArray();
     } catch (Exception $e) {
         $currentIncidents = null;
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());

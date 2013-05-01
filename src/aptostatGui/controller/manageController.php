@@ -15,8 +15,8 @@ $app->get('/admin/manage', function() use ($app) {
 
     // Incidents module
     try {
-        $incidentService = new aptostatGui\Service\IncidentService();
-        $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+        $apiService = new aptostatGui\Service\ApiService();
+        $currentIncidents = $apiService->getSortedIncidentList();
     } catch (Exception $e) {
         $currentIncidents = null;
         $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
@@ -25,8 +25,8 @@ $app->get('/admin/manage', function() use ($app) {
 
     $includeBag = array(
         'currentReports' => $currentReports,
-        'incidentList' => $currentIncidents,
-        'showHidden' => false,
+        'incidentList' => $currentIncidents["incidents"],
+        'showHidden' => "false",
     );
 
     return $app['twig']->render('manage.twig', $includeBag);
