@@ -79,8 +79,7 @@
                             </div>
                             <div class="list_content_menu">
                                 
-                                <a href="#" id="goback" class="btn btn-danger">Back</a>
-
+                               <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Go back</a>
    
                                 <input type="submit" class="btn btn-primary" data-loading-text="Saving..." value="Save" id="submitBtn" style="float:right" />
                             </div>
@@ -147,19 +146,7 @@
 
             });
 
-        $("#goback").click(function(event) {
-            $("#incidentPane").css("opacity", "0");
-            $("#incidentPane").load("ajax/editIncident", {"incident": incident}, function(response, status, xhr) {
-                if (status == "error") {
-                    var msg = "Error: ";
-                    $("#incidentPane").html(msg + xhr.status + " " + xhr.statusText);
-                }
-                else {
-                    $("#incidentPane").fadeTo("normal",1);
-                }
-            });
-            event.preventDefault();
-        });
+     
     </script>
 
 {% endblock %}
