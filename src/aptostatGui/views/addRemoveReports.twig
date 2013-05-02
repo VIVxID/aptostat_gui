@@ -79,7 +79,7 @@
                             </div>
                             <div class="list_content_menu">
                                 
-                                <a href="#" id="back" class="btn btn-danger">Back</a>
+                                <a href="#" id="goback" class="btn btn-danger">Back</a>
 
    
                                 <input type="submit" class="btn btn-primary" data-loading-text="Saving..." value="Save" id="submitBtn" style="float:right" />
@@ -147,7 +147,7 @@
 
             });
 
-        $("#back").click(function(event) {
+        $("#goback").click(function(event) {
             $("#incidentPane").css("opacity", "0");
             $("#incidentPane").load("ajax/editIncident", {"incident": incident}, function(response, status, xhr) {
                 if (status == "error") {
