@@ -38,6 +38,7 @@
         <div id='{{ collapseOrder }}' class='accordion-body collapse'>
             <div class='accordion-inner'>
                 <ol class="selectable">
+                    
                     {% for report in reports %}
                         {% if report['id'] in conRepList %}
                             <li class='report file ui-widget-content ui-selected' id='report_{{ report["id"] }}'>
