@@ -44,7 +44,7 @@
                                                 <tbody id="selectedReports">
                                                     {% for report in conRepList %}
                                                         <tr>
-                                                            <td># {{ report }}</td>
+                                                            <td>{{ report }}</td>
                                                             <td>
                                                                 {% if incident['connectedReports'][report] == 'WARNING' %}
                                                                     <span class="label label-warning">{{ incident['connectedReports'][report] }}</span>
