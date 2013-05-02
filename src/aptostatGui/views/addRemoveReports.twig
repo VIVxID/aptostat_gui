@@ -78,7 +78,9 @@
                                 </div>
                             </div>
                             <div class="list_content_menu">
-                                <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Go back</a>
+                                
+                               <a href="{{ app.url_generator.generate('manage') }}" class="btn btn-danger" id="cancelBtn" style="float:left">Go back</a>
+   
                                 <input type="submit" class="btn btn-primary" data-loading-text="Saving..." value="Save" id="submitBtn" style="float:right" />
                             </div>
                             <input type="hidden" name="statusList" id="statusList" value="{{ statusList|json_encode() }}">
@@ -144,7 +146,7 @@
 
             });
 
-        </script>
-
+     
+    </script>
 
 {% endblock %}
