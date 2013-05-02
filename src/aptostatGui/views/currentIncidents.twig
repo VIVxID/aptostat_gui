@@ -41,6 +41,7 @@
                             <table border='0' class='current_box_table'>
                                 <tr>
                                     <td class='left'>Incident #{{ incident['id'] }}</td>
+                                    <td class='right'><a class="btn btn-primary" role="button" href="{{ app.url_generator.generate('singleIncident', {id: incident['id']}) }}">More info <i class="icon-info-sign icon-white"></i></a></td>
                                 </tr>
 
                                 <tr>
