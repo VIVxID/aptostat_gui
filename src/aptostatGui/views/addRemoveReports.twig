@@ -111,8 +111,8 @@
                 $(function() {
                     $(".selectable").bind("mousedown", function(event) {
                         event.metaKey = true;
+                        
                     }).selectable({
-                        tolerance: 'fit',
                         stop: function() {
                             var result = $( "#selectedReports" ).empty();
                             selectedReports.length = 0;
