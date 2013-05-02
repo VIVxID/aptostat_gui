@@ -104,7 +104,7 @@
                     console.log(incidentId);
 
                     $.post('../ajax/modifyReportConnectedToIncident', { 'oldList': oldList, 'newList': newList, 'incidentId': incidentId }, function() {
-                        location.assign("../editIncident");
+                        location.assign("../ajax/editIncident");
                     });
                 });
 
