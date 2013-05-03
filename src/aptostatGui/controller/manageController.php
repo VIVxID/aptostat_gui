@@ -143,3 +143,55 @@ $app->match('/admin/addRemoveReports/{incidentId}', function(Request $paramBag, 
     }
 })
 ->bind('addRemoveReports');
+
+$app->get('/admin/killswitch', function() use ($app) {
+
+    try {
+        $apiService = new aptostatGui\Service\ApiService();
+        $killswitchStatus = $apiService->getKillswitchStatus();
+
+    } catch (Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Killswitch seems to be not working...";
+    }
+
+    $includeBag = array(
+        'killswitchStatus' => $killswitchStatus['killswitchStatus'],
+    );
+
+    return $app['twig']->render('killswitch.twig', $includeBag);
+})
+    ->bind('killswitch');
+
+$app->get('/admin/execKillswitch/{action}', function($action) use ($app) {
+    $apiService = new aptostatGui\Service\ApiService();
+
+    if ($action == 'kill') {
+        try {
+            $apiService->turnOnKillswitch();
+        } catch (Exception $e) {
+            $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        }
+    } elseif ($action == 'revive') {
+        try {
+            $apiService->turnOffKillswitch();
+        } catch (Exception $e) {
+            $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        }
+    }
+
+    try {
+        $killswitchStatus = $apiService->getKillswitchStatus();
+
+    } catch (Exception $e) {
+        $app['monolog']->addCritical('Error: ' . $e->getMessage() . ' Code: ' . $e->getCode());
+        return "Killswitch seems to be not working...";
+    }
+
+    $includeBag = array(
+        'killswitchStatus' => $killswitchStatus['killswitchStatus'],
+    );
+
+    return $app['twig']->render('killswitch.twig', $includeBag);
+})
+    ->bind('execKillswitch');

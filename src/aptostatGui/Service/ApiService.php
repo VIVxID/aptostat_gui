@@ -68,6 +68,30 @@ class ApiService
         return $this->getDataFromApi('api/incident/'.$id.'/report');
     }
 
+    public function getKillswitchStatus()
+    {
+        return $this->getDataFromApi('api/killswitch');
+    }
+
+    public function turnOnKillswitch()
+    {
+        $putDataAsArray = array(
+            'action' => 'on'
+        );
+
+        return $this->putDataToApi('api/killswitch',$putDataAsArray);
+    }
+
+    public function turnOffKillswitch()
+    {
+        $putDataAsArray = array(
+            'action' => 'off'
+        );
+
+        return $this->putDataToApi('api/killswitch',$putDataAsArray);
+    }
+
+
     public function postIncident($title, $author, $flag, $messageText, $reports, $hidden = false)
     {
         if (empty($title) ||
