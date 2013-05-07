@@ -64,7 +64,8 @@ class ApiService
         return $this->getDataFromApi('api/live');
     }
 
-    public function getConnectedReports($id) {
+    public function getConnectedReports($id)
+    {
         return $this->getDataFromApi('api/incident/'.$id.'/report');
     }
 

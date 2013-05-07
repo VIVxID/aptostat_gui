@@ -5,7 +5,7 @@ namespace aptostatGui\Service;
 
 class IncidentService
 {
-    
+
     public function getUnresolvedIncidentsAsArray()
     {
         $apiService = new ApiService();
