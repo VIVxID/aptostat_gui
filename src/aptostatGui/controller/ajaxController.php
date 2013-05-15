@@ -42,14 +42,14 @@ $app->match('/admin/ajax/viewIncident', function(Request $paramBag) use ($app) {
 });
 
 
-$app->post('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
+$app->match('/admin/ajax/listIncident', function(Request $paramBag) use ($app) {
 
     try {
         $apiService = new aptostatGui\Service\ApiService();
         $incidentList = $apiService->getSortedIncidentList();
 
         $includeBag = array(
-            'incidentList' => $incidentList['incidents'],
+            'incidentList' => $incidentList["incidents"],
             'showHidden' => $paramBag->request->get('showHidden'),
         );
 
@@ -236,11 +236,13 @@ $app->post('/admin/ajax/modifyReportConnectedToIncident', function(Request $para
 
         $apiService = new aptostatGui\Service\ApiService();
 
-        if (!empty($oldList)) {
+        if (!empty($oldList) && !empty($newList)) {
             $apiService->removeReportToIncidentById($incidentId, $oldList);
         }
 
-        $apiService->addReportToIncidentById($incidentId, $newList);
+        if (!empty($newList)) {
+            $apiService->addReportToIncidentById($incidentId, $newList);
+        }
 
         return true;
     } catch (\Exception $e) {
@@ -252,11 +254,11 @@ $app->post('/admin/ajax/modifyReportConnectedToIncident', function(Request $para
 $app->match('/admin/ajax/reloadIncidentList', function() use ($app) {
 
     try {
-        $incidentService = new aptostatGui\Service\IncidentService();
-        $currentIncidents = $incidentService->getCurrentIncidentsAsArray();
+        $apiService = new aptostatGui\Service\ApiService();
+        $currentIncidents = $apiService->getSortedIncidentList();
 
         $includeBag = array(
-            'incidentList' => $currentIncidents,
+            'incidentList' => $currentIncidents["incidents"],
             'showHidden' => false
         );
 

@@ -1,36 +1,45 @@
-{% if showHidden == 'true' %}
+{% if showHidden == "true" %}
     {% for incident in incidentList %}
+        {% if incident['hidden'] == true %}
 
-        {% set criticalsExist = 0 %}
-        {% set warningsExist = 0 %}
+            {% set criticalsExist = 0 %}
+            {% set warningsExist = 0 %}
 
-        {% for report in incident["connectedReports"] %}
-            {% if report == "WARNING" %}
-                {% set warningsExist = 1 %}
-            {% elseif report == "CRITICAL" %}
-                {% set criticalsExist = 1 %}
+            {% for report in incident["connectedReports"] %}
+                {% if report == "WARNING" %}
+                    {% set warningsExist = 1 %}
+                {% elseif report == "CRITICAL" %}
+                    {% set criticalsExist = 1 %}
+                {% endif %}
+            {% endfor %}
+
+            {% if incident["lastStatus"]    == "CRITICAL" %}
+                {% set titleImage = "../img/cross.png" %}
+            {% elseif incident["lastStatus"] == "WARNING" %}
+                {% set titleImage = "../img/warning.png" %}
+            {% elseif incident["lastStatus"] == "INTERNAL" or incident["lastStatus"] == "IGNORED" %}
+                {% set titleImage = "../img/question.png" %}
+            {% else %}
+                {% set titleImage = "../img/check.png" %}
             {% endif %}
-        {% endfor %}
 
-        {% if incident["lastStatus"] == "CRITICAL" %}
-            {% set titleImage = "../img/cross.png" %}
-        {% elseif incident["lastStatus"] == "WARNING" %}
-            {% set titleImage = "../img/warning.png" %}
-        {% else %}
-            {% set titleImage = "../img/check.png" %}
+            {% if warningsExist == 0 and criticalsExist == 0 %}
+                {% set titleErrorString = "All responding" %}
+            {% elseif incident['connectedReports']|length > 1 %}
+                {% set titleErrorString = incident['connectedReports']|length ~ " reports" %}
+            {% else %}
+                {% set titleErrorString = "1 report" %}
+            {% endif %}
+
+            <div class="incident file" id='incident_{{ incident["id"] }}'>
+                {% set accordionHeader = '#' ~ incident["id"] ~ ' - ' %}
+                {% set accordionHeader = accordionHeader ~ incident["createdTimestamp"]|slice(0,10) ~ ': ' %}
+                {% set accordionHeader = accordionHeader ~ incident["title"] %}
+                {% set accordionHeader = accordionHeader ~ ' <span class="label label-info">' ~ titleErrorString ~ '</span> <img class="right" src="' ~ titleImage ~ '" />' %}
+
+                <a href="#" title="{{ incident['title'] }}">{{ accordionHeader|raw }}</a>
+            </div>
         {% endif %}
-
-        {% if warningsExist == 0 and criticalsExist == 0 %}
-            {% set titleErrorString = "All responding" %}
-        {% elseif incident['connectedReports']|length > 1 %}
-            {% set titleErrorString = incident['connectedReports']|length ~ " reports" %}
-        {% else %}
-            {% set titleErrorString = "1 report" %}
-        {% endif %}
-
-        <div class="incident file" id='incident_{{ incident["id"] }}'>
-            <a href="#">#{{ incident['id'] }} - {{ incident['createdTimestamp']|slice(0,10) }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
-        </div>
     {% endfor %}
 {% else %}
     {% for incident in incidentList %}
@@ -51,6 +60,8 @@
                 {% set titleImage = "../img/cross.png" %}
             {% elseif incident["lastStatus"] == "WARNING" %}
                 {% set titleImage = "../img/warning.png" %}
+            {% elseif incident["lastStatus"] == "INTERNAL" or incident["lastStatus"] == "IGNORED" %}
+                {% set titleImage = "../img/question.png" %}
             {% else %}
                 {% set titleImage = "../img/check.png" %}
             {% endif %}
@@ -64,7 +75,16 @@
             {% endif %}
 
             <div class="incident file" id='incident_{{ incident["id"] }}'>
-                <a href="#" >#{{ incident['id'] }} - {{ incident['createdTimestamp']|slice(0,10) }}: {{ incident["title"] }} <span class="label label-info">{{ titleErrorString }}</span> <img class='right' src='{{ titleImage }}' /> </a>
+                {% set accordionHeader = '#' ~ incident["id"] ~ ' - ' %}
+                {% set accordionHeader = accordionHeader ~ incident["createdTimestamp"]|slice(0,10) ~ ': ' %}
+                {% if incident['title']|length > 40 %}
+                    {% set accordionHeader = accordionHeader ~ incident["title"]|slice(0,40) ~ ' <small>[...]</small>' %}
+                {% else %}
+                    {% set accordionHeader = accordionHeader ~ incident["title"] %}
+                {% endif %}
+                {% set accordionHeader = accordionHeader ~ ' <span class="label label-info">' ~ titleErrorString ~ '</span> <img class="right" src="' ~ titleImage ~ '" />' %}
+
+                <a href="#" title="{{ incident['title'] }}">{{ accordionHeader|raw }}</a>
             </div>
         {% endif %}
     {% endfor %}

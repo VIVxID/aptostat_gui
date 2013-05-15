@@ -344,3 +344,45 @@ a {
 .ui-unselecting {
     background: #FFE49F !important;
 }
+
+/** singleIncident **/
+
+.sectionBox {
+    padding: 20px 50px;
+    background-color: rgb(247, 247, 249);
+    border: 1px solid rgb(225, 225, 232);
+    margin-bottom: 20px;
+    min-height: 220px;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.label-huge {
+    font-size: 45px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.hugeLabelContainer {
+    margin: 55px 0;
+}
+
+.sectionBox .dl-horizontal dt {
+    width: 120px;
+}
+
+.sectionBox .dl-horizontal dd {
+    margin-left: 150px;
+}
+
+.sectionBox .accordion-heading,
+.sectionBox .accordion-inner {
+    background-color: #ffffff;
+}

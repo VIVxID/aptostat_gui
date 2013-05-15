@@ -12,15 +12,27 @@
                     {% set labelStatus = '<span class="label label-important right"> CRITICAL </span>' %}
                 {% elseif incident['lastStatus'] == 'WARNING' %}
                     {% set labelStatus = '<span class="label label-warning right"> WARNING </span>' %}
+                {% elseif incident['lastStatus'] == 'RESPONDING' %}
+                    {% set labelStatus = '<span class="label label-success right"> RESPONDING </span>' %}
+                {% elseif incident['lastStatus'] == 'RESOLVED' %}
+                    {% set labelStatus = '<span class="label label-success right"> RESOLVED </span>' %}
                 {% else %}
                     {% set labelStatus = '<span class="label label-info right"> UNKNOWN </span>' %}
                 {% endif %}
 
                 <div class='accordion-group'>
                     <div class='accordion-heading'>
-                        <a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse{{ incident['id'] }}'>
-                            #{{ incident['id'] }} : {{ incident['title'] }}
-                            {{ labelStatus|raw }}
+                        {% set accordionHeader = '#' ~ incident["id"] ~ ' - ' %}
+                        {% set accordionHeader = accordionHeader ~ incident["createdTimestamp"]|slice(0,10) ~ ': ' %}
+                        {% if incident['title']|length > 15 %}
+                            {% set accordionHeader = accordionHeader ~ incident["title"]|slice(0,15) ~ ' <small>[...]</small>' %}
+                        {% else %}
+                            {% set accordionHeader = accordionHeader ~ incident["title"] %}
+                        {% endif %}
+                        {% set accordionHeader = accordionHeader ~  labelStatus|raw %}
+
+                        <a class='accordion-toggle' data-toggle='collapse' title="{{ incident['title'] }}" data-parent='#accordion2' href='#collapse{{ incident['id'] }}'>
+                            {{ accordionHeader|raw }}
                         </a>
                     </div>
 
@@ -29,6 +41,7 @@
                             <table border='0' class='current_box_table'>
                                 <tr>
                                     <td class='left'>Incident #{{ incident['id'] }}</td>
+                                    <td class='right'><a class="btn btn-primary" role="button" href="{{ app.url_generator.generate('singleIncident', {id: incident['id']}) }}">More info <i class="icon-info-sign icon-white"></i></a></td>
                                 </tr>
 
                                 <tr>

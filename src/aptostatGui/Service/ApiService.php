@@ -64,9 +64,34 @@ class ApiService
         return $this->getDataFromApi('api/live');
     }
 
-    public function getConnectedReports($id) {
+    public function getConnectedReports($id)
+    {
         return $this->getDataFromApi('api/incident/'.$id.'/report');
     }
+
+    public function getKillswitchStatus()
+    {
+        return $this->getDataFromApi('api/killswitch');
+    }
+
+    public function turnOnKillswitch()
+    {
+        $putDataAsArray = array(
+            'action' => 'on'
+        );
+
+        return $this->putDataToApi('api/killswitch',$putDataAsArray);
+    }
+
+    public function turnOffKillswitch()
+    {
+        $putDataAsArray = array(
+            'action' => 'off'
+        );
+
+        return $this->putDataToApi('api/killswitch',$putDataAsArray);
+    }
+
 
     public function postIncident($title, $author, $flag, $messageText, $reports, $hidden = false)
     {
@@ -77,6 +102,11 @@ class ApiService
         ) {
             throw new \Exception('Some of the fields were empty. Please check it and try again');
         }
+
+        if ($messageText == 'Write message here...') {
+            throw new \Exception('Message field was empty');
+        }
+
 
         $postDataAsArray = array(
             'title' => $title,

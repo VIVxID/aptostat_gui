@@ -5,10 +5,12 @@ namespace aptostatGui\Service;
 
 class IncidentService
 {
-    public function getCurrentIncidentsAsArray()
+
+    public function getUnresolvedIncidentsAsArray()
     {
         $apiService = new ApiService();
         $incidentList = $apiService->getIncidentList();
+        $sortedList = array();
 
         if ($incidentList == 404) {
             return 404;
@@ -17,15 +19,19 @@ class IncidentService
         $filteredList = $this->filterByHidden($incidentList);
 
         foreach ($filteredList as $item) {
-            if ($item["lastStatus"] != "RESOLVED"){
+            if ($item["lastStatus"] != "RESOLVED" && $item["lastStatus"] != "INTERNAL" && $item["lastStatus"] != "IGNORED"){
                 $dateKeys[strtotime($item["lastMessageTimestamp"])] = $item;
             }
         }
 
-        arsort($dateKeys);
+        if (isset($dateKeys)) {
 
-        foreach ($dateKeys as $item) {
-            $sortedList[] = $item;
+            arsort($dateKeys);
+
+            foreach ($dateKeys as $item) {
+                $sortedList[] = $item;
+            }
+
         }
 
         return $sortedList;

@@ -4,6 +4,19 @@
     <p>A new message has been posted.</p>
     <p><-- Click somewhere else on the interface to do something else</p>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#incidentList').load('ajax/listIncident', function(){
+            if (status == "error") {
+                var msg = "Error: ";
+                $("#incidentList").html(msg + xhr.status + " " + xhr.statusText);
+            }
+            else {
+                $("#incidentList").fadeTo("normal",1);
+            }
+        });
+    });
+</script>
 {% else %}
 
 <div id="newMessage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newMessageLabel" aria-hidden="true" data-backdrop="false">
@@ -65,6 +78,7 @@
                     $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                 }
                 else {
+                    $("#incidentList").fadeTo("normal",0);
                     $("#reportPane").fadeTo("normal",1);
                     $("#incidentList").load("ajax/reloadIncidentList", function(response, status, xhr) {
                         if (status == "error") {
@@ -73,6 +87,7 @@
                         }
                         else {
                             $("#reportPane").fadeTo("normal",1);
+                            $("#incidentList").fadeTo("normal",1);
                         }
                     });
                 }

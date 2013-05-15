@@ -8,7 +8,7 @@
 {% if report['flag'] == 'WARNING' %}
     <p>Error Message: <span class="label label-warning">{{ report['flag'] }}</span></p>
 {% elseif report['flag'] == 'CRITICAL' %}
-    <p>Error Message: <span class="label label-important">{{ report['flag'] }}</span></p>
+    <p>Current Status: <span class="label label-important">{{ report['flag'] }}</span></p>
 {% elseif report['flag'] == 'RESPONDING' %}
     <p>Error Message: <span class="label label-success">{{ report['flag'] }}</span></p>
 {% endif %}

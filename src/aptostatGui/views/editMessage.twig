@@ -118,8 +118,8 @@
                         event.preventDefault();
                         var messageId = $(this).find(".messageId").val();
                         var flag = $(this).find(".fieldFlag").val();
-                        var message = $(this).find("-fieldMessage").val();
-                        var author = $(this).find("-author").val();
+                        var message = $(this).find(".fieldMessage").val();
+                        var author = $(this).find(".author").val();
                         var hidden = $(this).find(".fieldHide").val();
                         $("#incidentPane").load("ajax/saveEditMessage", {"messageId": messageId, "message": message, "flag": flag, "author": author, "hidden": hidden}, function(response, status, xhr) {
                             if (status == "error") {
@@ -127,6 +127,7 @@
                                 $("#reportPane").html(msg + xhr.status + " " + xhr.statusText);
                             }
                             else {
+                                $("#incidentList").fadeTo("normal",0);
                                 $("#reportPane").fadeTo("normal",1);
                                 $("#incidentList").load("ajax/reloadIncidentList", function(response, status, xhr) {
                                     if (status == "error") {
@@ -135,6 +136,7 @@
                                     }
                                     else {
                                         $("#reportPane").fadeTo("normal",1);
+                                        $("#incidentList").fadeTo("normal",1);
                                     }
                                 });
                             }

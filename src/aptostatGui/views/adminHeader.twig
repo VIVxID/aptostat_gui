@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header clearfix">
     <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="{{ app.url_generator.generate('admin') }}"><img src="/img/logo.png" /></a>
@@ -6,6 +6,7 @@
                 <li><a href="{{ app.url_generator.generate('admin') }}">Start panel</a></li>
                 <li><a href="{{ app.url_generator.generate('manage') }}">Manage</a></li>
                 <li><a href="http://twitter.com/aptomaops">Twitter</a></li>
+                <li><a style="color: #8b0000" href="{{ app.url_generator.generate('killswitch') }}">Killswitch</a></li>
             </ul>
         </div>
     </div>
