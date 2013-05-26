@@ -37,10 +37,10 @@
                         {% if "now"|date_modify("-" ~ i ~ " day")|date("d/m/Y") == errorDate %}
 
                             {% if uptime > 1740 %}
-                                <a href='#' class='downtime' title=' {{ (86400 - uptime)/864 }} % uptime '><img src='../img/cross.png' /></a>
+                                <a href='#' class='downtime' title=' {{ (86400 - uptime)/864 }} % uptime '><img src='../img/cross.png' alt='ERROR'/></a>
                                 {% set print = 1 %}
                             {% elseif uptime > 120 %}
-                                <a href='#' class='downtime' title=' {{ (86400 - uptime)/864 }} % uptime '><img src='../img/warning.png' /></a>
+                                <a href='#' class='downtime' title=' {{ (86400 - uptime)/864 }} % uptime '><img src='../img/warning.png' alt='WARNING'/></a>
                                 {% set print = 1 %}
                             {% endif %}
 
@@ -48,7 +48,7 @@
                     {% endfor %}
 
                     {% if print == 0 %}
-                        <img src='../img/check.png' />
+                        <img src='../img/check.png' alt='OK'/>
                     {% endif %}
 
                     {% set print = 0 %}

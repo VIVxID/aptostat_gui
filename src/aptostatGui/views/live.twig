@@ -8,19 +8,19 @@
                     {% if (serviceGroup['groupState'] == 'up') %}
                         <label for='{{ serviceGroupName }}'>
                             <strong>{{ serviceGroupName }}</strong>
-                            <div class="pull-right"><img src='../img/check.png' /> <strong>OK</strong></div>
+                            <div class="pull-right"><img src='../img/check.png' alt='OK'/> <strong>OK</strong></div>
                         </label>
                         <input type='checkbox' id='{{ serviceGroupName }}' />
                     {% elseif (serviceGroup['groupState']) == 'warning' %}
                         <label for='{{ serviceGroupName }}'>
                             <strong>{{ serviceGroupName }}</strong>
-                            <div class="pull-right"><img src='../img/warning.png' /> <strong>Problem</strong></div>
+                            <div class="pull-right"><img src='../img/warning.png' alt='WARNING'/> <strong>Problem</strong></div>
                         </label>
                         <input type='checkbox' checked id='{{ serviceGroupName }}' />
                     {% else %}
                         <label for='{{ serviceGroupName }}'>
                             <strong>{{ serviceGroupName }}</strong>
-                            <div class="pull-right"><img src='../img/cross.png' /> <strong>Down</strong></div>
+                            <div class="pull-right"><img src='../img/cross.png' alt='ERROR'/> <strong>Down</strong></div>
                         </label>
                         <input type='checkbox' checked id='{{ serviceGroupName }}' />
                     {% endif %}
@@ -30,11 +30,11 @@
                             <li class="file">
                                 {{ service }}
                                 {% if state == 'up' %}
-                                    <div class="pull-right"><img src='../img/check.png' /> OK</div>
+                                    <div class="pull-right"><img src='../img/check.png' alt='OK'/> OK</div>
                                 {% elseif state == 'warning' %}
-                                    <div class="pull-right"><img src='../img/warning.png' /> Problem</div>
+                                    <div class="pull-right"><img src='../img/warning.png' alt='ERROR'/> Problem</div>
                                 {% else %}
-                                    <div class="pull-right"><img src='../img/cross.png' /> Down</div>
+                                    <div class="pull-right"><img src='../img/cross.png' alt='ERROR'/> Down</div>
                                 {% endif %}
                             </li>
                         {% endfor %}
