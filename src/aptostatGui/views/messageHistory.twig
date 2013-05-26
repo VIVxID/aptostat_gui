@@ -17,7 +17,7 @@
                     <div class="accordion-inner">
 
                         {% for message in incident["messages"] %}
-
+{% debug message %}
                             {% if message["status"] != "INTERNAL" and message["status"] != "IGNORED" %}
 
                                 {% if message["status"] == "CRITICAL" %}
