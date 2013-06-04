@@ -73,7 +73,7 @@ class Uptime
                 }
 
                 if(!isset($print)) {
-                    echo "<img src='../img/check.png' />";
+                    echo "<img src='../img/check.png' alt='OK'/>";
                 }
 
                 echo "</td>";

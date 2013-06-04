@@ -249,6 +249,7 @@ class ApiService
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
                 'Content-Length: ' . strlen($postDataAsJson),
+                'Authorization: BASIC ' . AUTH_HASH,
             ),
         );
 
@@ -279,6 +280,7 @@ class ApiService
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
                 'Content-Length: ' . strlen($putDataAsJson),
+                'Authorization: BASIC ' . AUTH_HASH,
             ),
         );
 
