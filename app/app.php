@@ -15,6 +15,7 @@ $config = array(
     'twig.path' => __DIR__ . '/../src/aptostatGui/views',
     'twig.options' => array('debug' => true),
     'api.url' => 'http://aptoapi.vlab.iu.hio.no/',
+    'api.authHash' => 'YWRtaW46YXB0b3N0YXQ=',
 );
 
 // Apply custom config if available
@@ -52,6 +53,7 @@ include 'security.php';
 
 // Constants
 define('APIURL', $app['api.url']);
+define('AUTH_HASH', $app['api.authHash']);
 
 // Map routes to controllers
 include __DIR__ . '/routing.php';
